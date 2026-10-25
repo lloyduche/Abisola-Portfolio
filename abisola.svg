@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF4F7" />
+      <stop offset="50%" stop-color="#F9B8CF" />
+      <stop offset="100%" stop-color="#D9C9F5" />
+    </linearGradient>
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8C533E" />
+      <stop offset="100%" stop-color="#673926" />
+    </linearGradient>
+    <linearGradient id="blazerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A0F2B" />
+      <stop offset="100%" stop-color="#2D0618" />
+    </linearGradient>
+    <linearGradient id="scarfGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D93A72" />
+      <stop offset="100%" stop-color="#F9B8CF" />
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#4A0F2B" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="400" height="500" fill="url(#bgGrad)" />
+
+  <!-- Background Decorative Shapes -->
+  <circle cx="330" cy="90" r="60" fill="#FFF4F7" opacity="0.6" />
+  <circle cx="70" cy="380" r="90" fill="#D9C9F5" opacity="0.5" />
+  
+  <!-- Floating Sparkles / Stars -->
+  <path d="M70 70 L73 82 L85 85 L73 88 L70 100 L67 88 L55 85 L67 82 Z" fill="#D93A72" opacity="0.75" />
+  <path d="M340 220 L342 228 L350 230 L342 232 L340 240 L338 232 L330 230 L338 228 Z" fill="#4A0F2B" opacity="0.6" />
+  <path d="M320 420 L322 428 L330 430 L322 432 L320 440 L318 432 L310 430 L318 428 Z" fill="#D93A72" opacity="0.6" />
+
+  <!-- Editorial Portrait Character: Abisola -->
+  <!-- Shoulders & Outfit (Tailored Berry Blazer) -->
+  <g filter="url(#softShadow)">
+    <!-- Back Collar / Top -->
+    <path d="M140 280 L260 280 L280 340 L120 340 Z" fill="#FFF4F7" />
+    <!-- Blazer Left Lapel -->
+    <path d="M100 330 C115 310 145 285 170 270 L190 390 L125 430 L60 500 L340 500 L275 430 L210 390 L230 270 C255 285 285 310 300 330 L325 500 L75 500 Z" fill="url(#blazerGrad)" />
+    <!-- Inner Silk Camisole / Top -->
+    <path d="M165 295 Q200 360 235 295 L225 385 Q200 410 175 385 Z" fill="#F9B8CF" />
+    <!-- Lapel Fold Left -->
+    <path d="M168 270 L205 380 L180 395 L145 320 Z" fill="#7A3552" />
+    <!-- Lapel Fold Right -->
+    <path d="M232 270 L195 380 L220 395 L255 320 Z" fill="#7A3552" />
+    <!-- Chic Silk Scarf Accent -->
+    <path d="M185 290 Q200 320 215 290 Q218 350 198 360 Q182 340 185 290 Z" fill="url(#scarfGrad)" />
+  </g>
+
+  <!-- Neck -->
+  <path d="M174 210 L174 285 Q200 305 226 285 L226 210 Z" fill="url(#skinGrad)" />
+  <path d="M174 240 Q200 270 226 240 L226 265 Q200 290 174 265 Z" fill="#673926" opacity="0.35" />
+
+  <!-- Gold Choker Necklace with Pendant -->
+  <path d="M176 260 Q200 275 224 260" fill="none" stroke="#E5A93C" stroke-width="3" stroke-linecap="round" />
+  <circle cx="200" cy="274" r="5" fill="#E5A93C" />
+
+  <!-- Head Base -->
+  <g filter="url(#softShadow)">
+    <!-- Ears -->
+    <ellipse cx="140" cy="180" rx="9" ry="16" fill="#8C533E" />
+    <ellipse cx="260" cy="180" rx="9" ry="16" fill="#8C533E" />
+    <!-- Gold Hoop Earrings -->
+    <circle cx="138" cy="192" r="11" fill="none" stroke="#E5A93C" stroke-width="3.5" />
+    <circle cx="262" cy="192" r="11" fill="none" stroke="#E5A93C" stroke-width="3.5" />
+
+    <!-- Face Shape (Graceful, confident oval chin) -->
+    <path d="M144 140 C144 95 256 95 256 140 C256 195 240 238 200 244 C160 238 144 195 144 140 Z" fill="url(#skinGrad)" />
+  </g>
+
+  <!-- Hair - Sophisticated Sleek Bun / Crown -->
+  <g>
+    <!-- Back Hair Volume -->
+    <circle cx="200" cy="90" r="55" fill="#1A0710" />
+    <circle cx="200" cy="85" r="48" fill="#2E0E1F" />
+    <!-- Top Hair Bow Accent -->
+    <path d="M190 45 C170 30 150 45 165 60 C180 70 195 55 190 45 Z" fill="#D93A72" stroke="#4A0F2B" stroke-width="2" />
+    <path d="M210 45 C230 30 250 45 235 60 C220 70 205 55 210 45 Z" fill="#D93A72" stroke="#4A0F2B" stroke-width="2" />
+    <ellipse cx="200" cy="52" rx="6" ry="7" fill="#F9B8CF" stroke="#4A0F2B" stroke-width="2" />
+    <!-- Front Hair Silhouette Framing Face -->
+    <path d="M142 140 C140 100 165 80 200 80 C235 80 260 100 258 140 C250 115 230 105 200 105 C170 105 150 115 142 140 Z" fill="#1A0710" />
+    <path d="M143 135 C146 160 148 180 150 190 C146 180 144 165 143 135 Z" fill="#1A0710" />
+    <path d="M257 135 C254 160 252 180 250 190 C254 180 256 165 257 135 Z" fill="#1A0710" />
+  </g>
+
+  <!-- Facial Features -->
+  <!-- Brows (Arched, elegant) -->
+  <path d="M160 146 Q174 138 188 146" fill="none" stroke="#1A0710" stroke-width="3.5" stroke-linecap="round" />
+  <path d="M212 146 Q226 138 240 146" fill="none" stroke="#1A0710" stroke-width="3.5" stroke-linecap="round" />
+
+  <!-- Eyes (Warm, focused, smiling) -->
+  <g>
+    <!-- Left Eye -->
+    <path d="M162 160 Q174 152 186 160 Q174 168 162 160 Z" fill="#FFF4F7" />
+    <circle cx="174" cy="160" r="5" fill="#3D1D12" />
+    <circle cx="175" cy="158.5" r="1.8" fill="#FFFFFF" />
+    <path d="M160 159 Q174 150 188 159" fill="none" stroke="#1A0710" stroke-width="2.5" stroke-linecap="round" />
+    <!-- Right Eye -->
+    <path d="M214 160 Q226 152 238 160 Q226 168 214 160 Z" fill="#FFF4F7" />
+    <circle cx="226" cy="160" r="5" fill="#3D1D12" />
+    <circle cx="227" cy="158.5" r="1.8" fill="#FFFFFF" />
+    <path d="M212 159 Q226 150 240 159" fill="none" stroke="#1A0710" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+
+  <!-- Stylish Glasses (Editorial writer chic) -->
+  <g opacity="0.95">
+    <!-- Left Frame -->
+    <rect x="154" y="145" width="38" height="28" rx="8" fill="none" stroke="#4A0F2B" stroke-width="3" />
+    <!-- Right Frame -->
+    <rect x="208" y="145" width="38" height="28" rx="8" fill="none" stroke="#4A0F2B" stroke-width="3" />
+    <!-- Bridge -->
+    <path d="M192 154 Q200 150 208 154" fill="none" stroke="#4A0F2B" stroke-width="3" stroke-linecap="round" />
+    <!-- Glare shine -->
+    <path d="M158 150 L166 150" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.8" />
+    <path d="M212 150 L220 150" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.8" />
+  </g>
+
+  <!-- Nose -->
+  <path d="M198 168 Q200 188 194 192 Q200 196 206 192" fill="none" stroke="#5A2E1D" stroke-width="2.5" stroke-linecap="round" />
+
+  <!-- Cheeks Blush -->
+  <ellipse cx="160" cy="188" rx="14" ry="7" fill="#D93A72" opacity="0.25" />
+  <ellipse cx="240" cy="188" rx="14" ry="7" fill="#D93A72" opacity="0.25" />
+
+  <!-- Confident, Warm Smile -->
+  <path d="M182 212 Q200 230 218 212 Q200 220 182 212 Z" fill="#9B284E" stroke="#4A0F2B" stroke-width="1.5" />
+  <path d="M185 212 Q200 216 215 212" fill="none" stroke="#FFF4F7" stroke-width="1.8" />
+
+  <!-- Pen & Journal in Hand at Bottom Corner -->
+  <g transform="translate(250, 360) rotate(-15)">
+    <!-- Journal Notebook -->
+    <rect x="0" y="0" width="80" height="110" rx="8" fill="#FFF" stroke="#4A0F2B" stroke-width="3" />
+    <rect x="0" y="0" width="16" height="110" rx="4" fill="#D93A72" stroke="#4A0F2B" stroke-width="2" />
+    <!-- Lined Paper Details -->
+    <line x1="26" y1="28" x2="68" y2="28" stroke="#F9B8CF" stroke-width="2" stroke-linecap="round" />
+    <line x1="26" y1="44" x2="68" y2="44" stroke="#F9B8CF" stroke-width="2" stroke-linecap="round" />
+    <line x1="26" y1="60" x2="68" y2="60" stroke="#F9B8CF" stroke-width="2" stroke-linecap="round" />
+    <line x1="26" y1="76" x2="55" y2="76" stroke="#F9B8CF" stroke-width="2" stroke-linecap="round" />
+    <!-- Little Heart Bookmark -->
+    <path d="M48 0 L48 18 L53 14 L58 18 L58 0 Z" fill="#D9C9F5" stroke="#4A0F2B" stroke-width="1.5" />
+    <!-- Stylus / Pen -->
+    <g transform="translate(-15, 20) rotate(45)">
+      <rect x="0" y="0" width="10" height="70" rx="3" fill="#E5A93C" stroke="#4A0F2B" stroke-width="2" />
+      <polygon points="0,70 10,70 5,82" fill="#4A0F2B" />
+      <circle cx="5" cy="8" r="2" fill="#4A0F2B" />
+    </g>
+  </g>
+
+  <!-- Editorial Badge Tag -->
+  <g transform="translate(24, 435)">
+    <rect x="0" y="0" width="140" height="36" rx="18" fill="#FFF4F7" stroke="#4A0F2B" stroke-width="2.5" />
+    <text x="70" y="23" text-anchor="middle" font-family="'Caveat', cursive" font-size="20" font-weight="700" fill="#4A0F2B">Abisola Oluwatoyin</text>
+  </g>
+</svg>

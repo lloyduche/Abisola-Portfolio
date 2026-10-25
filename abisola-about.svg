@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="deskGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3F7" />
+      <stop offset="100%" stop-color="#F9B8CF" />
+    </linearGradient>
+    <filter id="cozyShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="5" stdDeviation="4" flood-color="#4A0F2B" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="450" fill="url(#deskGrad)" />
+  <circle cx="200" cy="180" r="140" fill="#FFF" opacity="0.6" />
+
+  <!-- Grid lines subtle editorial texture -->
+  <g stroke="#F9B8CF" stroke-width="1" opacity="0.4">
+    <line x1="0" y1="60" x2="400" y2="60" />
+    <line x1="0" y1="120" x2="400" y2="120" />
+    <line x1="0" y1="180" x2="400" y2="180" />
+    <line x1="0" y1="240" x2="400" y2="240" />
+    <line x1="0" y1="300" x2="400" y2="300" />
+  </g>
+
+  <!-- Writer's desk elements -->
+  <!-- Stack of Books (English Language, Copywriting, African Prose) -->
+  <g transform="translate(45, 230)" filter="url(#cozyShadow)">
+    <!-- Book 1 (Bottom) -->
+    <rect x="0" y="80" width="130" height="26" rx="4" fill="#4A0F2B" stroke="#2D0618" stroke-width="2" />
+    <rect x="15" y="86" width="80" height="14" fill="#D9C9F5" rx="2" />
+    <text x="55" y="96" font-family="'Instrument Sans', sans-serif" font-size="8" font-weight="700" fill="#4A0F2B" text-anchor="middle">ENGLISH SYNTAX</text>
+    
+    <!-- Book 2 (Middle) -->
+    <rect x="8" y="52" width="115" height="28" rx="4" fill="#D93A72" stroke="#4A0F2B" stroke-width="2" />
+    <rect x="20" y="59" width="75" height="14" fill="#FFF4F7" rx="2" />
+    <text x="57" y="69" font-family="'Instrument Sans', sans-serif" font-size="8" font-weight="700" fill="#D93A72" text-anchor="middle">STORYTELLING</text>
+
+    <!-- Book 3 (Top) -->
+    <rect x="18" y="26" width="95" height="26" rx="4" fill="#D9C9F5" stroke="#4A0F2B" stroke-width="2" />
+    <text x="65" y="42" font-family="'Caveat', cursive" font-size="14" font-weight="700" fill="#4A0F2B" text-anchor="middle">Abisola Writes</text>
+  </g>
+
+  <!-- Steaming Coffee Cup -->
+  <g transform="translate(75, 140)">
+    <!-- Saucer -->
+    <ellipse cx="30" cy="85" rx="28" ry="8" fill="#FFF4F7" stroke="#4A0F2B" stroke-width="2.5" />
+    <!-- Mug Body -->
+    <path d="M12 40 L16 80 C16 84 44 84 44 80 L48 40 Z" fill="#D93A72" stroke="#4A0F2B" stroke-width="2.5" />
+    <!-- Mug Handle -->
+    <path d="M48 48 C58 48 58 72 46 72" fill="none" stroke="#4A0F2B" stroke-width="3" stroke-linecap="round" />
+    <!-- Coffee Liquid -->
+    <ellipse cx="30" cy="40" rx="18" ry="6" fill="#3D1D12" stroke="#4A0F2B" stroke-width="2" />
+    <!-- Heart in Coffee Foam -->
+    <path d="M30 42 C28 39 24 39 25 42 C26 44 30 46 30 46 C30 46 34 44 35 42 C36 39 32 39 30 42 Z" fill="#FFF4F7" />
+    <!-- Steam swirls -->
+    <path d="M24 30 Q20 18 26 10" fill="none" stroke="#D93A72" stroke-width="2" stroke-linecap="round" opacity="0.6" />
+    <path d="M35 28 Q40 16 33 8" fill="none" stroke="#D93A72" stroke-width="2" stroke-linecap="round" opacity="0.6" />
+  </g>
+
+  <!-- Editorial Typewriter Centerpiece -->
+  <g transform="translate(160, 160)" filter="url(#cozyShadow)">
+    <!-- Base Body -->
+    <path d="M20 120 L190 120 L210 180 L0 180 Z" fill="#4A0F2B" stroke="#2D0618" stroke-width="3" />
+    <rect x="25" y="90" width="160" height="35" rx="4" fill="#3A0A21" />
+
+    <!-- Typewriter Platen / Roller -->
+    <rect x="15" y="70" width="180" height="24" rx="10" fill="#2D0618" stroke="#4A0F2B" stroke-width="2.5" />
+    <circle cx="10" cy="82" r="10" fill="#E5A93C" stroke="#4A0F2B" stroke-width="2" />
+    <circle cx="200" cy="82" r="10" fill="#E5A93C" stroke="#4A0F2B" stroke-width="2" />
+
+    <!-- Paper Sheet Feed -->
+    <g transform="rotate(-3, 105, 75)">
+      <rect x="40" y="0" width="130" height="90" rx="3" fill="#FFF" stroke="#4A0F2B" stroke-width="2.5" />
+      <!-- Handwritten headline on page -->
+      <text x="105" y="24" font-family="'Caveat', cursive" font-size="16" font-weight="700" fill="#D93A72" text-anchor="middle">bringing ideas to life</text>
+      <line x1="50" y1="36" x2="160" y2="36" stroke="#4A0F2B" stroke-width="1.5" stroke-dasharray="2 3" />
+      <line x1="50" y1="46" x2="160" y2="46" stroke="#4A0F2B" stroke-width="1.5" stroke-dasharray="2 3" />
+      <line x1="50" y1="56" x2="140" y2="56" stroke="#4A0F2B" stroke-width="1.5" stroke-dasharray="2 3" />
+      <!-- Mini pink heart stamp -->
+      <circle cx="150" cy="68" r="8" fill="#F9B8CF" />
+      <path d="M150 71 C148 68 144 68 145 71 C146 73 150 75 150 75 C150 75 154 73 155 71 C156 68 152 68 150 71 Z" fill="#D93A72" />
+    </g>
+
+    <!-- Metal Guide Bar -->
+    <rect x="35" y="86" width="140" height="6" rx="3" fill="#E5A93C" stroke="#4A0F2B" stroke-width="1.5" />
+
+    <!-- Keyboard Keys Grid -->
+    <g transform="translate(20, 130)">
+      <!-- Row 1 -->
+      <circle cx="15" cy="10" r="7" fill="#FFF4F7" stroke="#4A0F2B" stroke-width="1.5" />
+      <circle cx="35" cy="10" r="7" fill="#FFF4F7" stroke="#4A0F2B" stroke-width="1.5" />
+      <circle cx="55" cy="10" r="7" fill="#FFF4F7" stroke="#4A0F2B" stroke-width="1.5" />
+      <circle cx="75" cy="10" r="7" fill="#FFF4F7" stroke="#4A0F2B" stroke-width="1.5" />
+      <circle cx="95" cy="10" r="7" fill="#FFF4F7" stroke="#4A0F2B" stroke-width="1.5" />
+      <circle cx="115" cy="10" r="7" fill="#FFF4F7" stroke="#4A0F2B" stroke-width="1.5" />
+      <circle cx="135" cy="10" r="7" fill="#FFF4F7" stroke="#4A0F2B" stroke-width="1.5" />
+      <circle cx="155" cy="10" r="7" fill="#D93A72" stroke="#4A0F2B" stroke-width="1.5" />
+
+      <!-- Row 2 -->
+      <circle cx="25" cy="28" r="7" fill="#FFF4F7" stroke="#4A0F2B" stroke-width="1.5" />
+      <circle cx="45" cy="28" r="7" fill="#FFF4F7" stroke="#4A0F2B" stroke-width="1.5" />
+      <circle cx="65" cy="28" r="7" fill="#FFF4F7" stroke="#4A0F2B" stroke-width="1.5" />
+      <circle cx="85" cy="28" r="7" fill="#FFF4F7" stroke="#4A0F2B" stroke-width="1.5" />
+      <circle cx="105" cy="28" r="7" fill="#FFF4F7" stroke="#4A0F2B" stroke-width="1.5" />
+      <circle cx="125" cy="28" r="7" fill="#FFF4F7" stroke="#4A0F2B" stroke-width="1.5" />
+      <circle cx="145" cy="28" r="7" fill="#FFF4F7" stroke="#4A0F2B" stroke-width="1.5" />
+
+      <!-- Spacebar -->
+      <rect x="50" y="40" width="70" height="8" rx="4" fill="#D9C9F5" stroke="#4A0F2B" stroke-width="1.5" />
+    </g>
+  </g>
+
+  <!-- Little envelope with heart seal -->
+  <g transform="translate(290, 310) rotate(12)" filter="url(#cozyShadow)">
+    <rect x="0" y="0" width="70" height="46" rx="4" fill="#FFF4F7" stroke="#4A0F2B" stroke-width="2" />
+    <path d="M0 0 L35 25 L70 0" fill="none" stroke="#4A0F2B" stroke-width="2" stroke-linecap="round" />
+    <circle cx="35" cy="23" r="6" fill="#D93A72" />
+  </g>
+
+  <!-- Editorial Note / Tag at top right -->
+  <g transform="translate(240, 45) rotate(-5)">
+    <rect x="0" y="0" width="130" height="34" rx="17" fill="#D9C9F5" stroke="#4A0F2B" stroke-width="2" />
+    <text x="65" y="22" font-family="'Caveat', cursive" font-size="18" font-weight="700" fill="#4A0F2B" text-anchor="middle">words that inform &amp; move</text>
+  </g>
+</svg>

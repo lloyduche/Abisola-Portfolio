@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Default Theme: Editorial Olive & Warm Terracotta */
+  --color-bg: #FAF7F2;
+  --color-card: #FFFFFF;
+  --color-ink: #1F2623;
+  --color-muted: #53625B;
+  --color-accent: #C85A32;
+  --color-ribbon: #D2DFD7;
+  --color-secondary: #E8DFC8;
+  --color-dark-bg: #16221E;
+  --color-dark-ink: #F7F5EF;
+  --color-border: #1F2623;
+}
+
+[data-theme="terracotta"] {
+  --color-bg: #FDF9F3;
+  --color-card: #FFFFFF;
+  --color-ink: #2A1A12;
+  --color-muted: #695246;
+  --color-accent: #D4583B;
+  --color-ribbon: #F3D7C8;
+  --color-secondary: #F4E0A5;
+  --color-dark-bg: #23150E;
+  --color-dark-ink: #FAF4EE;
+  --color-border: #2A1A12;
+}
+
+[data-theme="midnight"] {
+  --color-bg: #F7F8FA;
+  --color-card: #FFFFFF;
+  --color-ink: #101726;
+  --color-muted: #4B5565;
+  --color-accent: #4338CA;
+  --color-ribbon: #C7D2FE;
+  --color-secondary: #FDE68A;
+  --color-dark-bg: #0F172A;
+  --color-dark-ink: #F8FAFC;
+  --color-border: #101726;
+}
+
+[data-theme="berry"] {
+  --color-bg: #FFF3F7;
+  --color-card: #FFFFFF;
+  --color-ink: #4A0F2B;
+  --color-muted: #7A3552;
+  --color-accent: #D93A72;
+  --color-ribbon: #F9B8CF;
+  --color-secondary: #D9C9F5;
+  --color-dark-bg: #4A0F2B;
+  --color-dark-ink: #FFF4F7;
+  --color-border: #4A0F2B;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hand {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+}
+
+.display {
+  font-family: 'DynaPuff', cursive;
+}
+
+/* Custom Shadow */
+.theme-shadow {
+  box-shadow: 6px 6px 0 var(--color-border);
+}
+
+.theme-shadow-lg {
+  box-shadow: 10px 10px 0 var(--color-border);
+}
+
+.theme-shadow-ribbon {
+  box-shadow: 12px 12px 0 var(--color-ribbon);
+}
+
+/* Tag clothesline sway */
+@keyframes tagSway {
+  0%, 100% {
+    transform: rotate(calc(var(--r, 0deg) - 1.2deg));
+  }
+  50% {
+    transform: rotate(calc(var(--r, 0deg) + 1.2deg));
+  }
+}
+
+.sway-tag {
+  transform-origin: 34px -40px;
+  animation: tagSway 5s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -0.7s);
+}
+
+.sway-tag:hover {
+  animation: tagBigSwing 1.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes tagBigSwing {
+  0% { transform: rotate(0); }
+  25% { transform: rotate(12deg); }
+  50% { transform: rotate(-8deg); }
+  75% { transform: rotate(4deg); }
+  100% { transform: rotate(0); }
+}
+
+/* Bouncy letter hover */
+.bouncy-char {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s;
+  cursor: default;
+}
+.bouncy-char:hover {
+  transform: translateY(-16%) rotate(-6deg) scale(1.1);
+  color: var(--color-accent);
+}
