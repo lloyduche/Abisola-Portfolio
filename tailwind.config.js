@@ -4,40 +4,21 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        display: ['DynaPuff', 'cursive'],
+        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
         body:    ['Instrument Sans', 'sans-serif'],
-        hand:    ['Caveat', 'cursive'],
         serif:   ['Playfair Display', 'Georgia', 'serif'],
+        mono:    ['Space Grotesk', 'monospace'],
       },
       colors: {
-        ink:    'var(--ink)',
-        accent: 'var(--accent)',
-        pink:   'var(--pink)',
-        bg:     'var(--bg)',
-        card:   'var(--bg-card)',
-        dark:   'var(--bg-dark)',
-        ribbon: 'var(--ribbon)',
-        muted:  'var(--ink-muted)',
-        border: 'var(--border)',
-      },
-      animation: {
-        wiggle:  'wiggle 3s ease-in-out infinite',
-        drift:   'drift 8s ease-in-out infinite',
-        blink:   'blink 1s step-end infinite',
-      },
-      keyframes: {
-        wiggle: {
-          '0%,100%': { transform: 'rotate(4deg)'  },
-          '50%':     { transform: 'rotate(-4deg) scale(1.04)' },
-        },
-        drift: {
-          '0%,100%': { transform: 'translateY(0) rotate(0)' },
-          '50%':     { transform: 'translateY(-18px) rotate(6deg)' },
-        },
-        blink: {
-          '0%,100%': { opacity: '1' },
-          '50%':     { opacity: '0' },
-        },
+        ink:     'var(--ink)',
+        accent:  'var(--accent)',
+        accent2: 'var(--accent2)',
+        bg:      'var(--bg)',
+        card:    'var(--bg-card)',
+        dark:    'var(--bg-dark)',
+        subtle:  'var(--bg-subtle)',
+        muted:   'var(--ink-muted)',
+        border:  'var(--border)',
       },
     },
   },

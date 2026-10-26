@@ -1,6 +1,6 @@
 import React from 'react';
 import { Project } from '../types';
-import { X, ArrowUpRight } from 'lucide-react';
+import { X, ArrowUpRight, FileText } from 'lucide-react';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -12,65 +12,60 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
-      style={{ background: 'rgba(72,33,63,0.6)' }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-fadeIn"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-3xl p-6 sm:p-10"
+        className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-3xl p-6 sm:p-10 border"
         style={{
-          background: 'var(--bg)',
-          border: '2.5px solid var(--border)',
-          boxShadow: '12px 12px 0 var(--border)',
+          background: 'var(--bg-card)',
+          borderColor: 'var(--border)',
           color: 'var(--ink)',
+          boxShadow: '0 25px 50px rgba(0,0,0,0.25)',
         }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 w-10 h-10 rounded-full flex items-center justify-center transition-colors"
+          className="absolute top-5 right-5 w-9 h-9 rounded-full flex items-center justify-center border transition-all duration-200 hover:border-accent hover:text-accent"
           style={{
-            border: '2px solid var(--border)',
-            background: 'var(--ribbon)',
+            borderColor: 'var(--border)',
+            background: 'var(--bg)',
             color: 'var(--ink)',
-          }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.background = 'var(--accent)';
-            (e.currentTarget as HTMLButtonElement).style.color = '#fff';
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.background = 'var(--ribbon)';
-            (e.currentTarget as HTMLButtonElement).style.color = 'var(--ink)';
           }}
           aria-label="Close modal"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4" />
         </button>
 
         {/* Modal Header */}
-        <span
-          className="text-xs font-bold uppercase tracking-wider block mb-1"
-          style={{ color: 'var(--accent)' }}
-        >
-          {project.badge}
-        </span>
-        <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold mb-4 pr-10">
+        <div className="flex items-center gap-2 mb-2">
+          <FileText className="w-4 h-4 text-accent" />
+          <span className="text-xs font-mono font-bold uppercase tracking-wider text-accent">
+            {project.badge}
+          </span>
+        </div>
+
+        <h3 className="font-display text-2xl sm:text-3xl font-bold mb-4 pr-8 text-ink">
           {project.title}
         </h3>
 
         {/* Subject & Preheader */}
         {project.fullContent?.subject && (
           <div
-            className="p-4 rounded-2xl mb-5 text-sm space-y-1"
-            style={{ background: 'var(--bg-card)', border: '2px solid var(--border)' }}
+            className="p-4 rounded-xl mb-5 text-sm space-y-1 border font-mono"
+            style={{
+              background: 'var(--bg)',
+              borderColor: 'var(--border)',
+            }}
           >
             <p>
-              <strong>Subject line:</strong> {project.fullContent.subject}
+              <strong className="text-accent">Subject:</strong> {project.fullContent.subject}
             </p>
             {project.fullContent.preheader && (
               <p>
-                <strong>Preheader:</strong> {project.fullContent.preheader}
+                <strong className="text-ink/60">Preheader:</strong> {project.fullContent.preheader}
               </p>
             )}
           </div>
@@ -79,27 +74,18 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {/* Copy Excerpt */}
         {project.fullContent?.excerpt && (
           <div className="mb-6">
-            <span
-              className="text-xs font-bold uppercase tracking-wider block mb-2"
-              style={{ color: 'var(--ink-muted)' }}
-            >
+            <span className="text-xs font-mono font-bold uppercase tracking-wider block mb-2 text-ink/60">
               Selected Email / Story Excerpt
             </span>
             <div
-              className="p-5 sm:p-6 rounded-2xl space-y-3 text-sm sm:text-base leading-relaxed relative"
+              className="p-5 sm:p-6 rounded-2xl space-y-3 text-sm sm:text-base leading-relaxed border"
               style={{
-                background: 'var(--bg-card)',
-                border: '2px dashed var(--border)',
+                background: 'var(--bg)',
+                borderColor: 'var(--border)',
               }}
             >
-              <span
-                className="absolute -top-3 left-4 text-white text-[10px] font-bold px-2 py-0.5 rounded-full"
-                style={{ background: 'var(--accent)', border: '1px solid var(--border)' }}
-              >
-                COPY EXCERPT
-              </span>
               {project.fullContent.excerpt.map((para, i) => (
-                <p key={i}>{para}</p>
+                <p key={i} className="text-ink/85">{para}</p>
               ))}
             </div>
           </div>
@@ -108,17 +94,15 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {/* Strategic Rationale & Details */}
         {project.fullContent?.details && (
           <div className="mb-6">
-            <span
-              className="text-xs font-bold uppercase tracking-wider block mb-2"
-              style={{ color: 'var(--ink-muted)' }}
-            >
-              Strategic Context & Details
+            <span className="text-xs font-mono font-bold uppercase tracking-wider block mb-2 text-ink/60">
+              Strategic Context &amp; Details
             </span>
             <div
-              className="p-4 rounded-2xl text-xs sm:text-sm leading-relaxed whitespace-pre-line"
+              className="p-4 rounded-xl text-xs sm:text-sm leading-relaxed whitespace-pre-line border"
               style={{
-                background: 'rgba(255,255,255,0.5)',
-                border: '1px solid var(--border)',
+                background: 'var(--bg)',
+                borderColor: 'var(--border)',
+                color: 'var(--ink)',
                 opacity: 0.85,
               }}
             >
@@ -128,16 +112,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         )}
 
         {/* Footer CTAs */}
-        <div
-          className="flex flex-wrap gap-3 pt-4 justify-end"
-          style={{ borderTop: '2px solid var(--border)' }}
-        >
+        <div className="flex flex-wrap gap-3 pt-4 border-t justify-end" style={{ borderColor: 'var(--border)' }}>
           {project.fullContent?.substackLink && (
             <a
               href={project.fullContent.substackLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-full text-white font-bold text-xs sm:text-sm flex items-center gap-1.5 hover:opacity-90 transition-opacity"
+              className="px-5 py-2.5 rounded text-white font-mono font-bold text-xs uppercase flex items-center gap-1.5 hover:opacity-90 transition-opacity"
               style={{ background: 'var(--accent)' }}
             >
               <span>Read on Substack Publication</span>
@@ -146,10 +127,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           )}
           <button
             onClick={onClose}
-            className="px-6 py-2.5 rounded-full font-semibold text-xs sm:text-sm transition-colors"
+            className="px-6 py-2.5 rounded font-mono font-bold text-xs uppercase border transition-colors"
             style={{
-              border: '2px solid var(--border)',
-              background: 'var(--bg-card)',
+              borderColor: 'var(--border-strong)',
+              background: 'var(--bg)',
               color: 'var(--ink)',
             }}
           >

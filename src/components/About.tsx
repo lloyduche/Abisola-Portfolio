@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ABOUT_DATA } from '../data/portfolioData';
-import { MapPin, GraduationCap } from 'lucide-react';
+import { MapPin, GraduationCap, CheckCircle, Terminal } from 'lucide-react';
 
 export const About: React.FC = () => {
   const [phraseIndex, setPhraseIndex] = useState(0);
@@ -9,13 +9,13 @@ export const About: React.FC = () => {
 
   useEffect(() => {
     const fullText = ABOUT_DATA.typewriterPhrases[phraseIndex];
-    const typingSpeed = isDeleting ? 30 : 60;
+    const typingSpeed = isDeleting ? 25 : 55;
 
     const timer = setTimeout(() => {
       if (!isDeleting) {
         setCurrentText(fullText.slice(0, currentText.length + 1));
         if (currentText.length === fullText.length) {
-          setTimeout(() => setIsDeleting(true), 1800);
+          setTimeout(() => setIsDeleting(true), 1900);
         }
       } else {
         setCurrentText(fullText.slice(0, currentText.length - 1));
@@ -30,156 +30,148 @@ export const About: React.FC = () => {
   }, [currentText, isDeleting, phraseIndex]);
 
   return (
-    <section
-      id="about"
-      className="py-20 px-4 sm:px-8 md:px-12"
-      style={{
-        background: 'var(--ribbon)',
-        borderTop: '2.5px solid var(--border)',
-        borderBottom: '2.5px solid var(--border)',
-      }}
-    >
-      <div className="max-w-7xl mx-auto">
+    <section id="about" className="py-20 lg:py-28 border-b" style={{ borderColor: 'var(--border)' }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+        {/* Section Index Header */}
+        <div className="flex items-center justify-between pb-4 mb-12 border-b" style={{ borderColor: 'var(--border)' }}>
+          <div className="flex items-center gap-3">
+            <span className="text-xs font-mono font-bold text-accent">[ 01 ]</span>
+            <span className="text-xs font-mono font-extrabold tracking-widest uppercase text-ink">
+              EXECUTIVE STATEMENT &amp; PHILOSOPHY
+            </span>
+          </div>
+          <span className="text-xs font-mono text-ink/50 uppercase hidden sm:inline">
+            DISCIPLINE: LANGUAGE, BRAND &amp; COMMERCE
+          </span>
+        </div>
+
+        {/* 2-Column Strategic Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-
-          {/* ── LEFT COLUMN ── */}
-          <div className="lg:col-span-5">
-            {/* Gutter label */}
+          {/* Left Column: Visual & Live Status Terminal */}
+          <div className="lg:col-span-5 space-y-6">
+            {/* Precision Framed Portrait */}
             <div
-              className="hidden lg:flex items-center gap-2 mb-6 text-[10px] font-bold uppercase tracking-[0.25em]"
-              style={{ color: 'var(--ink-muted)' }}
-            >
-              <span
-                className="w-5 h-[2px] inline-block"
-                style={{ background: 'var(--accent)' }}
-              />
-              About the Author · Issue 001
-            </div>
-
-            {/* Polaroid */}
-            <div
-              className="w-full max-w-[360px] mx-auto p-4 pb-12 rounded-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-300"
+              className="p-3 rounded-2xl border"
               style={{
-                background: '#fff',
-                border: '2.5px solid var(--border)',
-                boxShadow: '10px 10px 0 var(--border)',
+                background: 'var(--bg-card)',
+                borderColor: 'var(--border)',
+                boxShadow: '0 15px 35px var(--shadow-color)',
               }}
             >
               <div
-                className="aspect-[4/5] rounded-xl overflow-hidden"
-                style={{
-                  border: '2px dashed var(--border)',
-                  background: 'var(--bg)',
-                }}
+                className="aspect-[4/5] rounded-xl overflow-hidden border relative"
+                style={{ borderColor: 'var(--border)' }}
               >
                 <img
                   src="/abisola-about.svg"
-                  alt="Abisola Oluwatoyin writer workspace and manuscripts"
+                  alt="Abisola Oluwatoyin - Writer workspace and manuscripts"
                   className="w-full h-full object-cover"
                 />
+                <div className="absolute bottom-3 left-3 right-3 p-3 rounded bg-black/75 backdrop-blur-md text-white font-mono text-[11px] border border-white/20">
+                  <div className="flex items-center justify-between text-accent font-bold mb-1">
+                    <span>TRANSMISSION SOURCE</span>
+                    <span>LAGOS // REMOTE</span>
+                  </div>
+                  <div className="text-white/80">
+                    B.A. English Language · Kwara State University (2:1)
+                  </div>
+                </div>
               </div>
-              <p
-                className="font-hand text-center text-xl mt-3"
-                style={{ color: 'var(--ink)' }}
-              >
-                in love with language & meaning ♡
-              </p>
             </div>
 
-            {/* Status card */}
+            {/* Live Terminal Thought-Stream */}
             <div
-              className="mt-6 p-5 rounded-2xl max-w-[360px] mx-auto"
+              className="p-5 rounded-xl border font-mono text-xs"
               style={{
                 background: 'var(--bg-card)',
-                border: '2px solid var(--border)',
+                borderColor: 'var(--border)',
               }}
             >
-              <span
-                className="text-[10px] font-bold uppercase tracking-widest block mb-2"
-                style={{ color: 'var(--ink-muted)' }}
-              >
-                Right now I'm
-              </span>
-              <div
-                className="font-display text-sm font-bold min-h-[2.5rem]"
-                style={{ color: 'var(--accent)' }}
-              >
-                <span>{currentText}</span>
-                <span className="animate-blink inline-block ml-0.5" style={{ color: 'var(--ink)' }}>|</span>
+              <div className="flex items-center justify-between text-[10px] text-ink/50 font-bold uppercase tracking-wider mb-2 pb-2 border-b" style={{ borderColor: 'var(--border)' }}>
+                <span className="flex items-center gap-1.5 text-accent">
+                  <Terminal className="w-3.5 h-3.5" />
+                  REAL-TIME FOCUS // NOW ENGAGING
+                </span>
+                <span className="w-2 h-2 rounded-full bg-accent animate-pulse-dot" />
               </div>
 
-              <div
-                className="mt-4 pt-4"
-                style={{ borderTop: '1px solid var(--border)' }}
-              >
-                <div className="flex items-center gap-2 text-sm font-semibold mb-1">
-                  <MapPin className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--accent)' }} />
-                  <span style={{ color: 'var(--ink)' }}>{ABOUT_DATA.basedIn}</span>
+              <div className="text-sm font-bold text-accent min-h-[2.8rem] flex items-center">
+                <span>&gt; {currentText}</span>
+                <span className="inline-block w-1.5 h-4 ml-1 bg-ink animate-pulse" />
+              </div>
+
+              <div className="mt-4 pt-3 border-t space-y-2 text-ink/80 text-[11px]" style={{ borderColor: 'var(--border)' }}>
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-3.5 h-3.5 text-accent shrink-0" />
+                  <span>{ABOUT_DATA.basedIn}</span>
                 </div>
-                <div className="flex items-start gap-2 text-xs" style={{ color: 'var(--ink-muted)' }}>
-                  <GraduationCap className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: 'var(--accent)' }} />
+                <div className="flex items-center gap-2">
+                  <GraduationCap className="w-3.5 h-3.5 text-accent shrink-0" />
                   <span>{ABOUT_DATA.education}</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* ── RIGHT COLUMN ── */}
+          {/* Right Column: Narrative & Architecture */}
           <div className="lg:col-span-7">
-            <span
-              className="font-hand text-2xl block mb-2"
-              style={{ color: 'var(--accent)' }}
-            >
-              behind the craft
-            </span>
-            <h2
-              className="font-display text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-8"
-              style={{ color: 'var(--ink)' }}
-            >
+            {/* Lead Headline */}
+            <h2 className="font-display font-extrabold text-3xl sm:text-5xl text-ink leading-tight tracking-tight mb-8">
               {ABOUT_DATA.headline}
             </h2>
 
-            <div className="space-y-4 text-base sm:text-lg leading-relaxed font-normal" style={{ color: 'var(--ink)' }}>
+            {/* Pull Quote Box */}
+            <div
+              className="p-6 rounded-xl border mb-8 relative"
+              style={{
+                background: 'var(--bg-card)',
+                borderLeft: '4px solid var(--accent)',
+                borderColor: 'var(--border)',
+                borderLeftColor: 'var(--accent)',
+              }}
+            >
+              <p className="font-serif italic text-lg sm:text-xl text-ink leading-relaxed">
+                "Effective communication goes beyond putting words together. It requires an understanding of the audience, a clear sense of purpose, consistency in brand voice and the ability to communicate information in a way that is relevant, engaging and easy to understand."
+              </p>
+              <span className="block mt-3 text-xs font-mono font-bold tracking-wider text-accent uppercase">
+                — CORE PHILOSOPHY &amp; APPROACH
+              </span>
+            </div>
+
+            {/* Paragraphs */}
+            <div className="space-y-5 text-base sm:text-lg text-ink/85 leading-relaxed font-normal">
               {ABOUT_DATA.paragraphs.map((p, idx) => (
-                <p key={idx}>
-                  {idx === 0 ? (
-                    <>
-                      <span
-                        className="float-left font-serif font-black mr-2 leading-[0.8] select-none"
-                        style={{
-                          fontSize: '4.2rem',
-                          color: 'var(--accent)',
-                          lineHeight: 0.82,
-                        }}
-                      >
-                        {p[0]}
-                      </span>
-                      {p.slice(1)}
-                    </>
-                  ) : p}
-                </p>
+                <p key={idx}>{p}</p>
               ))}
             </div>
 
-            {/* Horizontal rule */}
-            <div
-              className="my-8 h-[2px]"
-              style={{ background: 'var(--border)' }}
-            />
+            {/* Key Strategic Pillars */}
+            <div className="mt-10 pt-8 border-t grid grid-cols-1 sm:grid-cols-2 gap-4" style={{ borderColor: 'var(--border)' }}>
+              <div className="flex items-start gap-3 p-4 rounded border" style={{ background: 'var(--bg-card)', borderColor: 'var(--border)' }}>
+                <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                <div>
+                  <div className="font-mono font-bold text-xs uppercase tracking-wider text-ink">
+                    Linguistic Precision
+                  </div>
+                  <div className="text-xs text-ink/70 mt-1">
+                    English Language syntax grounding every message in clarity and rhythmic force.
+                  </div>
+                </div>
+              </div>
 
-            {/* Byline */}
-            <div
-              className="text-[11px] font-bold uppercase tracking-[0.2em] flex items-center gap-3"
-              style={{ color: 'var(--ink-muted)' }}
-            >
-              <span
-                className="w-8 h-[2px] inline-block"
-                style={{ background: 'var(--accent)' }}
-              />
-              Written & Lived · Abisola Oluwatoyin · Lagos, Nigeria
+              <div className="flex items-start gap-3 p-4 rounded border" style={{ background: 'var(--bg-card)', borderColor: 'var(--border)' }}>
+                <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                <div>
+                  <div className="font-mono font-bold text-xs uppercase tracking-wider text-ink">
+                    Commercial Empathy
+                  </div>
+                  <div className="text-xs text-ink/70 mt-1">
+                    B2B and fintech conversion focus that drives measurable revenue and engagement.
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>

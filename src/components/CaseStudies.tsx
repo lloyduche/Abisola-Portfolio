@@ -1,214 +1,155 @@
 import React, { useState } from 'react';
 import { CASE_STUDIES } from '../data/portfolioData';
-import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight, CheckCircle2, TrendingUp, Layers } from 'lucide-react';
 
 export const CaseStudies: React.FC = () => {
   const [activeTab, setActiveTab] = useState(CASE_STUDIES[0].id);
   const activeCase = CASE_STUDIES.find((c) => c.id === activeTab) || CASE_STUDIES[0];
 
   return (
-    <section
-      id="case-studies"
-      className="py-20 px-4 sm:px-8 md:px-12"
-      style={{
-        background: 'var(--bg)',
-        borderTop: '2.5px solid var(--border)',
-        borderBottom: '2.5px solid var(--border)',
-      }}
-    >
-      <div className="max-w-7xl mx-auto">
-
-        {/* ── HEADER ── */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+    <section id="case-studies" className="py-20 lg:py-28 border-b" style={{ borderColor: 'var(--border)' }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 mb-10 border-b" style={{ borderColor: 'var(--border)' }}>
           <div>
-            <span
-              className="font-hand text-2xl block"
-              style={{ color: 'var(--accent)' }}
-            >
-              in-depth breakdowns
-            </span>
-            <h2
-              className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mt-1"
-              style={{ color: 'var(--ink)' }}
-            >
-              Strategic Case Studies.
+            <div className="flex items-center gap-3 mb-2">
+              <span className="text-xs font-mono font-bold text-accent">[ 04 ]</span>
+              <span className="text-xs font-mono font-extrabold tracking-widest uppercase text-ink">
+                STRATEGIC MEMORANDUMS
+              </span>
+            </div>
+            <h2 className="font-display font-extrabold text-3xl sm:text-5xl text-ink tracking-tight">
+              Verified Business Case Studies.
             </h2>
           </div>
-          <p
-            className="text-base sm:text-lg max-w-md leading-relaxed font-normal"
-            style={{ color: 'var(--ink-muted)' }}
-          >
+          <p className="text-sm sm:text-base text-ink/75 max-w-md font-normal leading-relaxed">
             A deeper look into messaging architecture, audience psychology, execution funnels, and verified business results.
           </p>
         </div>
 
-        {/* ── TAB SWITCHER ── */}
-        <div className="flex gap-3 overflow-x-auto pb-4 mb-8" style={{ scrollbarWidth: 'none' }}>
+        {/* Case Navigation Tabs */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
           {CASE_STUDIES.map((cs, idx) => (
             <button
               key={cs.id}
               onClick={() => setActiveTab(cs.id)}
-              className="px-5 py-3 rounded-full font-display text-sm sm:text-base font-bold whitespace-nowrap transition-all duration-200"
+              className="p-4 rounded-xl text-left border transition-all duration-200"
               style={
                 activeTab === cs.id
                   ? {
                       background: 'var(--accent)',
-                      color: '#fff',
-                      border: '2px solid var(--border)',
-                      boxShadow: '4px 4px 0 var(--border)',
-                      transform: 'translateY(-2px)',
+                      color: '#FFFFFF',
+                      borderColor: 'var(--accent)',
+                      boxShadow: '0 8px 20px var(--shadow-color)',
                     }
                   : {
                       background: 'var(--bg-card)',
                       color: 'var(--ink)',
-                      border: '2px solid var(--border)',
+                      borderColor: 'var(--border)',
                     }
               }
             >
-              0{idx + 1}. {cs.title.split(':')[0]}
+              <div className="text-[10px] font-mono font-bold uppercase tracking-widest opacity-80 mb-1">
+                MEMO 0{idx + 1}
+              </div>
+              <div className="font-display font-bold text-sm leading-snug line-clamp-2">
+                {cs.title.split(':')[0]}
+              </div>
             </button>
           ))}
         </div>
 
-        {/* ── ACTIVE CASE PANEL (tearsheet) ── */}
+        {/* Active Case Intelligence Panel */}
         <div
-          className="rounded-3xl p-6 sm:p-10 lg:p-12"
+          className="p-7 sm:p-10 lg:p-12 rounded-3xl border"
           style={{
             background: 'var(--bg-card)',
-            border: '2px solid var(--border)',
-            boxShadow: '10px 10px 0 var(--ribbon)',
+            borderColor: 'var(--border)',
+            boxShadow: '0 20px 40px var(--shadow-color)',
           }}
         >
-          {/* Panel header */}
-          <div
-            className="pb-6 mb-8"
-            style={{ borderBottom: '2px solid var(--bg)' }}
-          >
-            <span
-              className="text-xs sm:text-sm font-bold uppercase tracking-wider block mb-2"
-              style={{ color: 'var(--ink-muted)' }}
-            >
-              {activeCase.discipline}
-            </span>
-            <h3
-              className="font-display text-3xl sm:text-4xl md:text-5xl font-bold leading-tight"
-              style={{ color: 'var(--ink)' }}
-            >
+          {/* Header */}
+          <div className="pb-6 mb-8 border-b" style={{ borderColor: 'var(--border)' }}>
+            <div className="flex items-center gap-2 text-xs font-mono font-bold text-accent uppercase tracking-wider mb-2">
+              <Layers className="w-4 h-4" />
+              <span>{activeCase.discipline}</span>
+            </div>
+            <h3 className="font-display font-extrabold text-2xl sm:text-4xl text-ink leading-tight">
               {activeCase.title}
             </h3>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-
-            {/* ── LEFT: Narrative ── */}
-            <div className="lg:col-span-8 space-y-6">
+            {/* Left Narrative */}
+            <div className="lg:col-span-8 space-y-7">
               <div>
-                <h4
-                  className="font-display text-xl sm:text-2xl font-bold mb-2"
-                  style={{ color: 'var(--ink)' }}
-                >
-                  The Project
+                <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-accent mb-2">
+                  01 // THE STRATEGIC CONTEXT
                 </h4>
-                <p
-                  className="text-base leading-relaxed font-normal"
-                  style={{ color: 'var(--ink)', opacity: 0.85 }}
-                >
+                <p className="text-base text-ink/85 leading-relaxed font-normal">
                   {activeCase.project}
                 </p>
               </div>
 
               <div>
-                <h4
-                  className="font-display text-xl sm:text-2xl font-bold mb-2"
-                  style={{ color: 'var(--ink)' }}
-                >
-                  Strategic Approach
+                <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-accent mb-2">
+                  02 // MESSAGING ARCHITECTURE &amp; APPROACH
                 </h4>
-                <p
-                  className="text-base leading-relaxed font-normal"
-                  style={{ color: 'var(--ink)', opacity: 0.85 }}
-                >
+                <p className="text-base text-ink/85 leading-relaxed font-normal">
                   {activeCase.approach}
                 </p>
               </div>
 
               <div>
-                <h4
-                  className="font-display text-xl sm:text-2xl font-bold mb-3"
-                  style={{ color: 'var(--ink)' }}
-                >
-                  Execution Highlights
+                <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-accent mb-3">
+                  03 // EXECUTION HIGHLIGHTS
                 </h4>
-                <ul className="space-y-2.5">
+                <ul className="space-y-3">
                   {activeCase.execution.map((step, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-start gap-3 text-sm sm:text-base font-normal"
-                      style={{ color: 'var(--ink)', opacity: 0.85 }}
-                    >
-                      <CheckCircle2
-                        className="w-5 h-5 flex-shrink-0 mt-0.5"
-                        style={{ color: 'var(--accent)' }}
-                      />
+                    <li key={idx} className="flex items-start gap-3 text-sm sm:text-base text-ink/85 font-normal">
+                      <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                       <span>{step}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div
-                className="pt-4"
-                style={{ borderTop: '1px solid var(--bg)' }}
-              >
-                <span
-                  className="text-xs font-bold uppercase tracking-wider block mb-1"
-                  style={{ color: 'var(--ink-muted)' }}
-                >
-                  My Role
+              <div className="pt-4 border-t" style={{ borderColor: 'var(--border)' }}>
+                <span className="text-[10px] font-mono uppercase tracking-widest text-ink/50 font-bold block mb-1">
+                  EXECUTIVE ROLE
                 </span>
-                <p
-                  className="text-sm sm:text-base font-semibold"
-                  style={{ color: 'var(--ink)' }}
-                >
+                <p className="text-sm sm:text-base font-semibold font-mono text-ink">
                   {activeCase.role}
                 </p>
               </div>
             </div>
 
-            {/* ── RIGHT: Metrics ── */}
+            {/* Right Metrics Box */}
             <div className="lg:col-span-4 flex flex-col justify-between gap-6">
               <div
-                className="p-6 rounded-2xl flex flex-col gap-5"
-                style={{ background: 'var(--bg)', border: '2px solid var(--border)' }}
+                className="p-6 rounded-2xl border flex flex-col gap-5"
+                style={{
+                  background: 'var(--bg)',
+                  borderColor: 'var(--border)',
+                }}
               >
-                <span
-                  className="text-xs font-bold uppercase tracking-wider block"
-                  style={{ color: 'var(--ink-muted)' }}
-                >
-                  Key Results &amp; Impact
-                </span>
+                <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-accent">
+                  <TrendingUp className="w-4 h-4" />
+                  <span>VERIFIED COMMERCIAL IMPACT</span>
+                </div>
 
                 {activeCase.results.map((r, idx) => (
                   <div
                     key={idx}
                     className="pb-3 last:pb-0"
                     style={{
-                      borderBottom: idx < activeCase.results.length - 1
-                        ? '1px solid var(--border)'
-                        : 'none',
-                      opacity: 0.9,
+                      borderBottom: idx < activeCase.results.length - 1 ? '1px solid var(--border)' : 'none',
                     }}
                   >
-                    <div
-                      className="font-display text-3xl sm:text-4xl font-bold"
-                      style={{ color: 'var(--accent)' }}
-                    >
+                    <div className="font-display font-black text-3xl sm:text-4xl text-accent">
                       {r.stat}
                     </div>
-                    <div
-                      className="text-xs sm:text-sm font-semibold mt-0.5"
-                      style={{ color: 'var(--ink)' }}
-                    >
+                    <div className="text-xs sm:text-sm font-semibold text-ink mt-0.5">
                       {r.label}
                     </div>
                   </div>
@@ -217,10 +158,10 @@ export const CaseStudies: React.FC = () => {
 
               {activeCase.quote && (
                 <div
-                  className="p-5 rounded-2xl text-sm italic"
+                  className="p-5 rounded-2xl border text-sm italic font-serif leading-relaxed"
                   style={{
-                    background: 'var(--ribbon)',
-                    border: '2px solid var(--border)',
+                    background: 'var(--bg)',
+                    borderColor: 'var(--border)',
                     color: 'var(--ink)',
                   }}
                 >
@@ -233,16 +174,10 @@ export const CaseStudies: React.FC = () => {
                   href={activeCase.link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3.5 px-6 rounded-full font-bold text-sm text-center flex items-center justify-center gap-2 transition-colors"
+                  className="w-full py-3.5 px-6 rounded text-xs font-mono font-bold uppercase tracking-wider text-center flex items-center justify-center gap-2 transition-all duration-200"
                   style={{
-                    background: 'var(--ink)',
-                    color: 'var(--bg)',
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLAnchorElement).style.background = 'var(--accent)';
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLAnchorElement).style.background = 'var(--ink)';
+                    background: 'var(--accent)',
+                    color: '#FFFFFF',
                   }}
                 >
                   <span>{activeCase.link.label}</span>

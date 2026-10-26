@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { ConfettiBow } from './ConfettiBow';
-import { Mail, Copy, Check, Send, BookOpen } from 'lucide-react';
-import confetti from 'canvas-confetti';
+import { Mail, Copy, Check, Send, BookOpen, ArrowUpRight } from 'lucide-react';
 
 const LinkedInIcon = () => (
   <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
@@ -30,191 +28,252 @@ export const Contact: React.FC = () => {
   const handleCopyEmail = () => {
     navigator.clipboard.writeText('abisolaaoluwatoyin@gmail.com').then(() => {
       setCopied(true);
-      confetti({
-        particleCount: 25,
-        spread: 60,
-        origin: { y: 0.8 },
-      });
       setTimeout(() => setCopied(false), 2500);
     });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    confetti({
-      particleCount: 50,
-      spread: 90,
-      origin: { y: 0.7 },
-    });
     setFormSubmitted(true);
   };
 
   return (
-    <section id="contact" className="py-24 px-4 sm:px-8 md:px-12 max-w-5xl mx-auto text-center">
-      {/* Big Confetti Bow */}
-      <div className="flex justify-center mb-6">
-        <ConfettiBow size="big" className="animate-wiggle" title="Tap me for confetti!" />
-      </div>
+    <section id="contact" className="py-20 lg:py-28 border-b" style={{ borderColor: 'var(--border)' }}>
+      <div className="max-w-4xl mx-auto px-4 sm:px-8 text-center">
+        {/* Section Tag */}
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-accent/10 border border-accent/20 mb-6">
+          <span className="w-2 h-2 rounded-full bg-accent animate-pulse-dot" />
+          <span className="text-xs font-mono font-bold tracking-widest text-accent uppercase">
+            [ 06 // DIRECT CHANNEL &amp; INQUIRY ]
+          </span>
+        </div>
 
-      <span className="hand text-2xl text-theme-accent block mb-2">let's build together</span>
-      <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-theme-ink mb-5 leading-tight">
-        Good work begins with a good conversation.
-      </h2>
+        {/* Headline */}
+        <h2 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl text-ink tracking-tight mb-6 leading-tight">
+          Good work begins with a good conversation.
+        </h2>
 
-      <p className="text-base sm:text-lg md:text-xl text-theme-ink/80 max-w-2xl mx-auto leading-relaxed font-normal mb-8">
-        I’m open to opportunities in communications, internal communications, marketing and content development. I’m interested in working with people who value thoughtful ideas, clear communication and the power of good storytelling.
-      </p>
+        <p className="text-base sm:text-lg text-ink/80 max-w-2xl mx-auto leading-relaxed font-normal mb-10">
+          I’m open to opportunities in corporate communications, internal storytelling, marketing and content strategy. I’m interested in working with teams who value thoughtful ideas, clear communication and the power of deliberate storytelling.
+        </p>
 
-      {/* Main Action CTAs */}
-      <div className="flex flex-wrap items-center justify-center gap-4 mb-14">
-        <a
-          href="mailto:abisolaaoluwatoyin@gmail.com"
-          className="px-7 py-3.5 rounded-full bg-theme-accent text-white font-bold text-base sm:text-lg border-2 border-theme-border shadow-[4px_4px_0_var(--color-border)] hover:shadow-[7px_7px_0_var(--color-border)] hover:-translate-y-0.5 transition-all flex items-center gap-2"
+        {/* Direct Action Row */}
+        <div className="flex flex-wrap items-center justify-center gap-4 mb-14">
+          <a
+            href="mailto:abisolaaoluwatoyin@gmail.com"
+            className="px-7 py-3.5 rounded text-xs sm:text-sm font-mono font-bold tracking-wider uppercase flex items-center gap-2 transition-all duration-200 shadow-sm"
+            style={{
+              background: 'var(--accent)',
+              color: '#FFFFFF',
+            }}
+          >
+            <Mail className="w-4 h-4" />
+            <span>EMAIL ME DIRECTLY</span>
+          </a>
+
+          <button
+            onClick={handleCopyEmail}
+            className="px-6 py-3.5 rounded border text-xs sm:text-sm font-mono font-bold tracking-wider uppercase flex items-center gap-2 transition-all duration-200"
+            style={{
+              background: 'var(--bg-card)',
+              borderColor: 'var(--border-strong)',
+              color: 'var(--ink)',
+            }}
+          >
+            {copied ? (
+              <>
+                <Check className="w-4 h-4 text-green-600" />
+                <span>COPIED TO CLIPBOARD!</span>
+              </>
+            ) : (
+              <>
+                <Copy className="w-4 h-4 text-accent" />
+                <span>COPY EMAIL ADDRESS</span>
+              </>
+            )}
+          </button>
+        </div>
+
+        {/* Inquiry Terminal Form */}
+        <div
+          className="p-8 sm:p-10 rounded-3xl border text-left"
+          style={{
+            background: 'var(--bg-card)',
+            borderColor: 'var(--border)',
+            boxShadow: '0 20px 40px var(--shadow-color)',
+          }}
         >
-          <Mail className="w-5 h-5" />
-          <span>Email Me (abisolaaoluwatoyin@gmail.com)</span>
-        </a>
+          {!formSubmitted ? (
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="pb-4 mb-2 border-b" style={{ borderColor: 'var(--border)' }}>
+                <h3 className="font-display font-bold text-xl sm:text-2xl text-ink">
+                  Transmit an Inquiry or Project Brief
+                </h3>
+                <p className="text-xs text-ink/60 font-mono mt-1">
+                  Fill in your details below and I'll get back to you within 24 hours.
+                </p>
+              </div>
 
-        <button
-          onClick={handleCopyEmail}
-          className="px-6 py-3.5 rounded-full bg-theme-card text-theme-ink font-semibold text-base border-2 border-theme-border hover:bg-theme-ribbon transition-colors flex items-center gap-2"
-        >
-          {copied ? <Check className="w-5 h-5 text-green-600" /> : <Copy className="w-5 h-5" />}
-          <span>{copied ? 'Copied to Clipboard!' : 'Copy Email Address'}</span>
-        </button>
-      </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-ink/70 block mb-1.5">
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="e.g. Sarah Adebayo"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border text-sm text-ink focus:outline-none focus:border-accent"
+                    style={{
+                      background: 'var(--bg)',
+                      borderColor: 'var(--border)',
+                    }}
+                  />
+                </div>
 
-      {/* Interactive Inquiry Form */}
-      <div className="max-w-xl mx-auto p-8 sm:p-10 rounded-3xl bg-theme-card border-2 border-theme-border shadow-[10px_10px_0_var(--color-ribbon)] text-left">
-        {!formSubmitted ? (
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <h3 className="font-display text-2xl font-bold text-theme-ink text-center mb-1">
-              Have something in mind? Let’s talk.
-            </h3>
-            <p className="text-xs sm:text-sm text-theme-muted text-center mb-6">
-              Whether it’s shaping a message, telling a brand’s story or creating content that connects, send me a brief note.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="text-xs font-bold uppercase tracking-wider text-theme-ink block mb-1">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="e.g. Sarah Adebayo"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl border-2 border-theme-border bg-theme-bg text-sm text-theme-ink focus:outline-none focus:border-theme-accent"
-                />
+                <div>
+                  <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-ink/70 block mb-1.5">
+                    Corporate / Work Email
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    placeholder="e.g. sarah@company.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full px-4 py-3 rounded-lg border text-sm text-ink focus:outline-none focus:border-accent"
+                    style={{
+                      background: 'var(--bg)',
+                      borderColor: 'var(--border)',
+                    }}
+                  />
+                </div>
               </div>
 
               <div>
-                <label className="text-xs font-bold uppercase tracking-wider text-theme-ink block mb-1">
-                  Email Address
+                <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-ink/70 block mb-1.5">
+                  Nature of Engagement
                 </label>
-                <input
-                  type="email"
+                <select
+                  value={formData.projectType}
+                  onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
+                  className="w-full px-4 py-3 rounded-lg border text-sm text-ink focus:outline-none focus:border-accent"
+                  style={{
+                    background: 'var(--bg)',
+                    borderColor: 'var(--border)',
+                  }}
+                >
+                  <option value="Marketing & Corporate Communications">Marketing &amp; Corporate Communications</option>
+                  <option value="Email Copywriting & Conversion Funnels">Email Copywriting &amp; Conversion Funnels</option>
+                  <option value="Product & Website Messaging">Product &amp; Website Messaging</option>
+                  <option value="Internal Storytelling & Executive Comms">Internal Storytelling &amp; Executive Comms</option>
+                  <option value="Full-Time / Contract Leadership Role">Full-Time / Contract Leadership Role</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-ink/70 block mb-1.5">
+                  Brief Overview / Message
+                </label>
+                <textarea
+                  rows={4}
                   required
-                  placeholder="e.g. sarah@company.com"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl border-2 border-theme-border bg-theme-bg text-sm text-theme-ink focus:outline-none focus:border-theme-accent"
+                  placeholder="Share a few details regarding your scope, timeline, and strategic goals..."
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full px-4 py-3 rounded-lg border text-sm text-ink focus:outline-none focus:border-accent resize-none"
+                  style={{
+                    background: 'var(--bg)',
+                    borderColor: 'var(--border)',
+                  }}
                 />
               </div>
-            </div>
 
-            <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-theme-ink block mb-1">
-                Project / Collaboration Type
-              </label>
-              <select
-                value={formData.projectType}
-                onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl border-2 border-theme-border bg-theme-bg text-sm text-theme-ink focus:outline-none focus:border-theme-accent"
+              <button
+                type="submit"
+                className="w-full py-4 rounded font-mono font-bold text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-2 transition-all duration-200"
+                style={{
+                  background: 'var(--accent)',
+                  color: '#FFFFFF',
+                }}
               >
-                <option value="Marketing & Corporate Communications">Marketing &amp; Corporate Communications</option>
-                <option value="Email Copywriting & Funnels">Email Copywriting &amp; Funnels</option>
-                <option value="Product & Website Messaging">Product &amp; Website Messaging</option>
-                <option value="Internal Storytelling & Culture">Internal Storytelling &amp; Culture</option>
-                <option value="Editorial & Creative Writing">Editorial &amp; Creative Writing</option>
-                <option value="Full-Time / Contract Role">Full-Time / Contract Role Opportunity</option>
-              </select>
+                <Send className="w-4 h-4" />
+                <span>DISPATCH TRANSMISSION →</span>
+              </button>
+            </form>
+          ) : (
+            <div className="py-12 text-center space-y-4">
+              <div className="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 flex items-center justify-center mx-auto">
+                <Check className="w-6 h-6" />
+              </div>
+              <h4 className="font-display font-bold text-2xl text-ink">
+                Transmission Received, {formData.name || 'there'}!
+              </h4>
+              <p className="text-sm text-ink/70 max-w-md mx-auto">
+                Your message has been logged. I look forward to connecting and discussing how we can turn your ideas into meaningful commercial outcomes.
+              </p>
+              <button
+                onClick={() => setFormSubmitted(false)}
+                className="text-xs font-mono font-bold text-accent underline mt-2"
+              >
+                Send another message
+              </button>
             </div>
+          )}
+        </div>
 
-            <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-theme-ink block mb-1">
-                Project Overview / Note
-              </label>
-              <textarea
-                rows={4}
-                required
-                placeholder="Share a few details about what you're working on, timeline, and goals..."
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl border-2 border-theme-border bg-theme-bg text-sm text-theme-ink focus:outline-none focus:border-theme-accent resize-none"
-              />
-            </div>
+        {/* Verified Network Footprint */}
+        <div className="flex flex-wrap items-center justify-center gap-4 mt-12">
+          <a
+            href="https://www.linkedin.com/in/abisola-oluwatoyin/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2.5 rounded-full border text-xs font-mono font-bold tracking-wider uppercase flex items-center gap-2 transition-all duration-200"
+            style={{
+              background: 'var(--bg-card)',
+              borderColor: 'var(--border)',
+              color: 'var(--ink)',
+            }}
+          >
+            <span className="text-accent"><LinkedInIcon /></span>
+            <span>LINKEDIN</span>
+            <ArrowUpRight className="w-3.5 h-3.5 text-accent" />
+          </a>
 
-            <button
-              type="submit"
-              className="w-full py-3.5 rounded-full bg-theme-accent text-white font-bold text-base border-2 border-theme-border shadow-[4px_4px_0_var(--color-border)] hover:shadow-[6px_6px_0_var(--color-border)] transition-all flex items-center justify-center gap-2 mt-4"
-            >
-              <Send className="w-4 h-4" />
-              <span>Send Message &amp; Say Hello 🎀</span>
-            </button>
-          </form>
-        ) : (
-          <div className="py-8 text-center space-y-4">
-            <ConfettiBow size="medium" />
-            <h4 className="font-display text-2xl font-bold text-theme-ink">
-              Thank You, {formData.name || 'there'}!
-            </h4>
-            <p className="text-sm text-theme-muted max-w-md mx-auto">
-              Your note has been received. I look forward to connecting and discussing how we can bring your ideas to life.
-            </p>
-            <button
-              onClick={() => setFormSubmitted(false)}
-              className="text-xs font-bold text-theme-accent underline"
-            >
-              Send another note
-            </button>
-          </div>
-        )}
-      </div>
+          <a
+            href="https://abisolawrites.substack.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2.5 rounded-full border text-xs font-mono font-bold tracking-wider uppercase flex items-center gap-2 transition-all duration-200"
+            style={{
+              background: 'var(--bg-card)',
+              borderColor: 'var(--border)',
+              color: 'var(--ink)',
+            }}
+          >
+            <BookOpen className="w-3.5 h-3.5 text-accent" />
+            <span>SUBSTACK (ABISOLA WRITES)</span>
+            <ArrowUpRight className="w-3.5 h-3.5 text-accent" />
+          </a>
 
-      {/* Social Links */}
-      <div className="flex flex-wrap items-center justify-center gap-4 mt-12">
-        <a
-          href="https://www.linkedin.com/in/abisola-oluwatoyin/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-5 py-2.5 rounded-full border-2 border-theme-border bg-white text-xs sm:text-sm font-semibold text-theme-ink hover:bg-theme-ribbon transition-colors flex items-center gap-2"
-        >
-          <span className="text-theme-accent"><LinkedInIcon /></span>
-          <span>LinkedIn</span>
-        </a>
-
-        <a
-          href="https://abisolawrites.substack.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-5 py-2.5 rounded-full border-2 border-theme-border bg-white text-xs sm:text-sm font-semibold text-theme-ink hover:bg-theme-ribbon transition-colors flex items-center gap-2"
-        >
-          <BookOpen className="w-4 h-4 text-theme-accent" />
-          <span>Substack (Abisola Writes)</span>
-        </a>
-
-        <a
-          href="https://www.instagram.com/p/DL18Ka-s6xj"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-5 py-2.5 rounded-full border-2 border-theme-border bg-white text-xs sm:text-sm font-semibold text-theme-ink hover:bg-theme-ribbon transition-colors flex items-center gap-2"
-        >
-          <span className="text-theme-accent"><InstagramIcon /></span>
-          <span>Instagram Property Feature</span>
-        </a>
+          <a
+            href="https://www.instagram.com/p/DL18Ka-s6xj"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2.5 rounded-full border text-xs font-mono font-bold tracking-wider uppercase flex items-center gap-2 transition-all duration-200"
+            style={{
+              background: 'var(--bg-card)',
+              borderColor: 'var(--border)',
+              color: 'var(--ink)',
+            }}
+          >
+            <span className="text-accent"><InstagramIcon /></span>
+            <span>PROPERTY FEATURE</span>
+            <ArrowUpRight className="w-3.5 h-3.5 text-accent" />
+          </a>
+        </div>
       </div>
     </section>
   );

@@ -1,46 +1,51 @@
 import React from 'react';
-import { ConfettiBow } from './ConfettiBow';
 
 export const MarqueeRibbon: React.FC = () => {
-  const itemsA = [
-    'marketing comms',
-    'brand storytelling',
-    'b2b copywriting',
-    'email strategy',
-    'regulatory compliance',
-    'lead generation',
-  ];
-
-  const itemsB = [
-    'fintech messaging',
-    'hospitality webinars',
-    'workplace stories',
-    'substack essays',
-    'luxury property copy',
-    'pipeline reactivation',
+  const wireItems = [
+    'CORPORATE & BRAND COMMUNICATIONS',
+    'REGULATORY COMPLIANCE E-INVOICING HOOKS',
+    'B2B FINTECH MESSAGING & POSITIONING',
+    'HIGH-CONVERTING EMAIL SEQUENCES',
+    'ENTERPRISE WEBINAR LAUNCH FUNNELS',
+    'EXECUTIVE CULTURE & WORKPLACE STORYTELLING',
+    'SUBSTACK ESSAYIST (ABISOLA WRITES)',
+    '12% LEAD-TO-ACTIVE CONVERSION RATE',
+    '₦1.07 QUADRILLION TRANSACTION HOOK',
   ];
 
   return (
-    <div className="relative py-12 -my-6 overflow-hidden pointer-events-none select-none">
-      {/* Top Ribbon */}
-      <div className="w-[110%] -left-[5%] relative bg-theme-accent text-white border-y-2 border-theme-border py-3 transform -rotate-2 z-10 shadow-sm">
-        <div className="flex gap-8 whitespace-nowrap animate-marquee font-display text-lg sm:text-2xl font-bold">
-          {[...itemsA, ...itemsA, ...itemsA].map((item, idx) => (
-            <span key={idx} className="inline-flex items-center gap-6">
-              <span>{item}</span>
-              <ConfettiBow size="mini" fill="#FFFFFF" stroke="#1F2623" />
-            </span>
-          ))}
+    <div
+      className="border-y overflow-hidden select-none"
+      style={{
+        background: 'var(--bg-dark)',
+        borderColor: 'var(--border-strong)',
+        color: '#FFFFFF',
+      }}
+    >
+      {/* Top Stream */}
+      <div className="py-2.5 flex items-center border-b border-white/10">
+        <div className="px-4 py-0.5 bg-accent text-white text-[10px] font-mono font-extrabold uppercase tracking-widest shrink-0 mr-4 ml-2">
+          LIVE FEED
+        </div>
+        <div className="overflow-hidden whitespace-nowrap flex-1">
+          <div className="animate-marquee-wire text-xs font-mono font-bold tracking-widest uppercase text-white/90">
+            {[...wireItems, ...wireItems].map((item, idx) => (
+              <span key={idx} className="inline-flex items-center gap-6 mr-6">
+                <span>{item}</span>
+                <span className="text-accent">✦</span>
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Bottom Ribbon */}
-      <div className="w-[110%] -left-[5%] relative bg-theme-ribbon text-theme-ink border-y-2 border-theme-border py-3 transform rotate-2 -mt-4 shadow-sm">
-        <div className="flex gap-8 whitespace-nowrap animate-marquee-rev font-display text-lg sm:text-2xl font-bold">
-          {[...itemsB, ...itemsB, ...itemsB].map((item, idx) => (
-            <span key={idx} className="inline-flex items-center gap-6">
+      {/* Bottom Reverse Stream */}
+      <div className="py-2 bg-black/40 overflow-hidden whitespace-nowrap">
+        <div className="animate-marquee-wire-rev text-[11px] font-mono font-medium tracking-wider uppercase text-white/60">
+          {[...wireItems, ...wireItems].reverse().map((item, idx) => (
+            <span key={idx} className="inline-flex items-center gap-6 mr-6">
               <span>{item}</span>
-              <ConfettiBow size="mini" fill="var(--color-accent)" stroke="#1F2623" />
+              <span className="text-accent2 opacity-80">//</span>
             </span>
           ))}
         </div>

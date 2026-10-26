@@ -12,106 +12,78 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
-      style={{ background: 'rgba(72,33,63,0.6)' }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-fadeIn"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl p-6 sm:p-12"
+        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl p-6 sm:p-12 border"
         style={{
           background: 'var(--bg-card)',
-          border: '2.5px solid var(--border)',
-          boxShadow: '12px 12px 0 var(--border)',
+          borderColor: 'var(--border)',
           color: 'var(--ink)',
+          boxShadow: '0 25px 50px rgba(0,0,0,0.25)',
         }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center transition-colors"
+          className="absolute top-6 right-6 w-9 h-9 rounded-full flex items-center justify-center border transition-all duration-200 hover:border-accent hover:text-accent"
           style={{
-            border: '2px solid var(--border)',
-            background: 'var(--ribbon)',
+            borderColor: 'var(--border)',
+            background: 'var(--bg)',
             color: 'var(--ink)',
-          }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.background = 'var(--accent)';
-            (e.currentTarget as HTMLButtonElement).style.color = '#fff';
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.background = 'var(--ribbon)';
-            (e.currentTarget as HTMLButtonElement).style.color = 'var(--ink)';
           }}
           aria-label="Close modal"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4" />
         </button>
 
         {/* Resume Sheet */}
         <div className="print:p-0">
           {/* Header */}
-          <div
-            className="pb-6 mb-8"
-            style={{ borderBottom: '2px solid var(--border)' }}
-          >
-            <h2 className="font-display text-3xl sm:text-4xl font-bold">
+          <div className="pb-6 mb-8 border-b" style={{ borderColor: 'var(--border)' }}>
+            <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-ink">
               Abisola Oluwatoyin
             </h2>
-            <p
-              className="text-base sm:text-lg font-semibold mt-1"
-              style={{ color: 'var(--accent)' }}
-            >
-              Writer | Marketing, Communications & Brand Storytelling
+            <p className="text-base sm:text-lg font-mono font-bold mt-1 text-accent">
+              Writer | Marketing, Communications &amp; Brand Storytelling
             </p>
-            <p
-              className="text-xs sm:text-sm mt-2"
-              style={{ color: 'var(--ink-muted)' }}
-            >
+            <p className="text-xs sm:text-sm font-mono text-ink/60 mt-2">
               Email: abisolaaoluwatoyin@gmail.com &bull; LinkedIn: linkedin.com/in/abisola-oluwatoyin &bull; Substack: abisolawrites.substack.com
             </p>
           </div>
 
           {/* Summary */}
           <div className="mb-8">
-            <h3
-              className="font-display text-xl font-bold pb-2 mb-3"
-              style={{ borderBottom: '1px solid var(--ribbon)' }}
-            >
+            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-accent pb-2 mb-3 border-b" style={{ borderColor: 'var(--border)' }}>
               Professional Summary
             </h3>
-            <p className="text-sm leading-relaxed font-normal" style={{ opacity: 0.85 }}>
+            <p className="text-sm leading-relaxed text-ink/85 font-normal">
               {RESUME_DATA.summary}
             </p>
           </div>
 
           {/* Experience */}
           <div className="mb-8">
-            <h3
-              className="font-display text-xl font-bold pb-2 mb-4"
-              style={{ borderBottom: '1px solid var(--ribbon)' }}
-            >
+            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-accent pb-2 mb-4 border-b" style={{ borderColor: 'var(--border)' }}>
               Professional Experience
             </h3>
             <div className="space-y-6">
               {RESUME_DATA.experiences.map((exp, idx) => (
                 <div key={idx}>
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                    <h4 className="font-bold text-base">{exp.role}</h4>
-                    <span
-                      className="text-xs font-semibold"
-                      style={{ color: 'var(--accent)' }}
-                    >
+                    <h4 className="font-display font-bold text-base text-ink">
+                      {exp.role}
+                    </h4>
+                    <span className="text-xs font-mono font-bold text-accent">
                       {exp.period}
                     </span>
                   </div>
-                  <div
-                    className="text-xs font-semibold mb-2"
-                    style={{ color: 'var(--ink-muted)' }}
-                  >
+                  <div className="text-xs font-mono font-semibold text-ink/60 mb-2">
                     {exp.company}
                   </div>
-                  <ul className="list-disc list-inside space-y-1.5 text-xs sm:text-sm leading-relaxed font-normal" style={{ opacity: 0.85 }}>
+                  <ul className="list-disc list-inside space-y-1.5 text-xs sm:text-sm leading-relaxed text-ink/85 font-normal">
                     {exp.points.map((pt, pIdx) => (
                       <li key={pIdx}>{pt}</li>
                     ))}
@@ -123,15 +95,12 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
 
           {/* Education */}
           <div className="mb-8">
-            <h3
-              className="font-display text-xl font-bold pb-2 mb-3"
-              style={{ borderBottom: '1px solid var(--ribbon)' }}
-            >
+            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-accent pb-2 mb-3 border-b" style={{ borderColor: 'var(--border)' }}>
               Education
             </h3>
             <div>
-              <div className="font-bold text-sm">{RESUME_DATA.education.degree}</div>
-              <div className="text-xs" style={{ color: 'var(--ink-muted)' }}>
+              <div className="font-display font-bold text-sm text-ink">{RESUME_DATA.education.degree}</div>
+              <div className="text-xs font-mono text-ink/60">
                 {RESUME_DATA.education.school}
               </div>
             </div>
@@ -139,20 +108,17 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
 
           {/* Skills Grid */}
           <div className="mb-8">
-            <h3
-              className="font-display text-xl font-bold pb-2 mb-3"
-              style={{ borderBottom: '1px solid var(--ribbon)' }}
-            >
+            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-accent pb-2 mb-3 border-b" style={{ borderColor: 'var(--border)' }}>
               Core Expertise
             </h3>
             <div className="flex flex-wrap gap-2">
               {RESUME_DATA.areasOfExpertise.map((skill) => (
                 <span
                   key={skill}
-                  className="px-3 py-1.5 rounded-full text-xs font-semibold"
+                  className="px-3 py-1.5 rounded text-xs font-mono font-semibold border"
                   style={{
                     background: 'var(--bg)',
-                    border: '1px solid var(--border)',
+                    borderColor: 'var(--border)',
                     color: 'var(--ink)',
                   }}
                 >
@@ -163,24 +129,24 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
           </div>
 
           {/* Actions */}
-          <div
-            className="flex justify-end gap-3 pt-6"
-            style={{ borderTop: '1px solid var(--ribbon)' }}
-          >
+          <div className="flex justify-end gap-3 pt-6 border-t" style={{ borderColor: 'var(--border)' }}>
             <button
               onClick={() => window.print()}
-              className="px-6 py-2.5 rounded-full text-white font-bold text-xs sm:text-sm flex items-center gap-2 hover:opacity-90 transition-opacity"
-              style={{ background: 'var(--accent)' }}
+              className="px-6 py-2.5 rounded font-mono font-bold text-xs uppercase flex items-center gap-2 hover:opacity-90 transition-opacity"
+              style={{
+                background: 'var(--accent)',
+                color: '#FFFFFF',
+              }}
             >
               <Printer className="w-4 h-4" />
               <span>Print / Save as PDF</span>
             </button>
             <button
               onClick={onClose}
-              className="px-6 py-2.5 rounded-full font-semibold text-xs sm:text-sm transition-colors"
+              className="px-6 py-2.5 rounded border font-mono font-bold text-xs uppercase transition-colors"
               style={{
-                border: '2px solid var(--border)',
-                background: 'var(--bg-card)',
+                borderColor: 'var(--border-strong)',
+                background: 'var(--bg)',
                 color: 'var(--ink)',
               }}
             >
