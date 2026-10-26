@@ -3,52 +3,40 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      colors: {
-        theme: {
-          bg: 'var(--color-bg)',
-          card: 'var(--color-card)',
-          ink: 'var(--color-ink)',
-          muted: 'var(--color-muted)',
-          accent: 'var(--color-accent)',
-          ribbon: 'var(--color-ribbon)',
-          secondary: 'var(--color-secondary)',
-          darkBg: 'var(--color-dark-bg)',
-          darkInk: 'var(--color-dark-ink)',
-          border: 'var(--color-border)',
-        },
-      },
       fontFamily: {
         display: ['DynaPuff', 'cursive'],
-        body: ['Instrument Sans', 'sans-serif'],
-        hand: ['Caveat', 'cursive'],
+        body:    ['Instrument Sans', 'sans-serif'],
+        hand:    ['Caveat', 'cursive'],
+        serif:   ['Playfair Display', 'Georgia', 'serif'],
+      },
+      colors: {
+        ink:    'var(--ink)',
+        accent: 'var(--accent)',
+        pink:   'var(--pink)',
+        bg:     'var(--bg)',
+        card:   'var(--bg-card)',
+        dark:   'var(--bg-dark)',
+        ribbon: 'var(--ribbon)',
+        muted:  'var(--ink-muted)',
+        border: 'var(--border)',
       },
       animation: {
-        wiggle: 'wiggle 2.8s ease-in-out infinite',
-        drift: 'drift 10s linear infinite',
-        shine: 'shine 4.5s 2s infinite',
-        marquee: 'marquee 28s linear infinite',
-        'marquee-rev': 'marquee-rev 32s linear infinite',
+        wiggle:  'wiggle 3s ease-in-out infinite',
+        drift:   'drift 8s ease-in-out infinite',
+        blink:   'blink 1s step-end infinite',
       },
       keyframes: {
         wiggle: {
-          '0%, 100%': { transform: 'rotate(5deg)' },
-          '50%': { transform: 'rotate(-5deg) scale(1.04)' },
+          '0%,100%': { transform: 'rotate(4deg)'  },
+          '50%':     { transform: 'rotate(-4deg) scale(1.04)' },
         },
         drift: {
-          '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
-          '50%': { transform: 'translateY(-24px) rotate(8deg)' },
+          '0%,100%': { transform: 'translateY(0) rotate(0)' },
+          '50%':     { transform: 'translateY(-18px) rotate(6deg)' },
         },
-        shine: {
-          '0%, 70%': { transform: 'translateX(-100%)' },
-          '100%': { transform: 'translateX(100%)' },
-        },
-        marquee: {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-50%)' },
-        },
-        'marquee-rev': {
-          '0%': { transform: 'translateX(-50%)' },
-          '100%': { transform: 'translateX(0%)' },
+        blink: {
+          '0%,100%': { opacity: '1' },
+          '50%':     { opacity: '0' },
         },
       },
     },

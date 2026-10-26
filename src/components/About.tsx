@@ -30,67 +30,156 @@ export const About: React.FC = () => {
   }, [currentText, isDeleting, phraseIndex]);
 
   return (
-    <section id="about" className="py-20 px-4 sm:px-8 md:px-12 bg-theme-ribbon/30 border-y-2 border-theme-border">
+    <section
+      id="about"
+      className="py-20 px-4 sm:px-8 md:px-12"
+      style={{
+        background: 'var(--ribbon)',
+        borderTop: '2.5px solid var(--border)',
+        borderBottom: '2.5px solid var(--border)',
+      }}
+    >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Polaroid Visual */}
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="w-full max-w-[360px] bg-white border-2 border-theme-border p-4 pb-12 rounded-2xl shadow-[10px_10px_0_var(--color-border)] transform -rotate-3 hover:rotate-0 transition-transform duration-300">
-              <div className="aspect-[4/5] rounded-xl overflow-hidden border-2 border-dashed border-theme-border bg-theme-bg">
+
+          {/* ── LEFT COLUMN ── */}
+          <div className="lg:col-span-5">
+            {/* Gutter label */}
+            <div
+              className="hidden lg:flex items-center gap-2 mb-6 text-[10px] font-bold uppercase tracking-[0.25em]"
+              style={{ color: 'var(--ink-muted)' }}
+            >
+              <span
+                className="w-5 h-[2px] inline-block"
+                style={{ background: 'var(--accent)' }}
+              />
+              About the Author · Issue 001
+            </div>
+
+            {/* Polaroid */}
+            <div
+              className="w-full max-w-[360px] mx-auto p-4 pb-12 rounded-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-300"
+              style={{
+                background: '#fff',
+                border: '2.5px solid var(--border)',
+                boxShadow: '10px 10px 0 var(--border)',
+              }}
+            >
+              <div
+                className="aspect-[4/5] rounded-xl overflow-hidden"
+                style={{
+                  border: '2px dashed var(--border)',
+                  background: 'var(--bg)',
+                }}
+              >
                 <img
                   src="/abisola-about.svg"
                   alt="Abisola Oluwatoyin writer workspace and manuscripts"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <p className="hand text-center text-xl text-theme-ink mt-3">
-                in love with language &amp; meaning &lt;3
+              <p
+                className="font-hand text-center text-xl mt-3"
+                style={{ color: 'var(--ink)' }}
+              >
+                in love with language & meaning ♡
               </p>
+            </div>
+
+            {/* Status card */}
+            <div
+              className="mt-6 p-5 rounded-2xl max-w-[360px] mx-auto"
+              style={{
+                background: 'var(--bg-card)',
+                border: '2px solid var(--border)',
+              }}
+            >
+              <span
+                className="text-[10px] font-bold uppercase tracking-widest block mb-2"
+                style={{ color: 'var(--ink-muted)' }}
+              >
+                Right now I'm
+              </span>
+              <div
+                className="font-display text-sm font-bold min-h-[2.5rem]"
+                style={{ color: 'var(--accent)' }}
+              >
+                <span>{currentText}</span>
+                <span className="animate-blink inline-block ml-0.5" style={{ color: 'var(--ink)' }}>|</span>
+              </div>
+
+              <div
+                className="mt-4 pt-4"
+                style={{ borderTop: '1px solid var(--border)' }}
+              >
+                <div className="flex items-center gap-2 text-sm font-semibold mb-1">
+                  <MapPin className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--accent)' }} />
+                  <span style={{ color: 'var(--ink)' }}>{ABOUT_DATA.basedIn}</span>
+                </div>
+                <div className="flex items-start gap-2 text-xs" style={{ color: 'var(--ink-muted)' }}>
+                  <GraduationCap className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: 'var(--accent)' }} />
+                  <span>{ABOUT_DATA.education}</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Right Column: Editorial Narrative */}
+          {/* ── RIGHT COLUMN ── */}
           <div className="lg:col-span-7">
-            <span className="hand text-2xl text-theme-accent">behind the craft</span>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-theme-ink mt-1 mb-6 leading-tight">
+            <span
+              className="font-hand text-2xl block mb-2"
+              style={{ color: 'var(--accent)' }}
+            >
+              behind the craft
+            </span>
+            <h2
+              className="font-display text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-8"
+              style={{ color: 'var(--ink)' }}
+            >
               {ABOUT_DATA.headline}
             </h2>
 
-            <div className="space-y-4 text-base sm:text-lg text-theme-ink/90 leading-relaxed font-normal">
+            <div className="space-y-4 text-base sm:text-lg leading-relaxed font-normal" style={{ color: 'var(--ink)' }}>
               {ABOUT_DATA.paragraphs.map((p, idx) => (
-                <p key={idx}>{p}</p>
+                <p key={idx}>
+                  {idx === 0 ? (
+                    <>
+                      <span
+                        className="float-left font-serif font-black mr-2 leading-[0.8] select-none"
+                        style={{
+                          fontSize: '4.2rem',
+                          color: 'var(--accent)',
+                          lineHeight: 0.82,
+                        }}
+                      >
+                        {p[0]}
+                      </span>
+                      {p.slice(1)}
+                    </>
+                  ) : p}
+                </p>
               ))}
             </div>
 
-            {/* Status / Now Ticker */}
-            <div className="mt-8 p-6 rounded-3xl bg-theme-card border-2 border-theme-border shadow-sm grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
-                <span className="text-xs font-bold text-theme-muted uppercase tracking-wider block mb-1">
-                  Right now i'm
-                </span>
-                <div className="font-display text-base sm:text-lg font-bold text-theme-accent min-h-[3.2rem]">
-                  <span>{currentText}</span>
-                  <span className="animate-pulse inline-block text-theme-ink ml-1">|</span>
-                </div>
-              </div>
+            {/* Horizontal rule */}
+            <div
+              className="my-8 h-[2px]"
+              style={{ background: 'var(--border)' }}
+            />
 
-              <div>
-                <span className="text-xs font-bold text-theme-muted uppercase tracking-wider block mb-1">
-                  Location &amp; Education
-                </span>
-                <div className="text-sm sm:text-base font-semibold text-theme-ink space-y-1">
-                  <div className="flex items-center gap-1.5">
-                    <MapPin className="w-4 h-4 text-theme-accent flex-shrink-0" />
-                    <span>{ABOUT_DATA.basedIn}</span>
-                  </div>
-                  <div className="flex items-start gap-1.5 text-xs text-theme-muted">
-                    <GraduationCap className="w-4 h-4 text-theme-accent flex-shrink-0 mt-0.5" />
-                    <span>{ABOUT_DATA.education}</span>
-                  </div>
-                </div>
-              </div>
+            {/* Byline */}
+            <div
+              className="text-[11px] font-bold uppercase tracking-[0.2em] flex items-center gap-3"
+              style={{ color: 'var(--ink-muted)' }}
+            >
+              <span
+                className="w-8 h-[2px] inline-block"
+                style={{ background: 'var(--accent)' }}
+              />
+              Written & Lived · Abisola Oluwatoyin · Lagos, Nigeria
             </div>
           </div>
+
         </div>
       </div>
     </section>

@@ -12,33 +12,59 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
+      style={{ background: 'rgba(72,33,63,0.6)' }}
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-3xl bg-theme-bg border-3 border-theme-border p-6 sm:p-10 shadow-[12px_12px_0_var(--color-border)]"
+        className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-3xl p-6 sm:p-10"
+        style={{
+          background: 'var(--bg)',
+          border: '2.5px solid var(--border)',
+          boxShadow: '12px 12px 0 var(--border)',
+          color: 'var(--ink)',
+        }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 w-10 h-10 rounded-full border-2 border-theme-border bg-theme-ribbon flex items-center justify-center text-theme-ink hover:bg-theme-accent hover:text-white transition-colors"
+          className="absolute top-5 right-5 w-10 h-10 rounded-full flex items-center justify-center transition-colors"
+          style={{
+            border: '2px solid var(--border)',
+            background: 'var(--ribbon)',
+            color: 'var(--ink)',
+          }}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLButtonElement).style.background = 'var(--accent)';
+            (e.currentTarget as HTMLButtonElement).style.color = '#fff';
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLButtonElement).style.background = 'var(--ribbon)';
+            (e.currentTarget as HTMLButtonElement).style.color = 'var(--ink)';
+          }}
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Modal Header */}
-        <span className="text-xs font-bold text-theme-accent uppercase tracking-wider block mb-1">
+        <span
+          className="text-xs font-bold uppercase tracking-wider block mb-1"
+          style={{ color: 'var(--accent)' }}
+        >
           {project.badge}
         </span>
-        <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-theme-ink mb-4 pr-10">
+        <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold mb-4 pr-10">
           {project.title}
         </h3>
 
         {/* Subject & Preheader */}
         {project.fullContent?.subject && (
-          <div className="p-4 rounded-2xl bg-white border-2 border-theme-border mb-5 text-sm space-y-1">
+          <div
+            className="p-4 rounded-2xl mb-5 text-sm space-y-1"
+            style={{ background: 'var(--bg-card)', border: '2px solid var(--border)' }}
+          >
             <p>
               <strong>Subject line:</strong> {project.fullContent.subject}
             </p>
@@ -53,11 +79,23 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {/* Copy Excerpt */}
         {project.fullContent?.excerpt && (
           <div className="mb-6">
-            <span className="text-xs font-bold text-theme-muted uppercase tracking-wider block mb-2">
+            <span
+              className="text-xs font-bold uppercase tracking-wider block mb-2"
+              style={{ color: 'var(--ink-muted)' }}
+            >
               Selected Email / Story Excerpt
             </span>
-            <div className="p-5 sm:p-6 rounded-2xl bg-white border-2 border-dashed border-theme-border space-y-3 text-sm sm:text-base leading-relaxed text-theme-ink/90 font-normal relative">
-              <span className="absolute -top-3 left-4 bg-theme-accent text-white text-[10px] font-bold px-2 py-0.5 rounded-full border border-theme-border">
+            <div
+              className="p-5 sm:p-6 rounded-2xl space-y-3 text-sm sm:text-base leading-relaxed relative"
+              style={{
+                background: 'var(--bg-card)',
+                border: '2px dashed var(--border)',
+              }}
+            >
+              <span
+                className="absolute -top-3 left-4 text-white text-[10px] font-bold px-2 py-0.5 rounded-full"
+                style={{ background: 'var(--accent)', border: '1px solid var(--border)' }}
+              >
                 COPY EXCERPT
               </span>
               {project.fullContent.excerpt.map((para, i) => (
@@ -70,23 +108,37 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {/* Strategic Rationale & Details */}
         {project.fullContent?.details && (
           <div className="mb-6">
-            <span className="text-xs font-bold text-theme-muted uppercase tracking-wider block mb-2">
-              Strategic Context &amp; Details
+            <span
+              className="text-xs font-bold uppercase tracking-wider block mb-2"
+              style={{ color: 'var(--ink-muted)' }}
+            >
+              Strategic Context & Details
             </span>
-            <div className="p-4 rounded-2xl bg-white/70 border border-theme-border/30 text-xs sm:text-sm leading-relaxed text-theme-ink/80 whitespace-pre-line font-normal">
+            <div
+              className="p-4 rounded-2xl text-xs sm:text-sm leading-relaxed whitespace-pre-line"
+              style={{
+                background: 'rgba(255,255,255,0.5)',
+                border: '1px solid var(--border)',
+                opacity: 0.85,
+              }}
+            >
               {project.fullContent.details}
             </div>
           </div>
         )}
 
         {/* Footer CTAs */}
-        <div className="flex flex-wrap gap-3 pt-4 border-t-2 border-theme-border/20 justify-end">
+        <div
+          className="flex flex-wrap gap-3 pt-4 justify-end"
+          style={{ borderTop: '2px solid var(--border)' }}
+        >
           {project.fullContent?.substackLink && (
             <a
               href={project.fullContent.substackLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-full bg-theme-accent text-white font-bold text-xs sm:text-sm flex items-center gap-1.5 hover:opacity-90"
+              className="px-5 py-2.5 rounded-full text-white font-bold text-xs sm:text-sm flex items-center gap-1.5 hover:opacity-90 transition-opacity"
+              style={{ background: 'var(--accent)' }}
             >
               <span>Read on Substack Publication</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -94,7 +146,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           )}
           <button
             onClick={onClose}
-            className="px-6 py-2.5 rounded-full border-2 border-theme-border bg-theme-card text-theme-ink font-semibold text-xs sm:text-sm hover:bg-theme-ribbon"
+            className="px-6 py-2.5 rounded-full font-semibold text-xs sm:text-sm transition-colors"
+            style={{
+              border: '2px solid var(--border)',
+              background: 'var(--bg-card)',
+              color: 'var(--ink)',
+            }}
           >
             Close
           </button>

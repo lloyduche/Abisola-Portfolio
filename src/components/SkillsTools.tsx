@@ -3,76 +3,130 @@ import { CORE_DISCIPLINES, SKILLS, TOOLS } from '../data/portfolioData';
 import { Mail, Layout, Video, Users } from 'lucide-react';
 import { ConfettiBow } from './ConfettiBow';
 
-export const SkillsTools: React.FC = () => {
-  const getIcon = (num: string) => {
-    switch (num) {
-      case 'c':
-        return <Mail className="w-6 h-6 text-theme-ink" />;
-      case 'm':
-        return <Layout className="w-6 h-6 text-theme-ink" />;
-      case 'e':
-        return <Video className="w-6 h-6 text-theme-ink" />;
-      case 's':
-        return <Users className="w-6 h-6 text-theme-ink" />;
-      default:
-        return <Mail className="w-6 h-6 text-theme-ink" />;
-    }
-  };
+const getIcon = (num: string) => {
+  const cls = 'w-6 h-6';
+  switch (num) {
+    case 'c': return <Mail className={cls} />;
+    case 'm': return <Layout className={cls} />;
+    case 'e': return <Video className={cls} />;
+    case 's': return <Users className={cls} />;
+    default:  return <Mail className={cls} />;
+  }
+};
 
+const cardBg = (idx: number) =>
+  idx % 2 === 0 ? 'var(--ribbon)' : 'var(--bg-card)';
+
+export const SkillsTools: React.FC = () => {
   return (
-    <section id="skills" className="py-20 px-4 sm:px-8 md:px-12 bg-white border-b-2 border-theme-border">
+    <section
+      id="skills"
+      className="py-20 px-4 sm:px-8 md:px-12"
+      style={{ background: 'var(--bg-card)', borderBottom: '2.5px solid var(--border)' }}
+    >
       <div className="max-w-7xl mx-auto">
-        {/* Head */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
-          <div>
-            <span className="hand text-2xl text-theme-accent">core competencies</span>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-theme-ink mt-1">
-              skills &amp; the craft behind it.
-            </h2>
-          </div>
-          <p className="text-base sm:text-lg text-theme-ink/80 max-w-md leading-relaxed font-normal">
-            A high-level synergy of language mastery, commercial intuition, and multi-channel marketing communications built to turn complexity into clarity.
-          </p>
+
+        {/* ── HEADER ── */}
+        <div className="mb-4">
+          <span
+            className="font-hand text-2xl block"
+            style={{ color: 'var(--accent)' }}
+          >
+            core competencies
+          </span>
+          <h2
+            className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mt-1"
+            style={{ color: 'var(--ink)' }}
+          >
+            Skills &amp; the Craft Behind It.
+          </h2>
         </div>
 
-        {/* 4 Core Discipline Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Horizontal rule */}
+        <div className="flex items-center gap-4 mb-8">
+          <div className="flex-1 h-[2px]" style={{ background: 'var(--border)' }} />
+          <span
+            className="text-[10px] font-bold uppercase tracking-[0.2em]"
+            style={{ color: 'var(--ink-muted)' }}
+          >
+            The Editorial · Skills Feature
+          </span>
+          <div className="flex-1 h-[2px]" style={{ background: 'var(--border)' }} />
+        </div>
+
+        <p
+          className="text-base sm:text-lg max-w-xl leading-relaxed font-normal mb-12"
+          style={{ color: 'var(--ink-muted)' }}
+        >
+          A high-level synergy of language mastery, commercial intuition, and multi-channel marketing communications built to turn complexity into clarity.
+        </p>
+
+        {/* ── 4 CORE DISCIPLINE CARDS ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
           {CORE_DISCIPLINES.map((item, idx) => (
             <div
               key={item.title}
-              className={`p-7 rounded-3xl border-2 border-theme-border flex flex-col justify-between relative overflow-hidden transition-all duration-300 hover:shadow-[8px_8px_0_var(--color-border)] hover:-translate-y-1 ${
-                idx === 0
-                  ? 'bg-theme-ribbon/50'
-                  : idx === 2
-                  ? 'bg-theme-secondary/40'
-                  : 'bg-theme-card'
-              }`}
+              className="p-7 rounded-3xl flex flex-col justify-between relative overflow-hidden transition-all duration-300 hover:-translate-y-1"
+              style={{
+                background: cardBg(idx),
+                border: '2px solid var(--border)',
+                boxShadow: '0 0 0 transparent',
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLDivElement).style.boxShadow = '8px 8px 0 var(--border)';
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 0 transparent';
+              }}
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl border-2 border-theme-border bg-white flex items-center justify-center mb-5 shadow-sm">
+                <div
+                  className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5 shadow-sm"
+                  style={{
+                    background: '#fff',
+                    border: '2px solid var(--border)',
+                    color: 'var(--ink)',
+                  }}
+                >
                   {getIcon(item.num)}
                 </div>
-                <h3 className="font-display text-2xl font-bold text-theme-ink mb-3 capitalize">
+                <h3
+                  className="font-display text-2xl font-bold mb-3 capitalize"
+                  style={{ color: 'var(--ink)' }}
+                >
                   {item.title}
                 </h3>
-                <p className="text-sm sm:text-base text-theme-ink/80 leading-relaxed font-normal">
+                <p
+                  className="text-sm sm:text-base leading-relaxed font-normal"
+                  style={{ color: 'var(--ink)', opacity: 0.8 }}
+                >
                   {item.desc}
                 </p>
               </div>
-              <span className="font-display text-7xl font-bold text-theme-border/10 select-none absolute -right-2 -bottom-4 pointer-events-none">
+              {/* Ghost large letter */}
+              <span
+                className="font-display text-7xl font-bold select-none absolute -right-2 -bottom-4 pointer-events-none uppercase"
+                style={{ color: 'var(--border)', opacity: 0.08 }}
+              >
                 {item.num}
               </span>
             </div>
           ))}
         </div>
 
-        {/* Skills & Tools Cluster */}
-        <div className="mt-14 p-8 sm:p-10 rounded-3xl bg-theme-bg border-2 border-theme-border">
+        {/* ── SKILLS & TOOLS CLUSTER ── */}
+        <div
+          className="p-8 sm:p-10 rounded-3xl"
+          style={{ background: 'var(--bg)', border: '2px solid var(--border)' }}
+        >
           {/* Skills */}
           <div className="mb-8">
             <div className="flex items-center gap-2 mb-4">
               <ConfettiBow size="mini" />
-              <h3 className="font-display text-2xl font-bold text-theme-ink">
+              <h3
+                className="font-display text-2xl font-bold"
+                style={{ color: 'var(--ink)' }}
+              >
                 Specialized Craft Skills
               </h3>
             </div>
@@ -80,7 +134,26 @@ export const SkillsTools: React.FC = () => {
               {SKILLS.map((skill) => (
                 <span
                   key={skill}
-                  className="px-4 py-2 rounded-full border-2 border-theme-border bg-white text-xs sm:text-sm font-semibold text-theme-ink transition-transform hover:-translate-y-0.5 hover:bg-theme-accent hover:text-white hover:border-theme-accent"
+                  className="px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-default"
+                  style={{
+                    background: '#fff',
+                    border: '2px solid var(--border)',
+                    color: 'var(--ink)',
+                  }}
+                  onMouseEnter={(e) => {
+                    const el = e.currentTarget as HTMLSpanElement;
+                    el.style.background = 'var(--accent)';
+                    el.style.color = '#fff';
+                    el.style.borderColor = 'var(--accent)';
+                    el.style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    const el = e.currentTarget as HTMLSpanElement;
+                    el.style.background = '#fff';
+                    el.style.color = 'var(--ink)';
+                    el.style.borderColor = 'var(--border)';
+                    el.style.transform = 'translateY(0)';
+                  }}
                 >
                   {skill}
                 </span>
@@ -88,11 +161,17 @@ export const SkillsTools: React.FC = () => {
             </div>
           </div>
 
+          {/* Divider */}
+          <div className="h-[1.5px] mb-8" style={{ background: 'var(--border)', opacity: 0.2 }} />
+
           {/* Tools */}
           <div>
             <div className="flex items-center gap-2 mb-4">
               <ConfettiBow size="mini" />
-              <h3 className="font-display text-2xl font-bold text-theme-ink">
+              <h3
+                className="font-display text-2xl font-bold"
+                style={{ color: 'var(--ink)' }}
+              >
                 Software &amp; Digital Toolstack
               </h3>
             </div>
@@ -100,11 +179,26 @@ export const SkillsTools: React.FC = () => {
               {TOOLS.map((tool) => (
                 <span
                   key={tool}
-                  className={`px-4 py-2 rounded-full border-2 border-theme-border text-xs sm:text-sm font-semibold transition-transform hover:-translate-y-0.5 ${
+                  className="px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-default"
+                  style={
                     tool === 'Substack'
-                      ? 'bg-theme-accent text-white border-theme-accent'
-                      : 'bg-white text-theme-ink hover:bg-theme-secondary'
-                  }`}
+                      ? { background: 'var(--accent)', color: '#fff', border: '2px solid var(--accent)' }
+                      : { background: '#fff', color: 'var(--ink)', border: '2px solid var(--border)' }
+                  }
+                  onMouseEnter={(e) => {
+                    if (tool !== 'Substack') {
+                      const el = e.currentTarget as HTMLSpanElement;
+                      el.style.background = 'var(--accent2)';
+                      el.style.transform = 'translateY(-2px)';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (tool !== 'Substack') {
+                      const el = e.currentTarget as HTMLSpanElement;
+                      el.style.background = '#fff';
+                      el.style.transform = 'translateY(0)';
+                    }
+                  }}
                 >
                   {tool}
                 </span>
