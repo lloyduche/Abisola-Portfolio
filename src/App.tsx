@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { PaletteProvider } from './context/PaletteContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { MarqueeRibbon } from './components/MarqueeRibbon';
 import { About } from './components/About';
 import { SkillsTools } from './components/SkillsTools';
 import { FeaturedWork } from './components/FeaturedWork';
@@ -61,7 +60,6 @@ const ManuscriptInner: React.FC = () => {
       <div className="relative z-10">
         <Navbar />
         <Hero />
-        <MarqueeRibbon />
         <About />
         <SkillsTools />
         <FeaturedWork onSelectProject={(p) => setSelectedProject(p)} />

@@ -1,6 +1,7 @@
 import React from 'react';
 import { RESUME_DATA } from '../data/portfolioData';
-import { FileText, ArrowUpRight } from 'lucide-react';
+import { RedArrow, EditorialStamp } from './ManuscriptMarks';
+import { ArrowUpRight } from 'lucide-react';
 
 interface ResumeExpertiseProps {
   onOpenResume: () => void;
@@ -8,151 +9,159 @@ interface ResumeExpertiseProps {
 
 export const ResumeExpertise: React.FC<ResumeExpertiseProps> = ({ onOpenResume }) => {
   return (
-    <section
-      id="resume"
-      className="py-20 lg:py-28 border-b"
-      style={{
-        background: 'var(--paper-aged)',
-        color: 'var(--ink)',
-        borderColor: 'var(--ink-rule-strong)',
-      }}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+    <section id="resume" className="py-20 lg:py-32 border-b border-[var(--rule)]">
+      <div className="max-w-7xl mx-auto px-6 sm:px-12">
 
-        {/* Broadsheet Folio Line */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-8 mb-14 border-b" style={{ borderColor: 'var(--ink-rule)' }}>
-          <div className="lg:col-span-7">
-            <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mb-2 text-ink/60">
-              <span className="font-bold text-[var(--red-pencil)]">¶ CHAPTER V</span>
+        {/* Broadsheet Folio Chapter Line */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 mb-12 border-b border-[var(--rule)]">
+          <div>
+            <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mb-2 text-[var(--ink-secondary)]">
+              <span className="font-bold text-[var(--red-pencil)]">&para; CHAPTER V</span>
               <span>/</span>
               <span>EXECUTIVE CHRONOLOGY &amp; CREDENTIALS</span>
             </div>
-            <h2 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-ink">
+            <h2 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-[var(--ink)]">
               The Career Ledger.
             </h2>
-            <p className="font-serif text-lg sm:text-xl text-ink/80 max-w-xl leading-relaxed mt-3">
-              A chronological record of writing, marketing communications, content development, and brand storytelling leadership.
-            </p>
           </div>
-
-          {/* Featured Role Card */}
-          <div className="lg:col-span-5 p-6 rounded-lg bg-[var(--paper-leaf)] border relative" style={{ borderColor: 'var(--ink-rule)' }}>
-            <div className="flex items-center justify-between pb-3 mb-3 border-b text-xs font-mono" style={{ borderColor: 'var(--ink-rule)' }}>
-              <span className="text-[10px] uppercase font-bold tracking-widest text-[var(--red-pencil)]">
-                ACTIVE APPOINTMENT · 2025–2026
-              </span>
-              <span className="text-[9px] px-2 py-0.5 rounded font-mono font-bold bg-[var(--red-pencil)] text-white">
-                VERIFIED
-              </span>
-            </div>
-            <h4 className="font-display font-bold text-xl text-ink">
-              Brand Marketing &amp; Corporate Comms
-            </h4>
-            <div className="text-xs font-mono text-[var(--red-pencil)] mt-0.5 mb-2 font-bold">
-              Redtech Limited
-            </div>
-            <p className="font-serif text-sm text-ink/80 leading-relaxed">
-              Multi-channel campaign architecture, e-invoicing conversion funnels, and enterprise sales pipeline reactivation.
-            </p>
+          <div className="font-serif italic text-lg max-w-md text-[var(--ink)]/80">
+            A chronological ledger of marketing communications, editorial leadership, content development, and brand storytelling.
           </div>
         </div>
 
-        {/* 3 Impact Seals */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
-          <div className="p-6 rounded-lg bg-[var(--paper-leaf)] border flex items-center gap-4" style={{ borderColor: 'var(--ink-rule)' }}>
-            <div className="w-14 h-14 rounded-full bg-[var(--red-pencil)]/10 border border-[var(--red-pencil)]/30 flex items-center justify-center font-display font-black text-xl text-[var(--red-pencil)] shrink-0">
+        {/* 3 Impact Numbers Across Columns with Vertical Hairline Dividers (NO BOXES) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-14 mb-16 border-b border-[var(--rule)]">
+          <div className="md:pr-8 md:border-r md:border-[var(--rule)]">
+            <div className="font-display font-black text-5xl sm:text-6xl text-[var(--red-pencil)] leading-none mb-3">
               12%
             </div>
-            <div>
-              <div className="font-serif font-bold text-lg text-ink">Lead-to-Active Rate</div>
-              <div className="text-xs text-ink/60 font-mono mt-0.5">Exceeded 5% benchmark by 240%</div>
+            <div className="font-serif font-bold text-xl text-[var(--ink)] mb-1">
+              Lead-to-Active Conversion
+            </div>
+            <div className="font-mono text-xs text-[var(--ink-secondary)] leading-relaxed">
+              Exceeded the 5% fintech industry benchmark by 240% during e-invoicing campaign.
             </div>
           </div>
 
-          <div className="p-6 rounded-lg bg-[var(--paper-leaf)] border flex items-center gap-4" style={{ borderColor: 'var(--ink-rule)' }}>
-            <div className="w-14 h-14 rounded-full bg-black/5 dark:bg-white/10 border flex items-center justify-center font-display font-black text-xl text-ink shrink-0" style={{ borderColor: 'var(--ink-rule)' }}>
+          <div className="md:px-8 md:border-r md:border-[var(--rule)]">
+            <div className="font-display font-black text-5xl sm:text-6xl text-[var(--ink)] leading-none mb-3">
               28k+
             </div>
-            <div>
-              <div className="font-serif font-bold text-lg text-ink">Substack Views</div>
-              <div className="text-xs text-ink/60 font-mono mt-0.5">Across published personal essays</div>
+            <div className="font-serif font-bold text-xl text-[var(--ink)] mb-1">
+              Total Substack Essay Views
+            </div>
+            <div className="font-mono text-xs text-[var(--ink-secondary)] leading-relaxed">
+              1,469+ global organic subscribers reading long-form personal &amp; cultural commentary.
             </div>
           </div>
 
-          <div className="p-6 rounded-lg bg-[var(--paper-leaf)] border flex items-center gap-4" style={{ borderColor: 'var(--ink-rule)' }}>
-            <div className="w-14 h-14 rounded-full bg-[var(--red-pencil)]/10 border border-[var(--red-pencil)]/30 flex items-center justify-center font-display font-black text-xl text-[var(--red-pencil)] shrink-0">
+          <div className="md:pl-8">
+            <div className="font-display font-black text-5xl sm:text-6xl text-[var(--red-pencil)] leading-none mb-3">
               823+
             </div>
-            <div>
-              <div className="font-serif font-bold text-lg text-ink">Webinar Registrations</div>
-              <div className="text-xs text-ink/60 font-mono mt-0.5">Hospitality &amp; fiscal taxation events</div>
+            <div className="font-serif font-bold text-xl text-[var(--ink)] mb-1">
+              Enterprise Webinar Registrations
+            </div>
+            <div className="font-mono text-xs text-[var(--ink-secondary)] leading-relaxed">
+              520+ live attendees for fiscal taxation &amp; hospitality tech thought leadership.
             </div>
           </div>
         </div>
 
-        {/* Chronological Record */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {RESUME_DATA.experiences.map((exp, idx) => (
-            <div
-              key={idx}
-              className="p-6 rounded-lg bg-[var(--paper-leaf)] border flex flex-col justify-between"
-              style={{ borderColor: 'var(--ink-rule)' }}
-            >
-              <div>
-                <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[var(--red-pencil)] block mb-2">
-                  {exp.period}
-                </span>
-                <h4 className="font-serif font-bold text-lg text-ink mb-1">
-                  {exp.role}
-                </h4>
-                <div className="text-xs font-mono text-ink/60 mb-3">
-                  {exp.company}
+        {/* Chronological Ledger Rows (NO BOXES — Clean Lines) */}
+        <div className="mb-16">
+          <div className="flex items-center justify-between pb-3 mb-6 border-b border-[var(--rule)] text-xs font-mono tracking-widest uppercase text-[var(--ink-secondary)]">
+            <span>PERIOD &bull; INSTITUTION</span>
+            <span className="hidden sm:inline">STRATEGIC FOCUS &bull; DELIVERABLES</span>
+          </div>
+
+          <div className="divide-y divide-[var(--rule)]">
+            {RESUME_DATA.experiences.map((exp, idx) => (
+              <div key={idx} className="py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                {/* Column 1: Period & Stamp */}
+                <div className="lg:col-span-3 space-y-2">
+                  <span className="font-mono text-xs font-bold text-[var(--red-pencil)] block">
+                    {exp.period}
+                  </span>
+                  <div className="font-display font-bold text-xl text-[var(--ink)]">
+                    {exp.company}
+                  </div>
+                  <div className="text-xs font-mono text-[var(--ink-secondary)] uppercase">
+                    Lagos, Nigeria
+                  </div>
+                  {idx === 0 && (
+                    <div className="pt-2">
+                      <EditorialStamp text="active mandate" />
+                    </div>
+                  )}
                 </div>
-                <p className="font-serif text-sm text-ink/80 leading-relaxed font-normal">
-                  {exp.points[0]}
-                </p>
-              </div>
-            </div>
-          ))}
 
-          {/* Academic Foundation */}
-          <div className="p-6 rounded-lg bg-[var(--paper-leaf)] border flex flex-col justify-between" style={{ borderColor: 'var(--ink-rule)' }}>
-            <div>
-              <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-ink/50 block mb-2">
-                ACADEMIC FOUNDATION
-              </span>
-              <h4 className="font-serif font-bold text-lg text-ink mb-1">
-                B.A. English Language
-              </h4>
-              <div className="text-xs font-mono text-[var(--red-pencil)] mb-3 font-bold">
-                Kwara State University (2:1)
+                {/* Column 2: Role Title */}
+                <div className="lg:col-span-4">
+                  <h3 className="font-serif font-bold text-2xl text-[var(--ink)] leading-snug mb-2">
+                    {exp.role}
+                  </h3>
+                  <div className="font-hand text-base text-[var(--red-pencil)]">
+                    ~ primary communications lead
+                  </div>
+                </div>
+
+                {/* Column 3: Responsibilities & Impact */}
+                <div className="lg:col-span-5 font-serif text-base text-[var(--ink)]/85 leading-relaxed space-y-2">
+                  <ul className="space-y-2.5">
+                    {exp.points.map((pt, pIdx) => (
+                      <li key={pIdx} className="flex items-start gap-2.5">
+                        <span className="text-[var(--red-pencil)] font-mono text-xs mt-1">&bull;</span>
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <p className="font-serif text-sm text-ink/80 leading-relaxed font-normal">
-                Second Class Upper Division. Rigorous training in syntactic analysis, linguistics, and communicative impact.
-              </p>
+            ))}
+
+            {/* Education Row */}
+            <div className="py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+              <div className="lg:col-span-3 space-y-2">
+                <span className="font-mono text-xs font-bold text-[var(--ink-secondary)] block">
+                  ALMA MATER
+                </span>
+                <div className="font-display font-bold text-xl text-[var(--ink)]">
+                  {RESUME_DATA.education.school}
+                </div>
+              </div>
+
+              <div className="lg:col-span-4">
+                <h3 className="font-serif font-bold text-2xl text-[var(--ink)] leading-snug">
+                  {RESUME_DATA.education.degree}
+                </h3>
+                <div className="font-mono text-xs text-[var(--ink-secondary)] uppercase mt-1">
+                  Department of English
+                </div>
+              </div>
+
+              <div className="lg:col-span-5 font-serif text-base text-[var(--ink)]/85 leading-relaxed">
+                Foundational training in literary criticism, textual analysis, rhetoric, and syntactic composition.
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Action Callout to View Complete CV */}
-        <div className="p-6 sm:p-8 rounded-lg bg-[var(--paper-leaf)] border flex flex-col sm:flex-row items-center justify-between gap-6" style={{ borderColor: 'var(--ink-rule)' }}>
-          <div>
-            <h4 className="font-display font-bold text-xl sm:text-2xl text-ink mb-1">
-              Inspect the Complete Manuscript Curriculum Vitae
-            </h4>
-            <p className="font-serif text-sm text-ink/70">
-              Access comprehensive role histories, quantifiable outcomes, and a printable folio copy.
-            </p>
+        {/* Bottom Colophon Action */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-8 border-t border-[var(--rule)]">
+          <div className="flex items-center gap-3">
+            <RedArrow direction="right" />
+            <span className="font-serif italic text-lg text-[var(--ink)]/80">
+              Complete professional references and curriculum vitae available upon request.
+            </span>
           </div>
 
           <button
             onClick={onOpenResume}
-            className="px-7 py-3.5 rounded text-xs font-mono font-bold tracking-wider uppercase flex items-center gap-2.5 transition-all text-white shrink-0"
-            style={{ background: 'var(--red-pencil)' }}
+            className="font-mono text-xs font-bold uppercase tracking-wider text-[var(--ink)] hover:text-[var(--red-pencil)] transition-colors inline-flex items-center gap-2 underline underline-offset-4"
           >
-            <FileText className="w-4 h-4" />
-            <span>Open Complete CV Folio</span>
-            <ArrowUpRight className="w-4 h-4" />
+            <span>Open Verified Curriculum Vitae Sheet</span>
+            <ArrowUpRight className="w-4 h-4 text-[var(--red-pencil)]" />
           </button>
         </div>
 

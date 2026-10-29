@@ -4,53 +4,43 @@
 
 /* ============================================================
    THE EDITORIAL BROADSHEET // ABISOLA OLUWATOYIN
-   Inspired by The Atlantic, Luncheon Magazine, & Literary Archives
-   Palette A: Ivory Vellum  |  Palette B: Carbon Nocturne
+   Inspired by "Rendezvous with Rushdie", Luncheon Magazine & T.S. Eliot
+   Pure Editorial Magazine Spread — NO BOXES, NO MARQUEES
    ============================================================ */
 
 :root,
-[data-palette="lilac"],
-[data-palette="ivory"] {
-  --paper:             #F7F5F0;  /* Warm Archival Ivory Paper */
-  --paper-leaf:        #FFFFFF;  /* Crisp White Leaf */
-  --paper-aged:        #EDE8DF;  /* Editorial Newsprint Tint */
-  --ink:               #141414;  /* Deep Carbon Indian Ink */
-  --ink-muted:         #5A5650;  /* Editorial Charcoal */
-  --ink-faint:         rgba(20, 20, 20, 0.28);
-  --red-pencil:        #D92D20;  /* Authentic Vermilion Proofreader Red */
-  --ink-rule:          rgba(20, 20, 20, 0.12);
-  --ink-rule-strong:   #141414;
-  --accent:            #D92D20;
+[data-palette="ivory"],
+[data-palette="lilac"] {
+  --paper:             #FAF8F5;  /* Pure Fine Book Paper */
+  --ink:               #0A0A0A;  /* Deep Carbon Black Ink */
+  --ink-secondary:     #4A4744;  /* Editorial Body Charcoal */
+  --ink-faint:         rgba(10, 10, 10, 0.22);
+  --red-pencil:        #CC1111;  /* Authentic Vermilion Editorial Ink */
+  --rule:              rgba(10, 10, 10, 0.12);
+  --rule-strong:       #0A0A0A;
   --bg:                var(--paper);
-  --bg-card:           var(--paper-leaf);
-  --border:            var(--ink-rule);
 }
 
-[data-palette="pistachio"],
-[data-palette="nocturne"] {
-  --paper:             #121214;  /* Deep Matte Carbon Sheet */
-  --paper-leaf:        #1A1A1D;  /* Rich Dark Obsidian Page */
-  --paper-aged:        #242428;  /* Toned Slate Rule */
-  --ink:               #F5F3ED;  /* Bone White Typeset Ink */
-  --ink-muted:         #A39E93;  /* Muted Newsprint Grey */
-  --ink-faint:         rgba(245, 243, 237, 0.25);
-  --red-pencil:        #FF3B30;  /* Vivid Crimson Pencil */
-  --ink-rule:          rgba(245, 243, 237, 0.12);
-  --ink-rule-strong:   #F5F3ED;
-  --accent:            #FF3B30;
+[data-palette="nocturne"],
+[data-palette="pistachio"] {
+  --paper:             #0C0C0D;  /* Deep Obsidian Paper */
+  --ink:               #F5F3EE;  /* Crisp Bone White */
+  --ink-secondary:     #A6A198;  /* Muted Newsprint Grey */
+  --ink-faint:         rgba(245, 243, 238, 0.22);
+  --red-pencil:        #FF3333;  /* Vivid Editorial Crimson */
+  --rule:              rgba(245, 243, 238, 0.12);
+  --rule-strong:       #F5F3EE;
   --bg:                var(--paper);
-  --bg-card:           var(--paper-leaf);
-  --border:            var(--ink-rule);
 }
 
-/* ---- Base Reset ---- */
+/* Base Reset */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 75px;
+  scroll-padding-top: 60px;
 }
 
 body {
@@ -69,13 +59,13 @@ body {
   color: #FFFFFF;
 }
 
-/* ---- Typography ---- */
-.font-serif {
-  font-family: 'EB Garamond', Georgia, serif;
+/* Typography Classes */
+.font-display {
+  font-family: 'Bodoni Moda', 'Playfair Display', Georgia, serif;
 }
 
-.font-display {
-  font-family: 'Playfair Display', Georgia, serif;
+.font-serif {
+  font-family: 'EB Garamond', Georgia, serif;
 }
 
 .font-hand {
@@ -90,95 +80,88 @@ body {
   font-family: 'Instrument Sans', system-ui, sans-serif;
 }
 
-/* ---- Broadsheet Grid & Sheet Styling ---- */
-.broadsheet-card {
-  background: var(--paper-leaf);
-  border: 1px solid var(--ink-rule);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+/* Broadsheet Columns & Hairline Dividers */
+.broadsheet-divider-r {
+  border-right: 1px solid var(--rule);
 }
 
-.broadsheet-card:hover {
-  border-color: var(--ink-rule-strong);
+.broadsheet-divider-b {
+  border-bottom: 1px solid var(--rule);
 }
 
-/* Red pencil editorial margin notes */
-.marginalia {
-  font-family: 'Caveat', cursive;
-  color: var(--red-pencil);
-  line-height: 1.15;
+.broadsheet-divider-t {
+  border-top: 1px solid var(--rule);
 }
 
-/* Broadsheet Vertical Rule Divider */
-.broadsheet-rule-r {
-  border-right: 1px solid var(--ink-rule);
-}
-
-/* Authentic Red Editorial Stamp */
-.proof-stamp {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-family: 'Courier Prime', monospace;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 0.2rem 0.55rem;
-  border: 1px dashed var(--red-pencil);
-  color: var(--red-pencil);
-  border-radius: 2px;
-  background: rgba(217, 45, 32, 0.04);
-}
-
-/* Drop-Cap Inspired by Image 2 & Image 5 */
-.drop-cap-large {
+/* Drop-Caps from Image 2 ("Rendezvous with Rushdie") & Image 5 (Luncheon) */
+.drop-cap-rushdie {
   float: left;
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 5rem;
-  line-height: 0.75;
-  padding-top: 6px;
-  padding-right: 12px;
+  font-family: 'Bodoni Moda', 'Playfair Display', Georgia, serif;
+  font-size: 5.5rem;
+  line-height: 0.72;
+  padding-top: 8px;
+  padding-right: 14px;
   padding-bottom: 2px;
   color: var(--ink);
   font-weight: 900;
 }
 
-/* Keyframe Animations */
-@keyframes pulseDot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.3; transform: scale(0.7); }
+.drop-cap-red {
+  float: left;
+  font-family: 'Bodoni Moda', 'Playfair Display', Georgia, serif;
+  font-size: 5.5rem;
+  line-height: 0.72;
+  padding-top: 8px;
+  padding-right: 14px;
+  padding-bottom: 2px;
+  color: var(--red-pencil);
+  font-weight: 900;
 }
 
-@keyframes marqueeEditorial {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+/* Editorial Margin Notes (No boxes!) */
+.editorial-margin-note {
+  font-family: 'Caveat', cursive;
+  color: var(--red-pencil);
+  line-height: 1.15;
+  font-size: 1.05rem;
 }
 
-.animate-pulse-dot {
-  animation: pulseDot 1.4s ease-in-out infinite;
+/* Strikethrough edit line */
+.strike-edit {
+  text-decoration: line-through;
+  text-decoration-color: var(--red-pencil);
+  text-decoration-thickness: 1.5px;
+  opacity: 0.65;
 }
 
-.animate-marquee-broadsheet {
-  display: inline-flex;
-  white-space: nowrap;
-  animation: marqueeEditorial 38s linear infinite;
+/* Minimalist Underline Input for Form (NO BOXES) */
+.editorial-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  padding: 0.75rem 0;
+  width: 100%;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.125rem;
+  outline: none;
+  transition: border-color 0.2s;
 }
 
-.animate-marquee-broadsheet:hover {
-  animation-play-state: paused;
+.editorial-input:focus {
+  border-bottom-color: var(--ink);
 }
 
-/* Precision Scrollbar */
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 4px;
+  height: 4px;
 }
 ::-webkit-scrollbar-track {
   background: var(--paper);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--ink-faint);
-  border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--red-pencil);

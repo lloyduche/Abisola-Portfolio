@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PROJECTS } from '../data/portfolioData';
 import { Project } from '../types';
-import { ArrowUpRight, FileText } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 interface FeaturedWorkProps {
   onSelectProject: (project: Project) => void;
@@ -22,129 +22,108 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
       });
 
   return (
-    <section id="work" className="py-20 lg:py-28 border-b" style={{ borderColor: 'var(--ink-rule)' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+    <section id="work" className="py-20 lg:py-32 border-b border-[var(--rule)]">
+      <div className="max-w-7xl mx-auto px-6 sm:px-12">
 
         {/* Broadsheet Folio Chapter Line */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 mb-10 border-b" style={{ borderColor: 'var(--ink-rule)' }}>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 mb-10 border-b border-[var(--rule)]">
           <div>
-            <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mb-2 text-ink/70">
-              <span className="font-bold text-[var(--red-pencil)]">¶ CHAPTER III</span>
+            <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mb-2 text-[var(--ink-secondary)]">
+              <span className="font-bold text-[var(--red-pencil)]">&para; CHAPTER III</span>
               <span>/</span>
               <span>SELECTED COMMERCIAL WORKS &amp; ESSAYS</span>
             </div>
-            <h2 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-ink">
+            <h2 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-[var(--ink)]">
               The Archive of Published Works.
             </h2>
           </div>
-          <div className="font-serif italic text-lg max-w-md text-ink/80">
+          <div className="font-serif italic text-lg max-w-md text-[var(--ink)]/80">
             From high-conversion regulatory compliance emails to payment product messaging, webinar journeys, and viral essays.
           </div>
         </div>
 
-        {/* Category Filters */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-12 scrollbar-none">
+        {/* Typographic Filters (NO BOXES, clean text links) */}
+        <div className="flex items-center gap-6 overflow-x-auto pb-4 mb-16 scrollbar-none border-b border-[var(--rule)]/60 text-xs font-mono uppercase tracking-wider">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className="px-4 py-2 rounded text-xs font-mono tracking-wider uppercase whitespace-nowrap transition-all duration-200 border"
-              style={
+              className={`pb-2 whitespace-nowrap transition-colors ${
                 activeCategory === cat
-                  ? {
-                      background: 'var(--ink)',
-                      color: 'var(--paper)',
-                      borderColor: 'var(--ink)',
-                    }
-                  : {
-                      background: 'var(--paper-leaf)',
-                      color: 'var(--ink)',
-                      borderColor: 'var(--ink-rule)',
-                    }
-              }
+                  ? 'border-b-2 border-[var(--red-pencil)] text-[var(--ink)] font-bold'
+                  : 'text-[var(--ink-secondary)] hover:text-[var(--ink)]'
+              }`}
             >
-              {cat === 'ALL' ? `ALL PUBLISHED WORKS [${PROJECTS.length}]` : cat}
+              {cat === 'ALL' ? `All Works [${PROJECTS.length}]` : cat}
             </button>
           ))}
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        {/* The Works Stream (NO BOXES — each is a pure broadsheet article spread) */}
+        <div className="space-y-20">
           {filteredProjects.map((project, idx) => (
             <article
               key={project.id}
-              className="broadsheet-card p-7 sm:p-9 rounded-lg flex flex-col justify-between transition-all duration-300 hover:shadow-lg group"
+              className="border-b border-[var(--rule)] pb-16 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start"
             >
-              <div>
-                {/* Meta Top Line */}
-                <div className="flex items-center justify-between pb-3 mb-5 border-b text-xs font-mono" style={{ borderColor: 'var(--ink-rule)' }}>
-                  <div className="flex items-center gap-2">
-                    <span className="font-bold uppercase text-[var(--red-pencil)]">
-                      ENTRY 0{idx + 1}
-                    </span>
-                    <span className="opacity-40">|</span>
-                    <span className="text-ink/70">{project.tagCategory}</span>
-                  </div>
-                  <span className="proof-stamp text-[9px]">PUBLISHED</span>
+              {/* Left Column: Number & Strategic Marginalia */}
+              <div className="lg:col-span-3 space-y-3 font-mono text-xs">
+                <div className="text-sm font-bold text-[var(--red-pencil)]">
+                  ENTRY 0{idx + 1} //
+                </div>
+                <div className="uppercase tracking-wider text-[var(--ink-secondary)]">
+                  {project.tagCategory}
                 </div>
 
-                {/* Title */}
-                <h3 className="font-display font-bold text-2xl sm:text-3xl mb-3 leading-snug text-ink group-hover:text-[var(--red-pencil)] transition-colors">
-                  {project.title}
-                </h3>
-
-                {/* Short Synopsis */}
-                <p className="font-serif text-lg sm:text-xl text-ink/85 leading-relaxed font-normal mb-6">
-                  {project.shortDesc}
-                </p>
-
-                {/* Red Pencil Editorial Note on the Strategic Hook */}
+                {/* Red Pencil Margin Note (Image 1 style) */}
                 {project.hook && (
-                  <div
-                    className="p-4 rounded mb-6 border-l-2 font-mono text-xs"
-                    style={{
-                      background: 'var(--paper)',
-                      borderColor: 'var(--red-pencil)',
-                      color: 'var(--ink)',
-                    }}
-                  >
-                    <div className="font-hand text-base mb-1 text-[var(--red-pencil)]">
-                      ^ [editorial margin: the commercial anchor]
-                    </div>
-                    <div className="font-semibold text-ink">
-                      "{project.hook}"
-                    </div>
+                  <div className="pt-4 border-t border-[var(--rule)]/60 font-hand text-base text-[var(--red-pencil)] leading-snug">
+                    ^ [commercial anchor] <br />
+                    "{project.hook}"
                   </div>
                 )}
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3 pt-4 border-t font-mono text-xs" style={{ borderColor: 'var(--ink-rule)' }}>
-                <button
-                  onClick={() => onSelectProject(project)}
-                  className="px-5 py-2.5 rounded font-bold tracking-wider uppercase flex items-center gap-2 border transition-all hover:bg-black/5"
-                  style={{
-                    borderColor: 'var(--ink-rule-strong)',
-                    background: 'var(--paper-leaf)',
-                    color: 'var(--ink)',
-                  }}
-                >
-                  <FileText className="w-4 h-4 text-[var(--red-pencil)]" />
-                  <span>Inspect Copy Excerpt ↗</span>
-                </button>
+              {/* Center & Right Column: Headline, Synopsis & Excerpt */}
+              <div className="lg:col-span-9 space-y-6">
+                <h3 className="font-display font-bold text-3xl sm:text-4xl text-[var(--ink)] leading-snug">
+                  {project.title}
+                </h3>
 
-                {project.fullContent?.substackLink && (
-                  <a
-                    href={project.fullContent.substackLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2.5 rounded font-bold tracking-wider uppercase flex items-center gap-1.5 transition-all text-white"
-                    style={{ background: 'var(--red-pencil)' }}
-                  >
-                    <span>Read on Substack</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </a>
+                <p className="font-serif italic text-xl sm:text-2xl text-[var(--ink)]/85 leading-relaxed">
+                  {project.shortDesc}
+                </p>
+
+                {/* Direct Excerpt Preview if available */}
+                {project.fullContent?.excerpt && (
+                  <div className="pl-6 border-l border-[var(--rule)] space-y-3 font-serif text-lg text-[var(--ink)]/85">
+                    {project.fullContent.excerpt.slice(0, 2).map((p, pIdx) => (
+                      <p key={pIdx}>{p}</p>
+                    ))}
+                  </div>
                 )}
+
+                {/* Action Links (Clean text links, NO BUTTON BOXES) */}
+                <div className="flex flex-wrap items-center gap-6 pt-4 font-mono text-xs uppercase tracking-wider">
+                  <button
+                    onClick={() => onSelectProject(project)}
+                    className="font-bold text-[var(--ink)] hover:text-[var(--red-pencil)] transition-colors underline underline-offset-4"
+                  >
+                    Inspect Complete Excerpt &amp; Strategic Notes &rarr;
+                  </button>
+
+                  {project.fullContent?.substackLink && (
+                    <a
+                      href={project.fullContent.substackLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-[var(--red-pencil)] hover:underline flex items-center gap-1"
+                    >
+                      <span>Read on Substack</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+                </div>
               </div>
             </article>
           ))}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { RESUME_DATA } from '../data/portfolioData';
-import { X, Printer } from 'lucide-react';
+import { EditorialStamp } from './ManuscriptMarks';
+import { X, Printer, ArrowUpRight } from 'lucide-react';
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -12,147 +13,163 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm animate-fadeIn"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-lg p-6 sm:p-12 border broadsheet-card"
+        className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto p-8 sm:p-14 border border-[var(--rule)]"
         style={{
-          background: 'var(--paper-leaf)',
-          borderColor: 'var(--ink-rule)',
+          background: 'var(--paper)',
           color: 'var(--ink)',
-          boxShadow: '0 25px 60px rgba(0,0,0,0.35)',
+          boxShadow: '0 25px 70px rgba(0,0,0,0.5)',
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          className="absolute top-6 right-6 w-8 h-8 rounded border flex items-center justify-center transition-all hover:border-[var(--red-pencil)]"
-          style={{
-            borderColor: 'var(--ink-rule)',
-            background: 'var(--paper)',
-            color: 'var(--ink)',
-          }}
-          aria-label="Close CV"
-        >
-          <X className="w-4 h-4" />
-        </button>
-
-        {/* Printable Sheet */}
-        <div className="print:p-0">
-
-          {/* Header */}
-          <div className="pb-6 mb-8 border-b" style={{ borderColor: 'var(--ink-rule)' }}>
-            <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-ink">
-              Abisola Oluwatoyin
-            </h2>
-            <p className="font-serif italic text-lg text-[var(--red-pencil)] mt-1 font-semibold">
-              Writer | Marketing, Communications &amp; Brand Storytelling
-            </p>
-            <p className="text-xs font-mono text-ink/70 mt-2">
-              Email: abisolaaoluwatoyin@gmail.com &bull; LinkedIn: linkedin.com/in/abisola-oluwatoyin &bull; Substack: abisolawrites.substack.com
-            </p>
+        {/* Top Folio & Close Button */}
+        <div className="flex items-center justify-between pb-4 mb-8 border-b border-[var(--rule)] text-xs font-mono tracking-widest uppercase text-[var(--ink-secondary)]">
+          <div className="flex items-center gap-2">
+            <span className="font-bold text-[var(--red-pencil)]">&para; OFFICIAL RECORD</span>
+            <span>/</span>
+            <span>CURRICULUM VITAE</span>
           </div>
 
-          {/* Summary */}
-          <div className="mb-8">
-            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-[var(--red-pencil)] pb-2 mb-3 border-b" style={{ borderColor: 'var(--ink-rule)' }}>
-              Professional Summary
-            </h3>
-            <p className="font-serif text-base leading-relaxed text-ink/90 font-normal">
-              {RESUME_DATA.summary}
-            </p>
-          </div>
-
-          {/* Experience */}
-          <div className="mb-8">
-            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-[var(--red-pencil)] pb-2 mb-4 border-b" style={{ borderColor: 'var(--ink-rule)' }}>
-              Professional Experience
-            </h3>
-            <div className="space-y-6">
-              {RESUME_DATA.experiences.map((exp, idx) => (
-                <div key={idx}>
-                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                    <h4 className="font-serif font-bold text-lg text-ink">
-                      {exp.role}
-                    </h4>
-                    <span className="text-xs font-mono font-bold text-[var(--red-pencil)]">
-                      {exp.period}
-                    </span>
-                  </div>
-                  <div className="text-xs font-mono font-semibold text-ink/60 mb-2">
-                    {exp.company}
-                  </div>
-                  <ul className="list-disc list-inside space-y-1.5 font-serif text-base text-ink/85 leading-relaxed font-normal">
-                    {exp.points.map((pt, pIdx) => (
-                      <li key={pIdx}>{pt}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Education */}
-          <div className="mb-8">
-            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-[var(--red-pencil)] pb-2 mb-3 border-b" style={{ borderColor: 'var(--ink-rule)' }}>
-              Education &amp; Linguistics Foundation
-            </h3>
-            <div>
-              <div className="font-serif font-bold text-base text-ink">
-                {RESUME_DATA.education.degree}
-              </div>
-              <div className="text-xs font-mono text-ink/60 mt-0.5">
-                {RESUME_DATA.education.school}
-              </div>
-            </div>
-          </div>
-
-          {/* Core Expertise */}
-          <div className="mb-8">
-            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-[var(--red-pencil)] pb-2 mb-3 border-b" style={{ borderColor: 'var(--ink-rule)' }}>
-              Core Competencies
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {RESUME_DATA.areasOfExpertise.map((skill) => (
-                <span
-                  key={skill}
-                  className="px-3 py-1 rounded text-xs font-mono border text-ink"
-                  style={{
-                    background: 'var(--paper)',
-                    borderColor: 'var(--ink-rule)',
-                  }}
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Footer Actions */}
-          <div className="flex justify-end gap-3 pt-6 border-t font-mono text-xs" style={{ borderColor: 'var(--ink-rule)' }}>
+          <div className="flex items-center gap-4">
             <button
               onClick={() => window.print()}
-              className="px-6 py-2.5 rounded font-bold uppercase flex items-center gap-2 text-white"
-              style={{ background: 'var(--red-pencil)' }}
+              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono uppercase text-[var(--ink-secondary)] hover:text-[var(--ink)]"
             >
-              <Printer className="w-4 h-4" />
-              <span>Print Folio PDF</span>
+              <Printer className="w-3.5 h-3.5 text-[var(--red-pencil)]" />
+              <span>Print Sheet</span>
             </button>
             <button
               onClick={onClose}
-              className="px-6 py-2.5 rounded border font-bold uppercase transition-colors"
-              style={{
-                borderColor: 'var(--ink-rule-strong)',
-                background: 'var(--paper)',
-                color: 'var(--ink)',
-              }}
+              className="p-1 text-[var(--ink-secondary)] hover:text-[var(--red-pencil)] transition-colors"
+              aria-label="Close"
             >
-              Close
+              <X className="w-5 h-5" />
             </button>
           </div>
+        </div>
 
+        {/* Masterhead */}
+        <div className="pb-8 mb-10 border-b border-[var(--rule)]">
+          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
+            <div>
+              <h2 className="font-display font-black text-3xl sm:text-5xl text-[var(--ink)]">
+                Abisola Oluwatoyin
+              </h2>
+              <div className="font-serif italic text-xl text-[var(--red-pencil)] mt-1 font-semibold">
+                Writer &bull; Marketing &amp; Corporate Communications Specialist
+              </div>
+            </div>
+            <EditorialStamp text="verified dossier" />
+          </div>
+
+          <div className="font-mono text-xs text-[var(--ink-secondary)] mt-4 flex flex-wrap gap-x-6 gap-y-2">
+            <span>Email: abisolaaoluwatoyin@gmail.com</span>
+            <span>Location: Lagos, Nigeria</span>
+            <span>Substack: abisolawrites.substack.com</span>
+          </div>
+        </div>
+
+        {/* Summary Section */}
+        <div className="mb-10 pb-8 border-b border-[var(--rule)]">
+          <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--red-pencil)] mb-3">
+            EXECUTIVE SUMMARY
+          </h3>
+          <p className="font-serif text-lg leading-relaxed text-[var(--ink)]/90 font-normal">
+            {RESUME_DATA.summary}
+          </p>
+        </div>
+
+        {/* Experience Chronology */}
+        <div className="mb-10 pb-8 border-b border-[var(--rule)] space-y-8">
+          <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--red-pencil)] mb-4">
+            PROFESSIONAL APPOINTMENTS
+          </h3>
+
+          <div className="space-y-8 divide-y divide-[var(--rule)]">
+            {RESUME_DATA.experiences.map((exp, idx) => (
+              <div key={idx} className={idx === 0 ? '' : 'pt-8'}>
+                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+                  <div className="font-display font-bold text-2xl text-[var(--ink)]">
+                    {exp.role}
+                  </div>
+                  <span className="font-mono text-xs font-bold text-[var(--red-pencil)]">
+                    {exp.period}
+                  </span>
+                </div>
+
+                <div className="font-serif italic text-base text-[var(--ink-secondary)] mb-4">
+                  {exp.company} &bull; Lagos, Nigeria
+                </div>
+
+                <ul className="space-y-2.5 font-serif text-base text-[var(--ink)]/85">
+                  {exp.points.map((pt, pIdx) => (
+                    <li key={pIdx} className="flex items-start gap-3">
+                      <span className="text-[var(--red-pencil)] font-mono text-xs mt-1.5">&bull;</span>
+                      <span>{pt}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Education */}
+        <div className="mb-10 pb-8 border-b border-[var(--rule)]">
+          <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--red-pencil)] mb-4">
+            ACADEMIC CREDENTIALS
+          </h3>
+          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+            <div>
+              <div className="font-display font-bold text-xl text-[var(--ink)]">
+                {RESUME_DATA.education.degree}
+              </div>
+              <div className="font-serif italic text-base text-[var(--ink-secondary)]">
+                {RESUME_DATA.education.school}
+              </div>
+            </div>
+            <span className="font-mono text-xs text-[var(--ink-secondary)] font-bold">
+              DEPARTMENT OF ENGLISH
+            </span>
+          </div>
+        </div>
+
+        {/* Areas of Expertise */}
+        <div className="mb-10 pb-8 border-b border-[var(--rule)]">
+          <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--red-pencil)] mb-4">
+            CORE DOMAINS OF EXPERTISE
+          </h3>
+          <div className="flex flex-wrap gap-2.5">
+            {RESUME_DATA.areasOfExpertise.map((item, i) => (
+              <span
+                key={i}
+                className="px-3 py-1 text-xs font-mono border border-[var(--rule)] text-[var(--ink)]"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Modal Footer */}
+        <div className="flex items-center justify-between pt-4 font-mono text-xs">
+          <a
+            href="mailto:abisolaaoluwatoyin@gmail.com"
+            className="text-[var(--red-pencil)] font-bold uppercase tracking-wider inline-flex items-center gap-1 hover:underline"
+          >
+            <span>Inquire Directly</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </a>
+
+          <button
+            onClick={onClose}
+            className="px-6 py-2 border border-[var(--rule)] text-[var(--ink)] font-bold uppercase tracking-wider hover:border-[var(--ink)] transition-colors"
+          >
+            Close Sheet
+          </button>
         </div>
 
       </div>

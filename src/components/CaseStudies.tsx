@@ -1,206 +1,212 @@
 import React, { useState } from 'react';
 import { CASE_STUDIES } from '../data/portfolioData';
-import { ArrowUpRight, CheckCircle2, Bookmark } from 'lucide-react';
+import { RedArrow, EditorialStamp } from './ManuscriptMarks';
+import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 
 export const CaseStudies: React.FC = () => {
   const [activeTab, setActiveTab] = useState(CASE_STUDIES[0].id);
   const activeCase = CASE_STUDIES.find((c) => c.id === activeTab) || CASE_STUDIES[0];
 
-  const editorialMarginNotes: Record<string, { decision: string; rationale: string }> = {
+  const editorialMarginNotes: Record<string, { decision: string; rationale: string; stamp: string }> = {
     cs1: {
       decision: 'Lead with the ₦200,000 regulatory penalty under Section 104.',
       rationale: 'CFOs and enterprise heads ignore generic sales pitches, but they immediately answer audit-risk notices.',
+      stamp: 'REGULATORY AUDIT',
     },
     cs2: {
       decision: 'Anchor product positioning in Nigeria\'s ₦1.07 quadrillion transfer data.',
       rationale: 'Made virtual accounts and smart POS terminals feel like an inevitable infrastructure upgrade rather than just another vendor pitch.',
+      stamp: 'INFRASTRUCTURE',
     },
     cs3: {
       decision: 'Segment invitation copy by industry-specific operational pain points.',
       rationale: 'Generated 823+ registrations and 520+ attendees by addressing hospitality and tax sectors with bespoke copy.',
+      stamp: 'CONVERSION FUNNEL',
     },
     cs4: {
       decision: 'Pair vulnerable, authentic prose with sharp observational essays.',
       rationale: 'Grew to 1,469+ subscribers and 28,000+ views by treating the audience with intellectual respect.',
+      stamp: 'LITERARY ESSAY',
     },
   };
 
   const currentAnnotation = editorialMarginNotes[activeCase.id] || editorialMarginNotes.cs1;
 
   return (
-    <section id="case-studies" className="py-20 lg:py-28 border-b" style={{ borderColor: 'var(--ink-rule)' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+    <section id="case-studies" className="py-20 lg:py-32 border-b border-[var(--rule)]">
+      <div className="max-w-7xl mx-auto px-6 sm:px-12">
 
         {/* Broadsheet Folio Chapter Line */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 mb-10 border-b" style={{ borderColor: 'var(--ink-rule)' }}>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 mb-10 border-b border-[var(--rule)]">
           <div>
-            <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mb-2 text-ink/70">
-              <span className="font-bold text-[var(--red-pencil)]">¶ CHAPTER IV</span>
+            <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mb-2 text-[var(--ink-secondary)]">
+              <span className="font-bold text-[var(--red-pencil)]">&para; CHAPTER IV</span>
               <span>/</span>
               <span>IN-DEPTH STRATEGIC CASE SPREADS</span>
             </div>
-            <h2 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-ink">
+            <h2 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-[var(--ink)]">
               Strategic Case Studies.
             </h2>
           </div>
-          <div className="font-serif italic text-lg max-w-md text-ink/80">
+          <div className="font-serif italic text-lg max-w-md text-[var(--ink)]/80">
             A deeper look into messaging architecture, audience psychology, execution funnels, and verified business results.
           </div>
         </div>
 
-        {/* Bookmark Tabs */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-10">
-          {CASE_STUDIES.map((cs, idx) => (
-            <button
-              key={cs.id}
-              onClick={() => setActiveTab(cs.id)}
-              className="p-4 rounded border text-left transition-all duration-200"
-              style={
-                activeTab === cs.id
-                  ? {
-                      background: 'var(--ink)',
-                      color: 'var(--paper)',
-                      borderColor: 'var(--ink)',
-                    }
-                  : {
-                      background: 'var(--paper-leaf)',
-                      color: 'var(--ink)',
-                      borderColor: 'var(--ink-rule)',
-                    }
-              }
-            >
-              <div className="text-[10px] font-mono font-bold uppercase tracking-wider mb-1 flex items-center gap-1.5" style={{ color: activeTab === cs.id ? 'var(--red-pencil)' : 'var(--ink-muted)' }}>
-                <Bookmark className="w-3 h-3" />
-                <span>SPREAD 0{idx + 1}</span>
-              </div>
-              <div className="font-serif font-bold text-base leading-snug line-clamp-1">
-                {cs.title.split(':')[0]}
-              </div>
-            </button>
-          ))}
+        {/* Typographic Case Index (NO BOXES, clean typographic tabs) */}
+        <div className="flex items-center gap-8 overflow-x-auto pb-4 mb-16 scrollbar-none border-b border-[var(--rule)] text-xs font-mono uppercase tracking-wider">
+          {CASE_STUDIES.map((cs, idx) => {
+            const isActive = activeTab === cs.id;
+            return (
+              <button
+                key={cs.id}
+                onClick={() => setActiveTab(cs.id)}
+                className={`text-left pb-3 transition-colors relative whitespace-nowrap ${
+                  isActive
+                    ? 'text-[var(--ink)] font-bold'
+                    : 'text-[var(--ink-secondary)] hover:text-[var(--ink)]'
+                }`}
+              >
+                <span className="text-[10px] block font-mono text-[var(--red-pencil)] mb-1">
+                  SPREAD 0{idx + 1}
+                </span>
+                <span className="text-sm font-serif">{cs.title.split(':')[0]}</span>
+                {isActive && (
+                  <span
+                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-[var(--red-pencil)]"
+                    style={{ bottom: '-1px' }}
+                  />
+                )}
+              </button>
+            );
+          })}
         </div>
 
-        {/* The 2-Page Editorial Spread */}
-        <div className="broadsheet-card p-7 sm:p-12 rounded-lg border">
+        {/* Double-Page Spread: Verso (Left) & Recto (Right) — NO BOXES */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
-          {/* Spread Running Head */}
-          <div className="pb-6 mb-8 border-b flex flex-wrap items-center justify-between gap-4 font-mono text-xs uppercase" style={{ borderColor: 'var(--ink-rule)' }}>
-            <div className="flex items-center gap-2">
-              <span className="font-bold text-[var(--red-pencil)]">SPREAD: {activeCase.discipline}</span>
+          {/* Verso (Left 7 Cols): Narrative & Execution Analysis */}
+          <div className="lg:col-span-7 space-y-10">
+
+            {/* Headline & Subhead */}
+            <div className="border-b border-[var(--rule)] pb-6">
+              <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-[var(--red-pencil)] mb-3">
+                <EditorialStamp text={currentAnnotation.stamp} />
+                <span>DISCIPLINE // {activeCase.discipline}</span>
+              </div>
+              <h3 className="font-display font-bold text-3xl sm:text-4xl text-[var(--ink)] leading-tight">
+                {activeCase.title}
+              </h3>
             </div>
-            <div className="text-ink/60">
-              MEMORANDUM REF // {activeCase.id.toUpperCase()}
+
+            {/* 01: The Problem */}
+            <div>
+              <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider mb-3 text-[var(--red-pencil)]">
+                <span>01 // THE COMMERCIAL CONTEXT &amp; MANDATE</span>
+              </div>
+              <p className="font-serif text-lg text-[var(--ink)]/90 leading-relaxed font-normal">
+                {activeCase.project}
+              </p>
             </div>
+
+            {/* 02: Strategic Framing */}
+            <div>
+              <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider mb-3 text-[var(--red-pencil)]">
+                <span>02 // STRATEGIC FRAMING &amp; AUDIENCE PSYCHOLOGY</span>
+              </div>
+              <p className="font-serif text-lg text-[var(--ink)]/90 leading-relaxed font-normal">
+                {activeCase.approach}
+              </p>
+            </div>
+
+            {/* 03: Execution Architecture */}
+            <div>
+              <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider mb-4 text-[var(--red-pencil)]">
+                <span>03 // EXECUTION ARCHITECTURE</span>
+              </div>
+              <div className="space-y-4">
+                {activeCase.execution.map((step, idx) => (
+                  <div key={idx} className="flex items-start gap-3.5 font-serif text-base text-[var(--ink)]/90">
+                    <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5 text-[var(--red-pencil)]" />
+                    <span>{step}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Author's Capacity */}
+            <div className="pt-6 border-t border-[var(--rule)] font-mono text-xs flex items-center justify-between">
+              <div>
+                <span className="text-[var(--ink-secondary)] uppercase block mb-1">AUTHOR'S CAPACITY</span>
+                <span className="font-bold text-[var(--ink)]">{activeCase.role}</span>
+              </div>
+              <span className="text-[var(--red-pencil)] font-hand text-base">
+                ~ verified engagement
+              </span>
+            </div>
+
           </div>
 
-          <h3 className="font-display font-bold text-3xl sm:text-4xl text-ink leading-tight mb-10">
-            {activeCase.title}
-          </h3>
+          {/* Recto (Right 5 Cols): Editorial Marginalia & Quantified Impact — Divided by hairline rule */}
+          <div className="lg:col-span-5 lg:border-l lg:border-[var(--rule)] lg:pl-12 space-y-10">
 
-          {/* Verso & Recto 2-Column Spread */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-
-            {/* Verso: Narrative & Strategic Approach */}
-            <div className="lg:col-span-8 space-y-8 font-serif text-lg leading-relaxed">
-              <div>
-                <h4 className="font-mono text-xs font-bold uppercase tracking-wider mb-2 text-[var(--red-pencil)]">
-                  01 // THE COMMERCIAL CONTEXT &amp; PROBLEM
-                </h4>
-                <p className="text-ink/90 font-normal">
-                  {activeCase.project}
-                </p>
+            {/* Editorial Decision Note (Manuscript Marginalia style) */}
+            <div className="border-b border-[var(--rule)] pb-8">
+              <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-[var(--red-pencil)] mb-2">
+                <RedArrow direction="right" />
+                <span>EDITORIAL DECISION // MARGIN NOTE</span>
               </div>
-
-              <div>
-                <h4 className="font-mono text-xs font-bold uppercase tracking-wider mb-2 text-[var(--red-pencil)]">
-                  02 // STRATEGIC APPROACH &amp; AUDIENCE FRAMING
-                </h4>
-                <p className="text-ink/90 font-normal">
-                  {activeCase.approach}
-                </p>
-              </div>
-
-              <div>
-                <h4 className="font-mono text-xs font-bold uppercase tracking-wider mb-3 text-[var(--red-pencil)]">
-                  03 // EXECUTION HIGHLIGHTS
-                </h4>
-                <ul className="space-y-3 font-serif">
-                  {activeCase.execution.map((step, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-base text-ink/90 font-normal">
-                      <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5 text-[var(--red-pencil)]" />
-                      <span>{step}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="pt-4 border-t font-mono text-xs" style={{ borderColor: 'var(--ink-rule)' }}>
-                <span className="text-ink/50 uppercase block mb-1">AUTHOR'S CAPACITY</span>
-                <span className="font-bold text-ink">{activeCase.role}</span>
-              </div>
+              <p className="font-hand text-xl text-[var(--red-pencil)] font-bold mb-2">
+                "{currentAnnotation.decision}"
+              </p>
+              <p className="font-serif italic text-base text-[var(--ink)]/85 leading-relaxed">
+                {currentAnnotation.rationale}
+              </p>
             </div>
 
-            {/* Recto: Key Decisions & Verified Results */}
-            <div className="lg:col-span-4 flex flex-col justify-between gap-6">
-
-              {/* Editorial Decision in the Margin */}
-              <div
-                className="p-5 rounded border border-dashed font-hand text-base leading-snug"
-                style={{
-                  background: 'var(--paper)',
-                  borderColor: 'var(--red-pencil)',
-                  color: 'var(--ink)',
-                }}
-              >
-                <div className="font-mono text-[10px] uppercase font-bold tracking-wider mb-1 text-[var(--red-pencil)]">
-                  ^ [KEY EDITORIAL DECISION]
-                </div>
-                <div className="font-bold mb-1 text-[var(--red-pencil)]">
-                  "{currentAnnotation.decision}"
-                </div>
-                <div className="text-sm opacity-90 font-serif italic">
-                  {currentAnnotation.rationale}
-                </div>
+            {/* Quantified Business Impact (Clean typography, NO BOXES) */}
+            <div className="border-b border-[var(--rule)] pb-8">
+              <div className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--ink-secondary)] mb-6">
+                QUANTIFIED COMMERCIAL OUTCOMES
               </div>
 
-              {/* Verified Results */}
-              <div className="p-6 rounded border space-y-4" style={{ background: 'var(--paper)', borderColor: 'var(--ink-rule)' }}>
-                <div className="font-mono text-[10px] font-bold uppercase tracking-wider border-b pb-2 text-[var(--red-pencil)]" style={{ borderColor: 'var(--ink-rule)' }}>
-                  VERIFIED COMMERCIAL IMPACT
-                </div>
-
+              <div className="space-y-6">
                 {activeCase.results.map((r, idx) => (
-                  <div key={idx} className="border-b last:border-0 pb-3 last:pb-0" style={{ borderColor: 'var(--ink-rule)' }}>
-                    <div className="font-display font-black text-3xl text-[var(--red-pencil)]">
+                  <div key={idx} className="border-b border-[var(--rule)]/60 pb-4 last:border-0 last:pb-0">
+                    <div className="font-display font-black text-4xl sm:text-5xl text-[var(--red-pencil)] leading-none mb-1">
                       {r.stat}
                     </div>
-                    <div className="font-serif text-sm font-semibold text-ink mt-0.5">
+                    <div className="font-serif text-base text-[var(--ink)] font-medium">
                       {r.label}
                     </div>
                   </div>
                 ))}
               </div>
+            </div>
 
-              {activeCase.quote && (
-                <div className="p-5 rounded border text-sm italic font-serif leading-relaxed" style={{ background: 'var(--paper)', borderColor: 'var(--ink-rule)', color: 'var(--ink)' }}>
+            {/* Pull Quote */}
+            {activeCase.quote && (
+              <div className="border-b border-[var(--rule)] pb-8">
+                <blockquote className="font-serif italic text-lg sm:text-xl text-[var(--ink)]/90 leading-relaxed pl-4 border-l-2 border-[var(--red-pencil)]">
                   "{activeCase.quote}"
-                </div>
-              )}
+                </blockquote>
+              </div>
+            )}
 
-              {activeCase.link && (
+            {/* Link if available */}
+            {activeCase.link && (
+              <div className="pt-2">
                 <a
                   href={activeCase.link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3.5 px-6 rounded font-mono text-xs font-bold uppercase tracking-wider text-center flex items-center justify-center gap-2 text-white"
-                  style={{ background: 'var(--ink)' }}
+                  className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-[var(--red-pencil)] hover:underline"
                 >
                   <span>{activeCase.link.label}</span>
-                  <ArrowUpRight className="w-4 h-4 text-[var(--red-pencil)]" />
+                  <ArrowUpRight className="w-4 h-4" />
                 </a>
-              )}
-
-            </div>
+              </div>
+            )}
 
           </div>
 

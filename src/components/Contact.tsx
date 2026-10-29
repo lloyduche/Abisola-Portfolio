@@ -1,19 +1,6 @@
 import React, { useState } from 'react';
-import { Mail, Copy, Check, Send, BookOpen, ArrowUpRight } from 'lucide-react';
-
-const LinkedInIcon = () => (
-  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
-  </svg>
-);
-
-const InstagramIcon = () => (
-  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-  </svg>
-);
+import { RedArrow, EditorialStamp } from './ManuscriptMarks';
+import { Copy, Check, Send, ArrowUpRight } from 'lucide-react';
 
 export const Contact: React.FC = () => {
   const [copied, setCopied] = useState(false);
@@ -38,81 +25,116 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 lg:py-28 border-b" style={{ borderColor: 'var(--ink-rule)' }}>
-      <div className="max-w-4xl mx-auto px-4 sm:px-8 text-center">
+    <section id="contact" className="py-20 lg:py-32 border-b border-[var(--rule)]">
+      <div className="max-w-5xl mx-auto px-6 sm:px-12">
 
-        {/* Epilogue Marker */}
-        <div className="flex items-center justify-center gap-2 text-xs font-mono tracking-widest uppercase mb-4 text-ink/60">
-          <span className="font-bold text-[var(--red-pencil)]">¶ CHAPTER VI</span>
-          <span>/</span>
-          <span>OPEN CORRESPONDENCE</span>
+        {/* Broadsheet Folio Chapter Line */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 mb-12 border-b border-[var(--rule)]">
+          <div>
+            <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mb-2 text-[var(--ink-secondary)]">
+              <span className="font-bold text-[var(--red-pencil)]">&para; CHAPTER VI</span>
+              <span>/</span>
+              <span>OPEN CORRESPONDENCE</span>
+            </div>
+            <h2 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight text-[var(--ink)]">
+              Good work begins with a good conversation.
+            </h2>
+          </div>
+          <div className="flex items-center gap-3">
+            <EditorialStamp text="open for mandates" />
+          </div>
         </div>
 
-        {/* Headline */}
-        <h2 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight mb-6 leading-tight text-ink">
-          Good work begins with a good conversation.
-        </h2>
+        {/* Introductory Manuscript Dispatch */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16 pb-16 border-b border-[var(--rule)]">
+          <div className="lg:col-span-7 font-serif text-xl sm:text-2xl text-[var(--ink)]/90 leading-relaxed">
+            <p className="mb-6">
+              I’m open to opportunities in corporate communications, internal storytelling, marketing strategy and content development.
+            </p>
+            <p className="text-lg text-[var(--ink)]/80 font-normal">
+              I’m interested in working with teams who value thoughtful ideas, clear communication and the power of deliberate storytelling.
+            </p>
+          </div>
 
-        <p className="font-serif text-lg sm:text-xl text-ink/80 max-w-2xl mx-auto leading-relaxed font-normal mb-10">
-          I’m open to opportunities in corporate communications, internal storytelling, marketing strategy and content development. I’m interested in working with teams who value thoughtful ideas, clear communication and the power of deliberate storytelling.
-        </p>
+          {/* Direct Address & Quick Links */}
+          <div className="lg:col-span-5 lg:border-l lg:border-[var(--rule)] lg:pl-10 space-y-6">
+            <div>
+              <span className="font-mono text-xs uppercase tracking-widest text-[var(--ink-secondary)] block mb-1">
+                DIRECT INBOX
+              </span>
+              <a
+                href="mailto:abisolaaoluwatoyin@gmail.com"
+                className="font-serif font-bold text-2xl text-[var(--ink)] hover:text-[var(--red-pencil)] transition-colors break-all underline decoration-[var(--rule)] underline-offset-4"
+              >
+                abisolaaoluwatoyin@gmail.com
+              </a>
+            </div>
 
-        {/* Correspondence Action Row */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-14">
-          <a
-            href="mailto:abisolaaoluwatoyin@gmail.com"
-            className="px-7 py-3.5 rounded text-xs font-mono font-bold tracking-wider uppercase flex items-center gap-2 text-white transition-all shadow-sm"
-            style={{ background: 'var(--ink)' }}
-          >
-            <Mail className="w-4 h-4 text-[var(--red-pencil)]" />
-            <span>Write to Me (Direct Email)</span>
-          </a>
+            <div className="flex items-center gap-4 pt-2">
+              <button
+                onClick={handleCopyEmail}
+                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[var(--ink-secondary)] hover:text-[var(--ink)] transition-colors"
+              >
+                {copied ? (
+                  <>
+                    <Check className="w-3.5 h-3.5 text-green-600" />
+                    <span className="text-green-600 font-bold">Address Copied</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-3.5 h-3.5 text-[var(--red-pencil)]" />
+                    <span>Copy Address</span>
+                  </>
+                )}
+              </button>
 
-          <button
-            onClick={handleCopyEmail}
-            className="px-6 py-3.5 rounded border text-xs font-mono font-bold tracking-wider uppercase flex items-center gap-2 transition-all hover:bg-black/5"
-            style={{
-              background: 'var(--paper-leaf)',
-              borderColor: 'var(--ink-rule-strong)',
-              color: 'var(--ink)',
-            }}
-          >
-            {copied ? (
-              <>
-                <Check className="w-4 h-4 text-green-600" />
-                <span>Copied to Clipboard!</span>
-              </>
-            ) : (
-              <>
-                <Copy className="w-4 h-4 text-[var(--red-pencil)]" />
-                <span>Copy Email Address</span>
-              </>
-            )}
-          </button>
+              <span className="text-[var(--rule)]">&bull;</span>
+
+              <a
+                href="https://abisolawrites.substack.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-mono text-xs uppercase tracking-wider text-[var(--red-pencil)] hover:underline"
+              >
+                <span>Substack</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+
+              <span className="text-[var(--rule)]">&bull;</span>
+
+              <a
+                href="https://linkedin.com/in/abisola-oluwatoyin"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 font-mono text-xs uppercase tracking-wider text-[var(--ink-secondary)] hover:text-[var(--ink)]"
+              >
+                <span>LinkedIn</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+
+            <div className="font-hand text-lg text-[var(--red-pencil)] pt-4">
+              ~ replies typically dispatched within 24–48 hours.
+            </div>
+          </div>
         </div>
 
-        {/* The Letterform Inquiry Sheet */}
-        <div className="broadsheet-card p-8 sm:p-12 rounded-lg border text-left">
+        {/* The Open Inquiry Sheet (NO CARD BOXES — Open Form on Paper) */}
+        <div>
+          <div className="flex items-center justify-between pb-4 mb-8 border-b border-[var(--rule)] font-mono text-xs uppercase tracking-widest text-[var(--ink-secondary)]">
+            <div className="flex items-center gap-2">
+              <RedArrow direction="right" />
+              <span>TRANSMIT A BRIEF OR INQUIRY</span>
+            </div>
+            <span>EDITORIAL DESK // NIGERIA &bull; REMOTE GLOBAL</span>
+          </div>
+
           {!formSubmitted ? (
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="pb-4 border-b flex items-center justify-between" style={{ borderColor: 'var(--ink-rule)' }}>
+            <form onSubmit={handleSubmit} className="space-y-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                 <div>
-                  <h3 className="font-display font-bold text-xl sm:text-2xl text-ink">
-                    Dispatch an Inquiry or Brief
-                  </h3>
-                  <p className="font-serif text-sm text-ink/70 mt-1">
-                    Send a note regarding your project, timeline, or open role.
-                  </p>
-                </div>
-                <span className="font-mono text-xs text-[var(--red-pencil)] hidden sm:inline">
-                  CONFIDENTIAL
-                </span>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div>
-                  <label className="text-xs font-mono uppercase tracking-wider block mb-1.5 font-bold text-ink">
-                    Your Name
+                  <label className="text-xs font-mono uppercase tracking-widest block mb-2 font-bold text-[var(--ink)]">
+                    01 // YOUR NAME
                   </label>
                   <input
                     type="text"
@@ -120,45 +142,34 @@ export const Contact: React.FC = () => {
                     placeholder="e.g. Sarah Adebayo"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded border text-sm text-ink font-serif focus:outline-none focus:border-[var(--red-pencil)]"
-                    style={{
-                      background: 'var(--paper)',
-                      borderColor: 'var(--ink-rule)',
-                    }}
+                    className="editorial-input"
                   />
                 </div>
 
                 <div>
-                  <label className="text-xs font-mono uppercase tracking-wider block mb-1.5 font-bold text-ink">
-                    Corporate / Work Email
+                  <label className="text-xs font-mono uppercase tracking-widest block mb-2 font-bold text-[var(--ink)]">
+                    02 // WORK EMAIL
                   </label>
                   <input
                     type="email"
                     required
-                    placeholder="e.g. sarah@company.com"
+                    placeholder="e.g. sarah@organization.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded border text-sm text-ink font-serif focus:outline-none focus:border-[var(--red-pencil)]"
-                    style={{
-                      background: 'var(--paper)',
-                      borderColor: 'var(--ink-rule)',
-                    }}
+                    className="editorial-input"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="text-xs font-mono uppercase tracking-wider block mb-1.5 font-bold text-ink">
-                  Nature of Inquiry
+                <label className="text-xs font-mono uppercase tracking-widest block mb-2 font-bold text-[var(--ink)]">
+                  03 // NATURE OF INQUIRY
                 </label>
                 <select
                   value={formData.projectType}
                   onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                  className="w-full px-4 py-3 rounded border text-sm text-ink font-serif focus:outline-none focus:border-[var(--red-pencil)]"
-                  style={{
-                    background: 'var(--paper)',
-                    borderColor: 'var(--ink-rule)',
-                  }}
+                  className="editorial-input cursor-pointer"
+                  style={{ background: 'transparent' }}
                 >
                   <option value="Marketing & Corporate Communications">Marketing &amp; Corporate Communications</option>
                   <option value="Email Copywriting & Conversion Funnels">Email Copywriting &amp; Conversion Funnels</option>
@@ -170,99 +181,52 @@ export const Contact: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-xs font-mono uppercase tracking-wider block mb-1.5 font-bold text-ink">
-                  Message / Scope Overview
+                <label className="text-xs font-mono uppercase tracking-widest block mb-2 font-bold text-[var(--ink)]">
+                  04 // MESSAGE &amp; BRIEF
                 </label>
                 <textarea
                   rows={4}
                   required
-                  placeholder="Share a few details regarding your scope, audience, and goals..."
+                  placeholder="Outline the core objective, context, timeline, or key challenge..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded border text-sm text-ink font-serif focus:outline-none focus:border-[var(--red-pencil)] resize-none"
-                  style={{
-                    background: 'var(--paper)',
-                    borderColor: 'var(--ink-rule)',
-                  }}
+                  className="editorial-input resize-none"
                 />
               </div>
 
-              <button
-                type="submit"
-                className="w-full py-4 rounded font-mono text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-2 text-white transition-all"
-                style={{ background: 'var(--ink)' }}
-              >
-                <Send className="w-4 h-4 text-[var(--red-pencil)]" />
-                <span>Send Letter ✍</span>
-              </button>
+              <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                <button
+                  type="submit"
+                  className="font-mono text-xs font-bold uppercase tracking-widest inline-flex items-center gap-2 text-[var(--paper)] bg-[var(--ink)] px-8 py-4 hover:opacity-90 transition-opacity"
+                >
+                  <Send className="w-4 h-4 text-[var(--red-pencil)]" />
+                  <span>Dispatch Letter to Author &rarr;</span>
+                </button>
+
+                <div className="font-hand text-base text-[var(--red-pencil)]">
+                  ( received directly by Abisola Oluwatoyin )
+                </div>
+              </div>
             </form>
           ) : (
-            <div className="py-12 text-center space-y-4">
-              <div className="w-12 h-12 rounded-full border border-dashed flex items-center justify-center mx-auto" style={{ borderColor: 'var(--red-pencil)' }}>
-                <Check className="w-6 h-6 text-[var(--red-pencil)]" />
+            <div className="py-16 text-center space-y-4">
+              <div className="font-display font-bold text-3xl sm:text-4xl text-[var(--ink)]">
+                Correspondence Received.
               </div>
-              <h4 className="font-display font-bold text-2xl text-ink">
-                Letter Received, {formData.name || 'friend'}!
-              </h4>
-              <p className="font-serif text-base text-ink/80 max-w-md mx-auto">
-                Your correspondence has been placed on my desk. I will reply shortly.
+              <p className="font-serif italic text-xl text-[var(--ink)]/85 max-w-md mx-auto">
+                Thank you, {formData.name}. Your note has been placed on the author's reading desk.
               </p>
               <button
-                onClick={() => setFormSubmitted(false)}
-                className="text-xs font-mono font-bold text-[var(--red-pencil)] underline mt-2"
+                onClick={() => {
+                  setFormSubmitted(false);
+                  setFormData({ name: '', email: '', projectType: 'Marketing & Corporate Communications', message: '' });
+                }}
+                className="font-mono text-xs font-bold uppercase tracking-wider text-[var(--red-pencil)] underline pt-4"
               >
-                Send another note
+                Send Another Note &rarr;
               </button>
             </div>
           )}
-        </div>
-
-        {/* Public Networks */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mt-12 font-mono text-xs">
-          <a
-            href="https://www.linkedin.com/in/abisola-oluwatoyin/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-5 py-2.5 rounded border flex items-center gap-2 transition-all hover:border-[var(--red-pencil)] text-ink"
-            style={{
-              background: 'var(--paper-leaf)',
-              borderColor: 'var(--ink-rule)',
-            }}
-          >
-            <span className="text-[var(--red-pencil)]"><LinkedInIcon /></span>
-            <span>LINKEDIN</span>
-            <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
-          </a>
-
-          <a
-            href="https://abisolawrites.substack.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-5 py-2.5 rounded border flex items-center gap-2 transition-all hover:border-[var(--red-pencil)] text-ink"
-            style={{
-              background: 'var(--paper-leaf)',
-              borderColor: 'var(--ink-rule)',
-            }}
-          >
-            <BookOpen className="w-3.5 h-3.5 text-[var(--red-pencil)]" />
-            <span>SUBSTACK (ABISOLA WRITES)</span>
-            <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
-          </a>
-
-          <a
-            href="https://www.instagram.com/p/DL18Ka-s6xj"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-5 py-2.5 rounded border flex items-center gap-2 transition-all hover:border-[var(--red-pencil)] text-ink"
-            style={{
-              background: 'var(--paper-leaf)',
-              borderColor: 'var(--ink-rule)',
-            }}
-          >
-            <span className="text-[var(--red-pencil)]"><InstagramIcon /></span>
-            <span>PROPERTY FEATURE</span>
-            <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
-          </a>
         </div>
 
       </div>

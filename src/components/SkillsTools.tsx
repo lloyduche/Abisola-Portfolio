@@ -1,6 +1,5 @@
 import React from 'react';
 import { CORE_DISCIPLINES, SKILLS, TOOLS } from '../data/portfolioData';
-import { BookOpen } from 'lucide-react';
 
 export const SkillsTools: React.FC = () => {
   const disciplineLetters = ['C', 'P', 'E', 'S'];
@@ -12,125 +11,108 @@ export const SkillsTools: React.FC = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 lg:py-28 border-b" style={{ borderColor: 'var(--ink-rule)' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+    <section id="skills" className="py-20 lg:py-32 border-b border-[var(--rule)]">
+      <div className="max-w-7xl mx-auto px-6 sm:px-12">
 
-        {/* Broadsheet Folio Chapter Line */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 mb-12 border-b" style={{ borderColor: 'var(--ink-rule)' }}>
+        {/* Broadsheet Folio Line */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 mb-12 border-b border-[var(--rule)]">
           <div>
-            <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mb-2 text-ink/70">
-              <span className="font-bold text-[var(--red-pencil)]">¶ CHAPTER II</span>
+            <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mb-2 text-[var(--ink-secondary)]">
+              <span className="font-bold text-[var(--red-pencil)]">&para; CHAPTER II</span>
               <span>/</span>
-              <span>CAPABILITIES &amp; DISCIPLINARY MATRIX</span>
+              <span>CAPABILITIES &amp; THE LEXICON</span>
             </div>
-            <h2 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-ink">
+            <h2 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-[var(--ink)]">
               The Architecture of the Craft.
             </h2>
           </div>
-          <div className="font-serif italic text-lg max-w-md text-ink/80">
+          <div className="font-serif italic text-lg max-w-md text-[var(--ink)]/80">
             A high-level synergy of language mastery, commercial intuition, and multi-channel marketing communications.
           </div>
         </div>
 
-        {/* 4 Pillars with Giant Literary Initials (inspired by Image 5 Luncheon Magazine) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        {/* 4 Pillars with Giant Literary Letters (Image 5 Luncheon Magazine style) - NO BOXES */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-20">
           {CORE_DISCIPLINES.map((item, idx) => (
             <div
               key={item.title}
-              className="broadsheet-card p-6 rounded-lg border flex flex-col justify-between transition-all duration-200 group"
+              className="border-t border-[var(--rule)] pt-6 flex flex-col justify-between"
             >
               <div>
-                {/* Massive Display Initial Letter (Image 5 style) */}
-                <div className="flex items-start justify-between pb-3 mb-4 border-b" style={{ borderColor: 'var(--ink-rule)' }}>
-                  <span className="font-display font-black text-5xl leading-none text-ink group-hover:text-[var(--red-pencil)] transition-colors">
-                    {disciplineLetters[idx]}
-                  </span>
-                  <span className="proof-stamp text-[9px]">VOL. 0{idx + 1}</span>
+                {/* Giant Standalone Display Letter (Image 5 style) */}
+                <div className="font-display font-black text-6xl sm:text-7xl leading-none text-[var(--ink)] mb-4">
+                  {disciplineLetters[idx]}
                 </div>
 
-                <h3 className="font-display font-bold text-xl mb-2 capitalize text-ink">
+                <div className="text-xs font-mono font-bold tracking-widest uppercase text-[var(--red-pencil)] mb-2">
+                  VOL. 0{idx + 1} &bull; DISCIPLINE
+                </div>
+
+                <h3 className="font-display font-bold text-xl mb-3 capitalize text-[var(--ink)]">
                   {item.title}
                 </h3>
 
-                <p className="font-serif text-base text-ink/85 leading-relaxed font-normal mb-4">
+                <p className="font-serif text-base text-[var(--ink)]/85 leading-relaxed font-normal mb-6">
                   {item.desc}
                 </p>
               </div>
 
-              {/* Red Pencil Annotation in Margin */}
-              <div className="pt-3 border-t font-hand text-sm leading-tight text-[var(--red-pencil)]" style={{ borderColor: 'var(--ink-rule)' }}>
+              {/* Red-Ink Margin Note (Image 1 style) */}
+              <div className="pt-4 border-t border-[var(--rule)] font-hand text-base leading-snug text-[var(--red-pencil)]">
                 {disciplineNotes[idx]}
               </div>
             </div>
           ))}
         </div>
 
-        {/* Technical Matrix: Craft Glossary & Software Stack */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        {/* Typographic Skills & Tools Index (NO BOXES, clean broadsheet columns) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 border-t border-[var(--rule)] pt-16">
 
-          {/* Specialized Competencies */}
-          <div className="lg:col-span-7 broadsheet-card p-6 sm:p-8 rounded-lg border">
-            <div className="flex items-center justify-between pb-3 mb-6 border-b text-xs font-mono uppercase tracking-wider" style={{ borderColor: 'var(--ink-rule)' }}>
-              <div className="flex items-center gap-2 font-bold text-ink">
-                <BookOpen className="w-4 h-4 text-[var(--red-pencil)]" />
-                <span>SPECIALIZED CRAFT COMPETENCIES</span>
-              </div>
-              <span className="font-mono text-[10px] text-[var(--red-pencil)]">
-                {SKILLS.length} VERIFIED AREAS
-              </span>
+          {/* Specialized Competencies Index */}
+          <div className="lg:col-span-7">
+            <div className="flex items-center justify-between pb-3 mb-8 border-b border-[var(--rule)] text-xs font-mono uppercase tracking-wider text-[var(--ink)]">
+              <span className="font-bold">GLOSSARY &bull; SPECIALIZED CRAFT COMPETENCIES</span>
+              <span className="text-[var(--red-pencil)]">{SKILLS.length} VERIFIED AREAS</span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {SKILLS.map((skill, i) => {
-                const glyphs = ['¶', '§', '†', '‡', '❡', '✦'];
-                const glyph = glyphs[i % glyphs.length];
-
-                return (
-                  <div
-                    key={skill}
-                    className="p-3 rounded border flex items-baseline gap-2.5 font-serif text-base transition-colors hover:border-[var(--red-pencil)]"
-                    style={{
-                      background: 'var(--paper)',
-                      borderColor: 'var(--ink-rule)',
-                      color: 'var(--ink)',
-                    }}
-                  >
-                    <span className="font-mono text-xs font-bold text-[var(--red-pencil)]">
-                      {glyph}
-                    </span>
-                    <span className="font-medium">{skill}</span>
-                  </div>
-                );
-              })}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
+              {SKILLS.map((skill, i) => (
+                <div
+                  key={skill}
+                  className="flex items-baseline gap-3 font-serif text-lg text-[var(--ink)] border-b border-[var(--rule)]/60 pb-2"
+                >
+                  <span className="font-mono text-xs text-[var(--red-pencil)] font-bold">
+                    0{i + 1}
+                  </span>
+                  <span>{skill}</span>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Software & Digital Stack */}
-          <div className="lg:col-span-5 broadsheet-card p-6 sm:p-8 rounded-lg border">
-            <div className="flex items-center justify-between pb-3 mb-6 border-b text-xs font-mono uppercase tracking-wider text-ink" style={{ borderColor: 'var(--ink-rule)' }}>
-              <span className="font-bold">DIGITAL &amp; PLATFORM STACK</span>
-              <span className="text-[10px] text-ink/50">TOOLING</span>
+          {/* Software & Tooling */}
+          <div className="lg:col-span-5">
+            <div className="flex items-center justify-between pb-3 mb-8 border-b border-[var(--rule)] text-xs font-mono uppercase tracking-wider text-[var(--ink)]">
+              <span className="font-bold">INSTRUMENTS OF THE CRAFT</span>
+              <span className="text-[var(--ink-secondary)]">DIGITAL TOOLING</span>
             </div>
 
-            <div className="flex flex-wrap gap-2.5">
+            <div className="flex flex-wrap gap-x-4 gap-y-3 font-mono text-sm">
               {TOOLS.map((tool) => (
                 <span
                   key={tool}
-                  className={`px-3 py-1.5 rounded text-xs font-mono font-medium border ${
+                  className={`border-b pb-1 ${
                     tool === 'Substack'
                       ? 'border-[var(--red-pencil)] text-[var(--red-pencil)] font-bold'
-                      : 'border-[var(--ink-rule)] text-ink'
+                      : 'border-[var(--rule)] text-[var(--ink)]'
                   }`}
-                  style={{
-                    background: tool === 'Substack' ? 'rgba(217, 45, 32, 0.05)' : 'var(--paper)',
-                  }}
                 >
                   {tool === 'Substack' ? '★ Substack (Author publication)' : tool}
                 </span>
               ))}
             </div>
 
-            <div className="mt-8 pt-4 border-t font-hand text-base text-[var(--red-pencil)]" style={{ borderColor: 'var(--ink-rule)' }}>
+            <div className="mt-12 pt-6 border-t border-[var(--rule)] font-hand text-lg text-[var(--red-pencil)]">
               ~ "Tools evolve with enterprise infrastructure; linguistic precision and narrative structure remain eternal."
             </div>
           </div>
