@@ -1,155 +1,101 @@
-import React, { useState, useEffect } from 'react';
-import { ABOUT_DATA, SKILLS, TOOLS } from '../data/portfolioData';
-import { MapPin, GraduationCap } from 'lucide-react';
+import React from 'react';
+import { GraduationCap, MapPin, Sparkles } from 'lucide-react';
 
 export const About: React.FC = () => {
-  const [phraseIndex, setPhraseIndex] = useState(0);
-  const [currentText, setCurrentText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    const fullText = ABOUT_DATA.typewriterPhrases[phraseIndex];
-    const typingSpeed = isDeleting ? 25 : 50;
-
-    const timer = setTimeout(() => {
-      if (!isDeleting) {
-        setCurrentText(fullText.slice(0, currentText.length + 1));
-        if (currentText.length === fullText.length) {
-          setTimeout(() => setIsDeleting(true), 2000);
-        }
-      } else {
-        setCurrentText(fullText.slice(0, currentText.length - 1));
-        if (currentText.length === 0) {
-          setIsDeleting(false);
-          setPhraseIndex((prev) => (prev + 1) % ABOUT_DATA.typewriterPhrases.length);
-        }
-      }
-    }, typingSpeed);
-
-    return () => clearTimeout(timer);
-  }, [currentText, isDeleting, phraseIndex]);
-
   return (
-    <section id="about" className="py-20 lg:py-28 border-b border-[var(--cabinet-rule)]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-12">
+    <section id="about" className="py-20 sm:py-28 bg-[#F0E7DB]/45 border-y border-[#72213A]/10">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10">
 
-        {/* Archival Folder Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 mb-12 border-b border-[var(--cabinet-rule)]">
-          <div>
-            <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mb-2 text-[var(--ink-secondary)]">
-              <span className="font-bold text-[var(--cabinet-brass)]">&para; DRAWER I</span>
-              <span>/</span>
-              <span>THE AUTHOR'S DOSSIER &bull; CURATED BIOGRAPHY</span>
-            </div>
-            <h2 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-[var(--cabinet-burgundy)]">
-              The Craft Behind the Words.
-            </h2>
+        {/* Section Header */}
+        <div className="max-w-2xl mb-12 sm:mb-16">
+          <div className="text-xs font-semibold uppercase tracking-wider text-[#72213A] mb-2 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#E5B86B]" />
+            <span>About Me</span>
           </div>
-          <div className="flex items-center gap-3">
-            <span className="dossier-stamp">ARCHIVAL RECORD</span>
-          </div>
+          <h2 className="font-headline font-semibold text-3xl sm:text-5xl text-[#72213A] tracking-tight">
+            Language, structure, and the power of deliberate storytelling.
+          </h2>
         </div>
 
-        {/* Two-Column Archival Folder Layout */}
+        {/* Two-Column About Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
-          {/* Left Column: Author Narrative with Drop-Cap */}
-          <div className="lg:col-span-7 space-y-6 font-serif text-lg sm:text-xl text-[var(--ink)]/90 leading-relaxed font-normal">
+          {/* Left Column: The 4 Core Paragraphs from the Specification */}
+          <div className="lg:col-span-8 space-y-6 font-body text-lg text-[#38272D]/90 leading-relaxed">
             <p>
-              <span className="cabinet-drop-cap">I</span>
-              am a writer and communications specialist whose work spans brand marketing, corporate communications, content development, and creative nonfiction. I believe that good writing is not simply decorative—it is the structural clarity that allows complex commercial ideas and human experiences to be understood.
+              My background in English Language has shaped how I approach writing, storytelling and communication. It has given me an appreciation for language, structure and meaning, and how the right words can shape understanding and influence how a message is received.
             </p>
 
             <p>
-              In corporate communications and marketing, I help companies articulate what they do, why it matters, and how their products create tangible value. Whether crafting an enterprise regulatory compliance email, framing financial infrastructure, or developing thought leadership, my focus is always on clarity, precision, and commercial persuasion.
+              Through my experience in marketing and corporate communications, I have brought this foundation into a business context, developing content, shaping brand messages and contributing to campaigns and communications designed around specific audiences and objectives.
             </p>
 
             <p>
-              Beyond corporate work, I am the author of <strong className="font-semibold text-[var(--cabinet-burgundy)]">Abisola Writes</strong>, an independent Substack publication exploring love, womanhood, memory, and adulthood through literary prose and personal essays.
+              I understand that effective communication goes beyond putting words together. It requires an understanding of the audience, a clear sense of purpose, consistency in brand voice and the ability to communicate information in a way that is relevant, engaging and easy to understand.
             </p>
 
-            {/* Typewritten Real-time Observation */}
-            <div className="p-5 rounded-sm border border-[var(--cabinet-brass)] bg-[var(--cabinet-cream-dark)] mt-8 font-mono text-xs text-[var(--ink)] flex items-center gap-3">
-              <span className="font-bold text-[var(--cabinet-brass)] uppercase shrink-0">
-                CURRENT FOCUS //
-              </span>
-              <span className="italic text-[var(--cabinet-burgundy)] font-serif text-sm">
-                "{currentText}"
-              </span>
-              <span className="w-1.5 h-4 bg-[var(--cabinet-burgundy)] animate-pulse" />
+            <p>
+              Whether I am working on marketing content, email campaigns, corporate communications or creative writing, I approach each piece with attention to language, context and the message it needs to convey.
+            </p>
+
+            {/* Pull Quote Box */}
+            <div className="p-6 rounded-2xl bg-white border border-[#72213A]/15 shadow-sm mt-8">
+              <div className="font-headline italic text-xl text-[#72213A] leading-snug">
+                "Effective communication goes beyond putting words together. It requires a clear sense of purpose, consistency in brand voice, and relevance."
+              </div>
             </div>
           </div>
 
-          {/* Right Column: Credentials Card & Capabilities Ledger */}
-          <div className="lg:col-span-5 lg:border-l lg:border-[var(--cabinet-rule)] lg:pl-10 space-y-8">
+          {/* Right Column: Key Details & Credentials */}
+          <div className="lg:col-span-4 space-y-6">
 
-            {/* Academic & Location Plate */}
-            <div className="p-6 rounded-sm border border-[var(--cabinet-rule)] bg-[var(--cabinet-cream-dark)] space-y-4">
-              <div className="flex items-center justify-between pb-3 border-b border-[var(--cabinet-rule)] font-mono text-xs uppercase text-[var(--cabinet-brass)] font-bold">
-                <span>OFFICIAL CREDENTIALS</span>
-                <span>VERIFIED</span>
+            {/* Education Card */}
+            <div className="p-6 rounded-2xl bg-white border border-[#72213A]/10 shadow-sm space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-[#72213A]/10 flex items-center justify-center text-[#72213A]">
+                <GraduationCap className="w-5 h-5" />
               </div>
-
-              <div className="flex items-start gap-3">
-                <GraduationCap className="w-5 h-5 text-[var(--cabinet-brass)] shrink-0 mt-0.5" />
-                <div>
-                  <div className="font-serif font-bold text-base text-[var(--ink)]">
-                    B.A. English Language
-                  </div>
-                  <div className="font-serif italic text-xs text-[var(--ink-secondary)]">
-                    Kwara State University &bull; Second Class Upper Division
-                  </div>
-                  <div className="text-xs font-serif text-[var(--ink-secondary)] mt-1">
-                    Specialised training in syntactic composition, textual analysis, and rhetoric.
-                  </div>
-                </div>
+              <h3 className="font-headline font-semibold text-xl text-[#72213A]">
+                Academic Background
+              </h3>
+              <div className="font-body text-sm font-semibold text-[#38272D]">
+                B.A. English Language
               </div>
-
-              <div className="flex items-start gap-3 pt-2">
-                <MapPin className="w-5 h-5 text-[var(--cabinet-brass)] shrink-0 mt-0.5" />
-                <div>
-                  <div className="font-serif font-bold text-base text-[var(--ink)]">
-                    Lagos, Nigeria
-                  </div>
-                  <div className="font-serif text-xs text-[var(--ink-secondary)]">
-                    Operating remotely across global corporate, tech, and editorial engagements.
-                  </div>
-                </div>
+              <div className="font-body text-xs text-[#38272D]/75">
+                Kwara State University &bull; Second Class Upper Division
               </div>
+              <p className="font-body text-xs text-[#38272D]/70 leading-relaxed pt-1">
+                Formative training in syntax, linguistic analysis, literary rhetoric, and clear composition.
+              </p>
             </div>
 
-            {/* Disciplinary Lexicon */}
-            <div>
-              <div className="font-mono text-xs uppercase tracking-widest text-[var(--cabinet-brass)] font-bold mb-3">
-                CORE DISCIPLINES &amp; COMPETENCIES
+            {/* Location & Status Card */}
+            <div className="p-6 rounded-2xl bg-white border border-[#72213A]/10 shadow-sm space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-[#72213A]/10 flex items-center justify-center text-[#72213A]">
+                <MapPin className="w-5 h-5" />
               </div>
-              <div className="flex flex-wrap gap-2">
-                {SKILLS.map((skill, idx) => (
-                  <span
-                    key={idx}
-                    className="px-3 py-1 text-xs font-mono border border-[var(--cabinet-rule)] bg-[var(--cabinet-cream-dark)] text-[var(--ink)]"
-                  >
-                    {skill}
-                  </span>
-                ))}
+              <h3 className="font-headline font-semibold text-xl text-[#72213A]">
+                Location &amp; Availability
+              </h3>
+              <div className="font-body text-sm font-semibold text-[#38272D]">
+                Lagos, Nigeria
               </div>
+              <p className="font-body text-xs text-[#38272D]/70 leading-relaxed">
+                Available for full-time corporate communications appointments, marketing content contracts, and editorial commissions globally.
+              </p>
             </div>
 
-            {/* Software & Systems */}
-            <div>
-              <div className="font-mono text-xs uppercase tracking-widest text-[var(--cabinet-brass)] font-bold mb-3">
-                TOOLSTACK &amp; PLATFORMS
+            {/* Creative Duality Card */}
+            <div className="p-6 rounded-2xl bg-[#72213A] text-white shadow-md space-y-3">
+              <div className="flex items-center gap-2 text-xs font-semibold text-[#E5B86B] uppercase tracking-wider">
+                <Sparkles className="w-4 h-4" />
+                <span>The Writing Balance</span>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {TOOLS.map((tool, idx) => (
-                  <span
-                    key={idx}
-                    className="px-3 py-1 text-xs font-mono border border-[var(--cabinet-brass)] text-[var(--cabinet-burgundy)] font-bold bg-[var(--cabinet-cream-dark)]"
-                  >
-                    {tool}
-                  </span>
-                ))}
-              </div>
+              <h4 className="font-headline font-semibold text-xl">
+                Commercial Strategy + Literary Honesty
+              </h4>
+              <p className="font-body text-xs text-white/85 leading-relaxed">
+                Bringing the rigour of conversion copywriting to business communications, and the emotional resonance of fiction to brand storytelling.
+              </p>
             </div>
 
           </div>

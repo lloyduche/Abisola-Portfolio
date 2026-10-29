@@ -1,202 +1,155 @@
 import React, { useState } from 'react';
 import { CASE_STUDIES } from '../data/portfolioData';
-import { CheckCircle2, ArrowUpRight } from 'lucide-react';
+import { CheckCircle2, ArrowUpRight, TrendingUp } from 'lucide-react';
 
 export const CaseStudies: React.FC = () => {
   const [activeTab, setActiveTab] = useState(CASE_STUDIES[0].id);
   const activeCase = CASE_STUDIES.find((c) => c.id === activeTab) || CASE_STUDIES[0];
 
-  const dossierNotes: Record<string, { decision: string; rationale: string; callSign: string }> = {
-    cs1: {
-      decision: 'Lead with the ₦200,000 regulatory penalty under Section 104.',
-      rationale: 'CFOs and enterprise heads ignore generic sales pitches, but they immediately answer audit-risk notices.',
-      callSign: 'DOSSIER-TAX-104',
-    },
-    cs2: {
-      decision: 'Anchor product positioning in Nigeria\'s ₦1.07 quadrillion transfer data.',
-      rationale: 'Made virtual accounts and smart POS terminals feel like an inevitable infrastructure upgrade rather than just another vendor pitch.',
-      callSign: 'DOSSIER-FINTECH-RAILS',
-    },
-    cs3: {
-      decision: 'Position luxury property as a holistic architectural story rather than an amenities checklist.',
-      rationale: 'Generated direct inquiries within 48h and increased DM engagement by 40% for ₦1.3B Old Ikoyi listing.',
-      callSign: 'DOSSIER-REALESTATE-IKOYI',
-    },
-    cs4: {
-      decision: 'Pair vulnerable, authentic prose with sharp observational essays.',
-      rationale: 'Grew to 1,469+ subscribers and 28,000+ views by treating the audience with intellectual respect.',
-      callSign: 'DOSSIER-SUBSTACK-WRITING',
-    },
-  };
-
-  const currentNote = dossierNotes[activeCase.id] || dossierNotes.cs1;
-
   return (
-    <section id="editorial-room" className="py-20 lg:py-28 border-b border-[var(--cabinet-rule)]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-12">
+    <section id="case-studies" className="py-20 sm:py-28 bg-[#F0E7DB]/45 border-y border-[#72213A]/10">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10">
 
-        {/* Archival Drawer Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 mb-10 border-b border-[var(--cabinet-rule)]">
-          <div>
-            <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mb-2 text-[var(--ink-secondary)]">
-              <span className="font-bold text-[var(--cabinet-brass)]">&para; DRAWER III</span>
-              <span>/</span>
-              <span>THE EDITORIAL ROOM &bull; STRATEGIC PROJECT DOSSIERS</span>
-            </div>
-            <h2 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-[var(--cabinet-burgundy)]">
-              The Project Dossiers.
-            </h2>
+        {/* Section Header */}
+        <div className="max-w-2xl mb-12 sm:mb-16">
+          <div className="text-xs font-semibold uppercase tracking-wider text-[#72213A] mb-2 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#E5B86B]" />
+            <span>Selected Case Studies</span>
           </div>
-          <div className="font-serif italic text-base sm:text-lg max-w-md text-[var(--ink)]/80">
-            Comprehensive breakdowns detailing the commercial brief, author contribution, and verified results.
-          </div>
+          <h2 className="font-headline font-semibold text-3xl sm:text-5xl text-[#72213A] tracking-tight">
+            Strategic messaging and verified commercial outcomes.
+          </h2>
+          <p className="font-body text-base sm:text-lg text-[#38272D]/80 mt-3 leading-relaxed">
+            In-depth breakdowns showing the objective, strategic approach, execution, and measurable business results across campaigns and independent publishing.
+          </p>
         </div>
 
-        {/* Dossier Tabs Row */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-12 scrollbar-none border-b border-[var(--cabinet-rule)]">
+        {/* Case Study Selection Tabs */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 scrollbar-none">
           {CASE_STUDIES.map((cs, idx) => {
             const isActive = activeTab === cs.id;
             return (
               <button
                 key={cs.id}
                 onClick={() => setActiveTab(cs.id)}
-                className={`folder-tab px-4 py-2.5 text-xs font-mono whitespace-nowrap text-left ${
+                className={`px-5 py-3 rounded-2xl text-xs sm:text-sm font-medium whitespace-nowrap transition-all text-left flex items-center gap-2.5 ${
                   isActive
-                    ? 'active text-[var(--cabinet-burgundy)] font-bold'
-                    : 'text-[var(--ink-secondary)] hover:text-[var(--ink)]'
+                    ? 'bg-[#72213A] text-white shadow-md'
+                    : 'bg-white text-[#38272D]/80 hover:bg-[#FAF4EC] hover:text-[#72213A] border border-[#72213A]/10'
                 }`}
               >
-                <div className="text-[9px] text-[var(--cabinet-brass)] font-bold">
-                  DOSSIER 0{idx + 1}
-                </div>
-                <div>{cs.title.split(':')[0]}</div>
+                <span className={`w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold ${
+                  isActive ? 'bg-[#E5B86B] text-[#72213A]' : 'bg-[#72213A]/10 text-[#72213A]'
+                }`}>
+                  0{idx + 1}
+                </span>
+                <span>{cs.title.split(':')[0]}</span>
               </button>
             );
           })}
         </div>
 
-        {/* Active Dossier Portfolio Spread */}
-        <div className="border border-[var(--cabinet-rule)] bg-[var(--cabinet-cream-dark)] p-8 sm:p-14 rounded-sm shadow-sm relative">
+        {/* Active Case Study Presentation Panel */}
+        <div className="p-8 sm:p-14 rounded-3xl bg-white border border-[#72213A]/10 shadow-md">
 
-          {/* Dossier Header Strip */}
-          <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b border-[var(--cabinet-rule)] font-mono text-xs uppercase">
-            <div className="flex items-center gap-3">
-              <span className="dossier-stamp">CONFIDENTIAL DOSSIER</span>
-              <span className="text-[var(--cabinet-burgundy)] font-bold">
-                REF // {currentNote.callSign}
-              </span>
+          {/* Discipline & Header */}
+          <div className="pb-6 mb-8 border-b border-[#72213A]/10">
+            <div className="text-xs font-semibold text-[#72213A] uppercase tracking-wider mb-2">
+              Discipline: {activeCase.discipline}
             </div>
-            <div className="text-[var(--ink-secondary)] text-right">
-              DISCIPLINE: {activeCase.discipline}
-            </div>
+            <h3 className="font-headline font-semibold text-2xl sm:text-4xl text-[#72213A] leading-tight">
+              {activeCase.title}
+            </h3>
           </div>
 
-          <h3 className="font-display font-bold text-2xl sm:text-4xl text-[var(--cabinet-burgundy)] leading-tight mb-10">
-            {activeCase.title}
-          </h3>
-
-          {/* Two-Column Dossier Content: Brief & Contribution vs. Impact & Note */}
+          {/* Two-Column Layout: Narrative vs. Results */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
-            {/* Left 7 Columns: Brief, Strategy & Execution */}
-            <div className="lg:col-span-7 space-y-8 font-serif text-lg leading-relaxed text-[var(--ink)]/90">
+            {/* Left 8 Cols: Project, Approach, Execution & Role */}
+            <div className="lg:col-span-8 space-y-8 font-body text-[#38272D]/90 leading-relaxed">
 
-              {/* 01: The Brief */}
+              {/* The Project */}
               <div>
-                <h4 className="font-mono text-xs font-bold uppercase tracking-wider mb-2 text-[var(--cabinet-brass)]">
-                  01 // THE COMMERCIAL BRIEF &amp; MANDATE
+                <h4 className="font-headline font-semibold text-xl text-[#72213A] mb-2">
+                  The Project
                 </h4>
-                <p className="font-normal">
+                <p className="text-base text-[#38272D]/90 font-normal">
                   {activeCase.project}
                 </p>
               </div>
 
-              {/* 02: The Strategic Contribution */}
+              {/* The Approach */}
               <div>
-                <h4 className="font-mono text-xs font-bold uppercase tracking-wider mb-2 text-[var(--cabinet-brass)]">
-                  02 // AUTHOR'S STRATEGIC CONTRIBUTION
+                <h4 className="font-headline font-semibold text-xl text-[#72213A] mb-2">
+                  The Approach
                 </h4>
-                <p className="font-normal">
+                <p className="text-base text-[#38272D]/90 font-normal">
                   {activeCase.approach}
                 </p>
               </div>
 
-              {/* 03: Execution Highlights */}
+              {/* Execution */}
               <div>
-                <h4 className="font-mono text-xs font-bold uppercase tracking-wider mb-3 text-[var(--cabinet-brass)]">
-                  03 // EXECUTION HIGHLIGHTS
+                <h4 className="font-headline font-semibold text-xl text-[#72213A] mb-3">
+                  Execution Highlights
                 </h4>
-                <div className="space-y-3">
+                <ul className="space-y-2.5">
                   {activeCase.execution.map((step, idx) => (
-                    <div key={idx} className="flex items-start gap-3 font-serif text-base font-normal">
-                      <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5 text-[var(--cabinet-brass)]" />
+                    <li key={idx} className="flex items-start gap-3 text-base text-[#38272D]/90">
+                      <CheckCircle2 className="w-5 h-5 shrink-0 text-[#72213A] mt-0.5" />
                       <span>{step}</span>
-                    </div>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
 
-              {/* Author Capacity */}
-              <div className="pt-4 border-t border-[var(--cabinet-rule)] font-mono text-xs">
-                <span className="text-[var(--ink-secondary)] uppercase block mb-1">CAPACITY:</span>
-                <span className="font-bold text-[var(--cabinet-burgundy)]">{activeCase.role}</span>
+              {/* Author's Role */}
+              <div className="pt-4 border-t border-[#72213A]/10 text-sm">
+                <strong className="text-[#72213A] block mb-1">My Role:</strong>
+                <span className="text-[#38272D]/85">{activeCase.role}</span>
               </div>
             </div>
 
-            {/* Right 5 Columns: Verified Business Impact & Editorial Margin Note */}
-            <div className="lg:col-span-5 lg:border-l lg:border-[var(--cabinet-rule)] lg:pl-10 space-y-8">
+            {/* Right 4 Cols: Verified Results & Links */}
+            <div className="lg:col-span-4 space-y-6">
 
-              {/* Strategic Editorial Decision Note */}
-              <div className="p-5 rounded-sm border border-[var(--cabinet-brass)] bg-[var(--cabinet-cream)] space-y-2">
-                <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--cabinet-brass)] block">
-                  KEY EDITORIAL DECISION //
-                </span>
-                <div className="font-serif italic font-bold text-lg text-[var(--cabinet-burgundy)]">
-                  "{currentNote.decision}"
-                </div>
-                <p className="font-serif text-sm text-[var(--ink)]/80 leading-relaxed">
-                  {currentNote.rationale}
-                </p>
-              </div>
-
-              {/* Quantified Business Impact */}
-              <div className="p-6 rounded-sm border border-[var(--cabinet-rule)] bg-[var(--cabinet-cream)] space-y-4">
-                <div className="font-mono text-xs font-bold uppercase tracking-wider border-b border-[var(--cabinet-rule)] pb-2 text-[var(--cabinet-brass)]">
-                  VERIFIED COMMERCIAL RESULTS
+              {/* Verified Results Box */}
+              <div className="p-6 rounded-2xl bg-[#FAF4EC] border border-[#72213A]/15 space-y-4">
+                <div className="flex items-center gap-2 text-xs font-semibold text-[#72213A] uppercase tracking-wider pb-2 border-b border-[#72213A]/10">
+                  <TrendingUp className="w-4 h-4 text-[#E5B86B]" />
+                  <span>Verified Results</span>
                 </div>
 
                 {activeCase.results.map((r, idx) => (
-                  <div key={idx} className="border-b border-[var(--cabinet-rule)]/60 pb-3 last:border-0 last:pb-0">
-                    <div className="font-display font-black text-3xl sm:text-4xl text-[var(--cabinet-burgundy)]">
+                  <div key={idx} className="border-b border-[#72213A]/10 last:border-0 pb-3 last:pb-0">
+                    <div className="font-headline font-bold text-3xl sm:text-4xl text-[#72213A]">
                       {r.stat}
                     </div>
-                    <div className="font-serif text-sm font-semibold text-[var(--ink)] mt-0.5">
+                    <div className="font-body text-xs sm:text-sm font-medium text-[#38272D] mt-0.5">
                       {r.label}
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* Pull quote if available */}
+              {/* Quote if available */}
               {activeCase.quote && (
-                <blockquote className="p-4 rounded-sm border-l-2 border-[var(--cabinet-brass)] bg-[var(--cabinet-cream)] font-serif italic text-base text-[var(--ink)]/85">
+                <div className="p-5 rounded-2xl bg-white border border-[#72213A]/10 text-sm font-headline italic text-[#72213A] leading-relaxed shadow-sm">
                   "{activeCase.quote}"
-                </blockquote>
+                </div>
               )}
 
-              {/* Direct Link */}
+              {/* Link if available */}
               {activeCase.link && (
-                <div>
-                  <a
-                    href={activeCase.link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-[var(--cabinet-burgundy)] hover:text-[var(--cabinet-brass)] transition-colors underline"
-                  >
-                    <span>{activeCase.link.label}</span>
-                    <ArrowUpRight className="w-4 h-4" />
-                  </a>
-                </div>
+                <a
+                  href={activeCase.link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3.5 px-6 rounded-2xl bg-[#72213A] hover:bg-[#54172A] text-white text-sm font-medium flex items-center justify-center gap-2 shadow-sm transition-all text-center"
+                >
+                  <span>{activeCase.link.label}</span>
+                  <ArrowUpRight className="w-4 h-4 text-[#E5B86B]" />
+                </a>
               )}
 
             </div>

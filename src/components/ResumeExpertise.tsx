@@ -1,6 +1,6 @@
 import React from 'react';
 import { RESUME_DATA } from '../data/portfolioData';
-import { ArrowUpRight, FileText } from 'lucide-react';
+import { FileText, ArrowUpRight } from 'lucide-react';
 
 interface ResumeExpertiseProps {
   onOpenResume: () => void;
@@ -8,121 +8,96 @@ interface ResumeExpertiseProps {
 
 export const ResumeExpertise: React.FC<ResumeExpertiseProps> = ({ onOpenResume }) => {
   return (
-    <section id="career-ledger" className="py-20 lg:py-28 border-b border-[var(--cabinet-rule)]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-12">
+    <section id="resume" className="py-20 sm:py-28 bg-[#F0E7DB]/45 border-y border-[#72213A]/10">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10">
 
-        {/* Archival Ledger Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 mb-12 border-b border-[var(--cabinet-rule)]">
-          <div>
-            <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mb-2 text-[var(--ink-secondary)]">
-              <span className="font-bold text-[var(--cabinet-brass)]">&para; ARCHIVAL COMPARTMENT</span>
-              <span>/</span>
-              <span>EXECUTIVE CHRONOLOGY &bull; CAREER LEDGER</span>
-            </div>
-            <h2 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-[var(--cabinet-burgundy)]">
-              The Career Ledger.
-            </h2>
+        {/* Section Header */}
+        <div className="max-w-2xl mb-12 sm:mb-16">
+          <div className="text-xs font-semibold uppercase tracking-wider text-[#72213A] mb-2 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#E5B86B]" />
+            <span>Career Overview</span>
           </div>
-          <div className="font-serif italic text-base sm:text-lg max-w-md text-[var(--ink)]/80">
-            A chronological ledger of marketing communications, editorial leadership, content development, and brand storytelling.
-          </div>
+          <h2 className="font-headline font-semibold text-3xl sm:text-5xl text-[#72213A] tracking-tight">
+            Resume &amp; Expertise
+          </h2>
+          <p className="font-body text-base sm:text-lg text-[#38272D]/80 mt-3 leading-relaxed">
+            An overview of my experience across writing, marketing communications, content development and brand storytelling.
+          </p>
         </div>
 
-        {/* Chronological Ledger Table */}
-        <div className="mb-14">
-          <div className="flex items-center justify-between pb-3 mb-6 border-b border-[var(--cabinet-rule)] text-xs font-mono tracking-widest uppercase text-[var(--ink-secondary)]">
-            <span>PERIOD &bull; INSTITUTION</span>
-            <span className="hidden sm:inline">STRATEGIC FOCUS &bull; DELIVERABLES</span>
-          </div>
-
-          <div className="divide-y divide-[var(--cabinet-rule)]">
-            {RESUME_DATA.experiences.map((exp, idx) => (
-              <div key={idx} className="py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-
-                {/* Period & Company */}
-                <div className="lg:col-span-3 space-y-1.5">
-                  <span className="font-mono text-xs font-bold text-[var(--cabinet-brass)] block">
-                    {exp.period}
-                  </span>
-                  <div className="font-serif font-bold text-xl text-[var(--cabinet-burgundy)]">
-                    {exp.company}
-                  </div>
-                  <div className="text-xs font-mono text-[var(--ink-secondary)] uppercase">
-                    Lagos, Nigeria
-                  </div>
-                  {idx === 0 && (
-                    <div className="pt-2">
-                      <span className="dossier-stamp text-[9px]">ACTIVE MANDATE</span>
-                    </div>
-                  )}
-                </div>
-
-                {/* Role Title */}
-                <div className="lg:col-span-4">
-                  <h3 className="font-serif font-bold text-2xl text-[var(--ink)] leading-snug">
+        {/* Experience Timeline Cards */}
+        <div className="space-y-6 mb-16">
+          {RESUME_DATA.experiences.map((exp, idx) => (
+            <div
+              key={idx}
+              className="p-8 sm:p-10 rounded-3xl bg-white border border-[#72213A]/10 shadow-sm space-y-4"
+            >
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-[#72213A]/10">
+                <div>
+                  <h3 className="font-headline font-semibold text-2xl text-[#72213A]">
                     {exp.role}
                   </h3>
-                  <div className="font-serif italic text-xs text-[var(--ink-secondary)] mt-1">
-                    Primary Communications Lead
+                  <div className="font-body font-semibold text-base text-[#38272D]">
+                    {exp.company}
                   </div>
                 </div>
-
-                {/* Accomplishments */}
-                <div className="lg:col-span-5 font-serif text-base text-[var(--ink)]/85 leading-relaxed space-y-2">
-                  <ul className="space-y-2">
-                    {exp.points.map((pt, pIdx) => (
-                      <li key={pIdx} className="flex items-start gap-2.5">
-                        <span className="text-[var(--cabinet-brass)] font-mono text-xs mt-1">&bull;</span>
-                        <span>{pt}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-              </div>
-            ))}
-
-            {/* Academic Credential Row */}
-            <div className="py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-              <div className="lg:col-span-3 space-y-1.5">
-                <span className="font-mono text-xs font-bold text-[var(--cabinet-brass)] block">
-                  ACADEMIC RECORD
+                <span className="px-4 py-1.5 rounded-full bg-[#FAF4EC] border border-[#72213A]/15 text-xs font-medium text-[#72213A] self-start sm:self-auto">
+                  {exp.period}
                 </span>
-                <div className="font-serif font-bold text-xl text-[var(--cabinet-burgundy)]">
-                  {RESUME_DATA.education.school}
-                </div>
               </div>
 
-              <div className="lg:col-span-4">
-                <h3 className="font-serif font-bold text-2xl text-[var(--ink)] leading-snug">
-                  {RESUME_DATA.education.degree}
-                </h3>
-                <div className="font-mono text-xs text-[var(--ink-secondary)] uppercase mt-1">
-                  Department of English
-                </div>
-              </div>
-
-              <div className="lg:col-span-5 font-serif text-base text-[var(--ink)]/85 leading-relaxed">
-                Foundational study in English syntax, rhetoric, literary criticism, and persuasive textual analysis.
-              </div>
+              <ul className="space-y-2.5 font-body text-base text-[#38272D]/90 pt-2">
+                {exp.points.map((pt, pIdx) => (
+                  <li key={pIdx} className="flex items-start gap-3">
+                    <span className="w-2 h-2 rounded-full bg-[#E5B86B] mt-2 shrink-0" />
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
+          ))}
         </div>
 
-        {/* Action Row */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-6 border-t border-[var(--cabinet-rule)]">
-          <div className="font-serif italic text-base text-[var(--ink-secondary)]">
-            Complete curriculum vitae and references verified in cabinet records.
+        {/* Two-Column Bottom Row: Areas of Expertise & View Resume CTA */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+          {/* Left Column: Areas of Expertise */}
+          <div className="lg:col-span-8 p-8 sm:p-10 rounded-3xl bg-white border border-[#72213A]/10 shadow-sm space-y-4">
+            <h4 className="font-headline font-semibold text-xl text-[#72213A]">
+              Areas of Expertise
+            </h4>
+            <div className="flex flex-wrap gap-2 pt-2">
+              {RESUME_DATA.areasOfExpertise.map((item, idx) => (
+                <span
+                  key={idx}
+                  className="px-4 py-2 rounded-xl text-xs font-body font-medium bg-[#FAF4EC] text-[#38272D] border border-[#72213A]/10"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
 
-          <button
-            onClick={onOpenResume}
-            className="font-mono text-xs font-bold uppercase tracking-wider text-[var(--cabinet-burgundy)] hover:text-[var(--cabinet-brass)] transition-colors inline-flex items-center gap-2 underline underline-offset-4"
-          >
-            <FileText className="w-4 h-4 text-[var(--cabinet-brass)]" />
-            <span>Open Verified Curriculum Vitae Sheet</span>
-            <ArrowUpRight className="w-4 h-4 text-[var(--cabinet-brass)]" />
-          </button>
+          {/* Right Column: View Full Resume CTA */}
+          <div className="lg:col-span-4 p-8 sm:p-10 rounded-3xl bg-[#72213A] text-white shadow-md space-y-4 text-center sm:text-left">
+            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-[#E5B86B] mx-auto sm:mx-0">
+              <FileText className="w-5 h-5" />
+            </div>
+            <h4 className="font-headline font-semibold text-2xl">
+              Curriculum Vitae
+            </h4>
+            <p className="font-body text-xs text-white/80 leading-relaxed">
+              For a more detailed overview of my professional experience, qualifications and achievements, view my full resume.
+            </p>
+            <button
+              onClick={onOpenResume}
+              className="w-full py-3.5 px-6 rounded-full bg-white text-[#72213A] text-sm font-semibold hover:bg-[#FAF4EC] flex items-center justify-center gap-2 shadow-sm transition-all"
+            >
+              <span>View Resume</span>
+              <ArrowUpRight className="w-4 h-4 text-[#72213A]" />
+            </button>
+          </div>
+
         </div>
 
       </div>

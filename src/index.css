@@ -3,223 +3,82 @@
 @tailwind utilities;
 
 /* ============================================================
-   THE WRITER'S CABINET // ABISOLA OLUWATOYIN
-   Deep Burgundy, Warm Cream Vellum & Brushed Gilt Brass
-   Curated Archival Catalogues, Index Tabs & Dossiers
+   WARM EDITORIAL // ABISOLA OLUWATOYIN
+   Writer | Marketing, Communications & Brand Storytelling
+   Fraunces (Headlines) + DM Sans (Body)
+   Deep Wine Burgundy (#72213A), Warm Cream (#FAF4EC), Deep Plum (#38272D)
    ============================================================ */
 
-:root,
-[data-palette="burgundy"],
-[data-palette="ivory"],
-[data-palette="lilac"] {
-  --cabinet-burgundy:       #2A0813; /* Deep Oxblood / Burgundy Library Cloth */
-  --cabinet-burgundy-light: #3D101E; /* Rich Burgundy Velvet */
-  --cabinet-burgundy-dark:  #1B040B; /* Deepest Obsidian Wine */
-  --cabinet-cream:          #FAF7F2; /* Warm Cream Heavyweight Vellum */
-  --cabinet-cream-dark:     #EFEAE1; /* Aged Manila Folder */
-  --cabinet-cream-paper:    #FCFAF6; /* Pure Letterhead Paper */
-  --cabinet-brass:          #C89E53; /* Brushed Gilt Brass */
-  --cabinet-brass-light:    #DFBF7B; /* Polished Brass Highlight */
-  --cabinet-brass-dark:     #9A722C; /* Deep Burnished Brass */
-  --cabinet-ink:            #141113; /* Carbon Ink */
-  --cabinet-ink-muted:      #574B4F; /* Archive Secondary Ink */
-  --cabinet-rule:           rgba(42, 8, 19, 0.14); /* Hairline Folder Rule */
-  --cabinet-rule-brass:     rgba(200, 158, 83, 0.35);
-
-  --paper:                  var(--cabinet-cream);
-  --ink:                    var(--cabinet-ink);
-  --ink-secondary:          var(--cabinet-ink-muted);
-  --rule:                   var(--cabinet-rule);
-  --accent:                 var(--cabinet-burgundy);
-  --brass:                  var(--cabinet-brass);
+:root {
+  --burgundy:     #72213A;
+  --cream:        #FAF4EC;
+  --cream-dark:   #F0E7DB;
+  --cream-card:   #FFFFFF;
+  --rose:         #D995A9;
+  --gold:         #E5B86B;
+  --plum:         #38272D;
+  --plum-muted:   #614B52;
+  --border-color: rgba(114, 33, 58, 0.12);
 }
 
-[data-palette="nocturne"],
-[data-palette="obsidian"] {
-  --cabinet-burgundy:       #15050A; /* Nocturne Black-Wine */
-  --cabinet-burgundy-light: #240912;
-  --cabinet-burgundy-dark:  #0C0205;
-  --cabinet-cream:          #161314; /* Deep Nocturne Cabinet */
-  --cabinet-cream-dark:     #1E1A1B;
-  --cabinet-cream-paper:    #241F21;
-  --cabinet-brass:          #DFBF7B; /* Bright Warm Gilt */
-  --cabinet-brass-light:    #F5E3B8;
-  --cabinet-brass-dark:     #B0893E;
-  --cabinet-ink:            #FAF7F2; /* Cream White Ink */
-  --cabinet-ink-muted:      #B3A7AB;
-  --cabinet-rule:           rgba(223, 191, 123, 0.18);
-  --cabinet-rule-brass:     rgba(223, 191, 123, 0.35);
-
-  --paper:                  var(--cabinet-cream);
-  --ink:                    var(--cabinet-ink);
-  --ink-secondary:          var(--cabinet-ink-muted);
-  --rule:                   var(--cabinet-rule);
-  --accent:                 var(--cabinet-brass);
-  --brass:                  var(--cabinet-brass);
-}
-
-/* Base Reset */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 70px;
+  scroll-padding-top: 80px;
 }
 
 body {
   margin: 0;
-  background: var(--cabinet-cream);
-  color: var(--cabinet-ink);
-  font-family: 'EB Garamond', Georgia, serif;
+  background-color: var(--cream);
+  color: var(--plum);
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-/* ============================================================
-   CABINET ARCHIVAL UI ELEMENTS (BRASS, LABELS, FOLDERS)
-   ============================================================ */
-
-/* Brushed Brass Label Holder Frame */
-.brass-label-holder {
-  border: 1.5px solid var(--cabinet-brass);
-  background: linear-gradient(135deg, rgba(200, 158, 83, 0.15) 0%, rgba(200, 158, 83, 0.04) 100%);
-  box-shadow:
-    inset 0 1px 0 rgba(223, 191, 123, 0.4),
-    0 2px 6px rgba(0, 0, 0, 0.18);
-  position: relative;
-}
-
-/* Brass Rivet Screws */
-.brass-screw {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #DFBF7B 0%, #C89E53 60%, #7A551A 100%);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
-  position: relative;
-}
-.brass-screw::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 20%;
-  width: 60%;
-  height: 1px;
-  background: rgba(40, 20, 5, 0.7);
-  transform: translateY(-50%) rotate(45deg);
-}
-
-/* Brass Drawer Pull Handle */
-.brass-drawer-pull {
-  width: 68px;
-  height: 20px;
-  border: 2px solid var(--cabinet-brass);
-  border-bottom: none;
-  border-radius: 10px 10px 0 0;
-  background: linear-gradient(to bottom, #DFBF7B, #C89E53 50%, #9A722C 100%);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-  margin: 0 auto;
-}
-
-/* Archival Manila Folder Tab */
-.folder-tab {
-  position: relative;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 12px;
-  border: 1px solid var(--cabinet-rule);
-  border-bottom: none;
-  background: var(--cabinet-cream-dark);
-  font-family: 'Courier Prime', monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.folder-tab:hover,
-.folder-tab.active {
-  background: var(--cabinet-cream-paper);
-  transform: translateY(-3px);
-  border-color: var(--cabinet-brass);
-}
-
-/* Dossier Stamp */
-.dossier-stamp {
-  font-family: 'Courier Prime', monospace;
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  padding: 0.2rem 0.6rem;
-  border: 1.5px solid var(--cabinet-burgundy);
-  color: var(--cabinet-burgundy);
-  display: inline-block;
-  transform: rotate(-2deg);
-}
-
-[data-palette="nocturne"] .dossier-stamp {
-  border-color: var(--cabinet-brass);
-  color: var(--cabinet-brass);
-}
-
-/* Drop Caps for Archival Folio */
-.cabinet-drop-cap {
-  float: left;
-  font-family: 'Bodoni Moda', 'Playfair Display', Georgia, serif;
-  font-weight: 900;
-  font-size: 4.8rem;
-  line-height: 0.78;
-  margin-right: 0.9rem;
-  margin-top: 0.35rem;
-  color: var(--cabinet-burgundy);
-}
-
-[data-palette="nocturne"] .cabinet-drop-cap {
-  color: var(--cabinet-brass);
-}
-
-/* Underline Field for Archival Inquiry */
-.cabinet-input {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid var(--cabinet-rule);
-  color: var(--cabinet-ink);
-  padding: 0.8rem 0;
-  width: 100%;
-  font-family: 'EB Garamond', Georgia, serif;
-  font-size: 1.15rem;
-  outline: none;
-  transition: border-color 0.2s;
-}
-
-.cabinet-input:focus {
-  border-bottom-color: var(--cabinet-burgundy);
-}
-
-[data-palette="nocturne"] .cabinet-input:focus {
-  border-bottom-color: var(--cabinet-brass);
+h1, h2, h3, h4, .font-headline {
+  font-family: 'Fraunces', Georgia, serif;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--cabinet-cream);
+  background: var(--cream);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--cabinet-brass);
+  background: var(--rose);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--burgundy);
 }
 
-/* Fade in animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Editorial Underline Inputs */
+.editorial-input {
+  background: #FFFFFF;
+  border: 1px solid rgba(114, 33, 58, 0.16);
+  border-radius: 4px;
+  color: var(--plum);
+  padding: 0.75rem 1rem;
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.2s ease;
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.editorial-input:focus {
+  border-color: var(--burgundy);
+  box-shadow: 0 0 0 3px rgba(114, 33, 58, 0.08);
+}
+
+/* Subtle transitions */
+a, button {
+  transition: all 0.2s ease-in-out;
 }

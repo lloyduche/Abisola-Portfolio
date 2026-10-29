@@ -12,78 +12,67 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-sm animate-fadeIn"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto p-8 sm:p-14 rounded-sm border border-[var(--cabinet-brass)]"
-        style={{
-          background: 'var(--cabinet-cream)',
-          color: 'var(--ink)',
-          boxShadow: '0 25px 70px rgba(0,0,0,0.6)',
-        }}
+        className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto p-6 sm:p-10 rounded-3xl bg-white border border-[#72213A]/15 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Folio & Close Button */}
-        <div className="flex items-center justify-between pb-4 mb-8 border-b border-[var(--cabinet-rule)] text-xs font-mono tracking-widest uppercase text-[var(--ink-secondary)]">
+        <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#72213A]/10 text-xs font-semibold uppercase tracking-wider text-[#72213A]">
           <div className="flex items-center gap-2">
-            <BookOpen className="w-3.5 h-3.5 text-[var(--cabinet-brass)]" />
-            <span>ARCHIVAL PROOF // {project.tagCategory}</span>
+            <BookOpen className="w-4 h-4 text-[#E5B86B]" />
+            <span>{project.tagCategory}</span>
           </div>
 
           <button
             onClick={onClose}
-            className="p-1 text-[var(--ink-secondary)] hover:text-[var(--cabinet-burgundy)] transition-colors"
-            aria-label="Close"
+            className="p-1.5 rounded-full hover:bg-[#FAF4EC] text-[#38272D]/70 hover:text-[#72213A] transition-colors"
+            aria-label="Close modal"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Title */}
-        <h3 className="font-display font-bold text-2xl sm:text-4xl text-[var(--cabinet-burgundy)] leading-snug mb-6">
+        <h3 className="font-headline font-semibold text-2xl sm:text-3xl text-[#72213A] leading-snug mb-4">
           {project.title}
         </h3>
 
-        {/* Strategic Direction / Commercial Hook */}
+        {/* Hook */}
         {project.hook && (
-          <div className="mb-8 pb-6 border-b border-[var(--cabinet-rule)]">
-            <div className="font-mono text-xs uppercase tracking-widest text-[var(--cabinet-brass)] mb-1 font-bold">
-              COMMERCIAL HOOK &amp; POSITIONING
-            </div>
-            <div className="font-serif italic text-xl text-[var(--cabinet-burgundy)] font-bold">
-              "{project.hook}"
-            </div>
+          <div className="mb-6 p-4 rounded-xl bg-[#FAF4EC] border-l-4 border-[#72213A] text-sm font-body text-[#38272D]">
+            <span className="font-semibold text-[#72213A] block text-xs uppercase mb-1">
+              Strategic Hook:
+            </span>
+            {project.hook}
           </div>
         )}
 
         {/* Subject & Preheader */}
         {project.fullContent?.subject && (
-          <div className="p-4 mb-8 border-l-2 border-[var(--cabinet-brass)] bg-[var(--cabinet-cream-dark)] font-mono text-xs space-y-1.5">
+          <div className="p-4 mb-6 rounded-xl bg-[#FAF4EC] text-xs font-body space-y-1.5 border border-[#72213A]/10">
             <div>
-              <span className="font-bold text-[var(--cabinet-burgundy)] uppercase">SUBJECT: </span>
-              <span className="text-[var(--ink)]">{project.fullContent.subject}</span>
+              <span className="font-semibold text-[#72213A] uppercase">Subject Line: </span>
+              <span className="text-[#38272D] font-medium">{project.fullContent.subject}</span>
             </div>
             {project.fullContent.preheader && (
               <div>
-                <span className="font-bold text-[var(--ink-secondary)] uppercase">PREHEADER: </span>
-                <span className="text-[var(--ink-secondary)]">{project.fullContent.preheader}</span>
+                <span className="font-semibold text-[#38272D]/70 uppercase">Preheader: </span>
+                <span className="text-[#38272D]/85">{project.fullContent.preheader}</span>
               </div>
             )}
           </div>
         )}
 
-        {/* Printed Copy Excerpt */}
+        {/* Copy Excerpt */}
         {project.fullContent?.excerpt && (
-          <div className="mb-8">
-            <div className="flex items-center justify-between pb-2 mb-4 border-b border-[var(--cabinet-rule)]">
-              <span className="font-mono text-xs uppercase tracking-widest text-[var(--ink-secondary)]">
-                PRODUCTION COPY EXCERPT
-              </span>
-              <span className="dossier-stamp text-[8px]">VERIFIED PROOF</span>
-            </div>
-
-            <div className="space-y-4 font-serif text-lg leading-relaxed text-[var(--ink)]/90">
+          <div className="mb-6">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#38272D]/60 block mb-3">
+              Selected Copy Excerpt
+            </span>
+            <div className="p-6 rounded-2xl bg-[#FAF4EC]/60 border border-[#72213A]/10 space-y-3 font-body text-base text-[#38272D]/90 leading-relaxed">
               {project.fullContent.excerpt.map((para, i) => (
                 <p key={i}>{para}</p>
               ))}
@@ -91,39 +80,39 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           </div>
         )}
 
-        {/* Strategic Editorial Notes */}
+        {/* Strategic Details */}
         {project.fullContent?.details && (
-          <div className="mb-8 pt-6 border-t border-[var(--cabinet-rule)]">
-            <span className="font-mono text-xs uppercase tracking-widest block mb-2 text-[var(--cabinet-brass)] font-bold">
-              STRATEGIC CONTEXT &amp; RATIONALE
+          <div className="mb-6">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#38272D]/60 block mb-2">
+              Context &amp; Results
             </span>
-            <div className="font-serif text-base text-[var(--ink)]/85 leading-relaxed whitespace-pre-line">
+            <div className="p-4 rounded-xl bg-[#FAF4EC] font-body text-sm leading-relaxed text-[#38272D]/85 whitespace-pre-line border border-[#72213A]/10">
               {project.fullContent.details}
             </div>
           </div>
         )}
 
         {/* Action Row */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-[var(--cabinet-rule)] font-mono text-xs">
+        <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-[#72213A]/10 font-body text-sm">
           <div>
             {project.fullContent?.substackLink && (
               <a
                 href={project.fullContent.substackLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-bold uppercase tracking-wider text-[var(--cabinet-burgundy)] hover:text-[var(--cabinet-brass)] transition-colors inline-flex items-center gap-1.5"
+                className="font-semibold text-[#72213A] hover:underline inline-flex items-center gap-1.5"
               >
                 <span>Read Full Essay on Substack</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[var(--cabinet-brass)]" />
+                <ArrowUpRight className="w-4 h-4 text-[#E5B86B]" />
               </a>
             )}
           </div>
 
           <button
             onClick={onClose}
-            className="px-6 py-2 border border-[var(--cabinet-rule)] text-[var(--ink)] font-bold uppercase tracking-wider hover:border-[var(--cabinet-burgundy)] transition-colors"
+            className="px-6 py-2.5 rounded-full border border-[#72213A]/20 text-[#72213A] font-semibold hover:bg-[#FAF4EC] transition-colors"
           >
-            Close Dossier
+            Close Window
           </button>
         </div>
 

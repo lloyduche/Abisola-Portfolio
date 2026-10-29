@@ -3,12 +3,36 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      colors: {
+        burgundy: {
+          DEFAULT: '#72213A',
+          dark: '#54172A',
+          light: '#8B2B48',
+        },
+        cream: {
+          DEFAULT: '#FAF4EC',
+          dark: '#F0E7DB',
+          light: '#FDFBF7',
+        },
+        rose: {
+          dusty: '#D995A9',
+          light: '#EBC3CF',
+        },
+        gold: {
+          warm: '#E5B86B',
+          light: '#F2D399',
+        },
+        plum: {
+          DEFAULT: '#38272D',
+          muted: '#614B52',
+          faint: '#8F777F',
+        },
+      },
       fontFamily: {
-        display: ['"Bodoni Moda"', '"Playfair Display"', 'Georgia', 'serif'],
-        serif:   ['"EB Garamond"', 'Georgia', 'serif'],
-        hand:    ['"Caveat"', 'cursive'],
-        mono:    ['"Courier Prime"', 'Courier', 'monospace'],
-        body:    ['"Instrument Sans"', 'system-ui', 'sans-serif'],
+        headline: ['"Fraunces"', 'Georgia', 'serif'],
+        display: ['"Fraunces"', 'Georgia', 'serif'],
+        body: ['"DM Sans"', 'system-ui', 'sans-serif'],
+        sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
       },
     },
   },
