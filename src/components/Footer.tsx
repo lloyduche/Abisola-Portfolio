@@ -1,22 +1,21 @@
 import React from 'react';
-import { EditorialStamp } from './ManuscriptMarks';
 import { ArrowUp } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="py-16 px-6 sm:px-12 text-xs font-mono text-[var(--ink-secondary)]">
+    <footer className="py-16 px-6 sm:px-12 text-xs font-mono text-[var(--ink-secondary)] bg-[var(--cabinet-cream-dark)] border-t border-[var(--cabinet-rule)]">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
 
         {/* Colophon Note */}
-        <div className="space-y-2">
+        <div className="space-y-1.5">
           <div className="flex items-center gap-3">
-            <span className="font-bold uppercase tracking-widest text-[var(--ink)]">
-              COLOPHON &bull; THE LIVING MANUSCRIPT
+            <span className="font-bold uppercase tracking-widest text-[var(--cabinet-burgundy)]">
+              THE WRITER'S CABINET // ARCHIVAL COLOPHON
             </span>
-            <EditorialStamp text="archival proof" />
+            <span className="dossier-stamp text-[8px]">EDITION 2026</span>
           </div>
           <p className="font-serif text-sm text-[var(--ink)]/80">
-            Typeset in Bodoni Moda, EB Garamond, and Courier Prime on Archival Vellum.
+            Typeset in Bodoni Moda, EB Garamond, and Courier Prime on Warm Archival Cream Vellum.
           </p>
           <div className="text-[11px] text-[var(--ink-secondary)]">
             &copy; {new Date().getFullYear()} Abisola Oluwatoyin. All rights reserved.
@@ -24,18 +23,18 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Centered Editorial Emblem */}
-        <div className="font-serif italic text-lg sm:text-xl text-[var(--ink)]/85 text-left md:text-center">
+        <div className="font-serif italic text-lg sm:text-xl text-[var(--cabinet-burgundy)] text-left md:text-center">
           "words that persuade &bull; ideas that endure"
         </div>
 
-        {/* Back to Top Link */}
+        {/* Return to Top */}
         <div>
           <a
             href="#home"
-            className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-[var(--ink)] hover:text-[var(--red-pencil)] transition-colors underline underline-offset-4"
+            className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-[var(--cabinet-burgundy)] hover:text-[var(--cabinet-brass)] transition-colors underline underline-offset-4"
           >
-            <span>Return to Title Folio</span>
-            <ArrowUp className="w-4 h-4 text-[var(--red-pencil)]" />
+            <span>Return to Catalogue Index</span>
+            <ArrowUp className="w-4 h-4 text-[var(--cabinet-brass)]" />
           </a>
         </div>
 

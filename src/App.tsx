@@ -3,22 +3,22 @@ import { PaletteProvider } from './context/PaletteContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
-import { SkillsTools } from './components/SkillsTools';
 import { FeaturedWork } from './components/FeaturedWork';
 import { CaseStudies } from './components/CaseStudies';
+import { PersonalWriting } from './components/PersonalWriting';
 import { ResumeExpertise } from './components/ResumeExpertise';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { ProjectModal } from './components/ProjectModal';
 import { ResumeModal } from './components/ResumeModal';
-import { ManuscriptLoader } from './components/ManuscriptLoader';
+import { CabinetLoader } from './components/CabinetLoader';
 import { Project } from './types';
 
-const ManuscriptInner: React.FC = () => {
+const CabinetInner: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [resumeOpen, setResumeOpen] = useState(false);
   const [readingProgress, setReadingProgress] = useState(0);
-  const [showManuscriptLoader, setShowManuscriptLoader] = useState(true);
+  const [showCabinetLoader, setShowCabinetLoader] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,33 +37,33 @@ const ManuscriptInner: React.FC = () => {
     <div
       className="min-h-screen relative"
       style={{
-        background: 'var(--paper)',
+        background: 'var(--cabinet-cream)',
         color: 'var(--ink)',
         transition: 'background 0.4s ease, color 0.3s ease',
       }}
     >
-      {/* Interactive Manuscript Letter-Selection Loader */}
-      {showManuscriptLoader && (
-        <ManuscriptLoader onComplete={() => setShowManuscriptLoader(false)} />
+      {/* Archival Label Opening Screen */}
+      {showCabinetLoader && (
+        <CabinetLoader onComplete={() => setShowCabinetLoader(false)} />
       )}
 
-      {/* Top Archival Reading Progress Thread */}
+      {/* Top Gilt Thread Progress Indicator */}
       <div
         className="fixed top-0 left-0 h-[2.5px] z-[60] transition-all duration-100"
         style={{
           width: `${readingProgress}%`,
-          background: 'var(--red-pencil)',
+          background: 'var(--cabinet-brass)',
         }}
       />
 
-      {/* Main Manuscript Composition */}
+      {/* Main Writer's Cabinet Architecture */}
       <div className="relative z-10">
         <Navbar />
         <Hero />
         <About />
-        <SkillsTools />
         <FeaturedWork onSelectProject={(p) => setSelectedProject(p)} />
         <CaseStudies />
+        <PersonalWriting />
         <ResumeExpertise onOpenResume={() => setResumeOpen(true)} />
         <Contact />
         <Footer />
@@ -84,7 +84,7 @@ const ManuscriptInner: React.FC = () => {
 
 export const App: React.FC = () => (
   <PaletteProvider>
-    <ManuscriptInner />
+    <CabinetInner />
   </PaletteProvider>
 );
 

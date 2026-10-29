@@ -1,169 +1,231 @@
-import React from 'react';
-import { RedCircle, RedWavyStrike, RedArrow, EditorialStamp } from './ManuscriptMarks';
-import { ArrowDown, ArrowUpRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowUpRight } from 'lucide-react';
 
 export const Hero: React.FC = () => {
+  const [hoveredDrawer, setHoveredDrawer] = useState<number | null>(null);
+
+  const drawers = [
+    {
+      num: 'I',
+      title: 'The Author',
+      subtitle: 'Biography & Career Ledger',
+      peek: 'Philosophy, education in English Language, and enterprise appointments at Redtech, UBA & Estatelinks.',
+      href: '#about',
+    },
+    {
+      num: 'II',
+      title: 'Campaign Proofs',
+      subtitle: 'Marketing & Conversion Copy',
+      peek: 'Filed proofs: Section 104 tax compliance sequences, fintech payment infrastructure, and webinar invitations.',
+      href: '#campaigns',
+    },
+    {
+      num: 'III',
+      title: 'The Editorial Room',
+      subtitle: 'Strategic Project Dossiers',
+      peek: 'Deep-dive analytical dossiers: The Commercial Mandate, Audience Framing, and Quantified Outcomes.',
+      href: '#editorial-room',
+    },
+    {
+      num: 'IV',
+      title: 'Personal Writing',
+      subtitle: 'Abisola Writes on Substack',
+      peek: 'Literary essays, cultural observations, and fiction read by 1,469+ subscribers across 28k+ views.',
+      href: '#personal-writing',
+    },
+    {
+      num: 'V',
+      title: 'Correspondence',
+      subtitle: 'Open Inquiry Dispatch',
+      peek: 'Direct inquiry channel for communications mandates, content strategy, and editorial commissions.',
+      href: '#correspondence',
+    },
+  ];
+
   return (
-    <section id="home" className="pt-10 sm:pt-16 pb-20 lg:pb-32 border-b border-[var(--rule)]">
+    <section id="home" className="pt-10 sm:pt-16 pb-20 lg:pb-28 border-b border-[var(--cabinet-rule)]">
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
 
-        {/* Top Folio Header */}
-        <div className="flex items-center justify-between pb-3 mb-10 border-b border-[var(--rule)] text-xs font-mono tracking-widest uppercase text-[var(--ink-secondary)]">
+        {/* Archival Folio Masterhead */}
+        <div className="flex flex-wrap items-center justify-between gap-4 pb-3 mb-10 border-b border-[var(--cabinet-rule)] text-xs font-mono tracking-widest uppercase text-[var(--ink-secondary)]">
           <div className="flex items-center gap-2">
-            <span className="font-bold text-[var(--red-pencil)]">&para; LEAD ARTICLE</span>
+            <span className="font-bold text-[var(--cabinet-burgundy)]">&para; CATALOGUE MASTER INDEX</span>
             <span>/</span>
-            <span>VOL. XXVI &bull; BROADSHEET OPENING</span>
+            <span>CLASSIFICATION REF: AO-2026 // DRAWER COLLECTION</span>
           </div>
 
-          <div className="flex items-center gap-3">
-            <EditorialStamp text="approved text" />
-          </div>
-        </div>
-
-        {/* Editorial Correction Marker (Image 1 & Image 4 style) */}
-        <div className="mb-6 flex flex-wrap items-center gap-3">
-          <span className="font-hand text-base sm:text-lg text-[var(--red-pencil)]">
-            ( ¿cómo articular el verdadero valor comercial? )
-          </span>
-          <RedArrow direction="right" />
-          <div className="font-mono text-xs text-[var(--ink-secondary)]">
-            <RedWavyStrike>Every company has something to say</RedWavyStrike>
-            <span className="font-hand text-sm ml-2 font-bold text-[var(--red-pencil)]">
-              ^ [stet: strike the generic cliché. lead with conviction]
-            </span>
+          <div className="flex items-center gap-2">
+            <span className="dossier-stamp">ARCHIVE VERIFIED</span>
           </div>
         </div>
 
-        {/* Monumental Headline Modeled on Image 2 ("Rendezvous with Rushdie") - NO BOXES */}
-        <div className="mb-12 border-b border-[var(--rule)] pb-12">
-          <h1
-            className="font-display font-black tracking-tight leading-[0.88] text-[var(--ink)] mb-8"
-            style={{ fontSize: 'clamp(3rem, 8.8vw, 7.8rem)' }}
-          >
-            Words that persuade. <br />
-            <span className="italic font-normal font-serif text-[var(--red-pencil)]">
-              Ideas that endure.
-            </span>
-          </h1>
-
-          {/* Subhead in Rushdie editorial italic style (Image 2) */}
-          <p className="font-serif italic text-2xl sm:text-3xl lg:text-4xl max-w-5xl leading-relaxed text-[var(--ink)]/90">
-            A corporate communications specialist, brand strategist, and B2B copywriter bridging technical fintech complexity, regulatory fiscal mandates, and the human heart.
-          </p>
-        </div>
-
-        {/* 3-Column Broadsheet Grid with Vertical Hairline Rules (Image 2 style) - NO BOXES */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14 items-start mb-16">
-
-          {/* Column 1: Drop-Cap 'W' Column */}
-          <div className="md:col-span-4 font-serif text-lg text-[var(--ink)]/90 leading-relaxed md:border-r md:border-[var(--rule)] md:pr-10">
-            <span className="drop-cap-rushdie text-[var(--ink)]">
-              W
-            </span>
-            <p className="mb-4">
-              ords are never mere decoration in high-stakes enterprise messaging. They are the structural architecture of commercial understanding. My work begins where technical jargon falters—translating complex product mechanics, payment rails, and regulatory compliance mandates into language that executives, investors, and customers readily trust.
-            </p>
-            <p>
-              From drafting executive narratives to orchestrating conversion campaigns, every line is crafted with linguistic discipline and commercial focus.
-            </p>
-            <div className="mt-8 pt-4 border-t border-[var(--rule)] font-hand text-base text-[var(--red-pencil)]">
-              ~ "In love with language, syntax, and commercial clarity."
-            </div>
-          </div>
-
-          {/* Column 2: Drop-Cap 'S' Column with Red Annotations */}
-          <div className="md:col-span-4 font-serif text-lg text-[var(--ink)]/90 leading-relaxed md:border-r md:border-[var(--rule)] md:pr-10">
-            <span className="drop-cap-red">
-              S
-            </span>
-            <p className="mb-4">
-              trategy with soul means every sentence serves a measurable purpose. Whether anchoring a <RedCircle>₦1.07 quadrillion</RedCircle> fintech bank transfer volume hook, activating a <RedCircle>12% conversion rate</RedCircle> email sequence, or crafting cultural essays on <span className="underline decoration-[var(--red-pencil)]">Abisola Writes</span>, the standard is unchanging: absolute precision over empty noise.
-            </p>
-            <p>
-              High-value communications require knowing what to emphasize and what to excise with ruthless editorial clarity.
-            </p>
-            <div className="mt-8 pt-4 border-t border-[var(--rule)] font-mono text-xs text-[var(--ink-secondary)]">
-              <span className="text-[10px] font-bold uppercase block mb-1 text-[var(--red-pencil)]">
-                EDITORIAL VERDICT // 2026:
+        {/* Monumental Editorial Headline & Statement */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end pb-12 mb-16 border-b border-[var(--cabinet-rule)]">
+          <div className="lg:col-span-8">
+            <h1
+              className="font-display font-black tracking-tight leading-[0.92] text-[var(--cabinet-burgundy)] mb-6"
+              style={{ fontSize: 'clamp(2.8rem, 7.8vw, 6.8rem)' }}
+            >
+              Words that persuade. <br />
+              <span className="font-serif italic font-normal text-[var(--cabinet-brass)]">
+                Ideas that endure.
               </span>
-              <span>"Turn complexity into clarity; turn clarity into revenue."</span>
-            </div>
+            </h1>
+
+            <p className="font-serif text-xl sm:text-2xl text-[var(--ink)]/85 max-w-3xl leading-relaxed font-normal">
+              Inside this curated cabinet lives the marketing strategy, conversion copywriting, executive narratives, and literary essays of <strong className="font-semibold text-[var(--cabinet-burgundy)]">Abisola Oluwatoyin</strong>.
+            </p>
           </div>
 
-          {/* Column 3: The Author's Editorial Plate & Verified Numbers */}
-          <div className="md:col-span-4 space-y-8">
-            {/* Author Portrait Plate (Clean border, no box cards) */}
-            <div className="relative">
-              <div className="aspect-[4/5] overflow-hidden border border-[var(--rule)]">
+          {/* Author Portrait Plate (Archival Mounted Photograph) */}
+          <div className="lg:col-span-4 flex flex-col items-start lg:items-end">
+            <div className="relative p-2.5 rounded-sm border border-[var(--cabinet-rule)] bg-[var(--cabinet-cream-dark)] shadow-sm max-w-[260px]">
+              <div className="brass-screw absolute top-1.5 left-1.5" />
+              <div className="brass-screw absolute top-1.5 right-1.5" />
+              <div className="brass-screw absolute bottom-1.5 left-1.5" />
+              <div className="brass-screw absolute bottom-1.5 right-1.5" />
+
+              <div className="aspect-[4/5] overflow-hidden border border-[var(--cabinet-rule)]">
                 <img
                   src="/abisola.svg"
-                  alt="Abisola Oluwatoyin - Author Portrait"
-                  className="w-full h-full object-cover filter grayscale contrast-105"
+                  alt="Abisola Oluwatoyin"
+                  className="w-full h-full object-cover filter contrast-[1.05]"
                 />
               </div>
-              <div className="mt-3 flex items-baseline justify-between text-xs font-mono text-[var(--ink-secondary)]">
-                <span className="font-bold text-[var(--ink)]">PLATE I &bull; THE AUTHOR</span>
-                <span>LAGOS, NIGERIA</span>
-              </div>
-              <p className="font-serif italic text-sm text-[var(--ink)]/80 mt-1">
-                Abisola Oluwatoyin &bull; B.A. English Language (2:1)
-              </p>
-            </div>
 
-            {/* Verified Broadsheet Telemetry (NO BOXES, clean typographic list) */}
-            <div className="pt-6 border-t border-[var(--rule)] space-y-4 font-serif">
-              <div className="text-xs font-mono font-bold uppercase tracking-widest text-[var(--red-pencil)]">
-                VERIFIED OUTCOMES
-              </div>
-
-              <div className="flex items-baseline justify-between border-b border-[var(--rule)] pb-2">
-                <span className="text-base text-[var(--ink)]">Fintech Transaction Hook</span>
-                <span className="font-display font-black text-2xl text-[var(--red-pencil)]">₦1.07Q</span>
-              </div>
-
-              <div className="flex items-baseline justify-between border-b border-[var(--rule)] pb-2">
-                <span className="text-base text-[var(--ink)]">Lead-to-Active Rate (Redtech)</span>
-                <span className="font-display font-black text-2xl text-[var(--red-pencil)]">12%</span>
-              </div>
-
-              <div className="flex items-baseline justify-between border-b border-[var(--rule)] pb-2">
-                <span className="text-base text-[var(--ink)]">Enterprise Webinar Attendees</span>
-                <span className="font-display font-black text-2xl text-[var(--red-pencil)]">823+</span>
-              </div>
-
-              <div className="flex items-baseline justify-between">
-                <span className="text-base text-[var(--ink)]">Substack Publication Reads</span>
-                <span className="font-display font-black text-2xl text-[var(--red-pencil)]">28k+</span>
+              <div className="pt-2 text-center">
+                <span className="font-mono text-[9px] uppercase tracking-wider text-[var(--ink-secondary)] block">
+                  AUTHOR DOSSIER PLATE // 2026
+                </span>
+                <span className="font-serif italic text-xs text-[var(--cabinet-burgundy)]">
+                  Abisola Oluwatoyin
+                </span>
               </div>
             </div>
           </div>
-
         </div>
 
-        {/* Minimalist Editorial Actions (NO BUTTON BOXES) */}
-        <div className="pt-8 border-t border-[var(--rule)] flex flex-wrap items-center justify-between gap-6 font-mono text-xs">
-          <div className="flex items-center gap-8">
-            <a
-              href="#work"
-              className="flex items-center gap-2 font-bold tracking-wider uppercase text-[var(--ink)] hover:text-[var(--red-pencil)] transition-colors"
-            >
-              <span>Explore Selected Works</span>
-              <ArrowDown className="w-4 h-4 text-[var(--red-pencil)]" />
-            </a>
-
-            <a
-              href="https://abisolawrites.substack.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 font-bold tracking-wider uppercase text-[var(--ink-secondary)] hover:text-[var(--ink)] transition-colors"
-            >
-              <span>Read on Substack</span>
-              <ArrowUpRight className="w-4 h-4 text-[var(--red-pencil)]" />
-            </a>
+        {/* Interactive Cabinet Drawers Row (Vintage Library Catalogue, Contemporary Styling) */}
+        <div className="mb-16">
+          <div className="flex items-center justify-between pb-3 mb-6 border-b border-[var(--cabinet-rule)] text-xs font-mono uppercase tracking-widest text-[var(--ink-secondary)]">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[var(--cabinet-brass)]" />
+              <span>THE FIVE DRAWERS // HOVER TO REVEAL CONTENTS</span>
+            </div>
+            <span className="hidden sm:inline">CLICK TO OPEN COMPARTMENT &darr;</span>
           </div>
 
-          <div className="font-serif italic text-base text-[var(--ink-secondary)]">
-            "words with intent, strategy with soul"
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {drawers.map((drawer, idx) => {
+              const isHovered = hoveredDrawer === idx;
+              return (
+                <a
+                  key={drawer.num}
+                  href={drawer.href}
+                  onMouseEnter={() => setHoveredDrawer(idx)}
+                  onMouseLeave={() => setHoveredDrawer(null)}
+                  className="group relative p-5 rounded-sm border transition-all duration-300 flex flex-col justify-between min-h-[220px]"
+                  style={{
+                    background: isHovered
+                      ? 'var(--cabinet-burgundy)'
+                      : 'var(--cabinet-cream-dark)',
+                    borderColor: isHovered
+                      ? 'var(--cabinet-brass)'
+                      : 'var(--cabinet-rule)',
+                    color: isHovered ? '#FAF7F2' : 'var(--ink)',
+                    transform: isHovered ? 'translateY(-4px)' : 'none',
+                    boxShadow: isHovered
+                      ? '0 12px 24px rgba(42, 8, 19, 0.25)'
+                      : 'none',
+                  }}
+                >
+                  {/* Top Drawer Index Label */}
+                  <div>
+                    <div className="flex items-center justify-between pb-2 mb-3 border-b text-[10px] font-mono tracking-wider uppercase" style={{ borderColor: isHovered ? 'rgba(200, 158, 83, 0.3)' : 'var(--cabinet-rule)' }}>
+                      <span className="font-bold text-[var(--cabinet-brass)]">
+                        DRAWER {drawer.num}
+                      </span>
+                      <ArrowUpRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-[var(--cabinet-brass)]" />
+                    </div>
+
+                    <h3 className="font-serif font-bold text-lg leading-snug mb-1">
+                      {drawer.title}
+                    </h3>
+
+                    <div className="text-xs font-serif italic opacity-75 mb-3">
+                      {drawer.subtitle}
+                    </div>
+
+                    {/* Peek View on Hover */}
+                    <p className={`text-xs font-serif leading-relaxed transition-opacity duration-200 ${
+                      isHovered ? 'opacity-90' : 'opacity-65'
+                    }`}>
+                      {drawer.peek}
+                    </p>
+                  </div>
+
+                  {/* Brass Pull Handle at Bottom */}
+                  <div className="pt-4 mt-auto">
+                    <div
+                      className="w-12 h-2.5 mx-auto rounded-t-sm border border-b-0 transition-all duration-300"
+                      style={{
+                        background: 'linear-gradient(to bottom, #DFBF7B, #C89E53)',
+                        borderColor: '#9A722C',
+                        transform: isHovered ? 'scale(1.15)' : 'scale(1)',
+                      }}
+                    />
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* 3 Archival Verification Plates (Quantified Credentials) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-[var(--cabinet-rule)]">
+          <div className="space-y-1">
+            <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--cabinet-brass)] font-bold block">
+              VERIFIED IMPACT // 01
+            </span>
+            <div className="font-display font-black text-4xl sm:text-5xl text-[var(--cabinet-burgundy)] leading-none">
+              12%
+            </div>
+            <div className="font-serif font-bold text-lg text-[var(--ink)]">
+              Lead-to-Active Conversion Rate
+            </div>
+            <div className="text-xs font-serif text-[var(--ink-secondary)] leading-relaxed">
+              Exceeded the 5% fintech industry target by 240% during e-invoicing rollout.
+            </div>
+          </div>
+
+          <div className="space-y-1">
+            <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--cabinet-brass)] font-bold block">
+              VERIFIED IMPACT // 02
+            </span>
+            <div className="font-display font-black text-4xl sm:text-5xl text-[var(--cabinet-burgundy)] leading-none">
+              28,100+
+            </div>
+            <div className="font-serif font-bold text-lg text-[var(--ink)]">
+              Substack Essay Readership
+            </div>
+            <div className="text-xs font-serif text-[var(--ink-secondary)] leading-relaxed">
+              1,469+ organic global subscribers reading cultural commentary &amp; personal prose.
+            </div>
+          </div>
+
+          <div className="space-y-1">
+            <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--cabinet-brass)] font-bold block">
+              VERIFIED IMPACT // 03
+            </span>
+            <div className="font-display font-black text-4xl sm:text-5xl text-[var(--cabinet-burgundy)] leading-none">
+              823+
+            </div>
+            <div className="font-serif font-bold text-lg text-[var(--ink)]">
+              Enterprise Webinar Registrants
+            </div>
+            <div className="text-xs font-serif text-[var(--ink-secondary)] leading-relaxed">
+              Over 520+ attendees engaged across fiscal taxation and hospitality activations.
+            </div>
           </div>
         </div>
 

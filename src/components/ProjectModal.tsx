@@ -1,6 +1,5 @@
 import React from 'react';
 import { Project } from '../types';
-import { RedArrow, EditorialStamp } from './ManuscriptMarks';
 import { X, ArrowUpRight, BookOpen } from 'lucide-react';
 
 interface ProjectModalProps {
@@ -17,24 +16,24 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto p-8 sm:p-14 border border-[var(--rule)]"
+        className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto p-8 sm:p-14 rounded-sm border border-[var(--cabinet-brass)]"
         style={{
-          background: 'var(--paper)',
+          background: 'var(--cabinet-cream)',
           color: 'var(--ink)',
-          boxShadow: '0 25px 70px rgba(0,0,0,0.5)',
+          boxShadow: '0 25px 70px rgba(0,0,0,0.6)',
         }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Folio & Close Button */}
-        <div className="flex items-center justify-between pb-4 mb-8 border-b border-[var(--rule)] text-xs font-mono tracking-widest uppercase text-[var(--ink-secondary)]">
+        <div className="flex items-center justify-between pb-4 mb-8 border-b border-[var(--cabinet-rule)] text-xs font-mono tracking-widest uppercase text-[var(--ink-secondary)]">
           <div className="flex items-center gap-2">
-            <BookOpen className="w-3.5 h-3.5 text-[var(--red-pencil)]" />
-            <span>GALLEY PROOF // {project.tagCategory}</span>
+            <BookOpen className="w-3.5 h-3.5 text-[var(--cabinet-brass)]" />
+            <span>ARCHIVAL PROOF // {project.tagCategory}</span>
           </div>
 
           <button
             onClick={onClose}
-            className="p-1 text-[var(--ink-secondary)] hover:text-[var(--red-pencil)] transition-colors"
+            className="p-1 text-[var(--ink-secondary)] hover:text-[var(--cabinet-burgundy)] transition-colors"
             aria-label="Close"
           >
             <X className="w-5 h-5" />
@@ -42,18 +41,17 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         </div>
 
         {/* Title */}
-        <h3 className="font-display font-bold text-3xl sm:text-4xl text-[var(--ink)] leading-snug mb-6">
+        <h3 className="font-display font-bold text-2xl sm:text-4xl text-[var(--cabinet-burgundy)] leading-snug mb-6">
           {project.title}
         </h3>
 
-        {/* Hook / Strategic Direction Note */}
+        {/* Strategic Direction / Commercial Hook */}
         {project.hook && (
-          <div className="mb-8 pb-6 border-b border-[var(--rule)]">
-            <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[var(--red-pencil)] mb-2">
-              <RedArrow direction="right" />
-              <span>COMMERCIAL CORE HOOK</span>
+          <div className="mb-8 pb-6 border-b border-[var(--cabinet-rule)]">
+            <div className="font-mono text-xs uppercase tracking-widest text-[var(--cabinet-brass)] mb-1 font-bold">
+              COMMERCIAL HOOK &amp; POSITIONING
             </div>
-            <div className="font-hand text-2xl text-[var(--red-pencil)] font-bold">
+            <div className="font-serif italic text-xl text-[var(--cabinet-burgundy)] font-bold">
               "{project.hook}"
             </div>
           </div>
@@ -61,15 +59,15 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
         {/* Subject & Preheader */}
         {project.fullContent?.subject && (
-          <div className="p-4 mb-8 border-l-2 border-[var(--red-pencil)] bg-[var(--rule)]/20 font-mono text-xs space-y-1.5">
+          <div className="p-4 mb-8 border-l-2 border-[var(--cabinet-brass)] bg-[var(--cabinet-cream-dark)] font-mono text-xs space-y-1.5">
             <div>
-              <span className="font-bold text-[var(--red-pencil)] uppercase">SUBJECT: </span>
+              <span className="font-bold text-[var(--cabinet-burgundy)] uppercase">SUBJECT: </span>
               <span className="text-[var(--ink)]">{project.fullContent.subject}</span>
             </div>
             {project.fullContent.preheader && (
               <div>
                 <span className="font-bold text-[var(--ink-secondary)] uppercase">PREHEADER: </span>
-                <span className="text-[var(--ink)]/80">{project.fullContent.preheader}</span>
+                <span className="text-[var(--ink-secondary)]">{project.fullContent.preheader}</span>
               </div>
             )}
           </div>
@@ -78,14 +76,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {/* Printed Copy Excerpt */}
         {project.fullContent?.excerpt && (
           <div className="mb-8">
-            <div className="flex items-center justify-between pb-2 mb-4 border-b border-[var(--rule)]">
+            <div className="flex items-center justify-between pb-2 mb-4 border-b border-[var(--cabinet-rule)]">
               <span className="font-mono text-xs uppercase tracking-widest text-[var(--ink-secondary)]">
-                TYPESET EXCERPT
+                PRODUCTION COPY EXCERPT
               </span>
-              <EditorialStamp text="final approved copy" />
+              <span className="dossier-stamp text-[8px]">VERIFIED PROOF</span>
             </div>
 
-            <div className="space-y-4 font-serif text-lg sm:text-xl leading-relaxed text-[var(--ink)]/90">
+            <div className="space-y-4 font-serif text-lg leading-relaxed text-[var(--ink)]/90">
               {project.fullContent.excerpt.map((para, i) => (
                 <p key={i}>{para}</p>
               ))}
@@ -95,8 +93,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
         {/* Strategic Editorial Notes */}
         {project.fullContent?.details && (
-          <div className="mb-8 pt-6 border-t border-[var(--rule)]">
-            <span className="font-mono text-xs uppercase tracking-widest block mb-2 text-[var(--ink-secondary)]">
+          <div className="mb-8 pt-6 border-t border-[var(--cabinet-rule)]">
+            <span className="font-mono text-xs uppercase tracking-widest block mb-2 text-[var(--cabinet-brass)] font-bold">
               STRATEGIC CONTEXT &amp; RATIONALE
             </span>
             <div className="font-serif text-base text-[var(--ink)]/85 leading-relaxed whitespace-pre-line">
@@ -106,26 +104,26 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         )}
 
         {/* Action Row */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-[var(--rule)] font-mono text-xs">
+        <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-[var(--cabinet-rule)] font-mono text-xs">
           <div>
             {project.fullContent?.substackLink && (
               <a
                 href={project.fullContent.substackLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-bold uppercase tracking-wider text-[var(--red-pencil)] hover:underline inline-flex items-center gap-1.5"
+                className="font-bold uppercase tracking-wider text-[var(--cabinet-burgundy)] hover:text-[var(--cabinet-brass)] transition-colors inline-flex items-center gap-1.5"
               >
                 <span>Read Full Essay on Substack</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-[var(--cabinet-brass)]" />
               </a>
             )}
           </div>
 
           <button
             onClick={onClose}
-            className="px-6 py-2 border border-[var(--rule)] text-[var(--ink)] font-bold uppercase tracking-wider hover:border-[var(--ink)] transition-colors"
+            className="px-6 py-2 border border-[var(--cabinet-rule)] text-[var(--ink)] font-bold uppercase tracking-wider hover:border-[var(--cabinet-burgundy)] transition-colors"
           >
-            Close Proof
+            Close Dossier
           </button>
         </div>
 

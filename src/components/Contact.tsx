@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { RedArrow, EditorialStamp } from './ManuscriptMarks';
 import { Copy, Check, Send, ArrowUpRight } from 'lucide-react';
 
 export const Contact: React.FC = () => {
@@ -25,55 +24,55 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 lg:py-32 border-b border-[var(--rule)]">
+    <section id="correspondence" className="py-20 lg:py-28 border-b border-[var(--cabinet-rule)]">
       <div className="max-w-5xl mx-auto px-6 sm:px-12">
 
-        {/* Broadsheet Folio Chapter Line */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 mb-12 border-b border-[var(--rule)]">
+        {/* Archival Drawer Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 mb-12 border-b border-[var(--cabinet-rule)]">
           <div>
             <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mb-2 text-[var(--ink-secondary)]">
-              <span className="font-bold text-[var(--red-pencil)]">&para; CHAPTER VI</span>
+              <span className="font-bold text-[var(--cabinet-brass)]">&para; DRAWER V</span>
               <span>/</span>
-              <span>OPEN CORRESPONDENCE</span>
+              <span>CORRESPONDENCE &bull; OPEN INQUIRY DISPATCH</span>
             </div>
-            <h2 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight text-[var(--ink)]">
+            <h2 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight text-[var(--cabinet-burgundy)]">
               Good work begins with a good conversation.
             </h2>
           </div>
           <div className="flex items-center gap-3">
-            <EditorialStamp text="open for mandates" />
+            <span className="dossier-stamp">OPEN FOR MANDATES</span>
           </div>
         </div>
 
-        {/* Introductory Manuscript Dispatch */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16 pb-16 border-b border-[var(--rule)]">
-          <div className="lg:col-span-7 font-serif text-xl sm:text-2xl text-[var(--ink)]/90 leading-relaxed">
-            <p className="mb-6">
+        {/* Introduction & Direct Correspondence Channels */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16 pb-16 border-b border-[var(--cabinet-rule)]">
+          <div className="lg:col-span-7 font-serif text-xl text-[var(--ink)]/90 leading-relaxed space-y-4">
+            <p>
               I’m open to opportunities in corporate communications, internal storytelling, marketing strategy and content development.
             </p>
-            <p className="text-lg text-[var(--ink)]/80 font-normal">
+            <p className="text-base text-[var(--ink)]/80">
               I’m interested in working with teams who value thoughtful ideas, clear communication and the power of deliberate storytelling.
             </p>
           </div>
 
-          {/* Direct Address & Quick Links */}
-          <div className="lg:col-span-5 lg:border-l lg:border-[var(--rule)] lg:pl-10 space-y-6">
+          {/* Right Direct Inbox Slip */}
+          <div className="lg:col-span-5 lg:border-l lg:border-[var(--cabinet-rule)] lg:pl-10 space-y-5">
             <div>
-              <span className="font-mono text-xs uppercase tracking-widest text-[var(--ink-secondary)] block mb-1">
-                DIRECT INBOX
+              <span className="font-mono text-xs uppercase tracking-widest text-[var(--cabinet-brass)] font-bold block mb-1">
+                DIRECT INBOX //
               </span>
               <a
                 href="mailto:abisolaaoluwatoyin@gmail.com"
-                className="font-serif font-bold text-2xl text-[var(--ink)] hover:text-[var(--red-pencil)] transition-colors break-all underline decoration-[var(--rule)] underline-offset-4"
+                className="font-serif font-bold text-xl sm:text-2xl text-[var(--cabinet-burgundy)] hover:text-[var(--cabinet-brass)] transition-colors break-all underline decoration-[var(--cabinet-rule)] underline-offset-4"
               >
                 abisolaaoluwatoyin@gmail.com
               </a>
             </div>
 
-            <div className="flex items-center gap-4 pt-2">
+            <div className="flex flex-wrap items-center gap-4 pt-1">
               <button
                 onClick={handleCopyEmail}
-                className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[var(--ink-secondary)] hover:text-[var(--ink)] transition-colors"
+                className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[var(--ink-secondary)] hover:text-[var(--cabinet-burgundy)] transition-colors"
               >
                 {copied ? (
                   <>
@@ -82,59 +81,59 @@ export const Contact: React.FC = () => {
                   </>
                 ) : (
                   <>
-                    <Copy className="w-3.5 h-3.5 text-[var(--red-pencil)]" />
+                    <Copy className="w-3.5 h-3.5 text-[var(--cabinet-brass)]" />
                     <span>Copy Address</span>
                   </>
                 )}
               </button>
 
-              <span className="text-[var(--rule)]">&bull;</span>
+              <span className="text-[var(--cabinet-rule)]">&bull;</span>
 
               <a
                 href="https://abisolawrites.substack.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 font-mono text-xs uppercase tracking-wider text-[var(--red-pencil)] hover:underline"
+                className="inline-flex items-center gap-1 font-mono text-xs uppercase tracking-wider text-[var(--cabinet-brass)] font-bold hover:underline"
               >
                 <span>Substack</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
 
-              <span className="text-[var(--rule)]">&bull;</span>
+              <span className="text-[var(--cabinet-rule)]">&bull;</span>
 
               <a
                 href="https://linkedin.com/in/abisola-oluwatoyin"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 font-mono text-xs uppercase tracking-wider text-[var(--ink-secondary)] hover:text-[var(--ink)]"
+                className="inline-flex items-center gap-1 font-mono text-xs uppercase tracking-wider text-[var(--ink-secondary)] hover:text-[var(--cabinet-burgundy)]"
               >
                 <span>LinkedIn</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             </div>
 
-            <div className="font-hand text-lg text-[var(--red-pencil)] pt-4">
-              ~ replies typically dispatched within 24–48 hours.
+            <div className="font-serif italic text-xs text-[var(--ink-secondary)] pt-2">
+              ~ Direct correspondence received by Abisola Oluwatoyin.
             </div>
           </div>
         </div>
 
-        {/* The Open Inquiry Sheet (NO CARD BOXES — Open Form on Paper) */}
-        <div>
-          <div className="flex items-center justify-between pb-4 mb-8 border-b border-[var(--rule)] font-mono text-xs uppercase tracking-widest text-[var(--ink-secondary)]">
+        {/* Archival Inquiry Transmission Sheet */}
+        <div className="border border-[var(--cabinet-rule)] bg-[var(--cabinet-cream-dark)] p-8 sm:p-14 rounded-sm shadow-sm">
+          <div className="flex items-center justify-between pb-4 mb-8 border-b border-[var(--cabinet-rule)] font-mono text-xs uppercase text-[var(--ink-secondary)]">
             <div className="flex items-center gap-2">
-              <RedArrow direction="right" />
-              <span>TRANSMIT A BRIEF OR INQUIRY</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--cabinet-brass)]" />
+              <span>DISPATCH INQUIRY OR BRIEF</span>
             </div>
-            <span>EDITORIAL DESK // NIGERIA &bull; REMOTE GLOBAL</span>
+            <span>CABINET ARCHIVE &bull; CONFIDENTIAL TRANSMISSION</span>
           </div>
 
           {!formSubmitted ? (
-            <form onSubmit={handleSubmit} className="space-y-10">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <div>
-                  <label className="text-xs font-mono uppercase tracking-widest block mb-2 font-bold text-[var(--ink)]">
-                    01 // YOUR NAME
+                  <label className="text-xs font-mono uppercase tracking-widest block mb-2 font-bold text-[var(--cabinet-burgundy)]">
+                    01 // YOUR NAME &bull; ORGANIZATION
                   </label>
                   <input
                     type="text"
@@ -142,13 +141,13 @@ export const Contact: React.FC = () => {
                     placeholder="e.g. Sarah Adebayo"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="editorial-input"
+                    className="cabinet-input"
                   />
                 </div>
 
                 <div>
-                  <label className="text-xs font-mono uppercase tracking-widest block mb-2 font-bold text-[var(--ink)]">
-                    02 // WORK EMAIL
+                  <label className="text-xs font-mono uppercase tracking-widest block mb-2 font-bold text-[var(--cabinet-burgundy)]">
+                    02 // WORK EMAIL ADDRESS
                   </label>
                   <input
                     type="email"
@@ -156,19 +155,19 @@ export const Contact: React.FC = () => {
                     placeholder="e.g. sarah@organization.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="editorial-input"
+                    className="cabinet-input"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="text-xs font-mono uppercase tracking-widest block mb-2 font-bold text-[var(--ink)]">
-                  03 // NATURE OF INQUIRY
+                <label className="text-xs font-mono uppercase tracking-widest block mb-2 font-bold text-[var(--cabinet-burgundy)]">
+                  03 // NATURE OF ENGAGEMENT
                 </label>
                 <select
                   value={formData.projectType}
                   onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                  className="editorial-input cursor-pointer"
+                  className="cabinet-input cursor-pointer"
                   style={{ background: 'transparent' }}
                 >
                   <option value="Marketing & Corporate Communications">Marketing &amp; Corporate Communications</option>
@@ -181,49 +180,49 @@ export const Contact: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-xs font-mono uppercase tracking-widest block mb-2 font-bold text-[var(--ink)]">
-                  04 // MESSAGE &amp; BRIEF
+                <label className="text-xs font-mono uppercase tracking-widest block mb-2 font-bold text-[var(--cabinet-burgundy)]">
+                  04 // MESSAGE &amp; BRIEF OVERVIEW
                 </label>
                 <textarea
                   rows={4}
                   required
-                  placeholder="Outline the core objective, context, timeline, or key challenge..."
+                  placeholder="Share a few details regarding your scope, audience, and timeline..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="editorial-input resize-none"
+                  className="cabinet-input resize-none"
                 />
               </div>
 
               <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
                 <button
                   type="submit"
-                  className="font-mono text-xs font-bold uppercase tracking-widest inline-flex items-center gap-2 text-[var(--paper)] bg-[var(--ink)] px-8 py-4 hover:opacity-90 transition-opacity"
+                  className="font-mono text-xs font-bold uppercase tracking-widest inline-flex items-center gap-2 text-[var(--cabinet-cream)] bg-[var(--cabinet-burgundy)] hover:opacity-90 px-8 py-4 rounded-sm transition-opacity shadow-md"
                 >
-                  <Send className="w-4 h-4 text-[var(--red-pencil)]" />
-                  <span>Dispatch Letter to Author &rarr;</span>
+                  <Send className="w-4 h-4 text-[var(--cabinet-brass)]" />
+                  <span>Transmit Letter to Cabinet Archive &rarr;</span>
                 </button>
 
-                <div className="font-hand text-base text-[var(--red-pencil)]">
-                  ( received directly by Abisola Oluwatoyin )
+                <div className="font-serif italic text-xs text-[var(--ink-secondary)]">
+                  Expected response within 24–48 hours.
                 </div>
               </div>
             </form>
           ) : (
             <div className="py-16 text-center space-y-4">
-              <div className="font-display font-bold text-3xl sm:text-4xl text-[var(--ink)]">
+              <div className="font-display font-bold text-3xl sm:text-4xl text-[var(--cabinet-burgundy)]">
                 Correspondence Received.
               </div>
-              <p className="font-serif italic text-xl text-[var(--ink)]/85 max-w-md mx-auto">
-                Thank you, {formData.name}. Your note has been placed on the author's reading desk.
+              <p className="font-serif italic text-lg text-[var(--ink)]/85 max-w-md mx-auto">
+                Thank you, {formData.name}. Your note has been safely catalogued in the correspondence drawer.
               </p>
               <button
                 onClick={() => {
                   setFormSubmitted(false);
                   setFormData({ name: '', email: '', projectType: 'Marketing & Corporate Communications', message: '' });
                 }}
-                className="font-mono text-xs font-bold uppercase tracking-wider text-[var(--red-pencil)] underline pt-4"
+                className="font-mono text-xs font-bold uppercase tracking-wider text-[var(--cabinet-brass)] underline pt-2"
               >
-                Send Another Note &rarr;
+                Send Another Dispatch &rarr;
               </button>
             </div>
           )}

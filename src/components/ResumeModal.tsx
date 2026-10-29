@@ -1,6 +1,5 @@
 import React from 'react';
 import { RESUME_DATA } from '../data/portfolioData';
-import { EditorialStamp } from './ManuscriptMarks';
 import { X, Printer, ArrowUpRight } from 'lucide-react';
 
 interface ResumeModalProps {
@@ -17,18 +16,18 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto p-8 sm:p-14 border border-[var(--rule)]"
+        className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto p-8 sm:p-14 rounded-sm border border-[var(--cabinet-brass)]"
         style={{
-          background: 'var(--paper)',
+          background: 'var(--cabinet-cream)',
           color: 'var(--ink)',
-          boxShadow: '0 25px 70px rgba(0,0,0,0.5)',
+          boxShadow: '0 25px 70px rgba(0,0,0,0.6)',
         }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Folio & Close Button */}
-        <div className="flex items-center justify-between pb-4 mb-8 border-b border-[var(--rule)] text-xs font-mono tracking-widest uppercase text-[var(--ink-secondary)]">
+        <div className="flex items-center justify-between pb-4 mb-8 border-b border-[var(--cabinet-rule)] text-xs font-mono tracking-widest uppercase text-[var(--ink-secondary)]">
           <div className="flex items-center gap-2">
-            <span className="font-bold text-[var(--red-pencil)]">&para; OFFICIAL RECORD</span>
+            <span className="font-bold text-[var(--cabinet-brass)]">&para; OFFICIAL DOSSIER</span>
             <span>/</span>
             <span>CURRICULUM VITAE</span>
           </div>
@@ -36,14 +35,14 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
           <div className="flex items-center gap-4">
             <button
               onClick={() => window.print()}
-              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono uppercase text-[var(--ink-secondary)] hover:text-[var(--ink)]"
+              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono uppercase text-[var(--ink-secondary)] hover:text-[var(--cabinet-burgundy)]"
             >
-              <Printer className="w-3.5 h-3.5 text-[var(--red-pencil)]" />
-              <span>Print Sheet</span>
+              <Printer className="w-3.5 h-3.5 text-[var(--cabinet-brass)]" />
+              <span>Print Dossier</span>
             </button>
             <button
               onClick={onClose}
-              className="p-1 text-[var(--ink-secondary)] hover:text-[var(--red-pencil)] transition-colors"
+              className="p-1 text-[var(--ink-secondary)] hover:text-[var(--cabinet-burgundy)] transition-colors"
               aria-label="Close"
             >
               <X className="w-5 h-5" />
@@ -52,17 +51,17 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
         </div>
 
         {/* Masterhead */}
-        <div className="pb-8 mb-10 border-b border-[var(--rule)]">
+        <div className="pb-8 mb-10 border-b border-[var(--cabinet-rule)]">
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
             <div>
-              <h2 className="font-display font-black text-3xl sm:text-5xl text-[var(--ink)]">
+              <h2 className="font-display font-black text-3xl sm:text-5xl text-[var(--cabinet-burgundy)]">
                 Abisola Oluwatoyin
               </h2>
-              <div className="font-serif italic text-xl text-[var(--red-pencil)] mt-1 font-semibold">
+              <div className="font-serif italic text-xl text-[var(--cabinet-brass)] mt-1 font-semibold">
                 Writer &bull; Marketing &amp; Corporate Communications Specialist
               </div>
             </div>
-            <EditorialStamp text="verified dossier" />
+            <span className="dossier-stamp">ARCHIVE VERIFIED</span>
           </div>
 
           <div className="font-mono text-xs text-[var(--ink-secondary)] mt-4 flex flex-wrap gap-x-6 gap-y-2">
@@ -73,8 +72,8 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
         </div>
 
         {/* Summary Section */}
-        <div className="mb-10 pb-8 border-b border-[var(--rule)]">
-          <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--red-pencil)] mb-3">
+        <div className="mb-10 pb-8 border-b border-[var(--cabinet-rule)]">
+          <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--cabinet-brass)] mb-3">
             EXECUTIVE SUMMARY
           </h3>
           <p className="font-serif text-lg leading-relaxed text-[var(--ink)]/90 font-normal">
@@ -83,19 +82,19 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
         </div>
 
         {/* Experience Chronology */}
-        <div className="mb-10 pb-8 border-b border-[var(--rule)] space-y-8">
-          <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--red-pencil)] mb-4">
+        <div className="mb-10 pb-8 border-b border-[var(--cabinet-rule)] space-y-8">
+          <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--cabinet-brass)] mb-4">
             PROFESSIONAL APPOINTMENTS
           </h3>
 
-          <div className="space-y-8 divide-y divide-[var(--rule)]">
+          <div className="space-y-8 divide-y divide-[var(--cabinet-rule)]">
             {RESUME_DATA.experiences.map((exp, idx) => (
               <div key={idx} className={idx === 0 ? '' : 'pt-8'}>
                 <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
-                  <div className="font-display font-bold text-2xl text-[var(--ink)]">
+                  <div className="font-serif font-bold text-2xl text-[var(--cabinet-burgundy)]">
                     {exp.role}
                   </div>
-                  <span className="font-mono text-xs font-bold text-[var(--red-pencil)]">
+                  <span className="font-mono text-xs font-bold text-[var(--cabinet-brass)]">
                     {exp.period}
                   </span>
                 </div>
@@ -107,7 +106,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                 <ul className="space-y-2.5 font-serif text-base text-[var(--ink)]/85">
                   {exp.points.map((pt, pIdx) => (
                     <li key={pIdx} className="flex items-start gap-3">
-                      <span className="text-[var(--red-pencil)] font-mono text-xs mt-1.5">&bull;</span>
+                      <span className="text-[var(--cabinet-brass)] font-mono text-xs mt-1.5">&bull;</span>
                       <span>{pt}</span>
                     </li>
                   ))}
@@ -117,14 +116,14 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
           </div>
         </div>
 
-        {/* Education */}
-        <div className="mb-10 pb-8 border-b border-[var(--rule)]">
-          <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--red-pencil)] mb-4">
+        {/* Academic Credentials */}
+        <div className="mb-10 pb-8 border-b border-[var(--cabinet-rule)]">
+          <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--cabinet-brass)] mb-4">
             ACADEMIC CREDENTIALS
           </h3>
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
             <div>
-              <div className="font-display font-bold text-xl text-[var(--ink)]">
+              <div className="font-serif font-bold text-xl text-[var(--cabinet-burgundy)]">
                 {RESUME_DATA.education.degree}
               </div>
               <div className="font-serif italic text-base text-[var(--ink-secondary)]">
@@ -137,16 +136,16 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
           </div>
         </div>
 
-        {/* Areas of Expertise */}
-        <div className="mb-10 pb-8 border-b border-[var(--rule)]">
-          <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--red-pencil)] mb-4">
+        {/* Core Domains of Expertise */}
+        <div className="mb-10 pb-8 border-b border-[var(--cabinet-rule)]">
+          <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-[var(--cabinet-brass)] mb-4">
             CORE DOMAINS OF EXPERTISE
           </h3>
           <div className="flex flex-wrap gap-2.5">
             {RESUME_DATA.areasOfExpertise.map((item, i) => (
               <span
                 key={i}
-                className="px-3 py-1 text-xs font-mono border border-[var(--rule)] text-[var(--ink)]"
+                className="px-3 py-1 text-xs font-mono border border-[var(--cabinet-rule)] text-[var(--ink)] bg-[var(--cabinet-cream-dark)]"
               >
                 {item}
               </span>
@@ -158,15 +157,15 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
         <div className="flex items-center justify-between pt-4 font-mono text-xs">
           <a
             href="mailto:abisolaaoluwatoyin@gmail.com"
-            className="text-[var(--red-pencil)] font-bold uppercase tracking-wider inline-flex items-center gap-1 hover:underline"
+            className="text-[var(--cabinet-burgundy)] hover:text-[var(--cabinet-brass)] font-bold uppercase tracking-wider inline-flex items-center gap-1 transition-colors"
           >
             <span>Inquire Directly</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
+            <ArrowUpRight className="w-3.5 h-3.5 text-[var(--cabinet-brass)]" />
           </a>
 
           <button
             onClick={onClose}
-            className="px-6 py-2 border border-[var(--rule)] text-[var(--ink)] font-bold uppercase tracking-wider hover:border-[var(--ink)] transition-colors"
+            className="px-6 py-2 border border-[var(--cabinet-rule)] text-[var(--ink)] font-bold uppercase tracking-wider hover:border-[var(--cabinet-burgundy)] transition-colors"
           >
             Close Sheet
           </button>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PROJECTS } from '../data/portfolioData';
 import { Project } from '../types';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, FolderOpen } from 'lucide-react';
 
 interface FeaturedWorkProps {
   onSelectProject: (project: Project) => void;
@@ -10,7 +10,14 @@ interface FeaturedWorkProps {
 export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) => {
   const [activeCategory, setActiveCategory] = useState('ALL');
 
-  const categories = ['ALL', 'Tax & Compliance', 'Fintech & Payments', 'Product Messaging', 'Event Communications', 'Substack Essays'];
+  const categories = [
+    'ALL',
+    'Tax & Compliance',
+    'Fintech & Payments',
+    'Product Messaging',
+    'Event Communications',
+    'Substack Essays',
+  ];
 
   const filteredProjects = activeCategory === 'ALL'
     ? PROJECTS
@@ -22,108 +29,149 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
       });
 
   return (
-    <section id="work" className="py-20 lg:py-32 border-b border-[var(--rule)]">
+    <section id="campaigns" className="py-20 lg:py-28 border-b border-[var(--cabinet-rule)]">
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
 
-        {/* Broadsheet Folio Chapter Line */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 mb-10 border-b border-[var(--rule)]">
+        {/* Archival Drawer Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 mb-10 border-b border-[var(--cabinet-rule)]">
           <div>
             <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mb-2 text-[var(--ink-secondary)]">
-              <span className="font-bold text-[var(--red-pencil)]">&para; CHAPTER III</span>
+              <span className="font-bold text-[var(--cabinet-brass)]">&para; DRAWER II</span>
               <span>/</span>
-              <span>SELECTED COMMERCIAL WORKS &amp; ESSAYS</span>
+              <span>FILED CAMPAIGN PROOFS &bull; MARKETING &bull; COPYWRITING</span>
             </div>
-            <h2 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-[var(--ink)]">
-              The Archive of Published Works.
+            <h2 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-[var(--cabinet-burgundy)]">
+              Filed Campaign Proofs.
             </h2>
           </div>
-          <div className="font-serif italic text-lg max-w-md text-[var(--ink)]/80">
-            From high-conversion regulatory compliance emails to payment product messaging, webinar journeys, and viral essays.
+          <div className="font-serif italic text-base sm:text-lg max-w-md text-[var(--ink)]/80">
+            Carefully filed marketing emails, product conversion sequences, and corporate communications proofs.
           </div>
         </div>
 
-        {/* Typographic Filters (NO BOXES, clean text links) */}
-        <div className="flex items-center gap-6 overflow-x-auto pb-4 mb-16 scrollbar-none border-b border-[var(--rule)]/60 text-xs font-mono uppercase tracking-wider">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`pb-2 whitespace-nowrap transition-colors ${
-                activeCategory === cat
-                  ? 'border-b-2 border-[var(--red-pencil)] text-[var(--ink)] font-bold'
-                  : 'text-[var(--ink-secondary)] hover:text-[var(--ink)]'
-              }`}
-            >
-              {cat === 'ALL' ? `All Works [${PROJECTS.length}]` : cat}
-            </button>
-          ))}
+        {/* Archival Manila Folder Tabs (Filter Row) */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-14 scrollbar-none border-b border-[var(--cabinet-rule)]">
+          {categories.map((cat) => {
+            const isActive = activeCategory === cat;
+            return (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`folder-tab px-4 py-2 whitespace-nowrap text-xs font-mono ${
+                  isActive
+                    ? 'active text-[var(--cabinet-burgundy)] font-bold'
+                    : 'text-[var(--ink-secondary)] hover:text-[var(--ink)]'
+                }`}
+              >
+                <span>{cat === 'ALL' ? `All Filed Proofs [${PROJECTS.length}]` : cat}</span>
+              </button>
+            );
+          })}
         </div>
 
-        {/* The Works Stream (NO BOXES — each is a pure broadsheet article spread) */}
-        <div className="space-y-20">
+        {/* Filed Campaign Proofs Stream */}
+        <div className="space-y-16">
           {filteredProjects.map((project, idx) => (
             <article
               key={project.id}
-              className="border-b border-[var(--rule)] pb-16 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start"
+              className="border border-[var(--cabinet-rule)] bg-[var(--cabinet-cream-dark)] p-6 sm:p-10 rounded-sm shadow-sm relative group"
             >
-              {/* Left Column: Number & Strategic Marginalia */}
-              <div className="lg:col-span-3 space-y-3 font-mono text-xs">
-                <div className="text-sm font-bold text-[var(--red-pencil)]">
-                  ENTRY 0{idx + 1} //
-                </div>
-                <div className="uppercase tracking-wider text-[var(--ink-secondary)]">
-                  {project.tagCategory}
-                </div>
-
-                {/* Red Pencil Margin Note (Image 1 style) */}
-                {project.hook && (
-                  <div className="pt-4 border-t border-[var(--rule)]/60 font-hand text-base text-[var(--red-pencil)] leading-snug">
-                    ^ [commercial anchor] <br />
-                    "{project.hook}"
-                  </div>
-                )}
+              {/* Folder Top Tab */}
+              <div className="absolute -top-3 left-6 px-3 py-0.5 border border-b-0 border-[var(--cabinet-rule)] bg-[var(--cabinet-cream)] font-mono text-[9px] uppercase tracking-widest font-bold text-[var(--cabinet-brass)] rounded-t-sm">
+                PROOF REF // 0{idx + 1} &bull; {project.tagCategory}
               </div>
 
-              {/* Center & Right Column: Headline, Synopsis & Excerpt */}
-              <div className="lg:col-span-9 space-y-6">
-                <h3 className="font-display font-bold text-3xl sm:text-4xl text-[var(--ink)] leading-snug">
-                  {project.title}
-                </h3>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-2">
 
-                <p className="font-serif italic text-xl sm:text-2xl text-[var(--ink)]/85 leading-relaxed">
-                  {project.shortDesc}
-                </p>
-
-                {/* Direct Excerpt Preview if available */}
-                {project.fullContent?.excerpt && (
-                  <div className="pl-6 border-l border-[var(--rule)] space-y-3 font-serif text-lg text-[var(--ink)]/85">
-                    {project.fullContent.excerpt.slice(0, 2).map((p, pIdx) => (
-                      <p key={pIdx}>{p}</p>
-                    ))}
+                {/* Left Metadata & Hook */}
+                <div className="lg:col-span-4 space-y-4">
+                  <div className="font-mono text-xs text-[var(--cabinet-burgundy)] font-bold uppercase tracking-wider">
+                    {project.badge}
                   </div>
-                )}
 
-                {/* Action Links (Clean text links, NO BUTTON BOXES) */}
-                <div className="flex flex-wrap items-center gap-6 pt-4 font-mono text-xs uppercase tracking-wider">
-                  <button
-                    onClick={() => onSelectProject(project)}
-                    className="font-bold text-[var(--ink)] hover:text-[var(--red-pencil)] transition-colors underline underline-offset-4"
-                  >
-                    Inspect Complete Excerpt &amp; Strategic Notes &rarr;
-                  </button>
+                  <h3 className="font-serif font-bold text-2xl sm:text-3xl text-[var(--ink)] leading-snug">
+                    {project.title}
+                  </h3>
 
-                  {project.fullContent?.substackLink && (
-                    <a
-                      href={project.fullContent.substackLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-bold text-[var(--red-pencil)] hover:underline flex items-center gap-1"
-                    >
-                      <span>Read on Substack</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </a>
+                  <p className="font-serif italic text-base text-[var(--ink)]/80 leading-relaxed">
+                    {project.shortDesc}
+                  </p>
+
+                  {/* Commercial Hook Box */}
+                  {project.hook && (
+                    <div className="p-3.5 rounded-sm border border-[var(--cabinet-brass)] bg-[var(--cabinet-cream)] font-mono text-xs text-[var(--cabinet-burgundy)]">
+                      <span className="text-[10px] uppercase font-bold text-[var(--cabinet-brass)] block mb-1">
+                        STRATEGIC ANCHOR //
+                      </span>
+                      <span>"{project.hook}"</span>
+                    </div>
                   )}
+
+                  {/* Actions */}
+                  <div className="pt-2 flex flex-col gap-2">
+                    <button
+                      onClick={() => onSelectProject(project)}
+                      className="inline-flex items-center gap-2 font-mono text-xs uppercase font-bold tracking-wider text-[var(--cabinet-burgundy)] hover:text-[var(--cabinet-brass)] transition-colors underline underline-offset-4 text-left"
+                    >
+                      <FolderOpen className="w-4 h-4 text-[var(--cabinet-brass)]" />
+                      <span>Inspect Full Galley Proof &rarr;</span>
+                    </button>
+
+                    {project.fullContent?.substackLink && (
+                      <a
+                        href={project.fullContent.substackLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 font-mono text-xs uppercase font-bold tracking-wider text-[var(--cabinet-brass)] hover:underline"
+                      >
+                        <span>Open on Substack Publication</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </a>
+                    )}
+                  </div>
                 </div>
+
+                {/* Right Proof Sheet Excerpt */}
+                <div className="lg:col-span-8 bg-[var(--cabinet-cream-paper)] p-6 sm:p-8 rounded-sm border border-[var(--cabinet-rule)] shadow-sm space-y-4">
+                  {/* Subject Line & Preheader Header */}
+                  {project.fullContent?.subject && (
+                    <div className="pb-4 border-b border-[var(--cabinet-rule)] font-mono text-xs space-y-1">
+                      <div>
+                        <span className="font-bold text-[var(--cabinet-burgundy)] uppercase">SUBJECT: </span>
+                        <span className="text-[var(--ink)]">{project.fullContent.subject}</span>
+                      </div>
+                      {project.fullContent.preheader && (
+                        <div>
+                          <span className="font-bold text-[var(--ink-secondary)] uppercase">PREHEADER: </span>
+                          <span className="text-[var(--ink-secondary)]">{project.fullContent.preheader}</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Copy Excerpt Paragraphs */}
+                  {project.fullContent?.excerpt ? (
+                    <div className="space-y-3 font-serif text-base sm:text-lg leading-relaxed text-[var(--ink)]/90">
+                      {project.fullContent.excerpt.map((p, pIdx) => (
+                        <p key={pIdx}>{p}</p>
+                      ))}
+                    </div>
+                  ) : project.fullContent?.details ? (
+                    <div className="font-serif text-sm sm:text-base leading-relaxed text-[var(--ink)]/85 whitespace-pre-line">
+                      {project.fullContent.details}
+                    </div>
+                  ) : (
+                    <div className="font-serif italic text-sm text-[var(--ink-secondary)]">
+                      Campaign collateral details filed in archive.
+                    </div>
+                  )}
+
+                  <div className="pt-3 border-t border-[var(--cabinet-rule)] flex items-center justify-between font-mono text-[10px] text-[var(--ink-secondary)] uppercase">
+                    <span>STATUS: VERIFIED PRODUCTION COPY</span>
+                    <span className="text-[var(--cabinet-burgundy)] font-bold">REDTECH &bull; MARKETING DEPT</span>
+                  </div>
+                </div>
+
               </div>
             </article>
           ))}
