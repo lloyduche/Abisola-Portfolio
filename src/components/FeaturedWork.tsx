@@ -85,7 +85,7 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
           {filteredProjects.map((project, idx) => (
             <div
               key={project.id}
-              className={`p-8 sm:p-10 rounded-3xl bg-white border border-[#72213A]/10 shadow-sm hover:shadow-md transition-all flex flex-col justify-between ${
+              className={`p-8 sm:p-10 rounded-3xl bg-white border border-[#72213A]/10 shadow-sm editorial-card flex flex-col justify-between ${
                 idx === 0 && activeCategory === 'ALL' ? 'md:col-span-2 bg-gradient-to-br from-white to-[#FAF4EC]' : ''
               }`}
             >

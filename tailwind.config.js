@@ -33,6 +33,7 @@ export default {
         display: ['"Fraunces"', 'Georgia', 'serif'],
         body: ['"DM Sans"', 'system-ui', 'sans-serif'],
         sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+        hand: ['"Caveat"', 'cursive'],
       },
     },
   },

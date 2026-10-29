@@ -50,9 +50,12 @@ export const About: React.FC = () => {
           <div className="lg:col-span-4 space-y-6">
 
             {/* Education Card */}
-            <div className="p-6 rounded-2xl bg-white border border-[#72213A]/10 shadow-sm space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#72213A]/10 flex items-center justify-center text-[#72213A]">
-                <GraduationCap className="w-5 h-5" />
+            <div className="p-6 rounded-2xl bg-white border border-[#72213A]/10 shadow-sm space-y-3 editorial-card">
+              <div className="flex items-center justify-between">
+                <div className="w-10 h-10 rounded-xl bg-[#72213A]/10 flex items-center justify-center text-[#72213A]">
+                  <GraduationCap className="w-5 h-5" />
+                </div>
+                <span className="font-hand text-sm text-[#D995A9] font-bold">~ english language ♡</span>
               </div>
               <h3 className="font-headline font-semibold text-xl text-[#72213A]">
                 Academic Background
@@ -69,9 +72,12 @@ export const About: React.FC = () => {
             </div>
 
             {/* Location & Status Card */}
-            <div className="p-6 rounded-2xl bg-white border border-[#72213A]/10 shadow-sm space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-[#72213A]/10 flex items-center justify-center text-[#72213A]">
-                <MapPin className="w-5 h-5" />
+            <div className="p-6 rounded-2xl bg-white border border-[#72213A]/10 shadow-sm space-y-3 editorial-card">
+              <div className="flex items-center justify-between">
+                <div className="w-10 h-10 rounded-xl bg-[#72213A]/10 flex items-center justify-center text-[#72213A]">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <span className="font-hand text-sm text-[#D995A9] font-bold">~ lagos &amp; remote ✨</span>
               </div>
               <h3 className="font-headline font-semibold text-xl text-[#72213A]">
                 Location &amp; Availability
