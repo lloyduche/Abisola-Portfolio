@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ABOUT_DATA } from '../data/portfolioData';
-import { MapPin, GraduationCap, CheckCircle, Terminal } from 'lucide-react';
+import { MapPin, GraduationCap, Feather } from 'lucide-react';
 
 export const About: React.FC = () => {
   const [phraseIndex, setPhraseIndex] = useState(0);
@@ -9,13 +9,13 @@ export const About: React.FC = () => {
 
   useEffect(() => {
     const fullText = ABOUT_DATA.typewriterPhrases[phraseIndex];
-    const typingSpeed = isDeleting ? 25 : 55;
+    const typingSpeed = isDeleting ? 25 : 50;
 
     const timer = setTimeout(() => {
       if (!isDeleting) {
         setCurrentText(fullText.slice(0, currentText.length + 1));
         if (currentText.length === fullText.length) {
-          setTimeout(() => setIsDeleting(true), 1900);
+          setTimeout(() => setIsDeleting(true), 2000);
         }
       } else {
         setCurrentText(fullText.slice(0, currentText.length - 1));
@@ -30,149 +30,167 @@ export const About: React.FC = () => {
   }, [currentText, isDeleting, phraseIndex]);
 
   return (
-    <section id="about" className="py-20 lg:py-28 border-b" style={{ borderColor: 'var(--border)' }}>
+    <section id="about" className="py-20 lg:py-28 border-b" style={{ borderColor: 'var(--ink-rule)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        {/* Section Index Header */}
-        <div className="flex items-center justify-between pb-4 mb-12 border-b" style={{ borderColor: 'var(--border)' }}>
-          <div className="flex items-center gap-3">
-            <span className="text-xs font-mono font-bold text-accent">[ 01 ]</span>
-            <span className="text-xs font-mono font-extrabold tracking-widest uppercase text-ink">
-              EXECUTIVE STATEMENT &amp; PHILOSOPHY
-            </span>
+
+        {/* Folio Chapter Line */}
+        <div className="flex items-center justify-between pb-3 mb-12 border-b text-xs font-mono tracking-widest uppercase" style={{ borderColor: 'var(--ink-rule)', color: 'var(--ink-muted)' }}>
+          <div className="flex items-center gap-2">
+            <span className="font-bold" style={{ color: 'var(--red-pencil)' }}>¶ CHAPTER II</span>
+            <span>/</span>
+            <span>THE AUTHOR'S NOTE &amp; PHILOSOPHY</span>
           </div>
-          <span className="text-xs font-mono text-ink/50 uppercase hidden sm:inline">
-            DISCIPLINE: LANGUAGE, BRAND &amp; COMMERCE
-          </span>
+
+          <div className="flex items-center gap-2 font-hand text-sm capitalize" style={{ color: 'var(--red-pencil)' }}>
+            ~ "behind the craft"
+          </div>
         </div>
 
-        {/* 2-Column Strategic Grid */}
+        {/* 2-Column Manuscript Spread */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Visual & Live Status Terminal */}
+
+          {/* Left Column: Author's Workspace Plate & Editorial Notes */}
           <div className="lg:col-span-5 space-y-6">
-            {/* Precision Framed Portrait */}
-            <div
-              className="p-3 rounded-2xl border"
-              style={{
-                background: 'var(--bg-card)',
-                borderColor: 'var(--border)',
-                boxShadow: '0 15px 35px var(--shadow-color)',
-              }}
-            >
-              <div
-                className="aspect-[4/5] rounded-xl overflow-hidden border relative"
-                style={{ borderColor: 'var(--border)' }}
-              >
+
+            {/* Mounted Visual Plate */}
+            <div className="paper-sheet p-3.5 rounded-lg border">
+              <div className="aspect-[4/5] rounded overflow-hidden relative border" style={{ borderColor: 'var(--ink-rule)' }}>
                 <img
                   src="/abisola-about.svg"
-                  alt="Abisola Oluwatoyin - Writer workspace and manuscripts"
+                  alt="Abisola Oluwatoyin writer workspace and manuscripts"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute bottom-3 left-3 right-3 p-3 rounded bg-black/75 backdrop-blur-md text-white font-mono text-[11px] border border-white/20">
-                  <div className="flex items-center justify-between text-accent font-bold mb-1">
-                    <span>TRANSMISSION SOURCE</span>
-                    <span>LAGOS // REMOTE</span>
+
+                <div
+                  className="absolute bottom-2 left-2 right-2 p-2.5 rounded text-[11px] font-mono border backdrop-blur-md"
+                  style={{
+                    background: 'rgba(255,255,255,0.88)',
+                    borderColor: 'var(--ink-rule)',
+                    color: 'var(--ink)',
+                  }}
+                >
+                  <div className="flex items-center justify-between font-bold">
+                    <span>PLATE II: THE WORKSPACE</span>
+                    <span style={{ color: 'var(--red-pencil)' }}>LAGOS, NG</span>
                   </div>
-                  <div className="text-white/80">
-                    B.A. English Language · Kwara State University (2:1)
+                  <div className="text-[10px] text-ink/70 font-mono mt-0.5">
+                    Syntax, linguistic architecture &amp; commercial strategy
                   </div>
                 </div>
+              </div>
+
+              <div className="mt-2.5 text-center font-hand text-sm" style={{ color: 'var(--red-pencil)' }}>
+                ~ "where words become instruments of clarity"
               </div>
             </div>
 
-            {/* Live Terminal Thought-Stream */}
+            {/* Typewriter Carriage Feed: Current Initiative */}
             <div
-              className="p-5 rounded-xl border font-mono text-xs"
-              style={{
-                background: 'var(--bg-card)',
-                borderColor: 'var(--border)',
-              }}
+              className="p-5 rounded-lg border paper-sheet font-mono text-xs space-y-3"
+              style={{ borderColor: 'var(--ink-rule)' }}
             >
-              <div className="flex items-center justify-between text-[10px] text-ink/50 font-bold uppercase tracking-wider mb-2 pb-2 border-b" style={{ borderColor: 'var(--border)' }}>
-                <span className="flex items-center gap-1.5 text-accent">
-                  <Terminal className="w-3.5 h-3.5" />
-                  REAL-TIME FOCUS // NOW ENGAGING
+              <div className="flex items-center justify-between pb-2 border-b text-[10px] uppercase font-bold tracking-wider" style={{ borderColor: 'var(--ink-rule)', color: 'var(--ink-muted)' }}>
+                <span className="flex items-center gap-1.5" style={{ color: 'var(--red-pencil)' }}>
+                  <Feather className="w-3.5 h-3.5" />
+                  TYPEWRITER CARRIAGE // CURRENT FOCUS
                 </span>
-                <span className="w-2 h-2 rounded-full bg-accent animate-pulse-dot" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--red-pencil)] animate-pulse-dot" />
               </div>
 
-              <div className="text-sm font-bold text-accent min-h-[2.8rem] flex items-center">
-                <span>&gt; {currentText}</span>
-                <span className="inline-block w-1.5 h-4 ml-1 bg-ink animate-pulse" />
+              {/* Dynamic Typist Text */}
+              <div className="font-serif text-base italic min-h-[3rem] flex items-center" style={{ color: 'var(--ink)' }}>
+                <span>"{currentText}"</span>
+                <span className="inline-block w-1.5 h-4 ml-1 bg-[var(--red-pencil)] animate-pulse" />
               </div>
 
-              <div className="mt-4 pt-3 border-t space-y-2 text-ink/80 text-[11px]" style={{ borderColor: 'var(--border)' }}>
+              {/* Location & Academic Pedigree */}
+              <div className="pt-3 border-t space-y-2 text-[11px] font-mono" style={{ borderColor: 'var(--ink-rule)', color: 'var(--ink)' }}>
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-3.5 h-3.5 text-accent shrink-0" />
+                  <MapPin className="w-3.5 h-3.5 shrink-0" style={{ color: 'var(--red-pencil)' }} />
                   <span>{ABOUT_DATA.basedIn}</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <GraduationCap className="w-3.5 h-3.5 text-accent shrink-0" />
+                <div className="flex items-start gap-2">
+                  <GraduationCap className="w-3.5 h-3.5 shrink-0 mt-0.5" style={{ color: 'var(--red-pencil)' }} />
                   <span>{ABOUT_DATA.education}</span>
                 </div>
               </div>
             </div>
+
+            {/* Marginal Editorial Annotation */}
+            <div className="p-4 rounded border border-dashed font-hand text-base leading-snug" style={{ borderColor: 'var(--red-pencil)', color: 'var(--red-pencil)' }}>
+              "Marginal note: A degree in English Language isn't just about grammar; it's about audience psychology, rhythm, and structural argument."
+            </div>
+
           </div>
 
-          {/* Right Column: Narrative & Architecture */}
+          {/* Right Column: The Manuscript Text */}
           <div className="lg:col-span-7">
-            {/* Lead Headline */}
-            <h2 className="font-display font-extrabold text-3xl sm:text-5xl text-ink leading-tight tracking-tight mb-8">
+
+            {/* Chapter Headline */}
+            <h2 className="font-display font-extrabold text-3xl sm:text-5xl leading-tight mb-8" style={{ color: 'var(--ink)' }}>
               {ABOUT_DATA.headline}
             </h2>
 
-            {/* Pull Quote Box */}
+            {/* Annotated Pull Quote with Red Margin Rule */}
             <div
-              className="p-6 rounded-xl border mb-8 relative"
+              className="p-6 rounded-lg mb-8 relative border-l-4"
               style={{
-                background: 'var(--bg-card)',
-                borderLeft: '4px solid var(--accent)',
-                borderColor: 'var(--border)',
-                borderLeftColor: 'var(--accent)',
+                background: 'var(--paper-leaf)',
+                borderColor: 'var(--red-pencil)',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.03)',
               }}
             >
-              <p className="font-serif italic text-lg sm:text-xl text-ink leading-relaxed">
-                "Effective communication goes beyond putting words together. It requires an understanding of the audience, a clear sense of purpose, consistency in brand voice and the ability to communicate information in a way that is relevant, engaging and easy to understand."
+              <div className="font-hand text-sm mb-1" style={{ color: 'var(--red-pencil)' }}>
+                [ed note: author's core thesis]
+              </div>
+              <p className="font-serif italic text-xl sm:text-2xl text-ink leading-relaxed">
+                "Effective communication goes beyond putting words together. It requires an understanding of the audience, a clear sense of purpose, consistency in brand voice and the ability to turn complexity into clarity."
               </p>
-              <span className="block mt-3 text-xs font-mono font-bold tracking-wider text-accent uppercase">
-                — CORE PHILOSOPHY &amp; APPROACH
-              </span>
             </div>
 
-            {/* Paragraphs */}
-            <div className="space-y-5 text-base sm:text-lg text-ink/85 leading-relaxed font-normal">
-              {ABOUT_DATA.paragraphs.map((p, idx) => (
-                <p key={idx}>{p}</p>
-              ))}
-            </div>
+            {/* The Text with Strikethroughs & Marginalia */}
+            <div className="space-y-6 font-serif text-lg sm:text-xl text-ink/90 leading-relaxed font-normal">
+              <p className="drop-cap">
+                {ABOUT_DATA.paragraphs[0]}
+              </p>
 
-            {/* Key Strategic Pillars */}
-            <div className="mt-10 pt-8 border-t grid grid-cols-1 sm:grid-cols-2 gap-4" style={{ borderColor: 'var(--border)' }}>
-              <div className="flex items-start gap-3 p-4 rounded border" style={{ background: 'var(--bg-card)', borderColor: 'var(--border)' }}>
-                <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                <div>
-                  <div className="font-mono font-bold text-xs uppercase tracking-wider text-ink">
-                    Linguistic Precision
-                  </div>
-                  <div className="text-xs text-ink/70 mt-1">
-                    English Language syntax grounding every message in clarity and rhythmic force.
-                  </div>
-                </div>
+              <div className="relative">
+                <p>
+                  {ABOUT_DATA.paragraphs[1]}
+                </p>
+                {/* Red note */}
+                <span className="inline-block font-hand text-base text-[var(--red-pencil)] mt-1">
+                  ^ [application: fintech, regulatory mandates, high-conversion email sequences]
+                </span>
               </div>
 
-              <div className="flex items-start gap-3 p-4 rounded border" style={{ background: 'var(--bg-card)', borderColor: 'var(--border)' }}>
-                <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                <div>
-                  <div className="font-mono font-bold text-xs uppercase tracking-wider text-ink">
-                    Commercial Empathy
-                  </div>
-                  <div className="text-xs text-ink/70 mt-1">
-                    B2B and fintech conversion focus that drives measurable revenue and engagement.
-                  </div>
-                </div>
+              <p>
+                {ABOUT_DATA.paragraphs[2]}
+              </p>
+
+              <p>
+                {ABOUT_DATA.paragraphs[3]}
+              </p>
+            </div>
+
+            {/* Author Byline & Proof Signature */}
+            <div className="mt-10 pt-6 border-t flex flex-wrap items-center justify-between gap-4 font-mono text-xs" style={{ borderColor: 'var(--ink-rule)' }}>
+              <div className="flex items-center gap-2">
+                <span className="font-bold" style={{ color: 'var(--red-pencil)' }}>STET //</span>
+                <span className="font-hand text-lg" style={{ color: 'var(--ink)' }}>
+                  Abisola Oluwatoyin
+                </span>
+              </div>
+
+              <div className="text-ink/60 uppercase">
+                LAGOS, NIGERIA · ALL PROOFS RESERVED
               </div>
             </div>
+
           </div>
+
         </div>
+
       </div>
     </section>
   );

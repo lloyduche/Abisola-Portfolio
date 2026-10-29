@@ -8,129 +8,129 @@ interface FeaturedWorkProps {
 }
 
 export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) => {
-  const [selectedFilter, setSelectedFilter] = useState('ALL');
+  const [activeCategory, setActiveCategory] = useState('ALL');
 
   const categories = ['ALL', 'Tax & Compliance', 'Fintech & Payments', 'Product Messaging', 'Event Communications', 'Substack Essays'];
 
-  const filteredProjects = selectedFilter === 'ALL'
+  const filteredProjects = activeCategory === 'ALL'
     ? PROJECTS
     : PROJECTS.filter((p) => {
-        if (selectedFilter === 'Substack Essays') {
+        if (activeCategory === 'Substack Essays') {
           return p.tagCategory.toLowerCase().includes('substack') || p.tagCategory.toLowerCase().includes('essay');
         }
-        return p.tagCategory.toLowerCase().includes(selectedFilter.toLowerCase());
+        return p.tagCategory.toLowerCase().includes(activeCategory.toLowerCase());
       });
 
   return (
-    <section id="work" className="py-20 lg:py-28 border-b" style={{ borderColor: 'var(--border)' }}>
+    <section id="work" className="py-20 lg:py-28 border-b" style={{ borderColor: 'var(--ink-rule)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 mb-10 border-b" style={{ borderColor: 'var(--border)' }}>
+
+        {/* Folio Chapter Line */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 mb-10 border-b" style={{ borderColor: 'var(--ink-rule)' }}>
           <div>
-            <div className="flex items-center gap-3 mb-2">
-              <span className="text-xs font-mono font-bold text-accent">[ 03 ]</span>
-              <span className="text-xs font-mono font-extrabold tracking-widest uppercase text-ink">
-                TRANSMISSION ARCHIVE
-              </span>
+            <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mb-2" style={{ color: 'var(--ink-muted)' }}>
+              <span className="font-bold" style={{ color: 'var(--red-pencil)' }}>¶ CHAPTER IV</span>
+              <span>/</span>
+              <span>THE ARCHIVE OF FINISHED PROOFS</span>
             </div>
-            <h2 className="font-display font-extrabold text-3xl sm:text-5xl text-ink tracking-tight">
-              Selected Commercial Copy &amp; Essays.
+            <h2 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight" style={{ color: 'var(--ink)' }}>
+              Selected Copy &amp; Essays.
             </h2>
           </div>
-          <p className="text-sm sm:text-base text-ink/75 max-w-md font-normal leading-relaxed">
-            From regulatory compliance emails and payment product messaging to webinar journeys, culture storytelling, and viral Substack essays.
-          </p>
+          <div className="font-hand text-lg max-w-md" style={{ color: 'var(--red-pencil)' }}>
+            ~ "Explore the thinking behind the finished work: marginal notes, strategic hooks &amp; proof excerpts."
+          </div>
         </div>
 
-        {/* Filter Bar */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 scrollbar-none">
+        {/* Category Bookmark Filters */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-12 scrollbar-none">
           {categories.map((cat) => (
             <button
               key={cat}
-              onClick={() => setSelectedFilter(cat)}
-              className="px-4 py-2 rounded-full text-xs font-mono font-bold tracking-wider uppercase whitespace-nowrap transition-all duration-200"
+              onClick={() => setActiveCategory(cat)}
+              className="px-4 py-1.5 rounded text-xs font-mono tracking-wider uppercase whitespace-nowrap transition-all duration-200 border"
               style={
-                selectedFilter === cat
+                activeCategory === cat
                   ? {
-                      background: 'var(--accent)',
-                      color: '#FFFFFF',
+                      background: 'var(--ink)',
+                      color: 'var(--paper)',
+                      borderColor: 'var(--ink)',
                     }
                   : {
-                      background: 'var(--bg-card)',
+                      background: 'var(--paper-leaf)',
                       color: 'var(--ink)',
-                      border: '1px solid var(--border)',
+                      borderColor: 'var(--ink-rule)',
                     }
               }
             >
-              {cat === 'ALL' ? `ALL DOSSIERS [${PROJECTS.length}]` : cat}
+              {cat === 'ALL' ? `ALL GALLEYS [${PROJECTS.length}]` : cat}
             </button>
           ))}
         </div>
 
-        {/* Projects Matrix */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Galley Proofs Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           {filteredProjects.map((project, idx) => (
             <article
               key={project.id}
-              className="p-7 sm:p-9 rounded-2xl border flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:border-accent group"
-              style={{
-                background: 'var(--bg-card)',
-                borderColor: 'var(--border)',
-                boxShadow: '0 10px 30px var(--shadow-color)',
-              }}
+              className="galley-sheet p-7 sm:p-9 rounded-lg flex flex-col justify-between transition-all duration-300 hover:shadow-lg group"
             >
               <div>
-                {/* Meta Top Line */}
-                <div className="flex items-center justify-between pb-4 mb-5 border-b" style={{ borderColor: 'var(--border)' }}>
-                  <span className="text-xs font-mono font-bold text-accent uppercase tracking-wider">
-                    {project.badge}
-                  </span>
-                  <span className="text-[10px] font-mono text-ink/50 uppercase font-semibold">
-                    REF: PRJ-0{idx + 1}
-                  </span>
+                {/* Galley Sheet Metadata */}
+                <div className="flex items-center justify-between pb-3 mb-5 border-b text-xs font-mono" style={{ borderColor: 'var(--ink-rule)' }}>
+                  <div className="flex items-center gap-2">
+                    <span className="font-bold uppercase" style={{ color: 'var(--red-pencil)' }}>
+                      PROOF NO. 0{idx + 1}
+                    </span>
+                    <span className="opacity-40">|</span>
+                    <span className="text-ink/70">{project.tagCategory}</span>
+                  </div>
+                  <span className="proof-stamp text-[9px]">FINAL PASS</span>
                 </div>
 
                 {/* Title */}
-                <h3 className="font-display font-bold text-2xl sm:text-3xl text-ink mb-3 group-hover:text-accent transition-colors leading-snug">
+                <h3 className="font-display font-bold text-2xl sm:text-3xl mb-3 leading-snug group-hover:text-[var(--red-pencil)] transition-colors" style={{ color: 'var(--ink)' }}>
                   {project.title}
                 </h3>
 
-                {/* Short Description */}
-                <p className="text-sm sm:text-base text-ink/80 leading-relaxed font-normal mb-6">
+                {/* Short Synopsis */}
+                <p className="font-serif text-lg sm:text-xl text-ink/85 leading-relaxed font-normal mb-6">
                   {project.shortDesc}
                 </p>
 
-                {/* Strategic Hook Box */}
+                {/* The Red-Pencil Marginal Annotation (The thinking behind the finished work) */}
                 {project.hook && (
                   <div
-                    className="p-4 rounded-xl text-xs sm:text-sm font-mono font-medium leading-relaxed mb-6"
+                    className="p-4 rounded mb-6 border-l-2 font-mono text-xs"
                     style={{
-                      background: 'var(--bg)',
-                      borderLeft: '3px solid var(--accent)',
+                      background: 'var(--paper)',
+                      borderColor: 'var(--red-pencil)',
                       color: 'var(--ink)',
                     }}
                   >
-                    <span className="text-[10px] font-bold text-accent uppercase block mb-1">
-                      COMMERCIAL HOOK // ANCHOR
-                    </span>
-                    {project.hook}
+                    <div className="font-hand text-base mb-1" style={{ color: 'var(--red-pencil)' }}>
+                      ^ [editorial margin: the hook that made it work]
+                    </div>
+                    <div className="font-semibold text-ink">
+                      "{project.hook}"
+                    </div>
                   </div>
                 )}
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3 pt-4 border-t" style={{ borderColor: 'var(--border)' }}>
+              <div className="flex flex-wrap items-center gap-3 pt-4 border-t font-mono text-xs" style={{ borderColor: 'var(--ink-rule)' }}>
                 <button
                   onClick={() => onSelectProject(project)}
-                  className="px-5 py-2.5 rounded text-xs font-mono font-bold tracking-wider uppercase flex items-center gap-2 border transition-all duration-200 hover:bg-ink hover:text-white"
+                  className="px-5 py-2.5 rounded font-bold tracking-wider uppercase flex items-center gap-2 border transition-all hover:bg-black/5"
                   style={{
-                    borderColor: 'var(--border-strong)',
-                    background: 'var(--bg)',
+                    borderColor: 'var(--ink-rule-strong)',
+                    background: 'var(--paper-leaf)',
                     color: 'var(--ink)',
                   }}
                 >
-                  <FileText className="w-4 h-4 text-accent" />
-                  <span>INSPECT COPY EXCERPT ↗</span>
+                  <FileText className="w-4 h-4" style={{ color: 'var(--red-pencil)' }} />
+                  <span>Inspect Galley Excerpt ↗</span>
                 </button>
 
                 {project.fullContent?.substackLink && (
@@ -138,13 +138,10 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                     href={project.fullContent.substackLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2.5 rounded text-xs font-mono font-bold tracking-wider uppercase flex items-center gap-1.5 transition-all duration-200 hover:opacity-90"
-                    style={{
-                      background: 'var(--accent)',
-                      color: '#FFFFFF',
-                    }}
+                    className="px-4 py-2.5 rounded font-bold tracking-wider uppercase flex items-center gap-1.5 transition-all text-white"
+                    style={{ background: 'var(--red-pencil)' }}
                   >
-                    <span>SUBSTACK</span>
+                    <span>Read on Substack</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
                 )}
@@ -152,6 +149,7 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
             </article>
           ))}
         </div>
+
       </div>
     </section>
   );

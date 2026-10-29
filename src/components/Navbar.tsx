@@ -19,7 +19,6 @@ export const Navbar: React.FC = () => {
           timeZone: 'Africa/Lagos',
           hour: '2-digit',
           minute: '2-digit',
-          second: '2-digit',
         })
       );
     };
@@ -32,111 +31,120 @@ export const Navbar: React.FC = () => {
     };
   }, []);
 
-  const navItems = [
-    { num: '01', label: 'STATEMENT', href: '#about' },
-    { num: '02', label: 'CAPABILITIES', href: '#skills' },
-    { num: '03', label: 'ARCHIVE', href: '#work' },
-    { num: '04', label: 'CASE STUDIES', href: '#case-studies' },
-    { num: '05', label: 'CREDENTIALS', href: '#resume' },
-    { num: '06', label: 'INQUIRY', href: '#contact' },
+  const chapters = [
+    { num: 'Prologue', label: 'Opening', href: '#home' },
+    { num: 'I.', label: 'The Author', href: '#about' },
+    { num: 'II.', label: 'Lexicon', href: '#skills' },
+    { num: 'III.', label: 'Galleys', href: '#work' },
+    { num: 'IV.', label: 'Spreads', href: '#case-studies' },
+    { num: 'V.', label: 'Colophon', href: '#resume' },
+    { num: 'Epilogue', label: 'Inquiry', href: '#contact' },
   ];
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-200 border-b ${
+      className={`sticky top-0 z-50 transition-all duration-300 border-b ${
         scrolled
-          ? 'bg-white/95 dark:bg-[#120514]/95 backdrop-blur-md shadow-sm'
-          : 'bg-transparent'
+          ? 'bg-[var(--paper)]/95 backdrop-blur-md shadow-[0_4px_12px_rgba(0,0,0,0.04)]'
+          : 'bg-[var(--paper)]'
       }`}
-      style={{ borderColor: 'var(--border)' }}
+      style={{ borderColor: 'var(--ink-rule)' }}
     >
-      {/* Broadcast Meta Strip */}
+      {/* Running Head Archival Folio Strip */}
       <div
-        className="hidden md:flex items-center justify-between px-6 lg:px-12 py-1.5 text-[11px] font-mono tracking-wider border-b"
+        className="hidden md:flex items-center justify-between px-6 lg:px-12 py-1.5 text-[11px] font-mono tracking-widest border-b uppercase"
         style={{
-          borderColor: 'var(--border)',
-          background: 'rgba(0,0,0,0.03)',
+          borderColor: 'var(--ink-rule)',
+          background: 'rgba(0,0,0,0.02)',
           color: 'var(--ink-muted)',
         }}
       >
         <div className="flex items-center gap-3">
-          <span className="inline-flex items-center gap-1.5 font-bold uppercase text-accent">
-            <span className="w-2 h-2 rounded-full bg-accent animate-pulse-dot" />
-            LIVE DISPATCH // STRATEGIC WIRE
+          <span className="inline-flex items-center gap-1.5 font-bold" style={{ color: 'var(--red-pencil)' }}>
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--red-pencil)] animate-pulse-dot" />
+            FOLIO MS-2026 // THE LIVING MANUSCRIPT
           </span>
-          <span>·</span>
-          <span>LAGOS, NG [GMT+1]: {lagosTime || '10:00:00'}</span>
+          <span className="opacity-40">|</span>
+          <span>LAGOS, NG: {lagosTime || '10:00'} GMT+1</span>
         </div>
+
         <div className="flex items-center gap-4">
-          <span className="hidden lg:inline">OPEN FOR EXECUTIVE COMMS, B2B MESSAGING & ADVISORY</span>
-          <span>REF: AO-2026</span>
+          <span className="font-hand text-sm tracking-normal capitalize" style={{ color: 'var(--red-pencil)' }}>
+            drafts, proofs &amp; finished pieces
+          </span>
+          <span className="opacity-40">|</span>
+          <span className="text-[10px]">EDITION: WORKING PROOF</span>
         </div>
       </div>
 
-      {/* Main Bar */}
+      {/* Main Nav Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8 py-3.5 flex items-center justify-between gap-4">
-        {/* Brand Lockup */}
-        <a href="#home" className="flex items-baseline gap-2 group">
-          <span className="font-display font-extrabold text-lg sm:text-xl tracking-tight text-ink">
-            ABISOLA OLUWATOYIN
+        {/* Author Title / Book Identity */}
+        <a href="#home" className="flex items-baseline gap-2.5 group text-decoration-none">
+          <span className="font-display font-bold text-xl sm:text-2xl tracking-tight" style={{ color: 'var(--ink)' }}>
+            Abisola Oluwatoyin
           </span>
-          <span className="text-[10px] font-mono font-bold tracking-widest text-accent uppercase hidden sm:inline">
-            // COMMS & STRATEGY
+          <span className="font-hand text-base sm:text-lg hidden sm:inline" style={{ color: 'var(--red-pencil)' }}>
+            ~ author &amp; strategist
           </span>
         </a>
 
-        {/* Desktop Nav Items */}
-        <nav className="hidden lg:flex items-center gap-7">
-          {navItems.map((item) => (
+        {/* Chapters Navigation */}
+        <nav className="hidden lg:flex items-center gap-6">
+          {chapters.map((c) => (
             <a
-              key={item.label}
-              href={item.href}
-              className="group flex items-center gap-1.5 text-xs font-mono font-medium tracking-wider text-ink/75 hover:text-accent transition-colors"
+              key={c.num}
+              href={c.href}
+              className="group flex items-baseline gap-1.5 text-xs font-body font-medium tracking-wide transition-colors hover:text-[var(--red-pencil)]"
+              style={{ color: 'var(--ink)' }}
             >
-              <span className="text-[10px] text-accent font-bold opacity-60 group-hover:opacity-100">
-                {item.num}
+              <span className="text-[10px] font-mono opacity-50 group-hover:opacity-100" style={{ color: 'var(--red-pencil)' }}>
+                {c.num}
               </span>
-              <span>{item.label}</span>
+              <span>{c.label}</span>
             </a>
           ))}
         </nav>
 
-        {/* Right Actions: Palette Switcher + Contact Button */}
+        {/* Right Actions: Paper Stock Switcher + Correspondence */}
         <div className="flex items-center gap-3">
-          {/* Dual Palette Toggle Switcher */}
+          {/* Paper Stock Switcher */}
           <button
             onClick={toggle}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-full border text-xs font-mono font-bold tracking-wider transition-all duration-200 hover:border-accent"
+            className="flex items-center gap-2 px-3 py-1.5 rounded border text-xs font-mono font-bold tracking-wider transition-all duration-200"
             style={{
-              borderColor: 'var(--border-strong)',
-              background: 'var(--bg-card)',
+              borderColor: 'var(--ink-rule-strong)',
+              background: 'var(--paper-leaf)',
               color: 'var(--ink)',
             }}
-            title="Toggle between Icy Lilac and Pistachio Milk themes"
+            title="Switch between Icy Lilac and Pistachio Milk paper stocks"
           >
-            <span className="text-sm">
+            <span className="text-xs">
               {palette === 'lilac' ? '🟣' : '🟢'}
             </span>
-            <span className="hidden sm:inline uppercase text-[11px]">
-              {palette === 'lilac' ? 'Icy Lilac' : 'Pistachio Milk'}
+            <span className="hidden sm:inline text-[11px] uppercase">
+              Paper: {palette === 'lilac' ? 'Icy Lilac' : 'Pistachio Milk'}
             </span>
-            <span className="text-[9px] px-1.5 py-0.5 rounded bg-accent text-white font-mono">
-              SWITCH
+            <span
+              className="text-[9px] px-1.5 py-0.5 rounded font-mono font-bold text-white uppercase"
+              style={{ background: 'var(--red-pencil)' }}
+            >
+              Flip
             </span>
           </button>
 
-          {/* Quick Contact CTA */}
+          {/* Correspondence CTA */}
           <a
             href="#contact"
-            className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-xs font-mono font-bold uppercase tracking-wider rounded border transition-all duration-200 shadow-sm"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-body font-semibold tracking-wider rounded border transition-all duration-200 shadow-sm"
             style={{
-              background: 'var(--accent)',
-              color: '#FFFFFF',
-              borderColor: 'var(--accent)',
+              background: 'var(--ink)',
+              color: 'var(--paper)',
+              borderColor: 'var(--ink)',
             }}
           >
-            <span>DISPATCH</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
+            <span>Write to Me</span>
+            <ArrowUpRight className="w-3.5 h-3.5" style={{ color: 'var(--red-pencil)' }} />
           </a>
 
           {/* Mobile Menu Trigger */}
@@ -144,47 +152,48 @@ export const Navbar: React.FC = () => {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="lg:hidden p-2 rounded border"
             style={{
-              borderColor: 'var(--border)',
-              background: 'var(--bg-card)',
+              borderColor: 'var(--ink-rule)',
+              background: 'var(--paper-leaf)',
               color: 'var(--ink)',
             }}
-            aria-label="Toggle navigation menu"
+            aria-label="Toggle Table of Contents"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div
-          className="lg:hidden px-6 py-6 border-b flex flex-col gap-4 animate-fadeIn"
+          className="lg:hidden px-6 py-6 border-b flex flex-col gap-3"
           style={{
-            background: 'var(--bg-card)',
-            borderColor: 'var(--border)',
+            background: 'var(--paper-leaf)',
+            borderColor: 'var(--ink-rule)',
           }}
         >
-          <div className="text-[11px] font-mono text-accent font-bold pb-2 border-b" style={{ borderColor: 'var(--border)' }}>
-            INDEX // NAVIGATION DIRECTORY
+          <div className="text-[11px] font-mono font-bold uppercase tracking-widest pb-2 border-b" style={{ borderColor: 'var(--ink-rule)', color: 'var(--red-pencil)' }}>
+            TABLE OF CONTENTS // CHAPTER DIRECTORY
           </div>
-          {navItems.map((item) => (
+          {chapters.map((c) => (
             <a
-              key={item.label}
-              href={item.href}
+              key={c.num}
+              href={c.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-between py-2 text-sm font-mono font-bold text-ink hover:text-accent border-b"
-              style={{ borderColor: 'var(--border)' }}
+              className="flex items-center justify-between py-2 text-sm font-serif font-medium border-b"
+              style={{ borderColor: 'var(--ink-rule)', color: 'var(--ink)' }}
             >
-              <span>{item.label}</span>
-              <span className="text-accent text-xs">{item.num} →</span>
+              <span>{c.label}</span>
+              <span className="font-mono text-xs" style={{ color: 'var(--red-pencil)' }}>{c.num} →</span>
             </a>
           ))}
           <a
             href="#contact"
             onClick={() => setMobileMenuOpen(false)}
-            className="mt-2 w-full py-3 text-center text-xs font-mono font-bold uppercase tracking-wider text-white bg-accent rounded"
+            className="mt-2 w-full py-2.5 text-center text-xs font-mono font-bold uppercase tracking-wider text-white rounded"
+            style={{ background: 'var(--ink)' }}
           >
-            INITIATE COMMUNICATIONS →
+            OPEN CORRESPONDENCE ✍
           </a>
         </div>
       )}

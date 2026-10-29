@@ -3,45 +3,49 @@
 @tailwind utilities;
 
 /* ============================================================
-   THE STRATEGIC WIRE // EXECUTIVE COMMUNICATIONS PORTFOLIO
-   Palette A: Icy Lilac  |  Palette B: Pistachio Milk
+   THE LIVING MANUSCRIPT // ABISOLA OLUWATOYIN
+   Editorial Paper Stocks: Icy Lilac · Pistachio Milk
    ============================================================ */
 
 :root,
 [data-palette="lilac"] {
-  --bg:            #E5E5F5;
-  --bg-card:       #FFFFFF;
-  --bg-subtle:     #DADAEF;
-  --bg-dark:       #180A1A;
-  --bg-dark-card:  #221025;
-  --ink:           #1C0B1E;
-  --ink-muted:     #6D4B70;
-  --ink-faint:     rgba(28, 11, 30, 0.45);
-  --accent:        #F10F35;
-  --accent2:       #FF63B5;
-  --border:        rgba(28, 11, 30, 0.14);
-  --border-strong: #1C0B1E;
-  --border-dark:   rgba(255, 255, 255, 0.12);
-  --glass:         rgba(255, 255, 255, 0.7);
-  --shadow-color:  rgba(28, 11, 30, 0.08);
+  --paper:             #E5E5F5;
+  --paper-leaf:        #FFFFFF;
+  --paper-aged:        #D8D8EE;
+  --paper-dark:        #1B091E;
+  --paper-dark-leaf:   #250F2A;
+  --ink:               #230E26;
+  --ink-muted:         #69496E;
+  --ink-faint:         rgba(35, 14, 38, 0.35);
+  --red-pencil:        #E0062B;
+  --highlighter:       #FF63B5;
+  --ink-rule:          rgba(35, 14, 38, 0.14);
+  --ink-rule-strong:   rgba(35, 14, 38, 0.85);
+  --accent:            #E0062B;
+  --accent2:           #FF63B5;
+  --bg:                var(--paper);
+  --bg-card:           var(--paper-leaf);
+  --border:            var(--ink-rule);
 }
 
 [data-palette="pistachio"] {
-  --bg:            #DDF0E4;
-  --bg-card:       #FFFFFF;
-  --bg-subtle:     #C8E5D3;
-  --bg-dark:       #0A1C12;
-  --bg-dark-card:  #12271C;
-  --ink:           #0B1E13;
-  --ink-muted:     #395E4A;
-  --ink-faint:     rgba(11, 30, 19, 0.45);
-  --accent:        #F70F35;
-  --accent2:       #FF63B5;
-  --border:        rgba(11, 30, 19, 0.14);
-  --border-strong: #0B1E13;
-  --border-dark:   rgba(255, 255, 255, 0.12);
-  --glass:         rgba(255, 255, 255, 0.7);
-  --shadow-color:  rgba(11, 30, 19, 0.08);
+  --paper:             #DDF0E4;
+  --paper-leaf:        #FFFFFF;
+  --paper-aged:        #C7E5D1;
+  --paper-dark:        #0B1E13;
+  --paper-dark-leaf:   #122A1C;
+  --ink:               #0C2114;
+  --ink-muted:         #3A604A;
+  --ink-faint:         rgba(12, 33, 20, 0.35);
+  --red-pencil:        #E50926;
+  --highlighter:       #FF63B5;
+  --ink-rule:          rgba(12, 33, 20, 0.14);
+  --ink-rule-strong:   rgba(12, 33, 20, 0.85);
+  --accent:            #E50926;
+  --accent2:           #FF63B5;
+  --bg:                var(--paper);
+  --bg-card:           var(--paper-leaf);
+  --border:            var(--ink-rule);
 }
 
 /* ---- Base Reset ---- */
@@ -51,14 +55,14 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 75px;
 }
 
 body {
   margin: 0;
-  background: var(--bg);
+  background: var(--paper);
   color: var(--ink);
-  font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+  font-family: 'EB Garamond', Georgia, serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -66,90 +70,138 @@ body {
 }
 
 ::selection {
-  background: var(--accent);
+  background: var(--red-pencil);
   color: #FFFFFF;
 }
 
-/* ---- Typography ---- */
+/* ---- Manuscript Grain & Paper Textures ---- */
+.paper-sheet {
+  background: var(--paper-leaf);
+  box-shadow: 
+    0 1px 1px rgba(0,0,0,0.04),
+    0 4px 16px rgba(0,0,0,0.06),
+    0 20px 40px -10px rgba(0,0,0,0.08);
+  border: 1px solid var(--ink-rule);
+}
+
+.galley-sheet {
+  background: var(--paper-leaf);
+  border-left: 3px double var(--ink-rule-strong);
+  border-right: 1px solid var(--ink-rule);
+  border-top: 1px solid var(--ink-rule);
+  border-bottom: 1px solid var(--ink-rule);
+}
+
+/* ---- Manuscript Editorial Typography ---- */
 .font-serif {
+  font-family: 'EB Garamond', Georgia, serif;
+}
+
+.font-display {
   font-family: 'Playfair Display', Georgia, serif;
 }
 
-.font-mono,
-.font-display {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
+.font-hand {
+  font-family: 'Caveat', cursive;
 }
 
-/* ---- Broadcast / Grid Utilities ---- */
-.terminal-grid {
-  background-image: 
-    linear-gradient(to right, var(--border) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
-  background-size: 40px 40px;
+.font-mono {
+  font-family: 'Courier Prime', Courier, monospace;
 }
 
-.wire-badge {
+.font-body {
+  font-family: 'Instrument Sans', system-ui, sans-serif;
+}
+
+/* Red pencil marginal notes */
+.marginalia {
+  font-family: 'Caveat', cursive;
+  color: var(--red-pencil);
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+
+/* Strike-through editing */
+.strike-edit {
+  text-decoration: line-through;
+  text-decoration-color: var(--red-pencil);
+  text-decoration-thickness: 2px;
+  opacity: 0.6;
+}
+
+/* Proofreader Stamp */
+.proof-stamp {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-family: 'Space Grotesk', monospace;
+  gap: 0.35rem;
+  font-family: 'Courier Prime', monospace;
   font-size: 0.6875rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 0.35rem 0.75rem;
-  border-radius: 9999px;
-  line-height: 1;
+  padding: 0.25rem 0.6rem;
+  border: 1px dashed var(--red-pencil);
+  color: var(--red-pencil);
+  border-radius: 2px;
+  background: rgba(224, 6, 43, 0.04);
+}
+
+/* Classic Book Drop Cap */
+.drop-cap::first-letter {
+  float: left;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 3.75rem;
+  line-height: 0.8;
+  padding-top: 4px;
+  padding-right: 10px;
+  padding-bottom: 2px;
+  color: var(--red-pencil);
+  font-weight: 700;
+}
+
+/* Ruled paper lines */
+.ruled-lines {
+  background-image: linear-gradient(to bottom, var(--ink-rule) 1px, transparent 1px);
+  background-size: 100% 2rem;
 }
 
 /* ---- Keyframe Animations ---- */
 @keyframes pulseDot {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.3; transform: scale(0.7); }
+  50% { opacity: 0.25; transform: scale(0.65); }
 }
 
-@keyframes marqueeLinear {
+@keyframes tickerManuscript {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
 
-@keyframes marqueeLinearReverse {
-  from { transform: translateX(-50%); }
-  to { transform: translateX(0); }
-}
-
 .animate-pulse-dot {
-  animation: pulseDot 1.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: pulseDot 1.4s ease-in-out infinite;
 }
 
-.animate-marquee-wire {
+.animate-manuscript-ticker {
   display: inline-flex;
   white-space: nowrap;
-  animation: marqueeLinear 30s linear infinite;
+  animation: tickerManuscript 36s linear infinite;
 }
 
-.animate-marquee-wire:hover {
+.animate-manuscript-ticker:hover {
   animation-play-state: paused;
 }
 
-.animate-marquee-wire-rev {
-  display: inline-flex;
-  white-space: nowrap;
-  animation: marqueeLinearReverse 30s linear infinite;
-}
-
-/* ---- Precision Scrollbar ---- */
+/* Precision scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg);
+  background: var(--paper);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--border-strong);
-  border-radius: 3px;
+  background: var(--ink-faint);
+  border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent);
+  background: var(--red-pencil);
 }

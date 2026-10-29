@@ -14,10 +14,10 @@ import { ProjectModal } from './components/ProjectModal';
 import { ResumeModal } from './components/ResumeModal';
 import { Project } from './types';
 
-const AppInner: React.FC = () => {
+const ManuscriptInner: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [resumeOpen, setResumeOpen] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const [readingProgress, setReadingProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,7 +25,7 @@ const AppInner: React.FC = () => {
       const windowHeight =
         document.documentElement.scrollHeight - document.documentElement.clientHeight;
       if (windowHeight > 0) {
-        setScrollProgress((totalScroll / windowHeight) * 100);
+        setReadingProgress((totalScroll / windowHeight) * 100);
       }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -36,21 +36,21 @@ const AppInner: React.FC = () => {
     <div
       className="min-h-screen relative"
       style={{
-        background: 'var(--bg)',
+        background: 'var(--paper)',
         color: 'var(--ink)',
         transition: 'background 0.4s ease, color 0.3s ease',
       }}
     >
-      {/* Top Precision Reading Progress Bar */}
+      {/* Top Archival Reading Progress Thread */}
       <div
-        className="fixed top-0 left-0 h-[2.5px] z-[60] transition-all duration-100"
+        className="fixed top-0 left-0 h-[2px] z-[60] transition-all duration-100"
         style={{
-          width: `${scrollProgress}%`,
-          background: 'var(--accent)',
+          width: `${readingProgress}%`,
+          background: 'var(--red-pencil)',
         }}
       />
 
-      {/* Main Structural Layout */}
+      {/* Main Manuscript Composition */}
       <div className="relative z-10">
         <Navbar />
         <Hero />
@@ -79,7 +79,7 @@ const AppInner: React.FC = () => {
 
 export const App: React.FC = () => (
   <PaletteProvider>
-    <AppInner />
+    <ManuscriptInner />
   </PaletteProvider>
 );
 

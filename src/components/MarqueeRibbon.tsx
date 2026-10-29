@@ -1,53 +1,53 @@
 import React from 'react';
 
 export const MarqueeRibbon: React.FC = () => {
-  const wireItems = [
-    'CORPORATE & BRAND COMMUNICATIONS',
-    'REGULATORY COMPLIANCE E-INVOICING HOOKS',
-    'B2B FINTECH MESSAGING & POSITIONING',
-    'HIGH-CONVERTING EMAIL SEQUENCES',
-    'ENTERPRISE WEBINAR LAUNCH FUNNELS',
-    'EXECUTIVE CULTURE & WORKPLACE STORYTELLING',
-    'SUBSTACK ESSAYIST (ABISOLA WRITES)',
-    '12% LEAD-TO-ACTIVE CONVERSION RATE',
-    '₦1.07 QUADRILLION TRANSACTION HOOK',
+  const manuscriptPhrases = [
+    '¶ B2B FINTECH MESSAGING',
+    '§ REGULATORY COMPLIANCE HOOKS',
+    '❡ 12% LEAD-TO-ACTIVE CONVERSION',
+    '¶ ₦1.07 QUADRILLION TRANSACTION PROOF',
+    '§ ENTERPRISE WEBINAR SEQUENCES',
+    '❡ SUBSTACK ESSAYIST (ABISOLA WRITES)',
+    '¶ INTERNAL CULTURE & WORKPLACE STORIES',
+    '§ LINGUISTIC PRECISION & EMPATHY',
+    '❡ 823+ EXECUTIVES CONVERTED',
   ];
 
   return (
     <div
-      className="border-y overflow-hidden select-none"
+      className="border-y overflow-hidden select-none py-2.5"
       style={{
-        background: 'var(--bg-dark)',
-        borderColor: 'var(--border-strong)',
-        color: '#FFFFFF',
+        background: 'var(--paper-aged)',
+        borderColor: 'var(--ink-rule-strong)',
+        color: 'var(--ink)',
       }}
     >
-      {/* Top Stream */}
-      <div className="py-2.5 flex items-center border-b border-white/10">
-        <div className="px-4 py-0.5 bg-accent text-white text-[10px] font-mono font-extrabold uppercase tracking-widest shrink-0 mr-4 ml-2">
-          LIVE FEED
+      <div className="flex items-center">
+        {/* Proof Label */}
+        <div
+          className="px-3.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-widest shrink-0 ml-4 mr-6 border"
+          style={{
+            background: 'var(--paper-leaf)',
+            borderColor: 'var(--red-pencil)',
+            color: 'var(--red-pencil)',
+          }}
+        >
+          GALLEY TAPE
         </div>
+
+        {/* Running Text */}
         <div className="overflow-hidden whitespace-nowrap flex-1">
-          <div className="animate-marquee-wire text-xs font-mono font-bold tracking-widest uppercase text-white/90">
-            {[...wireItems, ...wireItems].map((item, idx) => (
+          <div className="animate-manuscript-ticker text-xs font-mono font-semibold tracking-widest uppercase">
+            {[...manuscriptPhrases, ...manuscriptPhrases].map((phrase, idx) => (
               <span key={idx} className="inline-flex items-center gap-6 mr-6">
-                <span>{item}</span>
-                <span className="text-accent">✦</span>
+                <span>{phrase}</span>
+                <span className="font-hand text-base lowercase" style={{ color: 'var(--red-pencil)' }}>
+                  (drafted &amp; tested)
+                </span>
+                <span className="opacity-30">/</span>
               </span>
             ))}
           </div>
-        </div>
-      </div>
-
-      {/* Bottom Reverse Stream */}
-      <div className="py-2 bg-black/40 overflow-hidden whitespace-nowrap">
-        <div className="animate-marquee-wire-rev text-[11px] font-mono font-medium tracking-wider uppercase text-white/60">
-          {[...wireItems, ...wireItems].reverse().map((item, idx) => (
-            <span key={idx} className="inline-flex items-center gap-6 mr-6">
-              <span>{item}</span>
-              <span className="text-accent2 opacity-80">//</span>
-            </span>
-          ))}
         </div>
       </div>
     </div>

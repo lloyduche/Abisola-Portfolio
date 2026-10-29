@@ -1,6 +1,6 @@
 import React from 'react';
 import { Project } from '../types';
-import { X, ArrowUpRight, FileText } from 'lucide-react';
+import { X, ArrowUpRight, BookOpen } from 'lucide-react';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -12,61 +12,61 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fadeIn"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-3xl p-6 sm:p-10 border"
+        className="relative w-full max-w-3xl max-h-[88vh] overflow-y-auto rounded-lg p-6 sm:p-10 border galley-sheet"
         style={{
-          background: 'var(--bg-card)',
-          borderColor: 'var(--border)',
+          background: 'var(--paper-leaf)',
+          borderColor: 'var(--ink-rule)',
           color: 'var(--ink)',
-          boxShadow: '0 25px 50px rgba(0,0,0,0.25)',
+          boxShadow: '0 25px 60px rgba(0,0,0,0.3)',
         }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 w-9 h-9 rounded-full flex items-center justify-center border transition-all duration-200 hover:border-accent hover:text-accent"
+          className="absolute top-5 right-5 w-8 h-8 rounded border flex items-center justify-center transition-all hover:border-[var(--red-pencil)]"
           style={{
-            borderColor: 'var(--border)',
-            background: 'var(--bg)',
+            borderColor: 'var(--ink-rule)',
+            background: 'var(--paper)',
             color: 'var(--ink)',
           }}
-          aria-label="Close modal"
+          aria-label="Close Galley"
         >
           <X className="w-4 h-4" />
         </button>
 
-        {/* Modal Header */}
-        <div className="flex items-center gap-2 mb-2">
-          <FileText className="w-4 h-4 text-accent" />
-          <span className="text-xs font-mono font-bold uppercase tracking-wider text-accent">
-            {project.badge}
-          </span>
+        {/* Galley Heading */}
+        <div className="flex items-center gap-2 mb-2 font-mono text-xs uppercase tracking-wider" style={{ color: 'var(--red-pencil)' }}>
+          <BookOpen className="w-3.5 h-3.5" />
+          <span>GALLEY PROOF EXCERPT // {project.badge}</span>
         </div>
 
-        <h3 className="font-display text-2xl sm:text-3xl font-bold mb-4 pr-8 text-ink">
+        <h3 className="font-display font-bold text-2xl sm:text-3xl mb-5 pr-8 leading-snug" style={{ color: 'var(--ink)' }}>
           {project.title}
         </h3>
 
-        {/* Subject & Preheader */}
+        {/* Subject & Preheader in Typewriter Box */}
         {project.fullContent?.subject && (
           <div
-            className="p-4 rounded-xl mb-5 text-sm space-y-1 border font-mono"
+            className="p-4 rounded mb-6 font-mono text-xs space-y-1.5 border"
             style={{
-              background: 'var(--bg)',
-              borderColor: 'var(--border)',
+              background: 'var(--paper)',
+              borderColor: 'var(--ink-rule)',
             }}
           >
-            <p>
-              <strong className="text-accent">Subject:</strong> {project.fullContent.subject}
-            </p>
+            <div>
+              <span className="font-bold text-[var(--red-pencil)] uppercase">SUBJECT LINE: </span>
+              <span className="text-ink">{project.fullContent.subject}</span>
+            </div>
             {project.fullContent.preheader && (
-              <p>
-                <strong className="text-ink/60">Preheader:</strong> {project.fullContent.preheader}
-              </p>
+              <div>
+                <span className="font-bold text-ink/60 uppercase">PREHEADER: </span>
+                <span className="text-ink/80">{project.fullContent.preheader}</span>
+              </div>
             )}
           </div>
         )}
@@ -74,36 +74,40 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {/* Copy Excerpt */}
         {project.fullContent?.excerpt && (
           <div className="mb-6">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider block mb-2 text-ink/60">
-              Selected Email / Story Excerpt
-            </span>
+            <div className="flex items-center justify-between mb-2">
+              <span className="font-mono text-xs uppercase tracking-wider text-ink/60">
+                Printed Copy Excerpt
+              </span>
+              <span className="proof-stamp text-[9px]">GALLEY TEXT</span>
+            </div>
+
             <div
-              className="p-5 sm:p-6 rounded-2xl space-y-3 text-sm sm:text-base leading-relaxed border"
+              className="p-6 rounded space-y-4 font-serif text-lg sm:text-xl leading-relaxed border"
               style={{
-                background: 'var(--bg)',
-                borderColor: 'var(--border)',
+                background: 'var(--paper)',
+                borderColor: 'var(--ink-rule)',
+                borderLeft: '3px solid var(--red-pencil)',
               }}
             >
               {project.fullContent.excerpt.map((para, i) => (
-                <p key={i} className="text-ink/85">{para}</p>
+                <p key={i} className="text-ink/90 font-normal">{para}</p>
               ))}
             </div>
           </div>
         )}
 
-        {/* Strategic Rationale & Details */}
+        {/* Strategic Details */}
         {project.fullContent?.details && (
           <div className="mb-6">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider block mb-2 text-ink/60">
-              Strategic Context &amp; Details
+            <span className="font-mono text-xs uppercase tracking-wider block mb-2 text-ink/60">
+              Editorial Context &amp; Decision Note
             </span>
             <div
-              className="p-4 rounded-xl text-xs sm:text-sm leading-relaxed whitespace-pre-line border"
+              className="p-4 rounded font-serif text-base leading-relaxed border whitespace-pre-line"
               style={{
-                background: 'var(--bg)',
-                borderColor: 'var(--border)',
+                background: 'var(--paper)',
+                borderColor: 'var(--ink-rule)',
                 color: 'var(--ink)',
-                opacity: 0.85,
               }}
             >
               {project.fullContent.details}
@@ -112,31 +116,32 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         )}
 
         {/* Footer CTAs */}
-        <div className="flex flex-wrap gap-3 pt-4 border-t justify-end" style={{ borderColor: 'var(--border)' }}>
+        <div className="flex flex-wrap gap-3 pt-5 border-t justify-end font-mono text-xs" style={{ borderColor: 'var(--ink-rule)' }}>
           {project.fullContent?.substackLink && (
             <a
               href={project.fullContent.substackLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded text-white font-mono font-bold text-xs uppercase flex items-center gap-1.5 hover:opacity-90 transition-opacity"
-              style={{ background: 'var(--accent)' }}
+              className="px-5 py-2.5 rounded text-white font-bold uppercase flex items-center gap-1.5 transition-all"
+              style={{ background: 'var(--red-pencil)' }}
             >
               <span>Read on Substack Publication</span>
-              <ArrowUpRight className="w-4 h-4" />
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           )}
           <button
             onClick={onClose}
-            className="px-6 py-2.5 rounded font-mono font-bold text-xs uppercase border transition-colors"
+            className="px-6 py-2.5 rounded border font-bold uppercase transition-colors"
             style={{
-              borderColor: 'var(--border-strong)',
-              background: 'var(--bg)',
+              borderColor: 'var(--ink-rule-strong)',
+              background: 'var(--paper)',
               color: 'var(--ink)',
             }}
           >
-            Close
+            Close Galley
           </button>
         </div>
+
       </div>
     </div>
   );

@@ -4,32 +4,42 @@ import { ArrowUp } from 'lucide-react';
 export const Footer: React.FC = () => {
   return (
     <footer
-      className="py-10 px-4 sm:px-8 border-t"
+      className="py-12 px-4 sm:px-8 border-t text-xs font-mono"
       style={{
-        background: 'var(--bg)',
-        borderColor: 'var(--border)',
+        background: 'var(--paper)',
+        borderColor: 'var(--ink-rule)',
         color: 'var(--ink)',
       }}
     >
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-xs font-mono">
-        {/* Copyright */}
-        <div className="text-ink/70">
-          &copy; {new Date().getFullYear()} ABISOLA OLUWATOYIN. ALL RIGHTS RESERVED.
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+
+        {/* Colophon Note */}
+        <div className="space-y-1 text-center sm:text-left">
+          <div className="font-bold uppercase tracking-wider text-ink/80">
+            THE LIVING MANUSCRIPT // COLOPHON
+          </div>
+          <p className="font-serif text-sm text-ink/60">
+            Typeset in Playfair Display &amp; EB Garamond with Caveat editorial marginalia.
+          </p>
+          <div className="text-[11px] text-ink/50">
+            &copy; {new Date().getFullYear()} Abisola Oluwatoyin. All rights reserved.
+          </div>
         </div>
 
-        {/* Center Tag */}
-        <div className="text-accent font-bold uppercase tracking-widest text-[11px]">
-          THE STRATEGIC WIRE // WORDS WITH PURPOSE
+        {/* Centered Editorial Emblem */}
+        <div className="font-hand text-xl italic text-center" style={{ color: 'var(--red-pencil)' }}>
+          "words that persuade, ideas that endure"
         </div>
 
-        {/* Back to top */}
+        {/* Back to Top */}
         <a
           href="#home"
-          className="flex items-center gap-2 font-bold tracking-wider uppercase text-ink hover:text-accent transition-colors"
+          className="flex items-center gap-2 font-bold uppercase tracking-widest text-ink hover:text-[var(--red-pencil)] transition-colors"
         >
-          <span>TOP OF DISPATCH</span>
-          <ArrowUp className="w-4 h-4 text-accent" />
+          <span>Title Page</span>
+          <ArrowUp className="w-4 h-4" style={{ color: 'var(--red-pencil)' }} />
         </a>
+
       </div>
     </footer>
   );

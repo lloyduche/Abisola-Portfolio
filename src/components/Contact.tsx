@@ -38,85 +38,80 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 lg:py-28 border-b" style={{ borderColor: 'var(--border)' }}>
+    <section id="contact" className="py-20 lg:py-28 border-b" style={{ borderColor: 'var(--ink-rule)' }}>
       <div className="max-w-4xl mx-auto px-4 sm:px-8 text-center">
-        {/* Section Tag */}
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-accent/10 border border-accent/20 mb-6">
-          <span className="w-2 h-2 rounded-full bg-accent animate-pulse-dot" />
-          <span className="text-xs font-mono font-bold tracking-widest text-accent uppercase">
-            [ 06 // DIRECT CHANNEL &amp; INQUIRY ]
-          </span>
+
+        {/* Epilogue Marker */}
+        <div className="flex items-center justify-center gap-2 text-xs font-mono tracking-widest uppercase mb-4" style={{ color: 'var(--ink-muted)' }}>
+          <span className="font-bold" style={{ color: 'var(--red-pencil)' }}>¶ EPILOGUE</span>
+          <span>/</span>
+          <span>OPEN CORRESPONDENCE</span>
         </div>
 
         {/* Headline */}
-        <h2 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl text-ink tracking-tight mb-6 leading-tight">
+        <h2 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight mb-6 leading-tight" style={{ color: 'var(--ink)' }}>
           Good work begins with a good conversation.
         </h2>
 
-        <p className="text-base sm:text-lg text-ink/80 max-w-2xl mx-auto leading-relaxed font-normal mb-10">
-          I’m open to opportunities in corporate communications, internal storytelling, marketing and content strategy. I’m interested in working with teams who value thoughtful ideas, clear communication and the power of deliberate storytelling.
+        <p className="font-serif text-lg sm:text-xl text-ink/85 max-w-2xl mx-auto leading-relaxed font-normal mb-10">
+          I’m open to opportunities in corporate communications, internal storytelling, marketing strategy and content development. I’m interested in working with teams who value thoughtful ideas, clear communication and the power of deliberate storytelling.
         </p>
 
-        {/* Direct Action Row */}
+        {/* Correspondence Action Row */}
         <div className="flex flex-wrap items-center justify-center gap-4 mb-14">
           <a
             href="mailto:abisolaaoluwatoyin@gmail.com"
-            className="px-7 py-3.5 rounded text-xs sm:text-sm font-mono font-bold tracking-wider uppercase flex items-center gap-2 transition-all duration-200 shadow-sm"
-            style={{
-              background: 'var(--accent)',
-              color: '#FFFFFF',
-            }}
+            className="px-7 py-3.5 rounded text-xs font-mono font-bold tracking-wider uppercase flex items-center gap-2 text-white transition-all shadow-sm"
+            style={{ background: 'var(--ink)' }}
           >
-            <Mail className="w-4 h-4" />
-            <span>EMAIL ME DIRECTLY</span>
+            <Mail className="w-4 h-4" style={{ color: 'var(--red-pencil)' }} />
+            <span>Write to Me (Direct Email)</span>
           </a>
 
           <button
             onClick={handleCopyEmail}
-            className="px-6 py-3.5 rounded border text-xs sm:text-sm font-mono font-bold tracking-wider uppercase flex items-center gap-2 transition-all duration-200"
+            className="px-6 py-3.5 rounded border text-xs font-mono font-bold tracking-wider uppercase flex items-center gap-2 transition-all hover:bg-black/5"
             style={{
-              background: 'var(--bg-card)',
-              borderColor: 'var(--border-strong)',
+              background: 'var(--paper-leaf)',
+              borderColor: 'var(--ink-rule-strong)',
               color: 'var(--ink)',
             }}
           >
             {copied ? (
               <>
                 <Check className="w-4 h-4 text-green-600" />
-                <span>COPIED TO CLIPBOARD!</span>
+                <span>Copied to Clipboard!</span>
               </>
             ) : (
               <>
-                <Copy className="w-4 h-4 text-accent" />
-                <span>COPY EMAIL ADDRESS</span>
+                <Copy className="w-4 h-4" style={{ color: 'var(--red-pencil)' }} />
+                <span>Copy Email Address</span>
               </>
             )}
           </button>
         </div>
 
-        {/* Inquiry Terminal Form */}
-        <div
-          className="p-8 sm:p-10 rounded-3xl border text-left"
-          style={{
-            background: 'var(--bg-card)',
-            borderColor: 'var(--border)',
-            boxShadow: '0 20px 40px var(--shadow-color)',
-          }}
-        >
+        {/* The Letterform Inquiry Sheet */}
+        <div className="paper-sheet p-8 sm:p-12 rounded-lg border text-left">
           {!formSubmitted ? (
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="pb-4 mb-2 border-b" style={{ borderColor: 'var(--border)' }}>
-                <h3 className="font-display font-bold text-xl sm:text-2xl text-ink">
-                  Transmit an Inquiry or Project Brief
-                </h3>
-                <p className="text-xs text-ink/60 font-mono mt-1">
-                  Fill in your details below and I'll get back to you within 24 hours.
-                </p>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="pb-4 border-b flex items-center justify-between" style={{ borderColor: 'var(--ink-rule)' }}>
+                <div>
+                  <h3 className="font-display font-bold text-xl sm:text-2xl" style={{ color: 'var(--ink)' }}>
+                    Dispatch a Letter or Inquiry
+                  </h3>
+                  <p className="font-serif text-sm text-ink/70 mt-1">
+                    Send a note regarding your project, timeline, or open role.
+                  </p>
+                </div>
+                <span className="font-mono text-xs text-[var(--red-pencil)] hidden sm:inline">
+                  CONFIDENTIAL
+                </span>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-ink/70 block mb-1.5">
+                  <label className="text-xs font-mono uppercase tracking-wider block mb-1.5 font-bold" style={{ color: 'var(--ink)' }}>
                     Your Name
                   </label>
                   <input
@@ -125,16 +120,16 @@ export const Contact: React.FC = () => {
                     placeholder="e.g. Sarah Adebayo"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg border text-sm text-ink focus:outline-none focus:border-accent"
+                    className="w-full px-4 py-3 rounded border text-sm text-ink font-serif focus:outline-none focus:border-[var(--red-pencil)]"
                     style={{
-                      background: 'var(--bg)',
-                      borderColor: 'var(--border)',
+                      background: 'var(--paper)',
+                      borderColor: 'var(--ink-rule)',
                     }}
                   />
                 </div>
 
                 <div>
-                  <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-ink/70 block mb-1.5">
+                  <label className="text-xs font-mono uppercase tracking-wider block mb-1.5 font-bold" style={{ color: 'var(--ink)' }}>
                     Corporate / Work Email
                   </label>
                   <input
@@ -143,26 +138,26 @@ export const Contact: React.FC = () => {
                     placeholder="e.g. sarah@company.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg border text-sm text-ink focus:outline-none focus:border-accent"
+                    className="w-full px-4 py-3 rounded border text-sm text-ink font-serif focus:outline-none focus:border-[var(--red-pencil)]"
                     style={{
-                      background: 'var(--bg)',
-                      borderColor: 'var(--border)',
+                      background: 'var(--paper)',
+                      borderColor: 'var(--ink-rule)',
                     }}
                   />
                 </div>
               </div>
 
               <div>
-                <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-ink/70 block mb-1.5">
-                  Nature of Engagement
+                <label className="text-xs font-mono uppercase tracking-wider block mb-1.5 font-bold" style={{ color: 'var(--ink)' }}>
+                  Nature of Inquiry
                 </label>
                 <select
                   value={formData.projectType}
                   onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border text-sm text-ink focus:outline-none focus:border-accent"
+                  className="w-full px-4 py-3 rounded border text-sm text-ink font-serif focus:outline-none focus:border-[var(--red-pencil)]"
                   style={{
-                    background: 'var(--bg)',
-                    borderColor: 'var(--border)',
+                    background: 'var(--paper)',
+                    borderColor: 'var(--ink-rule)',
                   }}
                 >
                   <option value="Marketing & Corporate Communications">Marketing &amp; Corporate Communications</option>
@@ -170,110 +165,109 @@ export const Contact: React.FC = () => {
                   <option value="Product & Website Messaging">Product &amp; Website Messaging</option>
                   <option value="Internal Storytelling & Executive Comms">Internal Storytelling &amp; Executive Comms</option>
                   <option value="Full-Time / Contract Leadership Role">Full-Time / Contract Leadership Role</option>
+                  <option value="Editorial & Essay Commissions">Editorial &amp; Essay Commissions</option>
                 </select>
               </div>
 
               <div>
-                <label className="text-[11px] font-mono font-bold uppercase tracking-wider text-ink/70 block mb-1.5">
-                  Brief Overview / Message
+                <label className="text-xs font-mono uppercase tracking-wider block mb-1.5 font-bold" style={{ color: 'var(--ink)' }}>
+                  Message / Brief
                 </label>
                 <textarea
                   rows={4}
                   required
-                  placeholder="Share a few details regarding your scope, timeline, and strategic goals..."
+                  placeholder="Share a few details regarding your scope, audience, and goals..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border text-sm text-ink focus:outline-none focus:border-accent resize-none"
+                  className="w-full px-4 py-3 rounded border text-sm text-ink font-serif focus:outline-none focus:border-[var(--red-pencil)] resize-none"
                   style={{
-                    background: 'var(--bg)',
-                    borderColor: 'var(--border)',
+                    background: 'var(--paper)',
+                    borderColor: 'var(--ink-rule)',
                   }}
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-4 rounded font-mono font-bold text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-2 transition-all duration-200"
-                style={{
-                  background: 'var(--accent)',
-                  color: '#FFFFFF',
-                }}
+                className="w-full py-4 rounded font-mono text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-2 text-white transition-all"
+                style={{ background: 'var(--ink)' }}
               >
-                <Send className="w-4 h-4" />
-                <span>DISPATCH TRANSMISSION →</span>
+                <Send className="w-4 h-4" style={{ color: 'var(--red-pencil)' }} />
+                <span>Send Letter ✍</span>
               </button>
             </form>
           ) : (
             <div className="py-12 text-center space-y-4">
-              <div className="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 flex items-center justify-center mx-auto">
-                <Check className="w-6 h-6" />
+              <div className="w-12 h-12 rounded-full border border-dashed flex items-center justify-center mx-auto" style={{ borderColor: 'var(--red-pencil)' }}>
+                <Check className="w-6 h-6" style={{ color: 'var(--red-pencil)' }} />
               </div>
-              <h4 className="font-display font-bold text-2xl text-ink">
-                Transmission Received, {formData.name || 'there'}!
+              <h4 className="font-display font-bold text-2xl" style={{ color: 'var(--ink)' }}>
+                Letter Received, {formData.name || 'friend'}!
               </h4>
-              <p className="text-sm text-ink/70 max-w-md mx-auto">
-                Your message has been logged. I look forward to connecting and discussing how we can turn your ideas into meaningful commercial outcomes.
+              <p className="font-serif text-base text-ink/80 max-w-md mx-auto">
+                Your correspondence has been placed on my desk. I will reply shortly.
               </p>
               <button
                 onClick={() => setFormSubmitted(false)}
-                className="text-xs font-mono font-bold text-accent underline mt-2"
+                className="text-xs font-mono font-bold text-[var(--red-pencil)] underline mt-2"
               >
-                Send another message
+                Send another note
               </button>
             </div>
           )}
         </div>
 
-        {/* Verified Network Footprint */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mt-12">
+        {/* Author's Public Networks */}
+        <div className="flex flex-wrap items-center justify-center gap-4 mt-12 font-mono text-xs">
           <a
             href="https://www.linkedin.com/in/abisola-oluwatoyin/"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2.5 rounded-full border text-xs font-mono font-bold tracking-wider uppercase flex items-center gap-2 transition-all duration-200"
+            className="px-5 py-2.5 rounded border flex items-center gap-2 transition-all hover:border-[var(--red-pencil)]"
             style={{
-              background: 'var(--bg-card)',
-              borderColor: 'var(--border)',
+              background: 'var(--paper-leaf)',
+              borderColor: 'var(--ink-rule)',
               color: 'var(--ink)',
             }}
           >
-            <span className="text-accent"><LinkedInIcon /></span>
+            <span style={{ color: 'var(--red-pencil)' }}><LinkedInIcon /></span>
             <span>LINKEDIN</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-accent" />
+            <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
           </a>
 
           <a
             href="https://abisolawrites.substack.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2.5 rounded-full border text-xs font-mono font-bold tracking-wider uppercase flex items-center gap-2 transition-all duration-200"
+            className="px-5 py-2.5 rounded border flex items-center gap-2 transition-all hover:border-[var(--red-pencil)]"
             style={{
-              background: 'var(--bg-card)',
-              borderColor: 'var(--border)',
+              background: 'var(--paper-leaf)',
+              borderColor: 'var(--ink-rule)',
               color: 'var(--ink)',
             }}
           >
-            <BookOpen className="w-3.5 h-3.5 text-accent" />
+            <BookOpen className="w-3.5 h-3.5" style={{ color: 'var(--red-pencil)' }} />
             <span>SUBSTACK (ABISOLA WRITES)</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-accent" />
+            <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
           </a>
 
           <a
             href="https://www.instagram.com/p/DL18Ka-s6xj"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2.5 rounded-full border text-xs font-mono font-bold tracking-wider uppercase flex items-center gap-2 transition-all duration-200"
+            className="px-5 py-2.5 rounded border flex items-center gap-2 transition-all hover:border-[var(--red-pencil)]"
             style={{
-              background: 'var(--bg-card)',
-              borderColor: 'var(--border)',
+              background: 'var(--paper-leaf)',
+              borderColor: 'var(--ink-rule)',
               color: 'var(--ink)',
             }}
           >
-            <span className="text-accent"><InstagramIcon /></span>
+            <span style={{ color: 'var(--red-pencil)' }}><InstagramIcon /></span>
             <span>PROPERTY FEATURE</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-accent" />
+            <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
           </a>
         </div>
+
       </div>
     </section>
   );
