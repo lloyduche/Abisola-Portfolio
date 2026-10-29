@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ABOUT_DATA } from '../data/portfolioData';
+import { RedCircle, RedArrow, EditorialStamp } from './ManuscriptMarks';
 import { MapPin, GraduationCap, Feather } from 'lucide-react';
 
 export const About: React.FC = () => {
@@ -38,22 +39,25 @@ export const About: React.FC = () => {
           <div className="flex items-center gap-2">
             <span className="font-bold" style={{ color: 'var(--red-pencil)' }}>¶ CHAPTER II</span>
             <span>/</span>
-            <span>THE AUTHOR'S NOTE &amp; PHILOSOPHY</span>
+            <span>THE AUTHOR'S NOTE &amp; WORKING DRAFT</span>
           </div>
 
-          <div className="flex items-center gap-2 font-hand text-sm capitalize" style={{ color: 'var(--red-pencil)' }}>
-            ~ "behind the craft"
+          <div className="flex items-center gap-3">
+            <EditorialStamp text="stet // author's premise" />
+            <span className="font-hand text-sm capitalize hidden sm:inline" style={{ color: 'var(--red-pencil)' }}>
+              ~ "behind the craft"
+            </span>
           </div>
         </div>
 
         {/* 2-Column Manuscript Spread */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
-          {/* Left Column: Author's Workspace Plate & Editorial Notes */}
+          {/* Left Column: Author's Workspace Plate & Editorial Notes (Images 1 & 4 style) */}
           <div className="lg:col-span-5 space-y-6">
 
-            {/* Mounted Visual Plate */}
-            <div className="paper-sheet p-3.5 rounded-lg border">
+            {/* Mounted Visual Plate with layered paper borders */}
+            <div className="paper-sheet p-3.5 rounded-lg border relative">
               <div className="aspect-[4/5] rounded overflow-hidden relative border" style={{ borderColor: 'var(--ink-rule)' }}>
                 <img
                   src="/abisola-about.svg"
@@ -92,7 +96,7 @@ export const About: React.FC = () => {
               <div className="flex items-center justify-between pb-2 border-b text-[10px] uppercase font-bold tracking-wider" style={{ borderColor: 'var(--ink-rule)', color: 'var(--ink-muted)' }}>
                 <span className="flex items-center gap-1.5" style={{ color: 'var(--red-pencil)' }}>
                   <Feather className="w-3.5 h-3.5" />
-                  TYPEWRITER CARRIAGE // CURRENT FOCUS
+                  TYPEWRITER CARRIAGE // NOW DRAFTING
                 </span>
                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--red-pencil)] animate-pulse-dot" />
               </div>
@@ -116,14 +120,20 @@ export const About: React.FC = () => {
               </div>
             </div>
 
-            {/* Marginal Editorial Annotation */}
+            {/* Marginal Editorial Annotation with Arrow (Image 1 style) */}
             <div className="p-4 rounded border border-dashed font-hand text-base leading-snug" style={{ borderColor: 'var(--red-pencil)', color: 'var(--red-pencil)' }}>
-              "Marginal note: A degree in English Language isn't just about grammar; it's about audience psychology, rhythm, and structural argument."
+              <div className="flex items-center gap-2 mb-1">
+                <EditorialStamp text="ojo" />
+                <span className="font-mono text-xs font-bold uppercase">EDITORIAL MARGIN:</span>
+              </div>
+              <p>
+                "A degree in English Language isn't just about grammar; it's about syntactic rhythm, audience psychology, and knowing which word creates the conversion."
+              </p>
             </div>
 
           </div>
 
-          {/* Right Column: The Manuscript Text */}
+          {/* Right Column: The Manuscript Text with Red Edits */}
           <div className="lg:col-span-7">
 
             {/* Chapter Headline */}
@@ -148,28 +158,28 @@ export const About: React.FC = () => {
               </p>
             </div>
 
-            {/* The Text with Strikethroughs & Marginalia */}
+            {/* The Text with Strikethroughs & Red-Circle Embellishments */}
             <div className="space-y-6 font-serif text-lg sm:text-xl text-ink/90 leading-relaxed font-normal">
               <p className="drop-cap">
-                {ABOUT_DATA.paragraphs[0]}
+                My background in <RedCircle>English Language</RedCircle> has shaped how I approach writing, storytelling and communication. It has given me an appreciation for language, structure and meaning, and how the right words can shape understanding and influence how a message is received.
               </p>
 
               <div className="relative">
                 <p>
-                  {ABOUT_DATA.paragraphs[1]}
+                  Through my experience in marketing and corporate communications, I have brought this foundation into <RedCircle>high-stakes business contexts</RedCircle>—developing content, shaping brand messages and contributing to campaigns designed around specific audiences and commercial objectives.
                 </p>
-                {/* Red note */}
-                <span className="inline-block font-hand text-base text-[var(--red-pencil)] mt-1">
-                  ^ [application: fintech, regulatory mandates, high-conversion email sequences]
-                </span>
+                <div className="font-hand text-base text-[var(--red-pencil)] mt-1.5 flex items-center gap-2">
+                  <RedArrow direction="right" />
+                  <span>[application: fintech positioning, regulatory compliance, webinar funnels]</span>
+                </div>
               </div>
 
               <p>
-                {ABOUT_DATA.paragraphs[2]}
+                I understand that effective communication goes beyond putting words together. It requires an understanding of the audience, a clear sense of purpose, consistency in brand voice and the ability to communicate information in a way that is relevant, engaging and easy to understand.
               </p>
 
               <p>
-                {ABOUT_DATA.paragraphs[3]}
+                Whether I am working on marketing content, email campaigns, corporate communications or creative writing, I approach each piece with attention to language, context and the message it needs to convey.
               </p>
             </div>
 
@@ -183,7 +193,7 @@ export const About: React.FC = () => {
               </div>
 
               <div className="text-ink/60 uppercase">
-                LAGOS, NIGERIA · ALL PROOFS RESERVED
+                LAGOS, NIGERIA · WORKING DRAFT VERIFIED
               </div>
             </div>
 

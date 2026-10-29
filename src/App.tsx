@@ -12,12 +12,14 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { ProjectModal } from './components/ProjectModal';
 import { ResumeModal } from './components/ResumeModal';
+import { ManuscriptLoader } from './components/ManuscriptLoader';
 import { Project } from './types';
 
 const ManuscriptInner: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [resumeOpen, setResumeOpen] = useState(false);
   const [readingProgress, setReadingProgress] = useState(0);
+  const [showManuscriptLoader, setShowManuscriptLoader] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,9 +43,14 @@ const ManuscriptInner: React.FC = () => {
         transition: 'background 0.4s ease, color 0.3s ease',
       }}
     >
+      {/* Interactive Manuscript Letter-Selection Loader */}
+      {showManuscriptLoader && (
+        <ManuscriptLoader onComplete={() => setShowManuscriptLoader(false)} />
+      )}
+
       {/* Top Archival Reading Progress Thread */}
       <div
-        className="fixed top-0 left-0 h-[2px] z-[60] transition-all duration-100"
+        className="fixed top-0 left-0 h-[2.5px] z-[60] transition-all duration-100"
         style={{
           width: `${readingProgress}%`,
           background: 'var(--red-pencil)',
