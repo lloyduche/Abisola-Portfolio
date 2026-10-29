@@ -12,16 +12,16 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-fadeIn"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-3xl max-h-[88vh] overflow-y-auto rounded-lg p-6 sm:p-10 border galley-sheet"
+        className="relative w-full max-w-3xl max-h-[88vh] overflow-y-auto rounded-lg p-6 sm:p-10 border broadsheet-card"
         style={{
           background: 'var(--paper-leaf)',
           borderColor: 'var(--ink-rule)',
           color: 'var(--ink)',
-          boxShadow: '0 25px 60px rgba(0,0,0,0.3)',
+          boxShadow: '0 25px 60px rgba(0,0,0,0.35)',
         }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -34,22 +34,22 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             background: 'var(--paper)',
             color: 'var(--ink)',
           }}
-          aria-label="Close Galley"
+          aria-label="Close Preview"
         >
           <X className="w-4 h-4" />
         </button>
 
-        {/* Galley Heading */}
-        <div className="flex items-center gap-2 mb-2 font-mono text-xs uppercase tracking-wider" style={{ color: 'var(--red-pencil)' }}>
+        {/* Heading */}
+        <div className="flex items-center gap-2 mb-2 font-mono text-xs uppercase tracking-wider text-[var(--red-pencil)]">
           <BookOpen className="w-3.5 h-3.5" />
           <span>GALLEY PROOF EXCERPT // {project.badge}</span>
         </div>
 
-        <h3 className="font-display font-bold text-2xl sm:text-3xl mb-5 pr-8 leading-snug" style={{ color: 'var(--ink)' }}>
+        <h3 className="font-display font-bold text-2xl sm:text-3xl mb-5 pr-8 leading-snug text-ink">
           {project.title}
         </h3>
 
-        {/* Subject & Preheader in Typewriter Box */}
+        {/* Subject & Preheader */}
         {project.fullContent?.subject && (
           <div
             className="p-4 rounded mb-6 font-mono text-xs space-y-1.5 border"
@@ -78,7 +78,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               <span className="font-mono text-xs uppercase tracking-wider text-ink/60">
                 Printed Copy Excerpt
               </span>
-              <span className="proof-stamp text-[9px]">GALLEY TEXT</span>
+              <span className="proof-stamp text-[9px]">FINAL PASS</span>
             </div>
 
             <div
@@ -103,11 +103,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               Editorial Context &amp; Decision Note
             </span>
             <div
-              className="p-4 rounded font-serif text-base leading-relaxed border whitespace-pre-line"
+              className="p-4 rounded font-serif text-base leading-relaxed border whitespace-pre-line text-ink"
               style={{
                 background: 'var(--paper)',
                 borderColor: 'var(--ink-rule)',
-                color: 'var(--ink)',
               }}
             >
               {project.fullContent.details}

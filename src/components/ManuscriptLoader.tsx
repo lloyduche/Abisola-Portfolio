@@ -6,40 +6,38 @@ export const ManuscriptLoader: React.FC<{ onComplete: () => void }> = ({ onCompl
   const [activeLetterPos, setActiveLetterPos] = useState<number | null>(null);
   const [isDismissing, setIsDismissing] = useState(false);
 
-  // Typewritten manuscript paragraphs from which letters will be extracted
+  // Typewritten manuscript draft text
   const manuscriptText = [
-    "In the quiet hours before dawn, every writer confronts the first white sheet. Words are not mere decorative instruments; they are the architecture of human thought and conviction.",
-    "Language, when shaped with intention, possesses the extraordinary power to turn commercial complexity into enduring clarity. A paragraph begins with an impulse and transforms through rigorous revision.",
+    "In the quiet hours before dawn, every writer confronts the blank page. Words are not mere decorative instruments; they are the architecture of conviction and commercial clarity.",
+    "Language, when shaped with intention, possesses the power to turn complexity into enduring understanding. A paragraph begins as an impulse and emerges through rigorous revision.",
     "Between the typed line and the editorial margin, the true voice emerges—annotated, struck through, corrected, and brought decisively into light.",
   ];
 
-  // Map letters of ABISOLA OLUWATOYIN to specific positions in the text
-  // Each entry points to paragraph index, word index, and letter index
+  // Specific coordinates (paragraph, word, letter) for each letter of ABISOLA OLUWATOYIN
   const letterPositions = [
-    { p: 0, w: 2, l: 0, char: 'A' },   // "hours" -> or "dawn"? In "hours", char 'h', wait: let's pick exact letters:
-    { p: 0, w: 1, l: 0, char: 'B' },   // "before" -> 'b'
-    { p: 0, w: 0, l: 0, char: 'I' },   // "In" -> 'I'
-    { p: 0, w: 4, l: 0, char: 'S' },   // "sheet" -> 's'
-    { p: 0, w: 2, l: 1, char: 'O' },   // "hours" -> 'o'
-    { p: 1, w: 0, l: 0, char: 'L' },   // "Language" -> 'L'
-    { p: 1, w: 0, l: 1, char: 'A' },   // "Language" -> 'a'
+    { p: 0, w: 2, l: 0, char: 'A' },   // A
+    { p: 0, w: 1, l: 0, char: 'B' },   // B
+    { p: 0, w: 0, l: 0, char: 'I' },   // I
+    { p: 0, w: 4, l: 0, char: 'S' },   // S
+    { p: 0, w: 2, l: 1, char: 'O' },   // O
+    { p: 1, w: 0, l: 0, char: 'L' },   // L
+    { p: 1, w: 0, l: 1, char: 'A' },   // A
     // Space
-    { p: 1, w: 12, l: 0, char: 'O' },  // "power" or "to"
-    { p: 1, w: 15, l: 1, char: 'L' },  // "complexity" -> 'l'
-    { p: 1, w: 5, l: 0, char: 'U' },   // "thought" -> 'u'
-    { p: 0, w: 7, l: 0, char: 'W' },   // "writer" -> 'w'
-    { p: 1, w: 3, l: 0, char: 'A' },   // "architecture" -> 'a'
-    { p: 1, w: 6, l: 0, char: 'T' },   // "turn" -> 't'
-    { p: 2, w: 4, l: 1, char: 'O' },   // "voice" -> 'o'
-    { p: 1, w: 15, l: 9, char: 'Y' },  // "complexity" -> 'y'
-    { p: 2, w: 1, l: 0, char: 'I' },   // "Between" or "in"
-    { p: 2, w: 13, l: 0, char: 'N' },  // "noted" or "and"
+    { p: 1, w: 8, l: 1, char: 'O' },   // O
+    { p: 1, w: 10, l: 4, char: 'L' },  // L
+    { p: 1, w: 4, l: 1, char: 'U' },   // U
+    { p: 0, w: 3, l: 0, char: 'W' },   // W
+    { p: 1, w: 2, l: 2, char: 'A' },   // A
+    { p: 1, w: 7, l: 0, char: 'T' },   // T
+    { p: 2, w: 4, l: 1, char: 'O' },   // O
+    { p: 1, w: 10, l: 9, char: 'Y' },  // Y
+    { p: 2, w: 0, l: 6, char: 'I' },   // I
+    { p: 2, w: 3, l: 3, char: 'N' },   // N
   ];
 
   useEffect(() => {
-    // Sequentially highlight and extract letters to spell ABISOLA OLUWATOYIN
     const totalLetters = targetName.replace(/\s/g, '').length; // 17 letters
-    const intervalTime = 110; // snappy, cinematic pace
+    const intervalTime = 110;
 
     const timer = setInterval(() => {
       setRevealedCount((prev) => {
@@ -48,10 +46,9 @@ export const ManuscriptLoader: React.FC<{ onComplete: () => void }> = ({ onCompl
           return prev + 1;
         } else {
           clearInterval(timer);
-          // Pause briefly to display complete typed name with subtitle, then dismiss
           setTimeout(() => {
             setIsDismissing(true);
-            setTimeout(onComplete, 700);
+            setTimeout(onComplete, 600);
           }, 800);
           return prev;
         }
@@ -61,7 +58,6 @@ export const ManuscriptLoader: React.FC<{ onComplete: () => void }> = ({ onCompl
     return () => clearInterval(timer);
   }, [onComplete]);
 
-  // Build the currently spelled name string with spaces preserved
   let lettersFound = 0;
   const currentSpelled = targetName.split('').map((char) => {
     if (char === ' ') return ' ';
@@ -75,31 +71,28 @@ export const ManuscriptLoader: React.FC<{ onComplete: () => void }> = ({ onCompl
   return (
     <div
       className={`fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-8 select-none transition-all duration-700 ${
-        isDismissing ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'
+        isDismissing ? 'opacity-0 scale-98 pointer-events-none' : 'opacity-100 scale-100'
       }`}
       style={{
-        background: 'rgba(20, 10, 24, 0.85)',
-        backdropFilter: 'blur(8px)',
+        background: 'rgba(15, 15, 17, 0.92)',
+        backdropFilter: 'blur(10px)',
       }}
     >
-      {/* Background Layered Manuscript Sheets (like Image 1 & Image 3) */}
       <div className="relative w-full max-w-3xl">
 
-        {/* Back Under-Sheet rotated (peeking manuscript sheet) */}
+        {/* Fanned under-sheets (Images 1 & 3 style) */}
         <div
-          className="absolute inset-0 rounded shadow-2xl transform rotate-[2deg] translate-x-3 translate-y-3 opacity-60 pointer-events-none border border-black/10"
+          className="absolute inset-0 rounded shadow-2xl transform rotate-[2.5deg] translate-x-3 translate-y-3 opacity-50 pointer-events-none border border-black/10"
+          style={{ background: 'var(--paper-leaf)' }}
+        />
+        <div
+          className="absolute inset-0 rounded shadow-xl transform -rotate-[1.8deg] -translate-x-2 -translate-y-2 opacity-75 pointer-events-none border border-black/10"
           style={{ background: 'var(--paper-leaf)' }}
         />
 
-        {/* Second Under-Sheet rotated in opposite direction */}
+        {/* Foreground Manuscript Page */}
         <div
-          className="absolute inset-0 rounded shadow-xl transform -rotate-[1.5deg] -translate-x-2 -translate-y-2 opacity-80 pointer-events-none border border-black/10"
-          style={{ background: 'var(--paper-leaf)' }}
-        />
-
-        {/* Foreground Main Typed Manuscript Sheet */}
-        <div
-          className="relative paper-sheet p-6 sm:p-12 rounded shadow-2xl border"
+          className="relative broadsheet-card p-6 sm:p-12 rounded shadow-2xl border"
           style={{
             background: 'var(--paper-leaf)',
             borderColor: 'var(--ink-rule)',
@@ -109,18 +102,18 @@ export const ManuscriptLoader: React.FC<{ onComplete: () => void }> = ({ onCompl
           {/* Header Typewriter Folio */}
           <div className="flex items-center justify-between pb-4 mb-6 border-b text-[11px] font-mono tracking-widest text-ink/60 uppercase">
             <div className="flex items-center gap-2">
-              <span className="font-bold" style={{ color: 'var(--red-pencil)' }}>MANUSCRIPT DRAFT // P. 01</span>
+              <span className="font-bold text-[var(--red-pencil)]">MANUSCRIPT DRAFT // P. 01</span>
               <span>·</span>
-              <span>TYPEWRITER TYPESCRIPT</span>
+              <span>TYPESCRIPT PROOF</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="font-hand text-sm capitalize" style={{ color: 'var(--red-pencil)' }}>
-                extracting author identity...
+              <span className="font-hand text-sm capitalize text-[var(--red-pencil)]">
+                extracting letters...
               </span>
               <button
                 onClick={() => {
                   setIsDismissing(true);
-                  setTimeout(onComplete, 300);
+                  setTimeout(onComplete, 250);
                 }}
                 className="ml-3 px-2 py-0.5 rounded border text-[10px] uppercase font-mono font-bold hover:bg-black/5"
                 style={{ borderColor: 'var(--ink-rule)' }}
@@ -140,7 +133,6 @@ export const ManuscriptLoader: React.FC<{ onComplete: () => void }> = ({ onCompl
                     return (
                       <span key={wIdx} className="inline-block mr-1.5">
                         {word.split('').map((char, cIdx) => {
-                          // Check if this letter is currently selected in the sequence
                           const matchIdx = letterPositions.findIndex(
                             (pos) => pos.p === pIdx && pos.w === wIdx && pos.l === cIdx
                           );
@@ -165,7 +157,6 @@ export const ManuscriptLoader: React.FC<{ onComplete: () => void }> = ({ onCompl
                               }}
                             >
                               {char}
-                              {/* Red Pencil Circle around extracted letter */}
                               {isSelected && !isCurrentlyActive && (
                                 <span
                                   className="absolute -inset-1 border border-dashed rounded-full pointer-events-none opacity-80"
@@ -191,37 +182,32 @@ export const ManuscriptLoader: React.FC<{ onComplete: () => void }> = ({ onCompl
               borderColor: 'var(--ink-rule-strong)',
             }}
           >
-            {/* Top Red-Pen Margin Tag */}
-            <div className="font-hand text-base sm:text-lg mb-1" style={{ color: 'var(--red-pencil)' }}>
-              ^ [author identified from manuscript text]
+            <div className="font-hand text-base sm:text-lg mb-1 text-[var(--red-pencil)]">
+              ^ [author identified from manuscript]
             </div>
 
-            {/* Assembled Spelled Name */}
-            <div className="font-display font-black text-2xl sm:text-4xl lg:text-5xl tracking-widest uppercase my-2 min-h-[3rem] flex items-center justify-center" style={{ color: 'var(--ink)' }}>
+            <div className="font-display font-black text-2xl sm:text-4xl lg:text-5xl tracking-widest uppercase my-2 min-h-[3rem] flex items-center justify-center text-ink">
               {currentSpelled}
             </div>
 
-            {/* Red Underline Indicator */}
-            <div className="w-48 h-0.5 mx-auto my-2" style={{ background: 'var(--red-pencil)' }} />
+            <div className="w-36 h-0.5 mx-auto my-2" style={{ background: 'var(--red-pencil)' }} />
 
-            {/* Subtitle in Author Script */}
             <div
-              className={`font-hand text-lg sm:text-xl transition-opacity duration-300 ${
+              className={`font-hand text-lg sm:text-xl transition-opacity duration-300 text-[var(--red-pencil)] ${
                 revealedCount >= 17 ? 'opacity-100' : 'opacity-0'
               }`}
-              style={{ color: 'var(--red-pencil)' }}
             >
-              ~ Writer · Corporate Communications Specialist · Brand Storyteller ~
+              ~ Writer · Corporate Communications · Brand Storytelling ~
             </div>
           </div>
 
-          {/* Bottom Manuscript Stamp & Proof Number */}
+          {/* Bottom Manuscript Stamp */}
           <div className="mt-6 pt-4 border-t flex items-center justify-between text-[11px] font-mono text-ink/60">
             <span>MS. REF: AO-2026</span>
             <span className="font-hand text-sm text-[var(--red-pencil)]">
               "words with intent, strategy with soul"
             </span>
-            <span className="proof-stamp text-[9px]">READY FOR PROOF</span>
+            <span className="proof-stamp text-[9px]">FINAL PASS</span>
           </div>
         </div>
 

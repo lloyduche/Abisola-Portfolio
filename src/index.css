@@ -3,46 +3,41 @@
 @tailwind utilities;
 
 /* ============================================================
-   THE LIVING MANUSCRIPT // ABISOLA OLUWATOYIN
-   Editorial Paper Stocks: Icy Lilac · Pistachio Milk
+   THE EDITORIAL BROADSHEET // ABISOLA OLUWATOYIN
+   Inspired by The Atlantic, Luncheon Magazine, & Literary Archives
+   Palette A: Ivory Vellum  |  Palette B: Carbon Nocturne
    ============================================================ */
 
 :root,
-[data-palette="lilac"] {
-  --paper:             #E5E5F5;
-  --paper-leaf:        #FFFFFF;
-  --paper-aged:        #D8D8EE;
-  --paper-dark:        #1B091E;
-  --paper-dark-leaf:   #250F2A;
-  --ink:               #230E26;
-  --ink-muted:         #69496E;
-  --ink-faint:         rgba(35, 14, 38, 0.35);
-  --red-pencil:        #E0062B;
-  --highlighter:       #FF63B5;
-  --ink-rule:          rgba(35, 14, 38, 0.14);
-  --ink-rule-strong:   rgba(35, 14, 38, 0.85);
-  --accent:            #E0062B;
-  --accent2:           #FF63B5;
+[data-palette="lilac"],
+[data-palette="ivory"] {
+  --paper:             #F7F5F0;  /* Warm Archival Ivory Paper */
+  --paper-leaf:        #FFFFFF;  /* Crisp White Leaf */
+  --paper-aged:        #EDE8DF;  /* Editorial Newsprint Tint */
+  --ink:               #141414;  /* Deep Carbon Indian Ink */
+  --ink-muted:         #5A5650;  /* Editorial Charcoal */
+  --ink-faint:         rgba(20, 20, 20, 0.28);
+  --red-pencil:        #D92D20;  /* Authentic Vermilion Proofreader Red */
+  --ink-rule:          rgba(20, 20, 20, 0.12);
+  --ink-rule-strong:   #141414;
+  --accent:            #D92D20;
   --bg:                var(--paper);
   --bg-card:           var(--paper-leaf);
   --border:            var(--ink-rule);
 }
 
-[data-palette="pistachio"] {
-  --paper:             #DDF0E4;
-  --paper-leaf:        #FFFFFF;
-  --paper-aged:        #C7E5D1;
-  --paper-dark:        #0B1E13;
-  --paper-dark-leaf:   #122A1C;
-  --ink:               #0C2114;
-  --ink-muted:         #3A604A;
-  --ink-faint:         rgba(12, 33, 20, 0.35);
-  --red-pencil:        #E50926;
-  --highlighter:       #FF63B5;
-  --ink-rule:          rgba(12, 33, 20, 0.14);
-  --ink-rule-strong:   rgba(12, 33, 20, 0.85);
-  --accent:            #E50926;
-  --accent2:           #FF63B5;
+[data-palette="pistachio"],
+[data-palette="nocturne"] {
+  --paper:             #121214;  /* Deep Matte Carbon Sheet */
+  --paper-leaf:        #1A1A1D;  /* Rich Dark Obsidian Page */
+  --paper-aged:        #242428;  /* Toned Slate Rule */
+  --ink:               #F5F3ED;  /* Bone White Typeset Ink */
+  --ink-muted:         #A39E93;  /* Muted Newsprint Grey */
+  --ink-faint:         rgba(245, 243, 237, 0.25);
+  --red-pencil:        #FF3B30;  /* Vivid Crimson Pencil */
+  --ink-rule:          rgba(245, 243, 237, 0.12);
+  --ink-rule-strong:   #F5F3ED;
+  --accent:            #FF3B30;
   --bg:                var(--paper);
   --bg-card:           var(--paper-leaf);
   --border:            var(--ink-rule);
@@ -66,7 +61,7 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background 0.4s ease, color 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 ::selection {
@@ -74,25 +69,7 @@ body {
   color: #FFFFFF;
 }
 
-/* ---- Manuscript Grain & Paper Textures ---- */
-.paper-sheet {
-  background: var(--paper-leaf);
-  box-shadow: 
-    0 1px 1px rgba(0,0,0,0.04),
-    0 4px 16px rgba(0,0,0,0.06),
-    0 20px 40px -10px rgba(0,0,0,0.08);
-  border: 1px solid var(--ink-rule);
-}
-
-.galley-sheet {
-  background: var(--paper-leaf);
-  border-left: 3px double var(--ink-rule-strong);
-  border-right: 1px solid var(--ink-rule);
-  border-top: 1px solid var(--ink-rule);
-  border-bottom: 1px solid var(--ink-rule);
-}
-
-/* ---- Manuscript Editorial Typography ---- */
+/* ---- Typography ---- */
 .font-serif {
   font-family: 'EB Garamond', Georgia, serif;
 }
@@ -113,65 +90,66 @@ body {
   font-family: 'Instrument Sans', system-ui, sans-serif;
 }
 
-/* Red pencil marginal notes */
+/* ---- Broadsheet Grid & Sheet Styling ---- */
+.broadsheet-card {
+  background: var(--paper-leaf);
+  border: 1px solid var(--ink-rule);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.broadsheet-card:hover {
+  border-color: var(--ink-rule-strong);
+}
+
+/* Red pencil editorial margin notes */
 .marginalia {
   font-family: 'Caveat', cursive;
   color: var(--red-pencil);
   line-height: 1.15;
-  letter-spacing: 0.01em;
 }
 
-/* Strike-through editing */
-.strike-edit {
-  text-decoration: line-through;
-  text-decoration-color: var(--red-pencil);
-  text-decoration-thickness: 2px;
-  opacity: 0.6;
+/* Broadsheet Vertical Rule Divider */
+.broadsheet-rule-r {
+  border-right: 1px solid var(--ink-rule);
 }
 
-/* Proofreader Stamp */
+/* Authentic Red Editorial Stamp */
 .proof-stamp {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
   font-family: 'Courier Prime', monospace;
-  font-size: 0.6875rem;
+  font-size: 0.65rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: 0.25rem 0.6rem;
+  padding: 0.2rem 0.55rem;
   border: 1px dashed var(--red-pencil);
   color: var(--red-pencil);
   border-radius: 2px;
-  background: rgba(224, 6, 43, 0.04);
+  background: rgba(217, 45, 32, 0.04);
 }
 
-/* Classic Book Drop Cap */
-.drop-cap::first-letter {
+/* Drop-Cap Inspired by Image 2 & Image 5 */
+.drop-cap-large {
   float: left;
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 3.75rem;
-  line-height: 0.8;
-  padding-top: 4px;
-  padding-right: 10px;
+  font-size: 5rem;
+  line-height: 0.75;
+  padding-top: 6px;
+  padding-right: 12px;
   padding-bottom: 2px;
-  color: var(--red-pencil);
-  font-weight: 700;
+  color: var(--ink);
+  font-weight: 900;
 }
 
-/* Ruled paper lines */
-.ruled-lines {
-  background-image: linear-gradient(to bottom, var(--ink-rule) 1px, transparent 1px);
-  background-size: 100% 2rem;
-}
-
-/* ---- Keyframe Animations ---- */
+/* Keyframe Animations */
 @keyframes pulseDot {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.25; transform: scale(0.65); }
+  50% { opacity: 0.3; transform: scale(0.7); }
 }
 
-@keyframes tickerManuscript {
+@keyframes marqueeEditorial {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
@@ -180,17 +158,17 @@ body {
   animation: pulseDot 1.4s ease-in-out infinite;
 }
 
-.animate-manuscript-ticker {
+.animate-marquee-broadsheet {
   display: inline-flex;
   white-space: nowrap;
-  animation: tickerManuscript 36s linear infinite;
+  animation: marqueeEditorial 38s linear infinite;
 }
 
-.animate-manuscript-ticker:hover {
+.animate-marquee-broadsheet:hover {
   animation-play-state: paused;
 }
 
-/* Precision scrollbar */
+/* Precision Scrollbar */
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;

@@ -16,10 +16,10 @@ export const Footer: React.FC = () => {
         {/* Colophon Note */}
         <div className="space-y-1 text-center sm:text-left">
           <div className="font-bold uppercase tracking-wider text-ink/80">
-            THE LIVING MANUSCRIPT // COLOPHON
+            THE EDITORIAL ARCHIVE // COLOPHON
           </div>
-          <p className="font-serif text-sm text-ink/60">
-            Typeset in Playfair Display &amp; EB Garamond with Caveat editorial marginalia.
+          <p className="font-serif text-sm text-ink/70">
+            Typeset in Playfair Display, EB Garamond &amp; Courier Prime on Archival Vellum.
           </p>
           <div className="text-[11px] text-ink/50">
             &copy; {new Date().getFullYear()} Abisola Oluwatoyin. All rights reserved.
@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Centered Editorial Emblem */}
-        <div className="font-hand text-xl italic text-center" style={{ color: 'var(--red-pencil)' }}>
+        <div className="font-serif italic text-lg text-center text-ink/80">
           "words that persuade, ideas that endure"
         </div>
 
@@ -37,7 +37,7 @@ export const Footer: React.FC = () => {
           className="flex items-center gap-2 font-bold uppercase tracking-widest text-ink hover:text-[var(--red-pencil)] transition-colors"
         >
           <span>Title Page</span>
-          <ArrowUp className="w-4 h-4" style={{ color: 'var(--red-pencil)' }} />
+          <ArrowUp className="w-4 h-4 text-[var(--red-pencil)]" />
         </a>
 
       </div>

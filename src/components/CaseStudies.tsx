@@ -9,7 +9,7 @@ export const CaseStudies: React.FC = () => {
   const editorialMarginNotes: Record<string, { decision: string; rationale: string }> = {
     cs1: {
       decision: 'Lead with the ₦200,000 regulatory penalty under Section 104.',
-      rationale: 'CFOs and enterprise heads ignore generic sales pitches, but they immediately open audit-risk notices.',
+      rationale: 'CFOs and enterprise heads ignore generic sales pitches, but they immediately answer audit-risk notices.',
     },
     cs2: {
       decision: 'Anchor product positioning in Nigeria\'s ₦1.07 quadrillion transfer data.',
@@ -31,20 +31,20 @@ export const CaseStudies: React.FC = () => {
     <section id="case-studies" className="py-20 lg:py-28 border-b" style={{ borderColor: 'var(--ink-rule)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
 
-        {/* Folio Chapter Line */}
+        {/* Broadsheet Folio Chapter Line */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 mb-10 border-b" style={{ borderColor: 'var(--ink-rule)' }}>
           <div>
-            <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mb-2" style={{ color: 'var(--ink-muted)' }}>
-              <span className="font-bold" style={{ color: 'var(--red-pencil)' }}>¶ CHAPTER V</span>
+            <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mb-2 text-ink/70">
+              <span className="font-bold text-[var(--red-pencil)]">¶ CHAPTER IV</span>
               <span>/</span>
-              <span>EDITORIAL SPREADS &amp; STRATEGY MEMORANDUMS</span>
+              <span>IN-DEPTH STRATEGIC CASE SPREADS</span>
             </div>
-            <h2 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight" style={{ color: 'var(--ink)' }}>
-              Case Studies in the Margins.
+            <h2 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-ink">
+              Strategic Case Studies.
             </h2>
           </div>
-          <div className="font-hand text-lg max-w-md" style={{ color: 'var(--red-pencil)' }}>
-            ~ "Key decisions, strategic pivots and verified business results highlighted as editorial margin notes."
+          <div className="font-serif italic text-lg max-w-md text-ink/80">
+            A deeper look into messaging architecture, audience psychology, execution funnels, and verified business results.
           </div>
         </div>
 
@@ -80,16 +80,16 @@ export const CaseStudies: React.FC = () => {
           ))}
         </div>
 
-        {/* The 2-Page Editorial Spread Sheet */}
-        <div className="paper-sheet p-7 sm:p-12 rounded-lg border">
+        {/* The 2-Page Editorial Spread */}
+        <div className="broadsheet-card p-7 sm:p-12 rounded-lg border">
 
           {/* Spread Running Head */}
           <div className="pb-6 mb-8 border-b flex flex-wrap items-center justify-between gap-4 font-mono text-xs uppercase" style={{ borderColor: 'var(--ink-rule)' }}>
             <div className="flex items-center gap-2">
-              <span className="font-bold" style={{ color: 'var(--red-pencil)' }}>SPREAD: {activeCase.discipline}</span>
+              <span className="font-bold text-[var(--red-pencil)]">SPREAD: {activeCase.discipline}</span>
             </div>
             <div className="text-ink/60">
-              DOCUMENT IDENTIFIER // {activeCase.id.toUpperCase()}
+              MEMORANDUM REF // {activeCase.id.toUpperCase()}
             </div>
           </div>
 
@@ -100,10 +100,10 @@ export const CaseStudies: React.FC = () => {
           {/* Verso & Recto 2-Column Spread */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
-            {/* Verso: Narrative & Architecture */}
+            {/* Verso: Narrative & Strategic Approach */}
             <div className="lg:col-span-8 space-y-8 font-serif text-lg leading-relaxed">
               <div>
-                <h4 className="font-mono text-xs font-bold uppercase tracking-wider mb-2" style={{ color: 'var(--red-pencil)' }}>
+                <h4 className="font-mono text-xs font-bold uppercase tracking-wider mb-2 text-[var(--red-pencil)]">
                   01 // THE COMMERCIAL CONTEXT &amp; PROBLEM
                 </h4>
                 <p className="text-ink/90 font-normal">
@@ -112,7 +112,7 @@ export const CaseStudies: React.FC = () => {
               </div>
 
               <div>
-                <h4 className="font-mono text-xs font-bold uppercase tracking-wider mb-2" style={{ color: 'var(--red-pencil)' }}>
+                <h4 className="font-mono text-xs font-bold uppercase tracking-wider mb-2 text-[var(--red-pencil)]">
                   02 // STRATEGIC APPROACH &amp; AUDIENCE FRAMING
                 </h4>
                 <p className="text-ink/90 font-normal">
@@ -121,13 +121,13 @@ export const CaseStudies: React.FC = () => {
               </div>
 
               <div>
-                <h4 className="font-mono text-xs font-bold uppercase tracking-wider mb-3" style={{ color: 'var(--red-pencil)' }}>
+                <h4 className="font-mono text-xs font-bold uppercase tracking-wider mb-3 text-[var(--red-pencil)]">
                   03 // EXECUTION HIGHLIGHTS
                 </h4>
                 <ul className="space-y-3 font-serif">
                   {activeCase.execution.map((step, idx) => (
                     <li key={idx} className="flex items-start gap-3 text-base text-ink/90 font-normal">
-                      <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" style={{ color: 'var(--red-pencil)' }} />
+                      <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5 text-[var(--red-pencil)]" />
                       <span>{step}</span>
                     </li>
                   ))}
@@ -140,7 +140,7 @@ export const CaseStudies: React.FC = () => {
               </div>
             </div>
 
-            {/* Recto / Margin: Key Decisions & Verified Results */}
+            {/* Recto: Key Decisions & Verified Results */}
             <div className="lg:col-span-4 flex flex-col justify-between gap-6">
 
               {/* Editorial Decision in the Margin */}
@@ -152,10 +152,10 @@ export const CaseStudies: React.FC = () => {
                   color: 'var(--ink)',
                 }}
               >
-                <div className="font-mono text-[10px] uppercase font-bold tracking-wider mb-1" style={{ color: 'var(--red-pencil)' }}>
+                <div className="font-mono text-[10px] uppercase font-bold tracking-wider mb-1 text-[var(--red-pencil)]">
                   ^ [KEY EDITORIAL DECISION]
                 </div>
-                <div className="font-bold mb-1" style={{ color: 'var(--red-pencil)' }}>
+                <div className="font-bold mb-1 text-[var(--red-pencil)]">
                   "{currentAnnotation.decision}"
                 </div>
                 <div className="text-sm opacity-90 font-serif italic">
@@ -163,15 +163,15 @@ export const CaseStudies: React.FC = () => {
                 </div>
               </div>
 
-              {/* Verified Results Ledger */}
+              {/* Verified Results */}
               <div className="p-6 rounded border space-y-4" style={{ background: 'var(--paper)', borderColor: 'var(--ink-rule)' }}>
-                <div className="font-mono text-[10px] font-bold uppercase tracking-wider border-b pb-2" style={{ borderColor: 'var(--ink-rule)', color: 'var(--red-pencil)' }}>
+                <div className="font-mono text-[10px] font-bold uppercase tracking-wider border-b pb-2 text-[var(--red-pencil)]" style={{ borderColor: 'var(--ink-rule)' }}>
                   VERIFIED COMMERCIAL IMPACT
                 </div>
 
                 {activeCase.results.map((r, idx) => (
                   <div key={idx} className="border-b last:border-0 pb-3 last:pb-0" style={{ borderColor: 'var(--ink-rule)' }}>
-                    <div className="font-display font-black text-3xl" style={{ color: 'var(--red-pencil)' }}>
+                    <div className="font-display font-black text-3xl text-[var(--red-pencil)]">
                       {r.stat}
                     </div>
                     <div className="font-serif text-sm font-semibold text-ink mt-0.5">
@@ -196,7 +196,7 @@ export const CaseStudies: React.FC = () => {
                   style={{ background: 'var(--ink)' }}
                 >
                   <span>{activeCase.link.label}</span>
-                  <ArrowUpRight className="w-4 h-4" style={{ color: 'var(--red-pencil)' }} />
+                  <ArrowUpRight className="w-4 h-4 text-[var(--red-pencil)]" />
                 </a>
               )}
 

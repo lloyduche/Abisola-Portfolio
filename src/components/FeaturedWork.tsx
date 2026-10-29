@@ -25,30 +25,30 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
     <section id="work" className="py-20 lg:py-28 border-b" style={{ borderColor: 'var(--ink-rule)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
 
-        {/* Folio Chapter Line */}
+        {/* Broadsheet Folio Chapter Line */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4 mb-10 border-b" style={{ borderColor: 'var(--ink-rule)' }}>
           <div>
-            <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mb-2" style={{ color: 'var(--ink-muted)' }}>
-              <span className="font-bold" style={{ color: 'var(--red-pencil)' }}>¶ CHAPTER IV</span>
+            <div className="flex items-center gap-2 text-xs font-mono tracking-widest uppercase mb-2 text-ink/70">
+              <span className="font-bold text-[var(--red-pencil)]">¶ CHAPTER III</span>
               <span>/</span>
-              <span>THE ARCHIVE OF FINISHED PROOFS</span>
+              <span>SELECTED COMMERCIAL WORKS &amp; ESSAYS</span>
             </div>
-            <h2 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight" style={{ color: 'var(--ink)' }}>
-              Selected Copy &amp; Essays.
+            <h2 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight text-ink">
+              The Archive of Published Works.
             </h2>
           </div>
-          <div className="font-hand text-lg max-w-md" style={{ color: 'var(--red-pencil)' }}>
-            ~ "Explore the thinking behind the finished work: marginal notes, strategic hooks &amp; proof excerpts."
+          <div className="font-serif italic text-lg max-w-md text-ink/80">
+            From high-conversion regulatory compliance emails to payment product messaging, webinar journeys, and viral essays.
           </div>
         </div>
 
-        {/* Category Bookmark Filters */}
+        {/* Category Filters */}
         <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-12 scrollbar-none">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className="px-4 py-1.5 rounded text-xs font-mono tracking-wider uppercase whitespace-nowrap transition-all duration-200 border"
+              className="px-4 py-2 rounded text-xs font-mono tracking-wider uppercase whitespace-nowrap transition-all duration-200 border"
               style={
                 activeCategory === cat
                   ? {
@@ -63,33 +63,33 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                     }
               }
             >
-              {cat === 'ALL' ? `ALL GALLEYS [${PROJECTS.length}]` : cat}
+              {cat === 'ALL' ? `ALL PUBLISHED WORKS [${PROJECTS.length}]` : cat}
             </button>
           ))}
         </div>
 
-        {/* Galley Proofs Grid */}
+        {/* Projects Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           {filteredProjects.map((project, idx) => (
             <article
               key={project.id}
-              className="galley-sheet p-7 sm:p-9 rounded-lg flex flex-col justify-between transition-all duration-300 hover:shadow-lg group"
+              className="broadsheet-card p-7 sm:p-9 rounded-lg flex flex-col justify-between transition-all duration-300 hover:shadow-lg group"
             >
               <div>
-                {/* Galley Sheet Metadata */}
+                {/* Meta Top Line */}
                 <div className="flex items-center justify-between pb-3 mb-5 border-b text-xs font-mono" style={{ borderColor: 'var(--ink-rule)' }}>
                   <div className="flex items-center gap-2">
-                    <span className="font-bold uppercase" style={{ color: 'var(--red-pencil)' }}>
-                      PROOF NO. 0{idx + 1}
+                    <span className="font-bold uppercase text-[var(--red-pencil)]">
+                      ENTRY 0{idx + 1}
                     </span>
                     <span className="opacity-40">|</span>
                     <span className="text-ink/70">{project.tagCategory}</span>
                   </div>
-                  <span className="proof-stamp text-[9px]">FINAL PASS</span>
+                  <span className="proof-stamp text-[9px]">PUBLISHED</span>
                 </div>
 
                 {/* Title */}
-                <h3 className="font-display font-bold text-2xl sm:text-3xl mb-3 leading-snug group-hover:text-[var(--red-pencil)] transition-colors" style={{ color: 'var(--ink)' }}>
+                <h3 className="font-display font-bold text-2xl sm:text-3xl mb-3 leading-snug text-ink group-hover:text-[var(--red-pencil)] transition-colors">
                   {project.title}
                 </h3>
 
@@ -98,7 +98,7 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                   {project.shortDesc}
                 </p>
 
-                {/* The Red-Pencil Marginal Annotation (The thinking behind the finished work) */}
+                {/* Red Pencil Editorial Note on the Strategic Hook */}
                 {project.hook && (
                   <div
                     className="p-4 rounded mb-6 border-l-2 font-mono text-xs"
@@ -108,8 +108,8 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                       color: 'var(--ink)',
                     }}
                   >
-                    <div className="font-hand text-base mb-1" style={{ color: 'var(--red-pencil)' }}>
-                      ^ [editorial margin: the hook that made it work]
+                    <div className="font-hand text-base mb-1 text-[var(--red-pencil)]">
+                      ^ [editorial margin: the commercial anchor]
                     </div>
                     <div className="font-semibold text-ink">
                       "{project.hook}"
@@ -129,8 +129,8 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                     color: 'var(--ink)',
                   }}
                 >
-                  <FileText className="w-4 h-4" style={{ color: 'var(--red-pencil)' }} />
-                  <span>Inspect Galley Excerpt ↗</span>
+                  <FileText className="w-4 h-4 text-[var(--red-pencil)]" />
+                  <span>Inspect Copy Excerpt ↗</span>
                 </button>
 
                 {project.fullContent?.substackLink && (

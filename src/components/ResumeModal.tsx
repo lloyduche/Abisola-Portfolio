@@ -12,16 +12,16 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-fadeIn"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-lg p-6 sm:p-12 border paper-sheet"
+        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-lg p-6 sm:p-12 border broadsheet-card"
         style={{
           background: 'var(--paper-leaf)',
           borderColor: 'var(--ink-rule)',
           color: 'var(--ink)',
-          boxShadow: '0 25px 60px rgba(0,0,0,0.3)',
+          boxShadow: '0 25px 60px rgba(0,0,0,0.35)',
         }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -39,7 +39,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
           <X className="w-4 h-4" />
         </button>
 
-        {/* Printable Manuscript CV Sheet */}
+        {/* Printable Sheet */}
         <div className="print:p-0">
 
           {/* Header */}
@@ -118,11 +118,10 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               {RESUME_DATA.areasOfExpertise.map((skill) => (
                 <span
                   key={skill}
-                  className="px-3 py-1 rounded text-xs font-mono border"
+                  className="px-3 py-1 rounded text-xs font-mono border text-ink"
                   style={{
                     background: 'var(--paper)',
                     borderColor: 'var(--ink-rule)',
-                    color: 'var(--ink)',
                   }}
                 >
                   {skill}
@@ -139,7 +138,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               style={{ background: 'var(--red-pencil)' }}
             >
               <Printer className="w-4 h-4" />
-              <span>Print / Save Folio PDF</span>
+              <span>Print Folio PDF</span>
             </button>
             <button
               onClick={onClose}

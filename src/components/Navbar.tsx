@@ -32,25 +32,24 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const chapters = [
-    { num: 'Prologue', label: 'Opening', href: '#home' },
     { num: 'I.', label: 'The Author', href: '#about' },
-    { num: 'II.', label: 'Lexicon', href: '#skills' },
-    { num: 'III.', label: 'Galleys', href: '#work' },
-    { num: 'IV.', label: 'Spreads', href: '#case-studies' },
-    { num: 'V.', label: 'Colophon', href: '#resume' },
-    { num: 'Epilogue', label: 'Inquiry', href: '#contact' },
+    { num: 'II.', label: 'Capabilities', href: '#skills' },
+    { num: 'III.', label: 'Selected Works', href: '#work' },
+    { num: 'IV.', label: 'Case Studies', href: '#case-studies' },
+    { num: 'V.', label: 'Credentials', href: '#resume' },
+    { num: 'VI.', label: 'Correspondence', href: '#contact' },
   ];
 
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 border-b ${
         scrolled
-          ? 'bg-[var(--paper)]/95 backdrop-blur-md shadow-[0_4px_12px_rgba(0,0,0,0.04)]'
+          ? 'bg-[var(--paper)]/95 backdrop-blur-md shadow-[0_2px_15px_rgba(0,0,0,0.03)]'
           : 'bg-[var(--paper)]'
       }`}
       style={{ borderColor: 'var(--ink-rule)' }}
     >
-      {/* Running Head Archival Folio Strip */}
+      {/* Broadsheet Running Head Strip */}
       <div
         className="hidden md:flex items-center justify-between px-6 lg:px-12 py-1.5 text-[11px] font-mono tracking-widest border-b uppercase"
         style={{
@@ -62,43 +61,42 @@ export const Navbar: React.FC = () => {
         <div className="flex items-center gap-3">
           <span className="inline-flex items-center gap-1.5 font-bold" style={{ color: 'var(--red-pencil)' }}>
             <span className="w-1.5 h-1.5 rounded-full bg-[var(--red-pencil)] animate-pulse-dot" />
-            FOLIO MS-2026 // THE LIVING MANUSCRIPT
+            THE EDITORIAL ARCHIVE // FOLIO 2026
           </span>
-          <span className="opacity-40">|</span>
+          <span className="opacity-30">|</span>
           <span>LAGOS, NG: {lagosTime || '10:00'} GMT+1</span>
         </div>
 
         <div className="flex items-center gap-4">
           <span className="font-hand text-sm tracking-normal capitalize" style={{ color: 'var(--red-pencil)' }}>
-            drafts, proofs &amp; finished pieces
+            corporate comms · brand strategy · b2b copywriting
           </span>
-          <span className="opacity-40">|</span>
+          <span className="opacity-30">|</span>
           <span className="text-[10px]">EDITION: WORKING PROOF</span>
         </div>
       </div>
 
-      {/* Main Nav Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-3.5 flex items-center justify-between gap-4">
-        {/* Author Title / Book Identity */}
+      {/* Main Masthead Bar */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between gap-4">
+        {/* Publication Name / Brand */}
         <a href="#home" className="flex items-baseline gap-2.5 group text-decoration-none">
-          <span className="font-display font-bold text-xl sm:text-2xl tracking-tight" style={{ color: 'var(--ink)' }}>
+          <span className="font-display font-extrabold text-2xl sm:text-3xl tracking-tight text-ink">
             Abisola Oluwatoyin
           </span>
           <span className="font-hand text-base sm:text-lg hidden sm:inline" style={{ color: 'var(--red-pencil)' }}>
-            ~ author &amp; strategist
+            ~ writer &amp; strategist
           </span>
         </a>
 
-        {/* Chapters Navigation */}
+        {/* Desktop Chapter Navigation */}
         <nav className="hidden lg:flex items-center gap-6">
           {chapters.map((c) => (
             <a
               key={c.num}
               href={c.href}
-              className="group flex items-baseline gap-1.5 text-xs font-body font-medium tracking-wide transition-colors hover:text-[var(--red-pencil)]"
-              style={{ color: 'var(--ink)' }}
+              className="group flex items-baseline gap-1.5 text-xs font-body font-medium tracking-wide transition-colors hover:text-[var(--red-pencil)] text-ink"
             >
-              <span className="text-[10px] font-mono opacity-50 group-hover:opacity-100" style={{ color: 'var(--red-pencil)' }}>
+              <span className="text-[10px] font-mono opacity-60 group-hover:opacity-100" style={{ color: 'var(--red-pencil)' }}>
                 {c.num}
               </span>
               <span>{c.label}</span>
@@ -106,9 +104,9 @@ export const Navbar: React.FC = () => {
           ))}
         </nav>
 
-        {/* Right Actions: Paper Stock Switcher + Correspondence */}
+        {/* Right Actions: Paper Stock Switcher + Direct Contact */}
         <div className="flex items-center gap-3">
-          {/* Paper Stock Switcher */}
+          {/* Palette Paper Stock Switcher */}
           <button
             onClick={toggle}
             className="flex items-center gap-2 px-3 py-1.5 rounded border text-xs font-mono font-bold tracking-wider transition-all duration-200"
@@ -117,13 +115,13 @@ export const Navbar: React.FC = () => {
               background: 'var(--paper-leaf)',
               color: 'var(--ink)',
             }}
-            title="Switch between Icy Lilac and Pistachio Milk paper stocks"
+            title="Toggle between Ivory Vellum and Carbon Nocturne paper stocks"
           >
             <span className="text-xs">
-              {palette === 'lilac' ? '🟣' : '🟢'}
+              {palette === 'ivory' ? '📜' : '🌑'}
             </span>
             <span className="hidden sm:inline text-[11px] uppercase">
-              Paper: {palette === 'lilac' ? 'Icy Lilac' : 'Pistachio Milk'}
+              Paper: {palette === 'ivory' ? 'Ivory Vellum' : 'Carbon Nocturne'}
             </span>
             <span
               className="text-[9px] px-1.5 py-0.5 rounded font-mono font-bold text-white uppercase"
@@ -133,10 +131,10 @@ export const Navbar: React.FC = () => {
             </span>
           </button>
 
-          {/* Correspondence CTA */}
+          {/* Quick Correspondence CTA */}
           <a
             href="#contact"
-            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-body font-semibold tracking-wider rounded border transition-all duration-200 shadow-sm"
+            className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-xs font-mono font-bold uppercase tracking-wider rounded border transition-all duration-200 shadow-sm"
             style={{
               background: 'var(--ink)',
               color: 'var(--paper)',
@@ -156,7 +154,7 @@ export const Navbar: React.FC = () => {
               background: 'var(--paper-leaf)',
               color: 'var(--ink)',
             }}
-            aria-label="Toggle Table of Contents"
+            aria-label="Toggle Navigation"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -173,15 +171,15 @@ export const Navbar: React.FC = () => {
           }}
         >
           <div className="text-[11px] font-mono font-bold uppercase tracking-widest pb-2 border-b" style={{ borderColor: 'var(--ink-rule)', color: 'var(--red-pencil)' }}>
-            TABLE OF CONTENTS // CHAPTER DIRECTORY
+            THE EDITORIAL DIRECTORY
           </div>
           {chapters.map((c) => (
             <a
               key={c.num}
               href={c.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-between py-2 text-sm font-serif font-medium border-b"
-              style={{ borderColor: 'var(--ink-rule)', color: 'var(--ink)' }}
+              className="flex items-center justify-between py-2 text-base font-serif font-medium border-b text-ink"
+              style={{ borderColor: 'var(--ink-rule)' }}
             >
               <span>{c.label}</span>
               <span className="font-mono text-xs" style={{ color: 'var(--red-pencil)' }}>{c.num} →</span>
@@ -190,10 +188,10 @@ export const Navbar: React.FC = () => {
           <a
             href="#contact"
             onClick={() => setMobileMenuOpen(false)}
-            className="mt-2 w-full py-2.5 text-center text-xs font-mono font-bold uppercase tracking-wider text-white rounded"
+            className="mt-2 w-full py-3 text-center text-xs font-mono font-bold uppercase tracking-wider text-white rounded"
             style={{ background: 'var(--ink)' }}
           >
-            OPEN CORRESPONDENCE ✍
+            SEND CORRESPONDENCE ✍
           </a>
         </div>
       )}

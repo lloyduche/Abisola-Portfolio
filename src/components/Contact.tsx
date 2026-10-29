@@ -42,18 +42,18 @@ export const Contact: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-8 text-center">
 
         {/* Epilogue Marker */}
-        <div className="flex items-center justify-center gap-2 text-xs font-mono tracking-widest uppercase mb-4" style={{ color: 'var(--ink-muted)' }}>
-          <span className="font-bold" style={{ color: 'var(--red-pencil)' }}>¶ EPILOGUE</span>
+        <div className="flex items-center justify-center gap-2 text-xs font-mono tracking-widest uppercase mb-4 text-ink/60">
+          <span className="font-bold text-[var(--red-pencil)]">¶ CHAPTER VI</span>
           <span>/</span>
           <span>OPEN CORRESPONDENCE</span>
         </div>
 
         {/* Headline */}
-        <h2 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight mb-6 leading-tight" style={{ color: 'var(--ink)' }}>
+        <h2 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight mb-6 leading-tight text-ink">
           Good work begins with a good conversation.
         </h2>
 
-        <p className="font-serif text-lg sm:text-xl text-ink/85 max-w-2xl mx-auto leading-relaxed font-normal mb-10">
+        <p className="font-serif text-lg sm:text-xl text-ink/80 max-w-2xl mx-auto leading-relaxed font-normal mb-10">
           I’m open to opportunities in corporate communications, internal storytelling, marketing strategy and content development. I’m interested in working with teams who value thoughtful ideas, clear communication and the power of deliberate storytelling.
         </p>
 
@@ -64,7 +64,7 @@ export const Contact: React.FC = () => {
             className="px-7 py-3.5 rounded text-xs font-mono font-bold tracking-wider uppercase flex items-center gap-2 text-white transition-all shadow-sm"
             style={{ background: 'var(--ink)' }}
           >
-            <Mail className="w-4 h-4" style={{ color: 'var(--red-pencil)' }} />
+            <Mail className="w-4 h-4 text-[var(--red-pencil)]" />
             <span>Write to Me (Direct Email)</span>
           </a>
 
@@ -84,7 +84,7 @@ export const Contact: React.FC = () => {
               </>
             ) : (
               <>
-                <Copy className="w-4 h-4" style={{ color: 'var(--red-pencil)' }} />
+                <Copy className="w-4 h-4 text-[var(--red-pencil)]" />
                 <span>Copy Email Address</span>
               </>
             )}
@@ -92,13 +92,13 @@ export const Contact: React.FC = () => {
         </div>
 
         {/* The Letterform Inquiry Sheet */}
-        <div className="paper-sheet p-8 sm:p-12 rounded-lg border text-left">
+        <div className="broadsheet-card p-8 sm:p-12 rounded-lg border text-left">
           {!formSubmitted ? (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="pb-4 border-b flex items-center justify-between" style={{ borderColor: 'var(--ink-rule)' }}>
                 <div>
-                  <h3 className="font-display font-bold text-xl sm:text-2xl" style={{ color: 'var(--ink)' }}>
-                    Dispatch a Letter or Inquiry
+                  <h3 className="font-display font-bold text-xl sm:text-2xl text-ink">
+                    Dispatch an Inquiry or Brief
                   </h3>
                   <p className="font-serif text-sm text-ink/70 mt-1">
                     Send a note regarding your project, timeline, or open role.
@@ -111,7 +111,7 @@ export const Contact: React.FC = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="text-xs font-mono uppercase tracking-wider block mb-1.5 font-bold" style={{ color: 'var(--ink)' }}>
+                  <label className="text-xs font-mono uppercase tracking-wider block mb-1.5 font-bold text-ink">
                     Your Name
                   </label>
                   <input
@@ -129,7 +129,7 @@ export const Contact: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="text-xs font-mono uppercase tracking-wider block mb-1.5 font-bold" style={{ color: 'var(--ink)' }}>
+                  <label className="text-xs font-mono uppercase tracking-wider block mb-1.5 font-bold text-ink">
                     Corporate / Work Email
                   </label>
                   <input
@@ -148,7 +148,7 @@ export const Contact: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-xs font-mono uppercase tracking-wider block mb-1.5 font-bold" style={{ color: 'var(--ink)' }}>
+                <label className="text-xs font-mono uppercase tracking-wider block mb-1.5 font-bold text-ink">
                   Nature of Inquiry
                 </label>
                 <select
@@ -170,8 +170,8 @@ export const Contact: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-xs font-mono uppercase tracking-wider block mb-1.5 font-bold" style={{ color: 'var(--ink)' }}>
-                  Message / Brief
+                <label className="text-xs font-mono uppercase tracking-wider block mb-1.5 font-bold text-ink">
+                  Message / Scope Overview
                 </label>
                 <textarea
                   rows={4}
@@ -192,16 +192,16 @@ export const Contact: React.FC = () => {
                 className="w-full py-4 rounded font-mono text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-2 text-white transition-all"
                 style={{ background: 'var(--ink)' }}
               >
-                <Send className="w-4 h-4" style={{ color: 'var(--red-pencil)' }} />
+                <Send className="w-4 h-4 text-[var(--red-pencil)]" />
                 <span>Send Letter ✍</span>
               </button>
             </form>
           ) : (
             <div className="py-12 text-center space-y-4">
               <div className="w-12 h-12 rounded-full border border-dashed flex items-center justify-center mx-auto" style={{ borderColor: 'var(--red-pencil)' }}>
-                <Check className="w-6 h-6" style={{ color: 'var(--red-pencil)' }} />
+                <Check className="w-6 h-6 text-[var(--red-pencil)]" />
               </div>
-              <h4 className="font-display font-bold text-2xl" style={{ color: 'var(--ink)' }}>
+              <h4 className="font-display font-bold text-2xl text-ink">
                 Letter Received, {formData.name || 'friend'}!
               </h4>
               <p className="font-serif text-base text-ink/80 max-w-md mx-auto">
@@ -217,20 +217,19 @@ export const Contact: React.FC = () => {
           )}
         </div>
 
-        {/* Author's Public Networks */}
+        {/* Public Networks */}
         <div className="flex flex-wrap items-center justify-center gap-4 mt-12 font-mono text-xs">
           <a
             href="https://www.linkedin.com/in/abisola-oluwatoyin/"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2.5 rounded border flex items-center gap-2 transition-all hover:border-[var(--red-pencil)]"
+            className="px-5 py-2.5 rounded border flex items-center gap-2 transition-all hover:border-[var(--red-pencil)] text-ink"
             style={{
               background: 'var(--paper-leaf)',
               borderColor: 'var(--ink-rule)',
-              color: 'var(--ink)',
             }}
           >
-            <span style={{ color: 'var(--red-pencil)' }}><LinkedInIcon /></span>
+            <span className="text-[var(--red-pencil)]"><LinkedInIcon /></span>
             <span>LINKEDIN</span>
             <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
           </a>
@@ -239,14 +238,13 @@ export const Contact: React.FC = () => {
             href="https://abisolawrites.substack.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2.5 rounded border flex items-center gap-2 transition-all hover:border-[var(--red-pencil)]"
+            className="px-5 py-2.5 rounded border flex items-center gap-2 transition-all hover:border-[var(--red-pencil)] text-ink"
             style={{
               background: 'var(--paper-leaf)',
               borderColor: 'var(--ink-rule)',
-              color: 'var(--ink)',
             }}
           >
-            <BookOpen className="w-3.5 h-3.5" style={{ color: 'var(--red-pencil)' }} />
+            <BookOpen className="w-3.5 h-3.5 text-[var(--red-pencil)]" />
             <span>SUBSTACK (ABISOLA WRITES)</span>
             <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
           </a>
@@ -255,14 +253,13 @@ export const Contact: React.FC = () => {
             href="https://www.instagram.com/p/DL18Ka-s6xj"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2.5 rounded border flex items-center gap-2 transition-all hover:border-[var(--red-pencil)]"
+            className="px-5 py-2.5 rounded border flex items-center gap-2 transition-all hover:border-[var(--red-pencil)] text-ink"
             style={{
               background: 'var(--paper-leaf)',
               borderColor: 'var(--ink-rule)',
-              color: 'var(--ink)',
             }}
           >
-            <span style={{ color: 'var(--red-pencil)' }}><InstagramIcon /></span>
+            <span className="text-[var(--red-pencil)]"><InstagramIcon /></span>
             <span>PROPERTY FEATURE</span>
             <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
           </a>
