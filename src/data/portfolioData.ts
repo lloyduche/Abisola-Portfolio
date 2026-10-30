@@ -213,7 +213,8 @@ Created an employee storytelling feature built around interviews with four pairs
 
 • Behind the Code: Kofoworola at the Core of the System:
 An employee feature exploring the expertise and contribution behind technology development, offering readers a closer look at the people and thinking behind the systems being built.
-      `
+      `,
+      blogLink: "https://redtechlimited.com/building-the-technology-that-keeps-african-businesses-moving/"
     }
   },
   {
@@ -245,35 +246,28 @@ Contributed to a corporate newsletter communicating company developments, produc
   {
     id: "p7",
     badge: "07 · Editorial & Thought Leadership · Essays",
-    title: "Thought Leadership & Abisola Writes",
-    shortDesc: "Long-form business analysis including 'Building the Technology That Keeps African Businesses Moving', alongside celebrated literary personal essays published on Substack and Medium.",
-    hook: "Featured Essays: Dear Diary (50k) · A Word Greater Than Luck · Mokola",
+    title: "Thought Leadership",
+    shortDesc: "A long-form business article examining how digital payments and technology infrastructure support businesses across Africa, from small merchants to larger enterprises.",
+    hook: "Article: Building the Technology That Keeps African Businesses Moving",
     tagCategory: "Thought Leadership",
     tagColor: "accent",
     fullContent: {
+      subject: "Building the Technology That Keeps African Businesses Moving",
       excerpt: [
         "Across Africa, digital payments and commerce are becoming part of how businesses operate, from roadside kiosks and social-media storefronts to supermarkets, hotels and large enterprises. The spread of mobile technology has helped drive this change.",
         "Yet adoption does not follow a single pattern. Africa is not moving neatly from cash to cards. Businesses are operating across a mix of cash, bank transfers, mobile money, cards, QR codes and online payments, choosing what works for a particular customer or transaction.",
-        "Those choices can change within one trading day... The technology may be digital, but the decisions remain practical: Did the money arrive? Can I use it now? Can I account for it later?"
+        "Those choices can change within one trading day. A merchant may use cash in the morning to pay suppliers or workers, accept more digital payments during busy customer hours, and spend the evening reconciling transactions and preparing to restock.",
+        "The technology may be digital, but the decisions remain practical: Did the money arrive? Can I use it now? Can I account for it later?"
       ],
       details: `
-• Long-Form Business Analysis:
-- Building the Technology That Keeps African Businesses Moving
+• Additional Business Articles:
 - The Trust Layer: Why Governance Matters in Fintech
 - The Future of Fashion Retail in Nigeria: E-Commerce and Digital Payments
-- Behind the Code: Kofoworola at the Core of the System
 
 • Personal Essays & Creative Writing:
-Exploring love, identity, womanhood, adulthood and the experiences that shape how we understand ourselves and other people.
-- Dear Diary: Adulthood debited me 50k (Medium)
-- A Word Greater Than Luck
-- You Stayed On My Mind Longer Than
-- The Geography of Loving You
-- A Lexicon of You
-- A Vow
-- Love As I’ve Come to Know It
-- The Things We Never Said: Part One — Mokola
+My personal writing explores love, identity, womanhood, adulthood and the experiences that shape how we understand ourselves and other people.
       `,
+      blogLink: "https://redtechlimited.com/building-the-technology-that-keeps-african-businesses-moving/",
       substackLink: "https://abisolawrites.substack.com/",
       mediumLink: "https://medium.com/@oluwatoyinabisola122/dear-diary-adulthood-debited-me-50k-0e719c22aaf0"
     }

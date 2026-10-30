@@ -314,7 +314,19 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                     <ArrowUpRight className="w-4 h-4" />
                   </button>
 
-                  <div className="flex items-center gap-3">
+                  <div className="flex flex-wrap items-center gap-3">
+                    {project.fullContent?.blogLink && (
+                      <a
+                        href={project.fullContent.blogLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#72213A] hover:underline"
+                      >
+                        <span>Read Article</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 text-[#E5B86B]" />
+                      </a>
+                    )}
+
                     {project.fullContent?.mediumLink && (
                       <a
                         href={project.fullContent.mediumLink}
