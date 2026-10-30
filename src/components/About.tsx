@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, MapPin, Sparkles } from 'lucide-react';
+import { GraduationCap, MapPin, Sparkles, ArrowUpRight } from 'lucide-react';
 
 export const About: React.FC = () => {
   return (
@@ -42,6 +42,75 @@ export const About: React.FC = () => {
             <div className="p-6 rounded-2xl bg-white border border-[#72213A]/15 shadow-sm mt-8">
               <div className="font-headline italic text-xl text-[#72213A] leading-snug">
                 "Effective communication goes beyond putting words together. It requires a clear sense of purpose, consistency in brand voice, and relevance."
+              </div>
+            </div>
+
+            {/* ── Editorial Mockup: Substack Snapshot ── */}
+            <div
+              className="mt-8 rounded-2xl overflow-hidden border border-[#72213A]/10 shadow-md group"
+              style={{ background: '#fff' }}
+            >
+              {/* Browser chrome bar */}
+              <div
+                className="flex items-center gap-2 px-4 py-2.5 border-b border-[#72213A]/10"
+                style={{ background: '#FAF4EC' }}
+              >
+                {/* Dots */}
+                <span className="w-2.5 h-2.5 rounded-full bg-[#72213A]/25 block" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#D995A9]/40 block" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#E5B86B]/50 block" />
+                {/* URL bar */}
+                <div className="flex-1 ml-2 px-3 py-1 rounded-full text-xs font-body text-[#38272D]/50 bg-white border border-[#72213A]/10 truncate">
+                  abisolawrites.substack.com
+                </div>
+                <a
+                  href="https://abisolawrites.substack.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-1 flex items-center gap-1 text-xs font-semibold font-body text-[#72213A] hover:underline"
+                >
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                  <span className="hidden sm:inline">Visit</span>
+                </a>
+              </div>
+
+              {/* Screenshot */}
+              <div className="relative overflow-hidden" style={{ maxHeight: '340px' }}>
+                <img
+                  src="/substack-snapshot.jpg"
+                  alt="Notes from Abisola — Substack publication"
+                  className="w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+                  style={{ display: 'block' }}
+                />
+                {/* Fade overlay at bottom */}
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
+                  style={{ background: 'linear-gradient(to bottom, transparent, rgba(250,244,236,0.95))' }}
+                />
+                {/* Caption pill */}
+                <div className="absolute bottom-4 left-4">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold font-body shadow-sm"
+                    style={{ background: '#72213A', color: '#fff' }}>
+                    ✍️ Notes from Abisola · Substack
+                  </span>
+                </div>
+              </div>
+
+              {/* Card Footer */}
+              <div className="px-5 py-4 flex items-center justify-between border-t border-[#72213A]/08"
+                style={{ background: '#FAF4EC' }}>
+                <div>
+                  <p className="font-headline font-semibold text-sm text-[#72213A]">Notes from Abisola</p>
+                  <p className="font-body text-xs text-[#38272D]/60 mt-0.5">Essays, fiction &amp; personal writing · From my heart to yours.</p>
+                </div>
+                <a
+                  href="https://abisolawrites.substack.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 px-4 py-2 rounded-full text-xs font-semibold font-body border border-[#72213A]/20 text-[#72213A] hover:bg-[#72213A] hover:text-white transition-all no-underline"
+                >
+                  Read <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
               </div>
             </div>
           </div>
