@@ -7,7 +7,7 @@ export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    projectType: 'Marketing & Corporate Communications',
+    projectType: 'Social Media content & copy',
     message: '',
   });
 
@@ -152,7 +152,7 @@ export const Contact: React.FC = () => {
                   onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                   className="editorial-input cursor-pointer"
                 >
-                  <option value="Marketing & Corporate Communications">Marketing &amp; Corporate Communications</option>
+                  <option value="Social Media content & copy">Social Media content &amp; copy</option>
                   <option value="Email Copywriting & Conversion Funnels">Email Copywriting &amp; Conversion Funnels</option>
                   <option value="Product & Website Messaging">Product &amp; Website Messaging</option>
                   <option value="Internal Storytelling & Executive Comms">Internal Storytelling &amp; Executive Comms</option>
