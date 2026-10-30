@@ -3,12 +3,97 @@ import { PROJECTS } from '../data/portfolioData';
 import { Project } from '../types';
 import { ArrowUpRight, BookOpen, Mail } from 'lucide-react';
 
-// Email snapshot images for the E-Invoicing project (id: "p1")
+// ── Snapshot data ────────────────────────────────────────────────────────────
+
 const EINVOICING_SNAPSHOTS = [
-  { src: '/einvoicing-email-1.png', alt: 'E-Invoicing Email — Hero section: NRS-Compliant E-Invoicing, Simplified' },
-  { src: '/einvoicing-email-2.png', alt: 'E-Invoicing Email — Product breakdown: For Businesses Without an ERP' },
-  { src: '/einvoicing-email-3.png', alt: 'E-Invoicing Email — Footer: Move to RedPay, compliance badges' },
+  { src: '/einvoicing-email-1.png', alt: 'E-Invoicing Email — Hero: NRS-Compliant E-Invoicing, Simplified' },
+  { src: '/einvoicing-email-2.png', alt: 'E-Invoicing Email — For Businesses Without an ERP' },
+  { src: '/einvoicing-email-3.png', alt: 'E-Invoicing Email — Move to RedPay, compliance badges' },
 ];
+
+const SMARTPOS_SNAPSHOTS = [
+  { src: '/smartpos-email-1.png', alt: 'Smart POS Email — Banner: One POS. Endless Possibilities.' },
+  { src: '/smartpos-email-2.png', alt: 'Smart POS Email — Local Transactions. Global Payments.' },
+  { src: '/smartpos-email-3.png', alt: 'Smart POS Email — Access to Merchant Loans + Empowering Businesses' },
+  { src: '/smartpos-email-4.png', alt: 'Smart POS Email — CTAs: Learn More / Request Your FREE RedPay POS' },
+  { src: '/smartpos-email-5.png', alt: 'Smart POS Email — Move to RedPay suite + compliance footer' },
+];
+
+// ── Shared reusable email mockup reel ────────────────────────────────────────
+
+interface EmailMockupCardProps {
+  snapshots: { src: string; alt: string }[];
+  subject: string;
+  preheader?: string;
+  label: string;
+}
+
+const EmailMockupCard: React.FC<EmailMockupCardProps> = ({ snapshots, subject, label }) => (
+  <div className="mt-2 space-y-3">
+    {/* Label */}
+    <div className="flex items-center gap-2 text-xs font-semibold text-[#72213A]">
+      <Mail className="w-3.5 h-3.5 text-[#E5B86B]" />
+      <span className="uppercase tracking-wider">{label}</span>
+    </div>
+
+    {/* Card with chrome */}
+    <div className="relative rounded-2xl overflow-hidden border border-[#72213A]/10 shadow-sm bg-white">
+      {/* Email client chrome */}
+      <div
+        className="flex items-center gap-2 px-4 py-2.5 border-b border-[#72213A]/08"
+        style={{ background: '#FAF4EC' }}
+      >
+        <span className="w-2 h-2 rounded-full bg-[#72213A]/20 block" />
+        <span className="w-2 h-2 rounded-full bg-[#D995A9]/35 block" />
+        <span className="w-2 h-2 rounded-full bg-[#E5B86B]/45 block" />
+        <div className="flex-1 ml-2 px-3 py-1 rounded-full text-[10px] font-body text-[#38272D]/45 bg-white border border-[#72213A]/08 truncate">
+          <span className="font-semibold text-[#72213A]">Subject: </span>
+          {subject}
+        </div>
+      </div>
+
+      {/* Horizontal scroll reel — snap per slide */}
+      <div
+        className="flex overflow-x-auto scrollbar-none snap-x snap-mandatory"
+        style={{ maxHeight: '320px' }}
+      >
+        {snapshots.map((snap, i) => (
+          <div key={i} className="shrink-0 w-full snap-center relative">
+            <img
+              src={snap.src}
+              alt={snap.alt}
+              className="w-full object-cover object-top block"
+              style={{ maxHeight: '320px' }}
+            />
+            {/* Bottom fade */}
+            <div
+              className="absolute bottom-0 inset-x-0 h-10 pointer-events-none"
+              style={{ background: 'linear-gradient(to bottom, transparent, rgba(250,244,236,0.9))' }}
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Dot indicators + hint */}
+      <div
+        className="flex items-center justify-center gap-1.5 py-2.5"
+        style={{ background: '#FAF4EC' }}
+      >
+        {snapshots.map((_, i) => (
+          <span
+            key={i}
+            className={`rounded-full transition-all block ${i === 0 ? 'w-4 h-1.5 bg-[#72213A]' : 'w-1.5 h-1.5 bg-[#72213A]/25'}`}
+          />
+        ))}
+        <span className="ml-2 text-[10px] font-body text-[#38272D]/45">
+          {snapshots.length} screens · scroll to view ›
+        </span>
+      </div>
+    </div>
+  </div>
+);
+
+// ── Main FeaturedWork component ───────────────────────────────────────────────
 
 interface FeaturedWorkProps {
   onSelectProject: (project: Project) => void;
@@ -31,15 +116,9 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
   const filteredProjects = activeCategory === 'ALL'
     ? PROJECTS
     : PROJECTS.filter((p) => {
-        if (activeCategory === 'Events') {
-          return p.tagCategory.toLowerCase().includes('event');
-        }
-        if (activeCategory === 'Internal Comms') {
-          return p.tagCategory.toLowerCase().includes('internal');
-        }
-        if (activeCategory === 'Newsletters') {
-          return p.tagCategory.toLowerCase().includes('newsletter');
-        }
+        if (activeCategory === 'Events') return p.tagCategory.toLowerCase().includes('event');
+        if (activeCategory === 'Internal Comms') return p.tagCategory.toLowerCase().includes('internal');
+        if (activeCategory === 'Newsletters') return p.tagCategory.toLowerCase().includes('newsletter');
         if (activeCategory === 'Thought Leadership') {
           return p.tagCategory.toLowerCase().includes('thought') || p.tagCategory.toLowerCase().includes('essay');
         }
@@ -64,7 +143,6 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
               A selection of product emails, website messaging, event work, internal storytelling, newsletters and editorial writing developed for different audiences and business needs.
             </p>
           </div>
-
           <div className="text-xs font-body text-[#38272D]/60 text-right hidden sm:block">
             Showing {filteredProjects.length} of {PROJECTS.length} Selected Projects
           </div>
@@ -87,7 +165,7 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
           ))}
         </div>
 
-        {/* Projects Grid: Clean White Cards with Warm Editorial Details */}
+        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filteredProjects.map((project, idx) => (
             <div
@@ -99,12 +177,8 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
               <div className="space-y-4">
                 {/* Category Badge & Index */}
                 <div className="flex items-center justify-between text-xs font-semibold text-[#72213A]">
-                  <span className="px-3 py-1 rounded-full bg-[#72213A]/10">
-                    {project.tagCategory}
-                  </span>
-                  <span className="text-[#38272D]/50 font-body">
-                    PROJECT 0{idx + 1}
-                  </span>
+                  <span className="px-3 py-1 rounded-full bg-[#72213A]/10">{project.tagCategory}</span>
+                  <span className="text-[#38272D]/50 font-body">PROJECT 0{idx + 1}</span>
                 </div>
 
                 {/* Title */}
@@ -117,7 +191,7 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                   {project.shortDesc}
                 </p>
 
-                {/* Hook / Key Angle Box */}
+                {/* Hook */}
                 {project.hook && (
                   <div className="p-4 rounded-xl bg-[#FAF4EC] border-l-4 border-[#72213A] text-sm font-body text-[#38272D] leading-relaxed">
                     <span className="font-semibold text-[#72213A] block text-xs uppercase tracking-wider mb-1">
@@ -127,7 +201,7 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                   </div>
                 )}
 
-                {/* Subject Line & Preheader Preview */}
+                {/* Subject Line & Preheader */}
                 {project.fullContent?.subject && (
                   <div className="p-4 rounded-xl bg-[#FAF4EC]/70 text-xs font-body space-y-1 text-[#38272D]/90">
                     <div>
@@ -141,60 +215,23 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                   </div>
                 )}
 
-                {/* ── Email Newsletter Mockup (E-Invoicing only) ── */}
+                {/* ── E-Invoicing Email Mockup (p1) ── */}
                 {project.id === 'p1' && (
-                  <div className="mt-2 space-y-3">
-                    {/* Mockup label */}
-                    <div className="flex items-center gap-2 text-xs font-semibold text-[#72213A]">
-                      <Mail className="w-3.5 h-3.5 text-[#E5B86B]" />
-                      <span className="uppercase tracking-wider">Email Campaign Mockup</span>
-                    </div>
+                  <EmailMockupCard
+                    snapshots={EINVOICING_SNAPSHOTS}
+                    subject="₦200,000. The Cost of Ignoring Nigeria E-Invoicing Mandate"
+                    label="Email Campaign Mockup"
+                  />
+                )}
 
-                    {/* Scrollable horizontal reel of snapshots */}
-                    <div className="relative rounded-2xl overflow-hidden border border-[#72213A]/10 shadow-sm bg-white">
-                      {/* Email client chrome bar */}
-                      <div className="flex items-center gap-2 px-4 py-2.5 border-b border-[#72213A]/08"
-                        style={{ background: '#FAF4EC' }}>
-                        <span className="w-2 h-2 rounded-full bg-[#72213A]/20" />
-                        <span className="w-2 h-2 rounded-full bg-[#D995A9]/35" />
-                        <span className="w-2 h-2 rounded-full bg-[#E5B86B]/45" />
-                        <div className="flex-1 ml-2 px-3 py-1 rounded-full text-[10px] font-body text-[#38272D]/45 bg-white border border-[#72213A]/08 truncate">
-                          <span className="font-semibold text-[#72213A]">Subject: </span>
-                          ₦200,000. The Cost of Ignoring Nigeria E-Invoicing Mandate
-                        </div>
-                      </div>
-
-                      {/* Horizontal scroll reel */}
-                      <div className="flex gap-0 overflow-x-auto scrollbar-none snap-x snap-mandatory"
-                        style={{ maxHeight: '320px' }}>
-                        {EINVOICING_SNAPSHOTS.map((snap, i) => (
-                          <div
-                            key={i}
-                            className="shrink-0 w-full snap-center relative group/img"
-                          >
-                            <img
-                              src={snap.src}
-                              alt={snap.alt}
-                              className="w-full object-cover object-top"
-                              style={{ maxHeight: '320px', display: 'block' }}
-                            />
-                            {/* Bottom fade */}
-                            <div className="absolute bottom-0 inset-x-0 h-10 pointer-events-none"
-                              style={{ background: 'linear-gradient(to bottom, transparent, rgba(250,244,236,0.9))' }} />
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Scroll indicator dots */}
-                      <div className="flex items-center justify-center gap-1.5 py-2.5"
-                        style={{ background: '#FAF4EC' }}>
-                        {EINVOICING_SNAPSHOTS.map((_, i) => (
-                          <span key={i} className={`rounded-full transition-all ${i === 0 ? 'w-4 h-1.5 bg-[#72213A]' : 'w-1.5 h-1.5 bg-[#72213A]/25'}`} />
-                        ))}
-                        <span className="ml-2 text-[10px] font-body text-[#38272D]/45">scroll to see more ›</span>
-                      </div>
-                    </div>
-                  </div>
+                {/* ── Smart POS / Payment Products Email Mockup (p2) ── */}
+                {project.id === 'p2' && (
+                  <EmailMockupCard
+                    snapshots={SMARTPOS_SNAPSHOTS}
+                    subject="The Smart POS Built for Growing Businesses"
+                    preheader="One POS. Endless Possibilities. Accept more. Manage better. Grow faster."
+                    label="Smart POS Email Campaign"
+                  />
                 )}
               </div>
 
