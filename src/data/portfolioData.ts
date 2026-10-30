@@ -276,9 +276,7 @@ Contributed to a corporate newsletter communicating company developments, produc
 • Personal Essays & Creative Writing:
 My personal writing explores love, identity, womanhood, adulthood and the experiences that shape how we understand ourselves and other people.
       `,
-      blogLink: "https://redtechlimited.com/building-the-technology-that-keeps-african-businesses-moving/",
-      substackLink: "https://abisolawrites.substack.com/",
-      mediumLink: "https://medium.com/@oluwatoyinabisola122/dear-diary-adulthood-debited-me-50k-0e719c22aaf0"
+      blogLink: "https://redtechlimited.com/building-the-technology-that-keeps-african-businesses-moving/"
     }
   }
 ];
