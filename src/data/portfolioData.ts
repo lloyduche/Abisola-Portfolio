@@ -254,10 +254,10 @@ Contributed to a corporate newsletter communicating company developments, produc
   },
   {
     id: "p7",
-    badge: "07 · Editorial & Thought Leadership · Essays",
+    badge: "07 · Thought Leadership · Article Writing & Research",
     title: "Thought Leadership",
     shortDesc: "A long-form business article examining how digital payments and technology infrastructure support businesses across Africa, from small merchants to larger enterprises.",
-    hook: "Article: Building the Technology That Keeps African Businesses Moving",
+    hook: "Work: Article Writing | Research | Editorial Writing | Creative Writing",
     tagCategory: "Thought Leadership",
     tagColor: "accent",
     fullContent: {

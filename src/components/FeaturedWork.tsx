@@ -221,7 +221,7 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                   {project.hook && (
                     <div className="p-4 rounded-xl bg-[#FAF4EC] border-l-4 border-[#72213A] text-sm font-body text-[#38272D] leading-relaxed">
                       <span className="font-semibold text-[#72213A] block text-xs uppercase tracking-wider mb-1">
-                        Key Framing / Strategy:
+                        {project.id === 'p7' ? 'Work Disciplines:' : 'Key Framing / Strategy:'}
                       </span>
                       {project.hook}
                     </div>
@@ -231,7 +231,10 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                   {project.fullContent?.subject && (
                     <div className="p-4 rounded-xl bg-[#FAF4EC]/70 text-xs font-body space-y-1 text-[#38272D]/90">
                       <div>
-                        <strong className="text-[#72213A]">Subject Line:</strong> {project.fullContent.subject}
+                        <strong className="text-[#72213A]">
+                          {project.id === 'p7' ? 'Featured Article:' : 'Subject Line:'}
+                        </strong>{' '}
+                        {project.fullContent.subject}
                       </div>
                       {project.fullContent.preheader && (
                         <div>
@@ -301,6 +304,45 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                       </div>
                     </div>
                   )}
+
+                  {/* ── Thought Leadership Article & Excerpt Display (p7) ── */}
+                  {project.id === 'p7' && (
+                    <div className="space-y-4 pt-2">
+                      <div className="p-5 rounded-2xl bg-[#FAF4EC]/80 border border-[#72213A]/15 space-y-2.5 font-body text-sm text-[#38272D]/90 leading-relaxed">
+                        <div className="flex items-center gap-2 text-xs font-semibold text-[#72213A] uppercase tracking-wider">
+                          <span className="w-2 h-2 rounded-full bg-[#E5B86B]" />
+                          <span>Selected Excerpt</span>
+                        </div>
+                        <p className="italic text-[#38272D]/95">
+                          &ldquo;Across Africa, digital payments and commerce are becoming part of how businesses operate, from roadside kiosks and social-media storefronts to supermarkets, hotels and large enterprises. The spread of mobile technology has helped drive this change...&rdquo;
+                        </p>
+                        <p className="text-xs text-[#38272D]/80">
+                          &ldquo;The technology may be digital, but the decisions remain practical: Did the money arrive? Can I use it now? Can I account for it later?&rdquo;
+                        </p>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs font-body">
+                        <div className="p-3.5 rounded-xl bg-white border border-[#72213A]/10">
+                          <span className="font-semibold text-[#72213A] block mb-1 uppercase tracking-wide text-[11px]">
+                            Additional Business Articles
+                          </span>
+                          <ul className="space-y-1 text-[#38272D]/80 list-disc list-inside text-[11px]">
+                            <li>The Trust Layer: Why Governance Matters in Fintech</li>
+                            <li>The Future of Fashion Retail in Nigeria: E-Commerce and Digital Payments</li>
+                          </ul>
+                        </div>
+
+                        <div className="p-3.5 rounded-xl bg-white border border-[#72213A]/10">
+                          <span className="font-semibold text-[#72213A] block mb-1 uppercase tracking-wide text-[11px]">
+                            Personal Essays &amp; Creative Writing
+                          </span>
+                          <p className="text-[#38272D]/80 leading-relaxed text-[11px]">
+                            My personal writing explores love, identity, womanhood, adulthood and the experiences that shape how we understand ourselves and other people.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Action Buttons */}
@@ -310,7 +352,7 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                     className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#72213A] hover:text-[#54172A] hover:underline"
                   >
                     <BookOpen className="w-4 h-4 text-[#E5B86B]" />
-                    <span>Read Copy &amp; Details</span>
+                    <span>{project.id === 'p7' ? 'Read Full Excerpt & Details' : 'Read Copy & Details'}</span>
                     <ArrowUpRight className="w-4 h-4" />
                   </button>
 

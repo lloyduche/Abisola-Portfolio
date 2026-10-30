@@ -139,7 +139,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {project.hook && (
           <div className="mb-6 p-4 rounded-xl bg-[#FAF4EC] border-l-4 border-[#72213A] text-sm font-body text-[#38272D]">
             <span className="font-semibold text-[#72213A] block text-xs uppercase mb-1">
-              Strategic Hook:
+              {project.id === 'p7' ? 'Work Disciplines:' : 'Strategic Hook:'}
             </span>
             {project.hook}
           </div>
@@ -149,7 +149,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {project.fullContent?.subject && (
           <div className="p-4 mb-6 rounded-xl bg-[#FAF4EC] text-xs font-body space-y-1.5 border border-[#72213A]/10">
             <div>
-              <span className="font-semibold text-[#72213A] uppercase">Subject Line: </span>
+              <span className="font-semibold text-[#72213A] uppercase">
+                {project.id === 'p7' ? 'Featured Long-Form Article: ' : 'Subject Line: '}
+              </span>
               <span className="text-[#38272D] font-medium">{project.fullContent.subject}</span>
             </div>
             {project.fullContent.preheader && (
@@ -165,7 +167,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {project.fullContent?.excerpt && (
           <div className="mb-6">
             <span className="text-xs font-semibold uppercase tracking-wider text-[#38272D]/60 block mb-3">
-              Selected Copy Excerpt
+              {project.id === 'p7' ? 'Selected Article Excerpt' : 'Selected Copy Excerpt'}
             </span>
             <div className="p-6 rounded-2xl bg-[#FAF4EC]/60 border border-[#72213A]/10 space-y-3 font-body text-base text-[#38272D]/90 leading-relaxed">
               {project.fullContent.excerpt.map((para, i) => (
@@ -253,7 +255,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {project.fullContent?.details && (
           <div className="mb-6">
             <span className="text-xs font-semibold uppercase tracking-wider text-[#38272D]/60 block mb-2">
-              Context &amp; Results
+              {project.id === 'p7' ? 'Additional Writing & Creative Work' : 'Context & Results'}
             </span>
             <div className="p-4 rounded-xl bg-[#FAF4EC] font-body text-sm leading-relaxed text-[#38272D]/85 whitespace-pre-line border border-[#72213A]/10">
               {project.fullContent.details}
