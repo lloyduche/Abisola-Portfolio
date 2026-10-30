@@ -75,9 +75,9 @@ export const About: React.FC = () => {
               </div>
 
               {/* Screenshot */}
-              <div className="relative overflow-hidden" style={{ maxHeight: '340px' }}>
+              <div className="relative overflow-hidden" style={{ maxHeight: '360px' }}>
                 <img
-                  src="/substack-snapshot.jpg"
+                  src="/substack-snapshot.png"
                   alt="Notes from Abisola — Substack publication"
                   className="w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
                   style={{ display: 'block' }}
