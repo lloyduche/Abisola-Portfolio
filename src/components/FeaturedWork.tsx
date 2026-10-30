@@ -181,116 +181,122 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredProjects.map((project, idx) => (
-            <div
-              key={project.id}
-              className={`p-8 sm:p-10 rounded-3xl bg-white border border-[#72213A]/10 shadow-sm editorial-card flex flex-col justify-between ${
-                idx === 0 && activeCategory === 'ALL' ? 'md:col-span-2 bg-gradient-to-br from-white to-[#FAF4EC]' : ''
-              }`}
-            >
-              <div className="space-y-4">
-                {/* Category Badge & Index */}
-                <div className="flex items-center justify-between text-xs font-semibold text-[#72213A]">
-                  <span className="px-3 py-1 rounded-full bg-[#72213A]/10">{project.tagCategory}</span>
-                  <span className="text-[#38272D]/50 font-body">PROJECT 0{idx + 1}</span>
+          {filteredProjects.map((project, idx) => {
+            const isFullWidth =
+              (project.id === 'p1' || project.id === 'p2' || project.id === 'p4') &&
+              activeCategory === 'ALL';
+
+            return (
+              <div
+                key={project.id}
+                className={`p-8 sm:p-10 rounded-3xl bg-white border border-[#72213A]/10 shadow-sm editorial-card flex flex-col justify-between ${
+                  isFullWidth ? 'md:col-span-2 bg-gradient-to-br from-white to-[#FAF4EC]' : ''
+                }`}
+              >
+                <div className="space-y-4">
+                  {/* Category Badge & Index */}
+                  <div className="flex items-center justify-between text-xs font-semibold text-[#72213A]">
+                    <span className="px-3 py-1 rounded-full bg-[#72213A]/10">{project.tagCategory}</span>
+                    <span className="text-[#38272D]/50 font-body">PROJECT 0{idx + 1}</span>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="font-headline font-semibold text-2xl sm:text-3xl text-[#72213A] leading-snug">
+                    {project.title}
+                  </h3>
+
+                  {/* Short Description */}
+                  <p className="font-body text-base text-[#38272D]/85 leading-relaxed">
+                    {project.shortDesc}
+                  </p>
+
+                  {/* Hook */}
+                  {project.hook && (
+                    <div className="p-4 rounded-xl bg-[#FAF4EC] border-l-4 border-[#72213A] text-sm font-body text-[#38272D] leading-relaxed">
+                      <span className="font-semibold text-[#72213A] block text-xs uppercase tracking-wider mb-1">
+                        Key Framing / Strategy:
+                      </span>
+                      {project.hook}
+                    </div>
+                  )}
+
+                  {/* Subject Line & Preheader */}
+                  {project.fullContent?.subject && (
+                    <div className="p-4 rounded-xl bg-[#FAF4EC]/70 text-xs font-body space-y-1 text-[#38272D]/90">
+                      <div>
+                        <strong className="text-[#72213A]">Subject Line:</strong> {project.fullContent.subject}
+                      </div>
+                      {project.fullContent.preheader && (
+                        <div>
+                          <strong className="text-[#38272D]/70">Preheader:</strong> {project.fullContent.preheader}
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* ── E-Invoicing Email Mockup (p1) ── */}
+                  {project.id === 'p1' && (
+                    <EmailMockupCard
+                      snapshots={EINVOICING_SNAPSHOTS}
+                      subject="₦200,000. The Cost of Ignoring Nigeria E-Invoicing Mandate"
+                      label="Email Campaign Mockup"
+                    />
+                  )}
+
+                  {/* ── Payment Product Emails: Virtual Accounts & Smart POS Mockups (p2) ── */}
+                  {project.id === 'p2' && (
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-2">
+                      <EmailMockupCard
+                        snapshots={VIRTUALACCOUNT_SNAPSHOTS}
+                        subject="Why Businesses Need a Smarter Way to Confirm Bank Transfers"
+                        preheader="Make Bank Transfer Payments Easier to Confirm"
+                        label="Virtual Accounts Email Campaign"
+                      />
+                      <EmailMockupCard
+                        snapshots={SMARTPOS_SNAPSHOTS}
+                        subject="The Smart POS Built for Growing Businesses"
+                        preheader="One POS. Endless Possibilities. Accept more. Manage better. Grow faster."
+                        label="Smart POS Email Campaign"
+                      />
+                    </div>
+                  )}
+
+                  {/* ── Webinar Email Sequence Mockup (p4) ── */}
+                  {project.id === 'p4' && (
+                    <EmailMockupCard
+                      snapshots={WEBINAR_SNAPSHOTS}
+                      subject="When Women Move: Scaling Through Digital Commerce — RedSpace Webinar"
+                      label="Webinar Invitation Email Campaign"
+                    />
+                  )}
                 </div>
 
-                {/* Title */}
-                <h3 className="font-headline font-semibold text-2xl sm:text-3xl text-[#72213A] leading-snug">
-                  {project.title}
-                </h3>
-
-                {/* Short Description */}
-                <p className="font-body text-base text-[#38272D]/85 leading-relaxed">
-                  {project.shortDesc}
-                </p>
-
-                {/* Hook */}
-                {project.hook && (
-                  <div className="p-4 rounded-xl bg-[#FAF4EC] border-l-4 border-[#72213A] text-sm font-body text-[#38272D] leading-relaxed">
-                    <span className="font-semibold text-[#72213A] block text-xs uppercase tracking-wider mb-1">
-                      Key Framing / Strategy:
-                    </span>
-                    {project.hook}
-                  </div>
-                )}
-
-                {/* Subject Line & Preheader */}
-                {project.fullContent?.subject && (
-                  <div className="p-4 rounded-xl bg-[#FAF4EC]/70 text-xs font-body space-y-1 text-[#38272D]/90">
-                    <div>
-                      <strong className="text-[#72213A]">Subject Line:</strong> {project.fullContent.subject}
-                    </div>
-                    {project.fullContent.preheader && (
-                      <div>
-                        <strong className="text-[#38272D]/70">Preheader:</strong> {project.fullContent.preheader}
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                {/* ── E-Invoicing Email Mockup (p1) ── */}
-                {project.id === 'p1' && (
-                  <EmailMockupCard
-                    snapshots={EINVOICING_SNAPSHOTS}
-                    subject="₦200,000. The Cost of Ignoring Nigeria E-Invoicing Mandate"
-                    label="Email Campaign Mockup"
-                  />
-                )}
-
-                {/* ── Payment Product Emails: Virtual Accounts & Smart POS Mockups (p2) ── */}
-                {project.id === 'p2' && (
-                  <div className="space-y-4">
-                    <EmailMockupCard
-                      snapshots={VIRTUALACCOUNT_SNAPSHOTS}
-                      subject="Why Businesses Need a Smarter Way to Confirm Bank Transfers"
-                      preheader="Make Bank Transfer Payments Easier to Confirm"
-                      label="Virtual Accounts Email Campaign"
-                    />
-                    <EmailMockupCard
-                      snapshots={SMARTPOS_SNAPSHOTS}
-                      subject="The Smart POS Built for Growing Businesses"
-                      preheader="One POS. Endless Possibilities. Accept more. Manage better. Grow faster."
-                      label="Smart POS Email Campaign"
-                    />
-                  </div>
-                )}
-
-                {/* ── Webinar Email Sequence Mockup (p4) ── */}
-                {project.id === 'p4' && (
-                  <EmailMockupCard
-                    snapshots={WEBINAR_SNAPSHOTS}
-                    subject="When Women Move: Scaling Through Digital Commerce — RedSpace Webinar"
-                    label="Webinar Invitation Email Campaign"
-                  />
-                )}
-              </div>
-
-              {/* Action Buttons */}
-              <div className="pt-6 mt-6 border-t border-[#72213A]/10 flex flex-wrap items-center justify-between gap-4">
-                <button
-                  onClick={() => onSelectProject(project)}
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#72213A] hover:text-[#54172A] hover:underline"
-                >
-                  <BookOpen className="w-4 h-4 text-[#E5B86B]" />
-                  <span>Read Copy &amp; Details</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </button>
-
-                {project.fullContent?.substackLink && (
-                  <a
-                    href={project.fullContent.substackLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-[#72213A] hover:underline"
+                {/* Action Buttons */}
+                <div className="pt-6 mt-6 border-t border-[#72213A]/10 flex flex-wrap items-center justify-between gap-4">
+                  <button
+                    onClick={() => onSelectProject(project)}
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#72213A] hover:text-[#54172A] hover:underline"
                   >
-                    <span>Read on Substack</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-[#E5B86B]" />
-                  </a>
-                )}
+                    <BookOpen className="w-4 h-4 text-[#E5B86B]" />
+                    <span>Read Copy &amp; Details</span>
+                    <ArrowUpRight className="w-4 h-4" />
+                  </button>
+
+                  {project.fullContent?.substackLink && (
+                    <a
+                      href={project.fullContent.substackLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-[#72213A] hover:underline"
+                    >
+                      <span>Read on Substack</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 text-[#E5B86B]" />
+                    </a>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>

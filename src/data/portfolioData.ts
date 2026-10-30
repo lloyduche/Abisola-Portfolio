@@ -135,8 +135,32 @@ export const PROJECTS: Project[] = [
     }
   },
   {
+    id: "p4",
+    badge: "03 · Event Communications · Lead Funnels",
+    title: "Webinar Sequences & Brand Activations",
+    shortDesc: "Complete multi-touch email sequences: invitations, speaker features, countdown reminders, and post-event nurture for hospitality finance and e-invoicing masterclasses.",
+    hook: "Results: 823+ registrations · 527+ attendees · 30 verified leads",
+    tagCategory: "Webinar Funnel",
+    tagColor: "card",
+    fullContent: {
+      subject: "When Women Move: Scaling Through Digital Commerce — RedSpace Webinar",
+      preheader: "Special Women's Month Edition · Thursday, 19th March 2026 · Live on Zoom",
+      details: `
+• Webinar 1: Navigating Cashflow, Payment & Scale in Hospitality Business — Practical insights from hospitality leaders on improving cash flow, streamlining payments, and scaling sustainably.
+
+• Webinar 2: E-Invoicing in Nigeria: Tax, Regulatory & Compliance Demystified — Audience-facing educational sequence addressing regulatory changes, tax law, and automated compliance.
+
+• Reported Outcomes:
+- 823+ registrations across two editions
+- 527+ attendees
+- 30 confirmed qualified enterprise leads from the e-invoicing webinar
+- Brand & Event Activations: food and vendor activations, healthcare brand initiatives, and restaurant partnerships.
+      `
+    }
+  },
+  {
     id: "p3",
-    badge: "03 · Website Copywriting · Product Messaging",
+    badge: "04 · Website Copywriting · Product Messaging",
     title: "Full Product Messaging Suite",
     shortDesc: "Translating intricate technical features into benefit-led value propositions across Smart POS terminals, Automated Virtual Accounts, Payment Gateways, and Electronic Invoicing.",
     hook: "Products: Smart POS · Virtual Accounts · Payment Gateway · E-Invoicing",
@@ -151,28 +175,6 @@ export const PROJECTS: Project[] = [
 • Payment Gateway: Accept Payments Anytime Anywhere Cards • Transfers • Wallets — Messaging focused on flexible online payment acceptance, multiple payment options, integration capabilities and secure transaction processing. (CTA: Get Started)
 
 • E-Invoicing: Send Smart Invoices That Help You Get Paid Faster — Electronic invoicing messaging highlighting invoice management, payment reminders, payment tracking and compliance requirements. (CTA: Schedule a Consultation / Book a Demo)
-      `
-    }
-  },
-  {
-    id: "p4",
-    badge: "04 · Event Communications · Lead Funnels",
-    title: "Webinar Sequences & Brand Activations",
-    shortDesc: "Complete multi-touch email sequences: invitations, speaker features, countdown reminders, and post-event nurture for hospitality finance and e-invoicing masterclasses.",
-    hook: "Results: 823+ registrations · 527+ attendees · 30 verified leads",
-    tagCategory: "Webinar Funnel",
-    tagColor: "card",
-    fullContent: {
-      details: `
-• Webinar 1: Navigating Cashflow, Payment & Scale in Hospitality Business — Practical insights from hospitality leaders on improving cash flow, streamlining payments, and scaling sustainably.
-
-• Webinar 2: E-Invoicing in Nigeria: Tax, Regulatory & Compliance Demystified — Audience-facing educational sequence addressing regulatory changes, tax law, and automated compliance.
-
-• Reported Outcomes:
-- 823+ registrations across two editions
-- 527+ attendees
-- 30 confirmed qualified enterprise leads from the e-invoicing webinar
-- Brand & Event Activations: food and vendor activations, healthcare brand initiatives, and restaurant partnerships.
       `
     }
   },
