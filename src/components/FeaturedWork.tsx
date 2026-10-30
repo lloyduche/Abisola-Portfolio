@@ -27,6 +27,12 @@ const VIRTUALACCOUNT_SNAPSHOTS = [
   { src: '/virtualaccount-email-5.png', alt: 'Virtual Accounts Email — Regulatory & Compliance Footer' },
 ];
 
+const WEBINAR_SNAPSHOTS = [
+  { src: '/webinar-email-1.png', alt: 'RedSpace Webinar Email — Hero Banner: When Women Move: A Digital Commerce Masterclass' },
+  { src: '/webinar-email-2.png', alt: 'RedSpace Webinar Email — Event Details, E-Commerce Market Growth & Register to Attend CTA' },
+  { src: '/webinar-email-3.png', alt: 'RedSpace Webinar Email — Follow Us & Contact Us Footer' },
+];
+
 // ── Shared reusable email mockup reel ────────────────────────────────────────
 
 interface EmailMockupCardProps {
@@ -248,6 +254,15 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                       label="Smart POS Email Campaign"
                     />
                   </div>
+                )}
+
+                {/* ── Webinar Email Sequence Mockup (p4) ── */}
+                {project.id === 'p4' && (
+                  <EmailMockupCard
+                    snapshots={WEBINAR_SNAPSHOTS}
+                    subject="When Women Move: Scaling Through Digital Commerce — RedSpace Webinar"
+                    label="Webinar Invitation Email Campaign"
+                  />
                 )}
               </div>
 

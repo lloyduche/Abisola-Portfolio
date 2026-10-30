@@ -24,6 +24,12 @@ const VIRTUALACCOUNT_SNAPSHOTS = [
   { src: '/virtualaccount-email-5.png', alt: 'Virtual Accounts Email — Regulatory & Compliance Footer' },
 ];
 
+const WEBINAR_SNAPSHOTS = [
+  { src: '/webinar-email-1.png', alt: 'RedSpace Webinar Email — Hero Banner: When Women Move: A Digital Commerce Masterclass' },
+  { src: '/webinar-email-2.png', alt: 'RedSpace Webinar Email — Event Details, E-Commerce Market Growth & Register to Attend CTA' },
+  { src: '/webinar-email-3.png', alt: 'RedSpace Webinar Email — Follow Us & Contact Us Footer' },
+];
+
 interface ProjectModalProps {
   project: Project | null;
   onClose: () => void;
@@ -188,6 +194,16 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               label="Smart POS Email — Original Design Snapshots"
             />
           </div>
+        )}
+
+        {/* ── Webinar Email Snapshots (p4) ── */}
+        {project.id === 'p4' && (
+          <ModalSnapshotsBlock
+            snapshots={WEBINAR_SNAPSHOTS}
+            subject="When Women Move: Scaling Through Digital Commerce — RedSpace Webinar"
+            caption="RedSpace International Women's Month Masterclass · Redtech Limited · 2026"
+            label="Webinar Invitation Email — Original Design Snapshots"
+          />
         )}
 
         {/* Strategic Details */}
