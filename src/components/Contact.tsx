@@ -34,17 +34,17 @@ export const Contact: React.FC = () => {
             <span>Let’s Work Together</span>
           </div>
           <h2 className="font-headline font-semibold text-3xl sm:text-5xl lg:text-6xl text-[#72213A] tracking-tight">
-            Good work begins with a good conversation.
+            Need someone to put your ideas into words?
           </h2>
-          <div className="font-body text-lg text-[#38272D]/90 mt-6 leading-relaxed space-y-3">
+          <div className="font-body text-lg text-[#38272D]/90 mt-6 leading-relaxed space-y-4">
             <p>
-              I’m open to opportunities in communications, internal communications, marketing and content development. I’m interested in working with people who value thoughtful ideas, clear communication and the power of good storytelling.
+              I write content, copy and stories for founders, brands, businesses and individuals who have something to say but need the right words to say it.
             </p>
             <p>
-              Whether it’s shaping a message, telling a brand’s story or creating content that connects with people, I’m ready to bring my skills, curiosity and perspective to the table.
+              From website and product copy, email marketing, newsletters and campaign content to corporate communications, editorial writing, articles, personal essays and creative writing, I help bring ideas to life through writing that informs, connects and holds attention.
             </p>
-            <p className="font-semibold text-[#72213A] pt-2">
-              Have something in mind? Let’s talk.
+            <p className="font-medium text-[#72213A]">
+              Whether you’re building a brand, communicating with your audience, developing a publication or trying to tell a story that matters, let’s make the words work for you.
             </p>
           </div>
         </div>
