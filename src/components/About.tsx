@@ -3,16 +3,16 @@ import { GraduationCap, MapPin, Sparkles, ArrowUpRight } from 'lucide-react';
 
 export const About: React.FC = () => {
   return (
-    <section id="about" className="py-20 sm:py-28 bg-[#F0E7DB]/45 border-y border-[#72213A]/10">
+    <section id="about" className="py-20 sm:py-28 bg-[#F0E7DB]/45 border-y border-[#4A0E1C]/10">
       <div className="max-w-7xl mx-auto px-6 sm:px-10">
 
         {/* Section Header */}
         <div className="max-w-2xl mb-12 sm:mb-16">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#72213A] mb-2 flex items-center gap-2">
+          <div className="text-xs font-semibold uppercase tracking-wider text-[#4A0E1C] mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#E5B86B]" />
             <span>About Me</span>
           </div>
-          <h2 className="font-headline font-semibold text-3xl sm:text-5xl text-[#72213A] tracking-tight">
+          <h2 className="font-headline font-semibold text-3xl sm:text-5xl text-[#4A0E1C] tracking-tight">
             Language, structure, and the power of deliberate storytelling.
           </h2>
         </div>
@@ -39,35 +39,34 @@ export const About: React.FC = () => {
             </p>
 
             {/* Pull Quote Box */}
-            <div className="p-6 rounded-2xl bg-white border border-[#72213A]/15 shadow-sm mt-8">
-              <div className="font-headline italic text-xl text-[#72213A] leading-snug">
+            <div className="p-6 rounded-2xl bg-white border border-[#4A0E1C]/15 shadow-sm mt-8">
+              <div className="font-headline italic text-xl text-[#4A0E1C] leading-snug">
                 "Effective communication goes beyond putting words together. It requires a clear sense of purpose, consistency in brand voice, and relevance."
               </div>
             </div>
 
             {/* ── Editorial Mockup: Substack Snapshot ── */}
             <div
-              className="mt-8 rounded-2xl overflow-hidden border border-[#72213A]/10 shadow-md group"
+              className="mt-8 rounded-2xl overflow-hidden border border-[#4A0E1C]/10 shadow-md group"
               style={{ background: '#fff' }}
             >
               {/* Browser chrome bar */}
               <div
-                className="flex items-center gap-2 px-4 py-2.5 border-b border-[#72213A]/10"
-                style={{ background: '#FAF4EC' }}
+                className="flex items-center gap-2 px-4 py-2.5 border-b border-[#4A0E1C]/10 bg-[#FAF4EC]"
               >
                 {/* Dots */}
-                <span className="w-2.5 h-2.5 rounded-full bg-[#72213A]/25 block" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#4A0E1C]/25 block" />
                 <span className="w-2.5 h-2.5 rounded-full bg-[#D995A9]/40 block" />
                 <span className="w-2.5 h-2.5 rounded-full bg-[#E5B86B]/50 block" />
                 {/* URL bar */}
-                <div className="flex-1 ml-2 px-3 py-1 rounded-full text-xs font-body text-[#38272D]/50 bg-white border border-[#72213A]/10 truncate">
+                <div className="flex-1 ml-2 px-3 py-1 rounded-full text-xs font-body text-[#38272D]/50 bg-white border border-[#4A0E1C]/10 truncate">
                   abisolawrites.substack.com
                 </div>
                 <a
                   href="https://abisolawrites.substack.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="ml-1 flex items-center gap-1 text-xs font-semibold font-body text-[#72213A] hover:underline"
+                  className="ml-1 flex items-center gap-1 text-xs font-semibold font-body text-[#4A0E1C] hover:underline"
                 >
                   <ArrowUpRight className="w-3.5 h-3.5" />
                   <span className="hidden sm:inline">Visit</span>
@@ -90,24 +89,23 @@ export const About: React.FC = () => {
                 {/* Caption pill */}
                 <div className="absolute bottom-4 left-4">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold font-body shadow-sm"
-                    style={{ background: '#72213A', color: '#fff' }}>
+                    style={{ background: '#4A0E1C', color: '#fff' }}>
                     ✍️ Notes from Abisola · Substack
                   </span>
                 </div>
               </div>
 
               {/* Card Footer */}
-              <div className="px-5 py-4 flex items-center justify-between border-t border-[#72213A]/08"
-                style={{ background: '#FAF4EC' }}>
+              <div className="px-5 py-4 flex items-center justify-between border-t border-[#4A0E1C]/08 bg-[#FAF4EC]">
                 <div>
-                  <p className="font-headline font-semibold text-sm text-[#72213A]">Notes from Abisola</p>
+                  <p className="font-headline font-semibold text-sm text-[#4A0E1C]">Notes from Abisola</p>
                   <p className="font-body text-xs text-[#38272D]/60 mt-0.5">Essays, fiction &amp; personal writing · From my heart to yours.</p>
                 </div>
                 <a
                   href="https://abisolawrites.substack.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1 px-4 py-2 rounded-full text-xs font-semibold font-body border border-[#72213A]/20 text-[#72213A] hover:bg-[#72213A] hover:text-white transition-all no-underline"
+                  className="flex items-center gap-1 px-4 py-2 rounded-full text-xs font-semibold font-body border border-[#4A0E1C]/20 text-[#4A0E1C] hover:bg-[#4A0E1C] hover:text-white transition-all no-underline"
                 >
                   Read <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
@@ -119,14 +117,14 @@ export const About: React.FC = () => {
           <div className="lg:col-span-4 space-y-6">
 
             {/* Education Card */}
-            <div className="p-6 rounded-2xl bg-white border border-[#72213A]/10 shadow-sm space-y-3 editorial-card">
+            <div className="p-6 rounded-2xl bg-white border border-[#4A0E1C]/10 shadow-sm space-y-3 editorial-card">
               <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-xl bg-[#72213A]/10 flex items-center justify-center text-[#72213A]">
+                <div className="w-10 h-10 rounded-xl bg-[#4A0E1C]/10 flex items-center justify-center text-[#4A0E1C]">
                   <GraduationCap className="w-5 h-5" />
                 </div>
                 <span className="font-hand text-sm text-[#D995A9] font-bold">~ english language ♡</span>
               </div>
-              <h3 className="font-headline font-semibold text-xl text-[#72213A]">
+              <h3 className="font-headline font-semibold text-xl text-[#4A0E1C]">
                 Academic Background
               </h3>
               <div className="font-body text-sm font-semibold text-[#38272D]">
@@ -141,14 +139,14 @@ export const About: React.FC = () => {
             </div>
 
             {/* Location & Status Card */}
-            <div className="p-6 rounded-2xl bg-white border border-[#72213A]/10 shadow-sm space-y-3 editorial-card">
+            <div className="p-6 rounded-2xl bg-white border border-[#4A0E1C]/10 shadow-sm space-y-3 editorial-card">
               <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-xl bg-[#72213A]/10 flex items-center justify-center text-[#72213A]">
+                <div className="w-10 h-10 rounded-xl bg-[#4A0E1C]/10 flex items-center justify-center text-[#4A0E1C]">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <span className="font-hand text-sm text-[#D995A9] font-bold">~ lagos &amp; remote ✨</span>
               </div>
-              <h3 className="font-headline font-semibold text-xl text-[#72213A]">
+              <h3 className="font-headline font-semibold text-xl text-[#4A0E1C]">
                 Location &amp; Availability
               </h3>
               <div className="font-body text-sm font-semibold text-[#38272D]">
@@ -160,7 +158,7 @@ export const About: React.FC = () => {
             </div>
 
             {/* Creative Duality Card */}
-            <div className="p-6 rounded-2xl bg-[#72213A] text-white shadow-md space-y-3">
+            <div className="p-6 rounded-2xl bg-[#4A0E1C] text-white shadow-md space-y-3">
               <div className="flex items-center gap-2 text-xs font-semibold text-[#E5B86B] uppercase tracking-wider">
                 <Sparkles className="w-4 h-4" />
                 <span>The Writing Balance</span>

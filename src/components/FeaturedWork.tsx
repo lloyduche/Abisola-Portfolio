@@ -52,23 +52,22 @@ interface EmailMockupCardProps {
 const EmailMockupCard: React.FC<EmailMockupCardProps> = ({ snapshots, subject, label }) => (
   <div className="mt-2 space-y-3">
     {/* Label */}
-    <div className="flex items-center gap-2 text-xs font-semibold text-[#72213A]">
+    <div className="flex items-center gap-2 text-xs font-semibold text-[#4A0E1C]">
       <Mail className="w-3.5 h-3.5 text-[#E5B86B]" />
       <span className="uppercase tracking-wider">{label}</span>
     </div>
 
     {/* Card with chrome */}
-    <div className="relative rounded-2xl overflow-hidden border border-[#72213A]/10 shadow-sm bg-white">
+    <div className="relative rounded-2xl overflow-hidden border border-[#4A0E1C]/10 shadow-sm bg-white">
       {/* Email client chrome */}
       <div
-        className="flex items-center gap-2 px-4 py-2.5 border-b border-[#72213A]/08"
-        style={{ background: '#FAF4EC' }}
+        className="flex items-center gap-2 px-4 py-2.5 border-b border-[#4A0E1C]/08 bg-[#FAF4EC]"
       >
-        <span className="w-2 h-2 rounded-full bg-[#72213A]/20 block" />
+        <span className="w-2 h-2 rounded-full bg-[#4A0E1C]/20 block" />
         <span className="w-2 h-2 rounded-full bg-[#D995A9]/35 block" />
         <span className="w-2 h-2 rounded-full bg-[#E5B86B]/45 block" />
-        <div className="flex-1 ml-2 px-3 py-1 rounded-full text-[10px] font-body text-[#38272D]/45 bg-white border border-[#72213A]/08 truncate">
-          <span className="font-semibold text-[#72213A]">Subject: </span>
+        <div className="flex-1 ml-2 px-3 py-1 rounded-full text-[10px] font-body text-[#38272D]/45 bg-white border border-[#4A0E1C]/08 truncate">
+          <span className="font-semibold text-[#4A0E1C]">Subject: </span>
           {subject}
         </div>
       </div>
@@ -97,13 +96,12 @@ const EmailMockupCard: React.FC<EmailMockupCardProps> = ({ snapshots, subject, l
 
       {/* Dot indicators + hint */}
       <div
-        className="flex items-center justify-center gap-1.5 py-2.5"
-        style={{ background: '#FAF4EC' }}
+        className="flex items-center justify-center gap-1.5 py-2.5 bg-[#FAF4EC]"
       >
         {snapshots.map((_, i) => (
           <span
             key={i}
-            className={`rounded-full transition-all block ${i === 0 ? 'w-4 h-1.5 bg-[#72213A]' : 'w-1.5 h-1.5 bg-[#72213A]/25'}`}
+            className={`rounded-full transition-all block ${i === 0 ? 'w-4 h-1.5 bg-[#4A0E1C]' : 'w-1.5 h-1.5 bg-[#4A0E1C]/25'}`}
           />
         ))}
         <span className="ml-2 text-[10px] font-body text-[#38272D]/45">
@@ -153,11 +151,11 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
           <div className="max-w-2xl">
-            <div className="text-xs font-semibold uppercase tracking-wider text-[#72213A] mb-2 flex items-center gap-2">
+            <div className="text-xs font-semibold uppercase tracking-wider text-[#4A0E1C] mb-2 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#E5B86B]" />
               <span>Featured Work</span>
             </div>
-            <h2 className="font-headline font-semibold text-3xl sm:text-5xl text-[#72213A] tracking-tight">
+            <h2 className="font-headline font-semibold text-3xl sm:text-5xl text-[#4A0E1C] tracking-tight">
               Selected Marketing, Communications &amp; Writing Projects
             </h2>
             <p className="font-body text-base sm:text-lg text-[#38272D]/80 mt-3 leading-relaxed">
@@ -177,8 +175,8 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
               onClick={() => setActiveCategory(cat)}
               className={`px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap transition-all ${
                 activeCategory === cat
-                  ? 'bg-[#72213A] text-white shadow-sm'
-                  : 'bg-white text-[#38272D]/75 hover:bg-[#FAF4EC] hover:text-[#72213A] border border-[#72213A]/10'
+                  ? 'bg-[#4A0E1C] text-white shadow-sm'
+                  : 'bg-white text-[#38272D]/75 hover:bg-[#FAF4EC] hover:text-[#4A0E1C] border border-[#4A0E1C]/10'
               }`}
             >
               {cat === 'ALL' ? `All Projects [${PROJECTS.length}]` : cat}
@@ -196,19 +194,19 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
             return (
               <div
                 key={project.id}
-                className={`p-8 sm:p-10 rounded-3xl bg-white border border-[#72213A]/10 shadow-sm editorial-card flex flex-col justify-between ${
+                className={`p-8 sm:p-10 rounded-3xl bg-white border border-[#4A0E1C]/10 shadow-sm editorial-card flex flex-col justify-between ${
                   isFullWidth ? 'md:col-span-2 bg-gradient-to-br from-white to-[#FAF4EC]' : ''
                 }`}
               >
                 <div className="space-y-4">
                   {/* Category Badge & Index */}
-                  <div className="flex items-center justify-between text-xs font-semibold text-[#72213A]">
-                    <span className="px-3 py-1 rounded-full bg-[#72213A]/10">{project.tagCategory}</span>
+                  <div className="flex items-center justify-between text-xs font-semibold text-[#4A0E1C]">
+                    <span className="px-3 py-1 rounded-full bg-[#4A0E1C]/10">{project.tagCategory}</span>
                     <span className="text-[#38272D]/50 font-body">PROJECT 0{idx + 1}</span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-headline font-semibold text-2xl sm:text-3xl text-[#72213A] leading-snug">
+                  <h3 className="font-headline font-semibold text-2xl sm:text-3xl text-[#4A0E1C] leading-snug">
                     {project.title}
                   </h3>
 
@@ -219,8 +217,8 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
 
                   {/* Hook */}
                   {project.hook && (
-                    <div className="p-4 rounded-xl bg-[#FAF4EC] border-l-4 border-[#72213A] text-sm font-body text-[#38272D] leading-relaxed">
-                      <span className="font-semibold text-[#72213A] block text-xs uppercase tracking-wider mb-1">
+                    <div className="p-4 rounded-xl bg-[#FAF4EC] border-l-4 border-[#4A0E1C] text-sm font-body text-[#38272D] leading-relaxed">
+                      <span className="font-semibold text-[#4A0E1C] block text-xs uppercase tracking-wider mb-1">
                         {project.id === 'p7' ? 'Work Disciplines:' : 'Key Framing / Strategy:'}
                       </span>
                       {project.hook}
@@ -231,7 +229,7 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                   {project.fullContent?.subject && (
                     <div className="p-4 rounded-xl bg-[#FAF4EC]/70 text-xs font-body space-y-1 text-[#38272D]/90">
                       <div>
-                        <strong className="text-[#72213A]">
+                        <strong className="text-[#4A0E1C]">
                           {project.id === 'p7' ? 'Featured Article:' : 'Subject Line:'}
                         </strong>{' '}
                         {project.fullContent.subject}
@@ -290,11 +288,11 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                   {/* ── Newsletter Analytics / Performance Snapshot (p6) ── */}
                   {project.id === 'p6' && (
                     <div className="mt-3 space-y-2">
-                      <div className="flex items-center gap-2 text-xs font-semibold text-[#72213A]">
+                      <div className="flex items-center gap-2 text-xs font-semibold text-[#4A0E1C]">
                         <span className="w-2 h-2 rounded-full bg-[#E5B86B]" />
                         <span className="uppercase tracking-wider">Campaign Performance Dashboard</span>
                       </div>
-                      <div className="rounded-2xl overflow-hidden border border-[#72213A]/10 shadow-sm bg-white">
+                      <div className="rounded-2xl overflow-hidden border border-[#4A0E1C]/10 shadow-sm bg-white">
                         <img
                           src="/newsletter-performance.png"
                           alt="Momentum RedPay Newsletter & The Redtech Brief Performance Dashboard"
@@ -308,8 +306,8 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                   {/* ── Thought Leadership Article & Excerpt Display (p7) ── */}
                   {project.id === 'p7' && (
                     <div className="space-y-4 pt-2">
-                      <div className="p-5 rounded-2xl bg-[#FAF4EC]/80 border border-[#72213A]/15 space-y-2.5 font-body text-sm text-[#38272D]/90 leading-relaxed">
-                        <div className="flex items-center gap-2 text-xs font-semibold text-[#72213A] uppercase tracking-wider">
+                      <div className="p-5 rounded-2xl bg-[#FAF4EC]/80 border border-[#4A0E1C]/15 space-y-2.5 font-body text-sm text-[#38272D]/90 leading-relaxed">
+                        <div className="flex items-center gap-2 text-xs font-semibold text-[#4A0E1C] uppercase tracking-wider">
                           <span className="w-2 h-2 rounded-full bg-[#E5B86B]" />
                           <span>Selected Excerpt</span>
                         </div>
@@ -321,8 +319,8 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                         </p>
                       </div>
 
-                      <div className="p-4 rounded-xl bg-white border border-[#72213A]/10 text-xs font-body">
-                        <span className="font-semibold text-[#72213A] block mb-1.5 uppercase tracking-wide text-xs">
+                      <div className="p-4 rounded-xl bg-white border border-[#4A0E1C]/10 text-xs font-body">
+                        <span className="font-semibold text-[#4A0E1C] block mb-1.5 uppercase tracking-wide text-xs">
                           Additional Business Articles
                         </span>
                         <ul className="space-y-1 text-[#38272D]/85 list-disc list-inside">
@@ -335,10 +333,10 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                 </div>
 
                 {/* Action Buttons */}
-                <div className="pt-6 mt-6 border-t border-[#72213A]/10 flex flex-wrap items-center justify-between gap-4">
+                <div className="pt-6 mt-6 border-t border-[#4A0E1C]/10 flex flex-wrap items-center justify-between gap-4">
                   <button
                     onClick={() => onSelectProject(project)}
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#72213A] hover:text-[#54172A] hover:underline"
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#4A0E1C] hover:text-[#340611] hover:underline"
                   >
                     <BookOpen className="w-4 h-4 text-[#E5B86B]" />
                     <span>{project.id === 'p7' ? 'Read Full Excerpt & Details' : 'Read Copy & Details'}</span>
@@ -352,7 +350,7 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                         href={lnk.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#72213A] hover:underline"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#4A0E1C] hover:underline"
                       >
                         <span>{lnk.label}</span>
                         <ArrowUpRight className="w-3.5 h-3.5 text-[#E5B86B]" />
@@ -364,7 +362,7 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                         href={project.fullContent.blogLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#72213A] hover:underline"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#4A0E1C] hover:underline"
                       >
                         <span>Read Article</span>
                         <ArrowUpRight className="w-3.5 h-3.5 text-[#E5B86B]" />
@@ -376,7 +374,7 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                         href={project.fullContent.mediumLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#72213A] hover:underline"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#4A0E1C] hover:underline"
                       >
                         <span>Medium Essay</span>
                         <ArrowUpRight className="w-3.5 h-3.5 text-[#E5B86B]" />
@@ -388,7 +386,7 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                         href={project.fullContent.substackLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#72213A] hover:underline"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#4A0E1C] hover:underline"
                       >
                         <span>Substack</span>
                         <ArrowUpRight className="w-3.5 h-3.5 text-[#E5B86B]" />

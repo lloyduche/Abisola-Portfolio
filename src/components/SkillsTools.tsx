@@ -59,7 +59,7 @@ export const SkillsTools: React.FC = () => {
       category: 'Publishing & Newsletters',
       icon: (
         <svg viewBox="0 0 24 24" className="w-7 h-7">
-          <rect width="24" height="24" rx="5" fill="#FAF4EC"/>
+          <rect width="24" height="24" rx="5" className="fill-[#FAF4EC] dark:fill-[#12090E]"/>
           <path fill="#FF6719" d="M19.5 7.2H4.5V5h15v2.2zM4.5 9.2V20l7.5-4.2 7.5 4.2V9.2H4.5zM19.5 2.8H4.5V5h15V2.8z"/>
         </svg>
       )
@@ -69,8 +69,8 @@ export const SkillsTools: React.FC = () => {
       category: 'Workspace & Docs',
       icon: (
         <svg viewBox="0 0 24 24" className="w-7 h-7">
-          <rect width="24" height="24" rx="5" fill="#FAF4EC"/>
-          <path fill="#000000" d="M4.5 4.2c.7.6 1 .5 2.4.4l13.2-.8c.3 0 0-.3-.1-.4l-1.6-1c-.6-.5-1.3-.7-2.1-.6L3.9 2.8c-.6 0-.6.3-.4.5l1 .9zm-.6 3.5v13.1c0 .8.5 1.2 1.3 1.1l14.5-.8c.8 0 1.1-.6 1.1-1.3V6.6c0-.6-.3-1-.8-.9L4.7 6.5c-.6 0-.8.4-.8 1.2zm13.7.9c.1.4 0 .8-.4.9l-.7.1v8.9c-.4.2-.8.4-1.3.4-.6 0-1-.3-1.5-.9l-4.8-7.5v7.1l1.4.3c.1.4-.2.7-.6.7l-3.4.2c-.1-.4 0-.8.4-.9l.9-.2V9.5l-1.3-.1c-.1-.4.1-.8.5-.8l3.6-.2 5 7.6V9l-1.2-.2c-.1-.4.2-.7.6-.7l3.1-.2z"/>
+          <rect width="24" height="24" rx="5" className="fill-[#FAF4EC] dark:fill-[#12090E]"/>
+          <path className="fill-black dark:fill-white" d="M4.5 4.2c.7.6 1 .5 2.4.4l13.2-.8c.3 0 0-.3-.1-.4l-1.6-1c-.6-.5-1.3-.7-2.1-.6L3.9 2.8c-.6 0-.6.3-.4.5l1 .9zm-.6 3.5v13.1c0 .8.5 1.2 1.3 1.1l14.5-.8c.8 0 1.1-.6 1.1-1.3V6.6c0-.6-.3-1-.8-.9L4.7 6.5c-.6 0-.8.4-.8 1.2zm13.7.9c.1.4 0 .8-.4.9l-.7.1v8.9c-.4.2-.8.4-1.3.4-.6 0-1-.3-1.5-.9l-4.8-7.5v7.1l1.4.3c.1.4-.2.7-.6.7l-3.4.2c-.1-.4 0-.8.4-.9l.9-.2V9.5l-1.3-.1c-.1-.4.1-.8.5-.8l3.6-.2 5 7.6V9l-1.2-.2c-.1-.4.2-.7.6-.7l3.1-.2z"/>
         </svg>
       )
     },
@@ -101,7 +101,7 @@ export const SkillsTools: React.FC = () => {
       category: 'Project Management',
       icon: (
         <svg viewBox="0 0 24 24" className="w-7 h-7">
-          <rect width="24" height="24" rx="5" fill="#FAF4EC"/>
+          <rect width="24" height="24" rx="5" className="fill-[#FAF4EC] dark:fill-[#12090E]"/>
           <circle cx="12" cy="7.2" r="3.6" fill="#F06A6A"/>
           <circle cx="6.8" cy="16.2" r="3.6" fill="#F06A6A"/>
           <circle cx="17.2" cy="16.2" r="3.6" fill="#F06A6A"/>
@@ -185,10 +185,10 @@ export const SkillsTools: React.FC = () => {
       category: 'Editorial & Articles',
       icon: (
         <svg viewBox="0 0 24 24" className="w-7 h-7">
-          <rect width="24" height="24" rx="5" fill="#FAF4EC"/>
-          <circle cx="6.5" cy="12" r="4.8" fill="#000000"/>
-          <ellipse cx="14.5" cy="12" rx="2.6" ry="4.8" fill="#000000"/>
-          <ellipse cx="19.8" cy="12" rx="1" ry="4.5" fill="#000000"/>
+          <rect width="24" height="24" rx="5" className="fill-[#FAF4EC] dark:fill-[#12090E]"/>
+          <circle cx="6.5" cy="12" r="4.8" className="fill-black dark:fill-white"/>
+          <ellipse cx="14.5" cy="12" rx="2.6" ry="4.8" className="fill-black dark:fill-white"/>
+          <ellipse cx="19.8" cy="12" rx="1" ry="4.5" className="fill-black dark:fill-white"/>
         </svg>
       )
     },
@@ -210,11 +210,11 @@ export const SkillsTools: React.FC = () => {
 
         {/* Section Header */}
         <div className="max-w-2xl mb-12 sm:mb-16">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#72213A] mb-2 flex items-center gap-2">
+          <div className="text-xs font-semibold uppercase tracking-wider text-[#4A0E1C] mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#E5B86B]" />
             <span>Capabilities &amp; Stack</span>
           </div>
-          <h2 className="font-headline font-semibold text-3xl sm:text-5xl text-[#72213A] tracking-tight">
+          <h2 className="font-headline font-semibold text-3xl sm:text-5xl text-[#4A0E1C] tracking-tight">
             Skills &amp; Tools
           </h2>
           <p className="font-body text-base sm:text-lg text-[#38272D]/80 mt-3 leading-relaxed">
@@ -226,13 +226,13 @@ export const SkillsTools: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
           {/* Left Column: Skills (8 items) */}
-          <div className="lg:col-span-7 p-8 sm:p-10 rounded-3xl bg-white border border-[#72213A]/10 shadow-sm space-y-6">
-            <div className="flex items-center gap-3 pb-4 border-b border-[#72213A]/10">
-              <div className="w-10 h-10 rounded-xl bg-[#72213A]/10 flex items-center justify-center text-[#72213A]">
+          <div className="lg:col-span-7 p-8 sm:p-10 rounded-3xl bg-white border border-[#4A0E1C]/10 shadow-sm space-y-6">
+            <div className="flex items-center gap-3 pb-4 border-b border-[#4A0E1C]/10">
+              <div className="w-10 h-10 rounded-xl bg-[#4A0E1C]/10 flex items-center justify-center text-[#4A0E1C]">
                 <PenTool className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-headline font-semibold text-2xl text-[#72213A]">
+                <h3 className="font-headline font-semibold text-2xl text-[#4A0E1C]">
                   Core Skills
                 </h3>
                 <p className="text-xs text-[#38272D]/70 font-body">
@@ -245,9 +245,9 @@ export const SkillsTools: React.FC = () => {
               {skills.map((skill, idx) => (
                 <div
                   key={idx}
-                  className="p-4 rounded-xl bg-[#FAF4EC] border border-[#72213A]/10 flex items-start gap-3 text-sm font-body font-medium text-[#38272D]"
+                  className="p-4 rounded-xl bg-[#FAF4EC] border border-[#4A0E1C]/10 flex items-start gap-3 text-sm font-body font-medium text-[#38272D]"
                 >
-                  <CheckCircle className="w-4 h-4 text-[#72213A] shrink-0 mt-0.5" />
+                  <CheckCircle className="w-4 h-4 text-[#4A0E1C] shrink-0 mt-0.5" />
                   <span>{skill}</span>
                 </div>
               ))}
@@ -255,13 +255,13 @@ export const SkillsTools: React.FC = () => {
           </div>
 
           {/* Right Column: Tools & Platforms (Icon/Logo Grid) */}
-          <div className="lg:col-span-5 p-8 sm:p-10 rounded-3xl bg-white border border-[#72213A]/10 shadow-sm space-y-6">
-            <div className="flex items-center gap-3 pb-4 border-b border-[#72213A]/10">
-              <div className="w-10 h-10 rounded-xl bg-[#E5B86B]/20 flex items-center justify-center text-[#72213A]">
+          <div className="lg:col-span-5 p-8 sm:p-10 rounded-3xl bg-white border border-[#4A0E1C]/10 shadow-sm space-y-6">
+            <div className="flex items-center gap-3 pb-4 border-b border-[#4A0E1C]/10">
+              <div className="w-10 h-10 rounded-xl bg-[#E5B86B]/20 flex items-center justify-center text-[#4A0E1C]">
                 <Wrench className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-headline font-semibold text-2xl text-[#72213A]">
+                <h3 className="font-headline font-semibold text-2xl text-[#4A0E1C]">
                   Tools &amp; Platforms
                 </h3>
                 <p className="text-xs text-[#38272D]/70 font-body">
@@ -277,7 +277,7 @@ export const SkillsTools: React.FC = () => {
                   key={idx}
                   title={`${tool.name} · ${tool.category}`}
                   aria-label={`${tool.name} · ${tool.category}`}
-                  className="group relative p-3 sm:p-3.5 rounded-2xl bg-[#FAF4EC] hover:bg-white border border-[#72213A]/10 hover:border-[#72213A]/30 shadow-xs hover:shadow-md transition-all duration-200 flex flex-col items-center justify-center aspect-square cursor-pointer"
+                  className="group relative p-3 sm:p-3.5 rounded-2xl bg-[#FAF4EC] hover:bg-white border border-[#4A0E1C]/10 hover:border-[#4A0E1C]/30 shadow-xs hover:shadow-md transition-all duration-200 flex flex-col items-center justify-center aspect-square cursor-pointer"
                 >
                   {/* Floating Tooltip */}
                   <div className="opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-150 absolute -top-8 px-2.5 py-1 rounded-md bg-[#38272D] text-white text-[11px] whitespace-nowrap z-20 shadow-md font-body">

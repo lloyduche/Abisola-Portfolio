@@ -29,11 +29,11 @@ export const Contact: React.FC = () => {
 
         {/* Section Header */}
         <div className="max-w-3xl mb-12 sm:mb-16">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#72213A] mb-2 flex items-center gap-2">
+          <div className="text-xs font-semibold uppercase tracking-wider text-[#4A0E1C] mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#E5B86B]" />
             <span>Let’s Work Together</span>
           </div>
-          <h2 className="font-headline font-semibold text-3xl sm:text-5xl lg:text-6xl text-[#72213A] tracking-tight">
+          <h2 className="font-headline font-semibold text-3xl sm:text-5xl lg:text-6xl text-[#4A0E1C] tracking-tight">
             Need someone to put your ideas into words?
           </h2>
           <div className="font-body text-lg text-[#38272D]/90 mt-6 leading-relaxed space-y-4">
@@ -43,10 +43,10 @@ export const Contact: React.FC = () => {
             <p>
               From website and product copy, email marketing, newsletters and campaign content to corporate communications, editorial writing, articles, personal essays and creative writing, I help bring ideas to life through writing that informs, connects and holds attention.
             </p>
-            <p className="font-medium text-[#72213A]">
+            <p className="font-medium text-[#4A0E1C]">
               Whether you’re building a brand, communicating with your audience, developing a publication or trying to tell a story that matters, let’s make the words work for you.
             </p>
-            <p className="font-semibold text-[#72213A] pt-2 font-headline italic text-xl">
+            <p className="font-semibold text-[#4A0E1C] pt-2 font-headline italic text-xl">
               Have a project in mind? Let’s talk.
             </p>
           </div>
@@ -56,7 +56,7 @@ export const Contact: React.FC = () => {
         <div className="flex flex-wrap items-center gap-4 mb-14">
           <a
             href="mailto:abisolaaoluwatoyin@gmail.com"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#72213A] text-white text-sm font-medium hover:bg-[#54172A] shadow-md transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#4A0E1C] text-white text-sm font-medium hover:bg-[#340611] shadow-md transition-all"
           >
             <Mail className="w-4 h-4 text-[#E5B86B]" />
             <span>Send Email Directly</span>
@@ -64,7 +64,7 @@ export const Contact: React.FC = () => {
 
           <button
             onClick={handleCopyEmail}
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white border border-[#72213A]/20 text-[#38272D] text-sm font-medium hover:bg-[#FAF4EC] shadow-sm transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white border border-[#4A0E1C]/20 text-[#38272D] text-sm font-medium hover:bg-[#FAF4EC] shadow-sm transition-all"
           >
             {copied ? (
               <>
@@ -73,7 +73,7 @@ export const Contact: React.FC = () => {
               </>
             ) : (
               <>
-                <Copy className="w-4 h-4 text-[#72213A]" />
+                <Copy className="w-4 h-4 text-[#4A0E1C]" />
                 <span>Copy: abisolaaoluwatoyin@gmail.com</span>
               </>
             )}
@@ -83,7 +83,7 @@ export const Contact: React.FC = () => {
             href="https://www.linkedin.com/in/abisola-oluwatoyin/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-6 py-3.5 rounded-full bg-white border border-[#72213A]/20 text-[#72213A] text-sm font-medium hover:bg-[#FAF4EC] shadow-sm transition-all"
+            className="inline-flex items-center gap-1.5 px-6 py-3.5 rounded-full bg-white border border-[#4A0E1C]/20 text-[#4A0E1C] text-sm font-medium hover:bg-[#FAF4EC] shadow-sm transition-all"
           >
             <span>LinkedIn Profile</span>
             <ArrowUpRight className="w-4 h-4" />
@@ -93,7 +93,7 @@ export const Contact: React.FC = () => {
             href="https://abisolawrites.substack.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-6 py-3.5 rounded-full bg-white border border-[#72213A]/20 text-[#72213A] text-sm font-medium hover:bg-[#FAF4EC] shadow-sm transition-all"
+            className="inline-flex items-center gap-1.5 px-6 py-3.5 rounded-full bg-white border border-[#4A0E1C]/20 text-[#4A0E1C] text-sm font-medium hover:bg-[#FAF4EC] shadow-sm transition-all"
           >
             <span>Abisola Writes</span>
             <ArrowUpRight className="w-4 h-4" />
@@ -101,11 +101,11 @@ export const Contact: React.FC = () => {
         </div>
 
         {/* Contact Form Card */}
-        <div className="p-8 sm:p-14 rounded-3xl bg-white border border-[#72213A]/10 shadow-sm">
+        <div className="p-8 sm:p-14 rounded-3xl bg-white border border-[#4A0E1C]/10 shadow-sm">
           {!formSubmitted ? (
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="pb-4 border-b border-[#72213A]/10">
-                <h3 className="font-headline font-semibold text-2xl text-[#72213A]">
+              <div className="pb-4 border-b border-[#4A0E1C]/10">
+                <h3 className="font-headline font-semibold text-2xl text-[#4A0E1C]">
                   Send a Direct Message or Inquiry
                 </h3>
                 <p className="font-body text-xs sm:text-sm text-[#38272D]/75 mt-1">
@@ -177,7 +177,7 @@ export const Contact: React.FC = () => {
 
               <button
                 type="submit"
-                className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#72213A] hover:bg-[#54172A] text-white text-sm font-semibold inline-flex items-center justify-center gap-2 shadow-md transition-all"
+                className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#4A0E1C] hover:bg-[#340611] text-white text-sm font-semibold inline-flex items-center justify-center gap-2 shadow-md transition-all"
               >
                 <Send className="w-4 h-4 text-[#E5B86B]" />
                 <span>Send Message</span>
@@ -185,7 +185,7 @@ export const Contact: React.FC = () => {
             </form>
           ) : (
             <div className="py-12 text-center space-y-4">
-              <h3 className="font-headline font-semibold text-3xl text-[#72213A]">
+              <h3 className="font-headline font-semibold text-3xl text-[#4A0E1C]">
                 Message Received!
               </h3>
               <p className="font-body text-base text-[#38272D]/85 max-w-md mx-auto">
@@ -196,7 +196,7 @@ export const Contact: React.FC = () => {
                   setFormSubmitted(false);
                   setFormData({ name: '', email: '', projectType: 'Marketing & Corporate Communications', message: '' });
                 }}
-                className="font-body text-xs font-semibold text-[#72213A] underline pt-2"
+                className="font-body text-xs font-semibold text-[#4A0E1C] underline pt-2"
               >
                 Send Another Message &rarr;
               </button>

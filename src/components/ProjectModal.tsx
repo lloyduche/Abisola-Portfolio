@@ -52,22 +52,21 @@ interface ModalSnapshotsBlockProps {
 
 const ModalSnapshotsBlock: React.FC<ModalSnapshotsBlockProps> = ({ snapshots, subject, caption, label }) => (
   <div className="mb-6">
-    <div className="flex items-center gap-2 text-xs font-semibold text-[#72213A] mb-3">
+    <div className="flex items-center gap-2 text-xs font-semibold text-[#4A0E1C] mb-3">
       <Mail className="w-3.5 h-3.5 text-[#E5B86B]" />
       <span className="uppercase tracking-wider">{label}</span>
     </div>
 
-    <div className="rounded-2xl overflow-hidden border border-[#72213A]/10 shadow-sm">
+    <div className="rounded-2xl overflow-hidden border border-[#4A0E1C]/10 shadow-sm">
       {/* Email chrome bar */}
       <div
-        className="flex items-center gap-2 px-4 py-2.5 border-b border-[#72213A]/08"
-        style={{ background: '#FAF4EC' }}
+        className="flex items-center gap-2 px-4 py-2.5 border-b border-[#4A0E1C]/08 bg-[#FAF4EC]"
       >
-        <span className="w-2 h-2 rounded-full bg-[#72213A]/20 block" />
+        <span className="w-2 h-2 rounded-full bg-[#4A0E1C]/20 block" />
         <span className="w-2 h-2 rounded-full bg-[#D995A9]/35 block" />
         <span className="w-2 h-2 rounded-full bg-[#E5B86B]/45 block" />
-        <div className="flex-1 ml-2 px-3 py-1 rounded-full text-[10px] font-body text-[#38272D]/45 bg-white border border-[#72213A]/08 truncate">
-          <span className="font-semibold text-[#72213A]">Subject: </span>
+        <div className="flex-1 ml-2 px-3 py-1 rounded-full text-[10px] font-body text-[#38272D]/45 bg-white border border-[#4A0E1C]/08 truncate">
+          <span className="font-semibold text-[#4A0E1C]">Subject: </span>
           {subject}
         </div>
       </div>
@@ -77,7 +76,7 @@ const ModalSnapshotsBlock: React.FC<ModalSnapshotsBlockProps> = ({ snapshots, su
         {snapshots.map((snap, i) => (
           <div
             key={i}
-            className={i < snapshots.length - 1 ? 'border-b border-[#72213A]/08' : ''}
+            className={i < snapshots.length - 1 ? 'border-b border-[#4A0E1C]/08' : ''}
           >
             <img
               src={snap.src}
@@ -90,11 +89,10 @@ const ModalSnapshotsBlock: React.FC<ModalSnapshotsBlockProps> = ({ snapshots, su
 
       {/* Caption bar */}
       <div
-        className="px-4 py-2.5 flex items-center justify-between"
-        style={{ background: '#FAF4EC' }}
+        className="px-4 py-2.5 flex items-center justify-between bg-[#FAF4EC]"
       >
         <p className="text-[10px] font-body text-[#38272D]/50">{caption}</p>
-        <span className="text-[10px] font-semibold text-[#72213A] font-body">
+        <span className="text-[10px] font-semibold text-[#4A0E1C] font-body">
           {snapshots.length} sections shown ↑
         </span>
       </div>
@@ -111,11 +109,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto p-6 sm:p-10 rounded-3xl bg-white border border-[#72213A]/15 shadow-2xl"
+        className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto p-6 sm:p-10 rounded-3xl bg-white border border-[#4A0E1C]/15 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Folio & Close Button */}
-        <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#72213A]/10 text-xs font-semibold uppercase tracking-wider text-[#72213A]">
+        <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#4A0E1C]/10 text-xs font-semibold uppercase tracking-wider text-[#4A0E1C]">
           <div className="flex items-center gap-2">
             <BookOpen className="w-4 h-4 text-[#E5B86B]" />
             <span>{project.tagCategory}</span>
@@ -123,7 +121,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-full hover:bg-[#FAF4EC] text-[#38272D]/70 hover:text-[#72213A] transition-colors"
+            className="p-1.5 rounded-full hover:bg-[#FAF4EC] text-[#38272D]/70 hover:text-[#4A0E1C] transition-colors"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -131,14 +129,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         </div>
 
         {/* Title */}
-        <h3 className="font-headline font-semibold text-2xl sm:text-3xl text-[#72213A] leading-snug mb-4">
+        <h3 className="font-headline font-semibold text-2xl sm:text-3xl text-[#4A0E1C] leading-snug mb-4">
           {project.title}
         </h3>
 
         {/* Hook */}
         {project.hook && (
-          <div className="mb-6 p-4 rounded-xl bg-[#FAF4EC] border-l-4 border-[#72213A] text-sm font-body text-[#38272D]">
-            <span className="font-semibold text-[#72213A] block text-xs uppercase mb-1">
+          <div className="mb-6 p-4 rounded-xl bg-[#FAF4EC] border-l-4 border-[#4A0E1C] text-sm font-body text-[#38272D]">
+            <span className="font-semibold text-[#4A0E1C] block text-xs uppercase mb-1">
               {project.id === 'p7' ? 'Work Disciplines:' : 'Strategic Hook:'}
             </span>
             {project.hook}
@@ -147,9 +145,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
         {/* Subject & Preheader */}
         {project.fullContent?.subject && (
-          <div className="p-4 mb-6 rounded-xl bg-[#FAF4EC] text-xs font-body space-y-1.5 border border-[#72213A]/10">
+          <div className="p-4 mb-6 rounded-xl bg-[#FAF4EC] text-xs font-body space-y-1.5 border border-[#4A0E1C]/10">
             <div>
-              <span className="font-semibold text-[#72213A] uppercase">
+              <span className="font-semibold text-[#4A0E1C] uppercase">
                 {project.id === 'p7' ? 'Featured Long-Form Article: ' : 'Subject Line: '}
               </span>
               <span className="text-[#38272D] font-medium">{project.fullContent.subject}</span>
@@ -169,7 +167,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             <span className="text-xs font-semibold uppercase tracking-wider text-[#38272D]/60 block mb-3">
               {project.id === 'p7' ? 'Selected Article Excerpt' : 'Selected Copy Excerpt'}
             </span>
-            <div className="p-6 rounded-2xl bg-[#FAF4EC]/60 border border-[#72213A]/10 space-y-3 font-body text-base text-[#38272D]/90 leading-relaxed">
+            <div className="p-6 rounded-2xl bg-[#FAF4EC]/60 border border-[#4A0E1C]/10 space-y-3 font-body text-base text-[#38272D]/90 leading-relaxed">
               {project.fullContent.excerpt.map((para, i) => (
                 <p key={i}>{para}</p>
               ))}
@@ -226,24 +224,23 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {/* ── Newsletter Analytics / Performance Dashboard (p6) ── */}
         {project.id === 'p6' && (
           <div className="mb-6 space-y-3">
-            <div className="flex items-center gap-2 text-xs font-semibold text-[#72213A]">
+            <div className="flex items-center gap-2 text-xs font-semibold text-[#4A0E1C]">
               <span className="w-2 h-2 rounded-full bg-[#E5B86B]" />
               <span className="uppercase tracking-wider">Campaign Performance Dashboard</span>
             </div>
-            <div className="rounded-2xl overflow-hidden border border-[#72213A]/10 shadow-sm bg-white">
+            <div className="rounded-2xl overflow-hidden border border-[#4A0E1C]/10 shadow-sm bg-white">
               <img
                 src="/newsletter-performance.png"
                 alt="Momentum RedPay Newsletter & The Redtech Brief Performance Dashboard"
                 className="w-full object-cover object-top block"
               />
               <div
-                className="px-4 py-2.5 flex items-center justify-between"
-                style={{ background: '#FAF4EC' }}
+                className="px-4 py-2.5 flex items-center justify-between bg-[#FAF4EC]"
               >
                 <p className="text-[10px] font-body text-[#38272D]/50">
                   Performance Reporting · Momentum RedPay Newsletter &amp; The Redtech Brief
                 </p>
-                <span className="text-[10px] font-semibold text-[#72213A] font-body">
+                <span className="text-[10px] font-semibold text-[#4A0E1C] font-body">
                   Verified Analytics
                 </span>
               </div>
@@ -257,14 +254,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             <span className="text-xs font-semibold uppercase tracking-wider text-[#38272D]/60 block mb-2">
               {project.id === 'p7' ? 'Additional Business Articles' : 'Context & Results'}
             </span>
-            <div className="p-4 rounded-xl bg-[#FAF4EC] font-body text-sm leading-relaxed text-[#38272D]/85 whitespace-pre-line border border-[#72213A]/10">
+            <div className="p-4 rounded-xl bg-[#FAF4EC] font-body text-sm leading-relaxed text-[#38272D]/85 whitespace-pre-line border border-[#4A0E1C]/10">
               {project.fullContent.details}
             </div>
           </div>
         )}
 
         {/* Action Row */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-[#72213A]/10 font-body text-sm">
+        <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-[#4A0E1C]/10 font-body text-sm">
           <div className="flex flex-wrap items-center gap-4">
             {project.fullContent?.links?.map((lnk, lIdx) => (
               <a
@@ -272,7 +269,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 href={lnk.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-[#72213A] hover:underline inline-flex items-center gap-1.5"
+                className="font-semibold text-[#4A0E1C] hover:underline inline-flex items-center gap-1.5"
               >
                 <span>Read: {lnk.label}</span>
                 <ArrowUpRight className="w-4 h-4 text-[#E5B86B]" />
@@ -284,7 +281,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 href={project.fullContent.blogLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-[#72213A] hover:underline inline-flex items-center gap-1.5"
+                className="font-semibold text-[#4A0E1C] hover:underline inline-flex items-center gap-1.5"
               >
                 <span>Read Full Article</span>
                 <ArrowUpRight className="w-4 h-4 text-[#E5B86B]" />
@@ -296,7 +293,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 href={project.fullContent.mediumLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-[#72213A] hover:underline inline-flex items-center gap-1.5"
+                className="font-semibold text-[#4A0E1C] hover:underline inline-flex items-center gap-1.5"
               >
                 <span>Read Essay on Medium</span>
                 <ArrowUpRight className="w-4 h-4 text-[#E5B86B]" />
@@ -308,7 +305,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 href={project.fullContent.substackLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-[#72213A] hover:underline inline-flex items-center gap-1.5"
+                className="font-semibold text-[#4A0E1C] hover:underline inline-flex items-center gap-1.5"
               >
                 <span>Read Full Essay on Substack</span>
                 <ArrowUpRight className="w-4 h-4 text-[#E5B86B]" />
@@ -318,7 +315,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
           <button
             onClick={onClose}
-            className="px-6 py-2.5 rounded-full border border-[#72213A]/20 text-[#72213A] font-semibold hover:bg-[#FAF4EC] transition-colors"
+            className="px-6 py-2.5 rounded-full border border-[#4A0E1C]/20 text-[#4A0E1C] font-semibold hover:bg-[#FAF4EC] transition-colors"
           >
             Close Window
           </button>

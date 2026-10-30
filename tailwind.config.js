@@ -1,13 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
         burgundy: {
-          DEFAULT: '#72213A',
-          dark: '#54172A',
-          light: '#8B2B48',
+          DEFAULT: '#4A0E1C',
+          dark: '#340611',
+          light: '#6B172E',
         },
         cream: {
           DEFAULT: '#FAF4EC',

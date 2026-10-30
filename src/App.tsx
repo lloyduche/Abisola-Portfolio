@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ThemeProvider } from './context/ThemeContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -35,50 +36,52 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#FAF4EC] text-[#38272D] font-body selection:bg-[#72213A] selection:text-white relative">
-      {/* Delicate Girly & Professional Page Load Animation */}
-      {showIntro && (
-        <EditorialIntro onComplete={() => setShowIntro(false)} />
-      )}
+    <ThemeProvider>
+      <div className="min-h-screen bg-[#FAF4EC] text-[#38272D] font-body selection:bg-[#4A0E1C] selection:text-white relative transition-colors duration-300">
+        {/* Delicate Girly & Professional Page Load Animation */}
+        {showIntro && (
+          <EditorialIntro onComplete={() => setShowIntro(false)} />
+        )}
 
-      {/* Top Rose & Gold Reading Progress Thread */}
-      <div
-        className="fixed top-0 left-0 h-[2.5px] z-[60] transition-all duration-100"
-        style={{
-          width: `${scrollProgress}%`,
-          background: 'linear-gradient(to right, #72213A, #D995A9, #E5B86B)',
-        }}
-      />
+        {/* Top Rose & Gold Reading Progress Thread */}
+        <div
+          className="fixed top-0 left-0 h-[2.5px] z-[60] transition-all duration-100"
+          style={{
+            width: `${scrollProgress}%`,
+            background: 'linear-gradient(to right, #4A0E1C, #D995A9, #E5B86B)',
+          }}
+        />
 
-      {/* Navigation Masthead */}
-      <Navbar />
+        {/* Navigation Masthead */}
+        <Navbar />
 
-      {/* Main Sections */}
-      <main>
-        <Hero />
-        <About />
-        <FeaturedWork onSelectProject={(p) => setSelectedProject(p)} />
-        <CaseStudies />
-        <SkillsTools />
-        <ResumeExpertise onOpenResume={(url, title) => { setActiveCvUrl(url); setActiveCvTitle(title); setResumeOpen(true); }} />
-        <Contact />
-      </main>
+        {/* Main Sections */}
+        <main>
+          <Hero />
+          <About />
+          <FeaturedWork onSelectProject={(p) => setSelectedProject(p)} />
+          <CaseStudies />
+          <SkillsTools />
+          <ResumeExpertise onOpenResume={(url, title) => { setActiveCvUrl(url); setActiveCvTitle(title); setResumeOpen(true); }} />
+          <Contact />
+        </main>
 
-      {/* Footer Colophon */}
-      <Footer />
+        {/* Footer Colophon */}
+        <Footer />
 
-      {/* Detailed Modals */}
-      <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
-      <ResumeModal
-        isOpen={resumeOpen}
-        onClose={() => setResumeOpen(false)}
-        cvUrl={activeCvUrl}
-        cvTitle={activeCvTitle}
-      />
-    </div>
+        {/* Detailed Modals */}
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+        <ResumeModal
+          isOpen={resumeOpen}
+          onClose={() => setResumeOpen(false)}
+          cvUrl={activeCvUrl}
+          cvTitle={activeCvTitle}
+        />
+      </div>
+    </ThemeProvider>
   );
 };
 

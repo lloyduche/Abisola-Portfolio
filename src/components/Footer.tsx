@@ -3,7 +3,7 @@ import { ArrowUp, ArrowUpRight } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#72213A] text-white py-16 px-6 sm:px-10">
+    <footer className="bg-[#4A0E1C] text-white py-16 px-6 sm:px-10">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border-b border-white/10 pb-12 mb-8">
 
         {/* Brand Colophon */}

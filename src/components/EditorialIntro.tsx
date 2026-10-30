@@ -32,13 +32,9 @@ export const EditorialIntro: React.FC<EditorialIntroProps> = ({ onComplete }) =>
 
   return (
     <div
-      className={`fixed inset-0 z-[200] flex items-center justify-center p-6 select-none transition-all duration-700 ${
+      className={`fixed inset-0 z-[200] flex items-center justify-center p-6 select-none transition-all duration-700 intro-backdrop ${
         isDismissing ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'
       }`}
-      style={{
-        background: 'rgba(250, 244, 236, 0.97)',
-        backdropFilter: 'blur(12px)',
-      }}
     >
       {/* Delicate floating background sparkles */}
       <div className="absolute top-1/4 left-1/4 text-[#E5B86B] text-2xl animate-sparkle">✦</div>
@@ -47,15 +43,15 @@ export const EditorialIntro: React.FC<EditorialIntroProps> = ({ onComplete }) =>
 
       {/* Center Editorial Stationery Card */}
       <div
-        className="relative w-full max-w-lg p-8 sm:p-12 rounded-3xl bg-white border border-[#72213A]/15 text-center space-y-6 overflow-hidden"
+        className="relative w-full max-w-lg p-8 sm:p-12 rounded-3xl bg-white border border-[#4A0E1C]/15 text-center space-y-6 overflow-hidden"
         style={{
-          boxShadow: '0 25px 60px rgba(114, 33, 58, 0.12), 0 0 0 1px rgba(217, 149, 169, 0.25)',
+          boxShadow: '0 25px 60px rgba(74, 14, 28, 0.12), 0 0 0 1px rgba(217, 149, 169, 0.25)',
         }}
       >
         {/* Skip button */}
         <button
           onClick={handleSkip}
-          className="absolute top-4 right-5 text-xs font-body font-medium text-[#72213A]/60 hover:text-[#72213A] transition-colors"
+          className="absolute top-4 right-5 text-xs font-body font-medium text-[#4A0E1C]/60 hover:text-[#4A0E1C] transition-colors"
         >
           Skip &rarr;
         </button>
@@ -63,7 +59,7 @@ export const EditorialIntro: React.FC<EditorialIntroProps> = ({ onComplete }) =>
         {/* Girly & Professional Feather / Heart Icon */}
         <div className="flex items-center justify-center gap-1.5 text-[#D995A9]">
           <Sparkles className="w-4 h-4 text-[#E5B86B] animate-spin" style={{ animationDuration: '6s' }} />
-          <span className="font-hand text-base font-bold text-[#72213A]">
+          <span className="font-hand text-base font-bold text-[#4A0E1C]">
             ✦ A LITTLE DETOUR INTO MY WORLD ✦
           </span>
           <Heart className="w-3.5 h-3.5 fill-[#D995A9] text-[#D995A9]" />
@@ -72,7 +68,7 @@ export const EditorialIntro: React.FC<EditorialIntroProps> = ({ onComplete }) =>
         {/* Animated Headline Reveal */}
         <div className="space-y-3">
           <h1
-            className={`font-headline font-semibold text-3xl sm:text-4xl text-[#72213A] tracking-tight transition-all duration-700 ${
+            className={`font-headline font-semibold text-3xl sm:text-4xl text-[#4A0E1C] tracking-tight transition-all duration-700 ${
               phase >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
             }`}
           >
@@ -97,7 +93,7 @@ export const EditorialIntro: React.FC<EditorialIntroProps> = ({ onComplete }) =>
         >
           <button
             onClick={handleSkip}
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#72213A] text-white text-xs font-semibold font-body hover:bg-[#54172A] shadow-md hover:shadow-lg transition-all"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#4A0E1C] text-white text-xs font-semibold font-body hover:bg-[#340611] shadow-md hover:shadow-lg transition-all"
           >
             <span>Have a look →</span>
             <ArrowRight className="w-3.5 h-3.5 text-[#E5B86B]" />
@@ -107,7 +103,7 @@ export const EditorialIntro: React.FC<EditorialIntroProps> = ({ onComplete }) =>
         {/* Delicate Bottom Reading Progress Bar */}
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#FAF4EC]">
           <div
-            className="h-full bg-gradient-to-r from-[#72213A] via-[#D995A9] to-[#E5B86B]"
+            className="h-full bg-gradient-to-r from-[#4A0E1C] via-[#D995A9] to-[#E5B86B]"
             style={{
               animation: 'editorialProgress 6.5s linear forwards',
             }}

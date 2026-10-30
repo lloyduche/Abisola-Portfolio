@@ -40,16 +40,16 @@ export const ResumeExpertise: React.FC<ResumeExpertiseProps> = ({ onOpenResume }
   };
 
   return (
-    <section id="resume" className="py-20 sm:py-28 bg-[#F0E7DB]/45 border-y border-[#72213A]/10">
+    <section id="resume" className="py-20 sm:py-28 bg-[#F0E7DB]/45 border-y border-[#4A0E1C]/10">
       <div className="max-w-7xl mx-auto px-6 sm:px-10">
 
         {/* Section Header */}
         <div className="max-w-2xl mb-12 sm:mb-16">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#72213A] mb-2 flex items-center gap-2">
+          <div className="text-xs font-semibold uppercase tracking-wider text-[#4A0E1C] mb-2 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#E5B86B]" />
             <span>Career Overview</span>
           </div>
-          <h2 className="font-headline font-semibold text-3xl sm:text-5xl text-[#72213A] tracking-tight">
+          <h2 className="font-headline font-semibold text-3xl sm:text-5xl text-[#4A0E1C] tracking-tight">
             Resume & Expertise
           </h2>
           <p className="font-body text-base sm:text-lg text-[#38272D]/80 mt-3 leading-relaxed">
@@ -62,18 +62,18 @@ export const ResumeExpertise: React.FC<ResumeExpertiseProps> = ({ onOpenResume }
           {RESUME_DATA.experiences.map((exp, idx) => (
             <div
               key={idx}
-              className="p-8 sm:p-10 rounded-3xl bg-white border border-[#72213A]/10 shadow-sm space-y-4"
+              className="p-8 sm:p-10 rounded-3xl bg-white border border-[#4A0E1C]/10 shadow-sm space-y-4"
             >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-[#72213A]/10">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-[#4A0E1C]/10">
                 <div>
-                  <h3 className="font-headline font-semibold text-2xl text-[#72213A]">
+                  <h3 className="font-headline font-semibold text-2xl text-[#4A0E1C]">
                     {exp.role}
                   </h3>
                   <div className="font-body font-semibold text-base text-[#38272D]">
                     {exp.company}
                   </div>
                 </div>
-                <span className="px-4 py-1.5 rounded-full bg-[#FAF4EC] border border-[#72213A]/15 text-xs font-medium text-[#72213A] self-start sm:self-auto">
+                <span className="px-4 py-1.5 rounded-full bg-[#FAF4EC] border border-[#4A0E1C]/15 text-xs font-medium text-[#4A0E1C] self-start sm:self-auto">
                   {exp.period}
                 </span>
               </div>
@@ -91,15 +91,15 @@ export const ResumeExpertise: React.FC<ResumeExpertiseProps> = ({ onOpenResume }
         </div>
 
         {/* Areas of Expertise */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-white border border-[#72213A]/10 shadow-sm space-y-4 mb-12">
-          <h4 className="font-headline font-semibold text-xl text-[#72213A]">
+        <div className="p-8 sm:p-10 rounded-3xl bg-white border border-[#4A0E1C]/10 shadow-sm space-y-4 mb-12">
+          <h4 className="font-headline font-semibold text-xl text-[#4A0E1C]">
             Areas of Expertise
           </h4>
           <div className="flex flex-wrap gap-2 pt-2">
             {RESUME_DATA.areasOfExpertise.map((item, idx) => (
               <span
                 key={idx}
-                className="px-4 py-2 rounded-xl text-xs font-body font-medium bg-[#FAF4EC] text-[#38272D] border border-[#72213A]/10"
+                className="px-4 py-2 rounded-xl text-xs font-body font-medium bg-[#FAF4EC] text-[#38272D] border border-[#4A0E1C]/10"
               >
                 {item}
               </span>
@@ -110,8 +110,8 @@ export const ResumeExpertise: React.FC<ResumeExpertiseProps> = ({ onOpenResume }
         {/* ─── Dual CV Selection ─── */}
         <div>
           <div className="flex items-center gap-3 mb-6">
-            <FileText className="w-5 h-5 text-[#72213A]" />
-            <h3 className="font-headline font-semibold text-2xl text-[#72213A]">
+            <FileText className="w-5 h-5 text-[#4A0E1C]" />
+            <h3 className="font-headline font-semibold text-2xl text-[#4A0E1C]">
               Curriculum Vitae
             </h3>
             <span className="text-xs font-body text-[#38272D]/60 ml-1 hidden sm:inline">
@@ -127,12 +127,12 @@ export const ResumeExpertise: React.FC<ResumeExpertiseProps> = ({ onOpenResume }
                   key={cv.id}
                   onMouseEnter={() => setHoveredCard(cv.id)}
                   onMouseLeave={() => setHoveredCard(null)}
-                  className="relative rounded-3xl bg-white border border-[#72213A]/10 overflow-hidden transition-all duration-300"
+                  className="relative rounded-3xl bg-white border border-[#4A0E1C]/10 overflow-hidden transition-all duration-300"
                   style={{
                     transform: isHovered ? 'translateY(-4px)' : 'translateY(0)',
                     boxShadow: isHovered
-                      ? '0 12px 40px rgba(114,33,58,0.15)'
-                      : '0 2px 8px rgba(114,33,58,0.06)',
+                      ? '0 12px 40px rgba(74, 14, 28,0.15)'
+                      : '0 2px 8px rgba(74, 14, 28,0.06)',
                   }}
                 >
                   {/* Top accent stripe */}
@@ -150,7 +150,7 @@ export const ResumeExpertise: React.FC<ResumeExpertiseProps> = ({ onOpenResume }
                       >
                         {cv.tag}
                       </span>
-                      <h4 className="font-headline font-semibold text-xl text-[#72213A]">
+                      <h4 className="font-headline font-semibold text-xl text-[#4A0E1C]">
                         {cv.label} CV
                       </h4>
                       <p className="font-body text-sm text-[#38272D]/70 leading-relaxed">
@@ -164,9 +164,9 @@ export const ResumeExpertise: React.FC<ResumeExpertiseProps> = ({ onOpenResume }
                       <button
                         onClick={() => onOpenResume(cv.url, cv.title)}
                         className="flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-semibold font-body transition-all duration-200"
-                        style={{ background: '#72213A', color: '#fff' }}
-                        onMouseEnter={(e) => (e.currentTarget.style.background = '#54172A')}
-                        onMouseLeave={(e) => (e.currentTarget.style.background = '#72213A')}
+                        style={{ background: '#4A0E1C', color: '#fff' }}
+                        onMouseEnter={(e) => (e.currentTarget.style.background = '#340611')}
+                        onMouseLeave={(e) => (e.currentTarget.style.background = '#4A0E1C')}
                       >
                         <Eye className="w-3.5 h-3.5" />
                         View
@@ -176,7 +176,7 @@ export const ResumeExpertise: React.FC<ResumeExpertiseProps> = ({ onOpenResume }
                       <a
                         href={cv.url}
                         download
-                        className="flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-semibold font-body border border-[#72213A]/20 text-[#72213A] bg-[#FAF4EC] hover:bg-[#f0e5d6] transition-all duration-200 no-underline"
+                        className="flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-semibold font-body border border-[#4A0E1C]/20 text-[#4A0E1C] bg-[#FAF4EC] hover:bg-[#f0e5d6] transition-all duration-200 no-underline"
                       >
                         <Download className="w-3.5 h-3.5" />
                         Download
@@ -185,7 +185,7 @@ export const ResumeExpertise: React.FC<ResumeExpertiseProps> = ({ onOpenResume }
                       {/* Print */}
                       <button
                         onClick={() => handlePrint(cv.url)}
-                        className="flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-semibold font-body border border-[#72213A]/20 text-[#38272D]/70 bg-white hover:bg-[#FAF4EC] transition-all duration-200"
+                        className="flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-semibold font-body border border-[#4A0E1C]/20 text-[#38272D]/70 bg-white hover:bg-[#FAF4EC] transition-all duration-200"
                       >
                         <Printer className="w-3.5 h-3.5" />
                         Print
