@@ -108,10 +108,13 @@ export const PROJECTS: Project[] = [
       excerpt: [
         "Here’s a number worth paying attention to: ₦200,000.",
         "That's the administrative penalty for non-compliance with Nigeria's E-invoicing mandate under Section 104 of the Nigeria Tax Administration Act, including the failure to process taxable supplies through the required fiscalisation system. And that's before 100% of the tax due and interest charged at the prevailing Central Bank of Nigeria Monetary Policy Rate per annum come into play.",
-        "If your business generates between ₦100 million and ₦5 billion in annual revenue, this is for you."
+        "If your business generates between ₦100 million and ₦5 billion in annual revenue, this is for you.",
+        "Nigeria’s e-invoicing mandate is already in effect. Large companies above ₦5 billion began onboarding in late 2025. The next wave of businesses in your revenue bracket is already in scope, and the obligation is now clear.",
+        "The question is no longer whether your business needs to comply. It’s whether you have the right system to handle it without disruption.",
+        "Nigeria has officially moved its invoicing infrastructure into the digital age. The Nigeria Revenue Service introduced the NRS Merchant Buyer Solution (MBS), replacing traditional invoices with structured digital invoices for all transactions."
       ],
-      details: "The email used a sharp financial hook to introduce Nigeria’s regulatory mandate, translating dry tax legislation into immediate operational urgency and speaking directly to businesses in the target revenue bracket.",
-      ctaText: "Schedule an E-Invoicing Consultation"
+      details: "This email used a clear financial hook to introduce Nigeria’s e-invoicing requirements, explain the implications of non-compliance and speak directly to businesses within the relevant revenue range. Shows the complete approved email draft with opening penalty hook, operational pillars, ERP vs Non-ERP integration options, validated invoice anatomy, and dual CTAs.",
+      ctaText: "Apply for E-Invoicing / Book an E-Invoicing Consultation"
     }
   },
   {

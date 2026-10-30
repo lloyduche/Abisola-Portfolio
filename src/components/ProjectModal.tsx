@@ -3,9 +3,10 @@ import { Project } from '../types';
 import { X, ArrowUpRight, BookOpen, Mail } from 'lucide-react';
 
 const EINVOICING_SNAPSHOTS = [
-  { src: '/einvoicing-email-1.png', alt: 'E-Invoicing Email — Hero: NRS-Compliant E-Invoicing Simplified' },
-  { src: '/einvoicing-email-2.png', alt: 'E-Invoicing Email — For Businesses Without an ERP' },
-  { src: '/einvoicing-email-3.png', alt: 'E-Invoicing Email — Move to RedPay, compliance footer' },
+  { src: '/einvoicing-email-1.png', alt: 'E-Invoicing Email — Hero: ₦200K Penalty Hook & Section 104 Mandate Scope' },
+  { src: '/einvoicing-email-2.png', alt: 'E-Invoicing Email — What This Means: 3 Pillars, Compliance & Real-Time Validation' },
+  { src: '/einvoicing-email-3.png', alt: 'E-Invoicing Email — Built for Every Business: ERP vs Non-ERP & Validated Invoice Anatomy' },
+  { src: '/einvoicing-email-4.png', alt: 'E-Invoicing Email — End-to-End Encryption, CTAs, Move to RedPay & Regulatory Badges' },
 ];
 
 const SMARTPOS_SNAPSHOTS = [
