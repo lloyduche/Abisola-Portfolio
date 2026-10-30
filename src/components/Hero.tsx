@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowDown, ArrowUpRight, Sparkles, Heart } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Sparkles, Heart, Mail, Newspaper, BookOpen } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const writingThoughts = [
@@ -37,7 +37,7 @@ export const Hero: React.FC = () => {
   }, [displayedText, isDeleting, thoughtIndex]);
 
   return (
-    <section id="home" className="relative pt-12 sm:pt-20 pb-20 sm:pb-28 overflow-hidden">
+    <section id="home" className="relative pt-10 sm:pt-16 pb-20 sm:pb-28 overflow-hidden">
       {/* Decorative ambient sparkles */}
       <div className="absolute top-12 right-12 text-[#E5B86B] text-xl animate-sparkle pointer-events-none hidden sm:block">
         ✦
@@ -48,8 +48,8 @@ export const Hero: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 sm:px-10 relative z-10">
 
-        {/* Two-Column Hero Grid: Narrative Left, Editorial Portrait Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        {/* Two-Column Hero Grid: Narrative Left, Visual Composition & Portrait Right */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
 
           {/* Left Narrative Column */}
           <div className="lg:col-span-7 space-y-7">
@@ -62,7 +62,7 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Main Headline (Fraunces) with Soft Rose Highlighter */}
-            <h1 className="font-headline font-semibold text-4xl sm:text-6xl lg:text-[4rem] text-[#72213A] leading-[1.14] tracking-tight">
+            <h1 className="font-headline font-semibold text-4xl sm:text-6xl lg:text-[3.9rem] text-[#72213A] leading-[1.14] tracking-tight">
               Bringing ideas to life through{' '}
               <span className="rose-highlighter">words, strategy</span> and storytelling.
             </h1>
@@ -72,7 +72,7 @@ export const Hero: React.FC = () => {
               I bring ideas to life through writing, thoughtful messaging and purposeful communication. My work spans marketing and communications, where I develop content, shape brand messages and contribute to campaigns that help businesses communicate their value and connect with their audiences. I also explore storytelling through creative and editorial writing, bringing together a love of language and an understanding of how words inform, influence and resonate.
             </p>
 
-            {/* Live Typing Thought-Stream (Directly aligns with the writing craft) */}
+            {/* Live Typing Thought-Stream */}
             <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white border border-[#72213A]/10 text-xs font-body text-[#38272D] shadow-sm">
               <span className="w-2 h-2 rounded-full bg-[#E5B86B] animate-ping" />
               <span className="font-semibold text-[#72213A]">the writer's desk:</span>
@@ -105,44 +105,132 @@ export const Hero: React.FC = () => {
 
           </div>
 
-          {/* Right Portrait Column with Floating Chic Badges */}
+          {/* Right Column: Visual Composition Featuring Selected Work Samples + Portrait */}
           <div className="lg:col-span-5 flex flex-col items-center lg:items-end">
 
-            {/* Portrait Frame Container */}
-            <div className="relative w-full max-w-md p-3 sm:p-4 rounded-3xl bg-white border border-[#72213A]/10 shadow-xl">
+            {/* Layered Visual Composition Box */}
+            <div className="relative w-full max-w-md">
 
-              {/* Floating Chic Badge 1 (Top Right) */}
-              <div className="absolute -top-4 -right-3 sm:-right-4 px-3.5 py-1.5 rounded-full bg-[#72213A] text-white text-xs font-medium shadow-lg animate-float-badge flex items-center gap-1.5 z-20 border border-[#E5B86B]/30">
+              {/* Floating Badge 1 (Top Left): Heart & Readership */}
+              <div className="absolute -top-4 -left-3 sm:-left-4 px-3.5 py-1.5 rounded-full bg-[#72213A] text-white text-xs font-medium shadow-lg animate-float-badge flex items-center gap-1.5 z-30 border border-[#E5B86B]/30">
                 <Heart className="w-3.5 h-3.5 fill-[#D995A9] text-[#D995A9]" />
                 <span className="font-headline text-xs font-semibold">1,469+ Readers</span>
                 <span className="text-[#E5B86B] text-[10px]">♡</span>
               </div>
 
-              {/* Floating Chic Badge 2 (Bottom Left) */}
-              <div className="absolute -bottom-4 -left-3 sm:-left-4 px-3.5 py-1.5 rounded-full bg-white text-[#72213A] text-xs font-semibold shadow-lg animate-float-badge-alt flex items-center gap-1.5 z-20 border border-[#D995A9]">
+              {/* Floating Badge 2 (Top Right): Sparkles & Verified Conversion */}
+              <div className="absolute -top-3 -right-2 sm:-right-4 px-3.5 py-1.5 rounded-full bg-white text-[#72213A] text-xs font-semibold shadow-lg animate-float-badge-alt flex items-center gap-1.5 z-30 border border-[#D995A9]">
                 <Sparkles className="w-3.5 h-3.5 text-[#E5B86B]" />
-                <span>12% Conversion Rate</span>
+                <span>12% Conversion</span>
                 <span className="text-xs font-hand text-[#72213A] font-bold">✨</span>
               </div>
 
-              {/* Photograph */}
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-[#F0E7DB]">
-                <img
-                  src="/abisola.svg"
-                  alt="Abisola Oluwatoyin"
-                  className="w-full h-full object-cover"
-                />
+              {/* Main Visual Composition Container */}
+              <div className="p-4 sm:p-5 rounded-3xl bg-white border border-[#72213A]/15 shadow-xl space-y-4">
+
+                {/* Top Section: Author Portrait + Micro Bio */}
+                <div className="flex items-center gap-4 p-3 rounded-2xl bg-[#FAF4EC] border border-[#72213A]/10">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden bg-[#F0E7DB] shrink-0 border border-[#72213A]/10 shadow-sm">
+                    <img
+                      src="/abisola.svg"
+                      alt="Abisola Oluwatoyin"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-1.5">
+                      <div className="font-headline font-semibold text-base sm:text-lg text-[#72213A]">
+                        Abisola Oluwatoyin
+                      </div>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#E5B86B]" />
+                    </div>
+                    <div className="font-body text-xs text-[#38272D]/75 leading-snug">
+                      Writer | Marketing, Communications &amp; Storytelling
+                    </div>
+                    <div className="font-hand text-xs text-[#D995A9] font-bold mt-0.5">
+                      Lagos, Nigeria &bull; Available Worldwide ✨
+                    </div>
+                  </div>
+                </div>
+
+                {/* Layered Work Mockup Samples: Email Campaign, Newsletter & Essay Excerpt */}
+                <div className="space-y-2.5">
+                  <div className="flex items-center justify-between text-[11px] font-semibold text-[#72213A] uppercase tracking-wider px-1">
+                    <span>Curated Work Previews</span>
+                    <span className="text-[#38272D]/50 font-hand normal-case text-xs">tap to explore ↗</span>
+                  </div>
+
+                  {/* 1. Email Campaign Sample (Redtech E-Invoicing) */}
+                  <a
+                    href="#featured-work"
+                    className="block p-3 rounded-2xl bg-[#FAF4EC]/80 hover:bg-[#FAF4EC] border border-[#72213A]/10 transition-all hover:border-[#72213A]/30 group"
+                  >
+                    <div className="flex items-center justify-between text-[10px] font-semibold text-[#72213A] uppercase mb-1">
+                      <span className="flex items-center gap-1 text-[#72213A]">
+                        <Mail className="w-3 h-3 text-[#E5B86B]" />
+                        <span>Email Campaign Mockup</span>
+                      </span>
+                      <span className="text-[#38272D]/60 group-hover:text-[#72213A] transition-colors">
+                        ₦200,000 Hook &rarr;
+                      </span>
+                    </div>
+                    <div className="font-body text-xs font-semibold text-[#38272D] line-clamp-1">
+                      ₦200,000. The Cost of Ignoring Nigeria E-Invoicing Mandate
+                    </div>
+                    <div className="font-body text-[11px] text-[#38272D]/70 line-clamp-1 mt-0.5">
+                      Turning Section 104 compliance penalty into 30 confirmed enterprise leads.
+                    </div>
+                  </a>
+
+                  {/* 2. Business Newsletter Sample */}
+                  <a
+                    href="#featured-work"
+                    className="block p-3 rounded-2xl bg-[#FAF4EC]/80 hover:bg-[#FAF4EC] border border-[#72213A]/10 transition-all hover:border-[#72213A]/30 group"
+                  >
+                    <div className="flex items-center justify-between text-[10px] font-semibold text-[#72213A] uppercase mb-1">
+                      <span className="flex items-center gap-1 text-[#72213A]">
+                        <Newspaper className="w-3 h-3 text-[#E5B86B]" />
+                        <span>Newsletter Publishing</span>
+                      </span>
+                      <span className="text-[#38272D]/60 group-hover:text-[#72213A] transition-colors">
+                        26.5% Open Rate &rarr;
+                      </span>
+                    </div>
+                    <div className="font-body text-xs font-semibold text-[#38272D] line-clamp-1">
+                      Business &amp; Corporate Newsletters
+                    </div>
+                    <div className="font-body text-[11px] text-[#38272D]/70 line-clamp-1 mt-0.5">
+                      10 editions delivered to 20,236 subscribers with 37% corporate engagement.
+                    </div>
+                  </a>
+
+                  {/* 3. Published Writing Excerpt (Abisola Writes) */}
+                  <a
+                    href="https://abisolawrites.substack.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block p-3 rounded-2xl bg-[#72213A] text-white hover:bg-[#54172A] border border-[#72213A] transition-all group shadow-sm"
+                  >
+                    <div className="flex items-center justify-between text-[10px] font-semibold text-[#E5B86B] uppercase mb-1">
+                      <span className="flex items-center gap-1">
+                        <BookOpen className="w-3 h-3 text-[#E5B86B]" />
+                        <span>Abisola Writes Excerpt</span>
+                      </span>
+                      <span className="text-white/80 group-hover:text-white transition-colors">
+                        Substack ↗
+                      </span>
+                    </div>
+                    <div className="font-headline text-xs font-semibold line-clamp-1">
+                      "Building the Technology That Keeps African Businesses Moving"
+                    </div>
+                    <div className="font-body text-[11px] text-white/80 italic line-clamp-1 mt-0.5">
+                      "The technology may be digital, but the decisions remain practical..."
+                    </div>
+                  </a>
+                </div>
+
               </div>
 
-              {/* Caption Tag */}
-              <div className="pt-3 pb-1 text-center">
-                <div className="font-headline font-semibold text-lg text-[#72213A]">
-                  Abisola Oluwatoyin
-                </div>
-                <div className="font-body text-xs text-[#38272D]/75">
-                  Lagos, Nigeria &bull; Available for Global Engagements
-                </div>
-              </div>
             </div>
 
           </div>
