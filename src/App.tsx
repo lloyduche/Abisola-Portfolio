@@ -16,6 +16,8 @@ import { Project } from './types';
 export const App: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [resumeOpen, setResumeOpen] = useState(false);
+  const [activeCvUrl, setActiveCvUrl] = useState('/cv-content-writing.pdf');
+  const [activeCvTitle, setActiveCvTitle] = useState('CV — Abisola Oluwatoyin');
   const [showIntro, setShowIntro] = useState(true);
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -58,7 +60,7 @@ export const App: React.FC = () => {
         <FeaturedWork onSelectProject={(p) => setSelectedProject(p)} />
         <CaseStudies />
         <SkillsTools />
-        <ResumeExpertise onOpenResume={() => setResumeOpen(true)} />
+        <ResumeExpertise onOpenResume={(url, title) => { setActiveCvUrl(url); setActiveCvTitle(title); setResumeOpen(true); }} />
         <Contact />
       </main>
 
@@ -73,6 +75,8 @@ export const App: React.FC = () => {
       <ResumeModal
         isOpen={resumeOpen}
         onClose={() => setResumeOpen(false)}
+        cvUrl={activeCvUrl}
+        cvTitle={activeCvTitle}
       />
     </div>
   );

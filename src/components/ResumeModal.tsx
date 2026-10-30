@@ -1,39 +1,93 @@
 import React from 'react';
-import { RESUME_DATA } from '../data/portfolioData';
-import { X, Printer, ArrowUpRight } from 'lucide-react';
+import { X, Download, Printer, ArrowUpRight } from 'lucide-react';
 
 interface ResumeModalProps {
   isOpen: boolean;
   onClose: () => void;
+  cvUrl?: string;
+  cvTitle?: string;
 }
 
-export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => {
+export const ResumeModal: React.FC<ResumeModalProps> = ({
+  isOpen,
+  onClose,
+  cvUrl = '/cv-content-writing.pdf',
+  cvTitle = 'CV — Abisola Oluwatoyin',
+}) => {
   if (!isOpen) return null;
+
+  const handlePrint = () => {
+    const win = window.open(cvUrl, '_blank');
+    if (win) {
+      win.addEventListener('load', () => win.print(), { once: true });
+    }
+  };
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+      style={{ background: 'rgba(56,39,45,0.65)', backdropFilter: 'blur(6px)' }}
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto p-6 sm:p-12 rounded-3xl bg-white border border-[#72213A]/15 shadow-2xl"
+        className="relative w-full max-w-4xl rounded-3xl overflow-hidden shadow-2xl border border-[#72213A]/15"
+        style={{ background: '#fff', maxHeight: '92vh', display: 'flex', flexDirection: 'column' }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Top Folio & Actions */}
-        <div className="flex items-center justify-between pb-4 mb-8 border-b border-[#72213A]/10 text-xs font-semibold uppercase tracking-wider text-[#72213A]">
-          <span>Official Resume &bull; Curriculum Vitae</span>
+        {/* ── Modal Header ── */}
+        <div
+          className="flex items-center justify-between px-6 py-4 border-b border-[#72213A]/10 shrink-0"
+          style={{ background: '#FAF4EC' }}
+        >
+          {/* Left: title */}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#72213A]/60 font-body">
+              Curriculum Vitae
+            </p>
+            <h3 className="font-headline font-semibold text-base text-[#72213A] leading-tight mt-0.5">
+              {cvTitle}
+            </h3>
+          </div>
 
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => window.print()}
-              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium text-[#38272D]/70 hover:text-[#72213A]"
+          {/* Right: actions */}
+          <div className="flex items-center gap-2">
+            {/* Download */}
+            <a
+              href={cvUrl}
+              download
+              title="Download PDF"
+              className="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold font-body border border-[#72213A]/20 text-[#72213A] bg-white hover:bg-[#f0e5d6] transition-all no-underline"
             >
-              <Printer className="w-4 h-4 text-[#E5B86B]" />
-              <span>Print Resume</span>
+              <Download className="w-3.5 h-3.5" />
+              Download
+            </a>
+
+            {/* Print */}
+            <button
+              onClick={handlePrint}
+              title="Print PDF"
+              className="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold font-body border border-[#72213A]/20 text-[#38272D]/70 bg-white hover:bg-[#FAF4EC] transition-all"
+            >
+              <Printer className="w-3.5 h-3.5" />
+              Print
             </button>
+
+            {/* Open in new tab */}
+            <a
+              href={cvUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Open in new tab"
+              className="flex items-center gap-1 px-3 py-2 rounded-full text-xs font-semibold font-body border border-[#72213A]/20 text-[#72213A] bg-white hover:bg-[#FAF4EC] transition-all no-underline"
+            >
+              <ArrowUpRight className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Open</span>
+            </a>
+
+            {/* Close */}
             <button
               onClick={onClose}
-              className="p-1.5 rounded-full hover:bg-[#FAF4EC] text-[#38272D]/70 hover:text-[#72213A] transition-colors"
+              className="p-2 rounded-full hover:bg-[#72213A]/10 text-[#38272D]/70 hover:text-[#72213A] transition-colors"
               aria-label="Close"
             >
               <X className="w-5 h-5" />
@@ -41,117 +95,37 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
           </div>
         </div>
 
-        {/* Masterhead */}
-        <div className="pb-8 mb-8 border-b border-[#72213A]/10">
-          <h2 className="font-headline font-bold text-3xl sm:text-4xl text-[#72213A]">
-            Abisola Oluwatoyin
-          </h2>
-          <div className="font-body font-semibold text-lg text-[#38272D] mt-1">
-            Writer | Marketing, Communications &amp; Brand Storytelling
-          </div>
-          <div className="text-xs font-body text-[#38272D]/75 mt-2 flex flex-wrap gap-x-6 gap-y-1">
-            <span>Email: abisolaaoluwatoyin@gmail.com</span>
-            <span>Location: Lagos, Nigeria</span>
-            <span>LinkedIn: linkedin.com/in/abisola-oluwatoyin</span>
-          </div>
+        {/* ── PDF Viewer ── */}
+        <div className="flex-1 overflow-hidden" style={{ minHeight: '60vh' }}>
+          <iframe
+            src={`${cvUrl}#toolbar=0&navpanes=0`}
+            title={cvTitle}
+            className="w-full h-full border-0"
+            style={{ minHeight: '60vh', height: '100%' }}
+          />
         </div>
 
-        {/* Summary */}
-        <div className="mb-8 pb-8 border-b border-[#72213A]/10">
-          <h3 className="font-headline font-semibold text-xl text-[#72213A] mb-3">
-            Professional Summary
-          </h3>
-          <p className="font-body text-base text-[#38272D]/90 leading-relaxed font-normal">
-            {RESUME_DATA.summary}
-          </p>
-        </div>
-
-        {/* Experience */}
-        <div className="mb-8 pb-8 border-b border-[#72213A]/10 space-y-6">
-          <h3 className="font-headline font-semibold text-xl text-[#72213A]">
-            Professional Experience
-          </h3>
-
-          <div className="space-y-6">
-            {RESUME_DATA.experiences.map((exp, idx) => (
-              <div key={idx} className="p-6 rounded-2xl bg-[#FAF4EC]/60 border border-[#72213A]/10 space-y-3">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                  <div>
-                    <h4 className="font-headline font-semibold text-xl text-[#72213A]">
-                      {exp.role}
-                    </h4>
-                    <div className="font-body font-medium text-sm text-[#38272D]">
-                      {exp.company} &bull; Lagos, Nigeria
-                    </div>
-                  </div>
-                  <span className="text-xs font-medium text-[#72213A] bg-white px-3 py-1 rounded-full border border-[#72213A]/10 self-start sm:self-auto">
-                    {exp.period}
-                  </span>
-                </div>
-
-                <ul className="space-y-2 font-body text-sm text-[#38272D]/85 pt-1">
-                  {exp.points.map((pt, pIdx) => (
-                    <li key={pIdx} className="flex items-start gap-2.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#E5B86B] mt-2 shrink-0" />
-                      <span>{pt}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Education */}
-        <div className="mb-8 pb-8 border-b border-[#72213A]/10">
-          <h3 className="font-headline font-semibold text-xl text-[#72213A] mb-3">
-            Education
-          </h3>
-          <div>
-            <div className="font-body font-semibold text-base text-[#38272D]">
-              {RESUME_DATA.education.degree}
-            </div>
-            <div className="font-body text-sm text-[#38272D]/75">
-              {RESUME_DATA.education.school} &bull; Department of English
-            </div>
-          </div>
-        </div>
-
-        {/* Areas of Expertise */}
-        <div className="mb-8 pb-6 border-b border-[#72213A]/10">
-          <h3 className="font-headline font-semibold text-xl text-[#72213A] mb-3">
-            Areas of Expertise
-          </h3>
-          <div className="flex flex-wrap gap-2">
-            {RESUME_DATA.areasOfExpertise.map((item, i) => (
-              <span
-                key={i}
-                className="px-3 py-1 text-xs font-body font-medium rounded-lg bg-[#FAF4EC] text-[#38272D] border border-[#72213A]/10"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Modal Footer */}
-        <div className="flex items-center justify-between pt-2 font-body text-sm">
+        {/* ── Mobile Action Bar ── */}
+        <div
+          className="flex sm:hidden items-center justify-center gap-3 px-6 py-4 border-t border-[#72213A]/10 shrink-0"
+          style={{ background: '#FAF4EC' }}
+        >
           <a
-            href="mailto:abisolaaoluwatoyin@gmail.com"
-            className="text-[#72213A] font-semibold inline-flex items-center gap-1 hover:underline"
+            href={cvUrl}
+            download
+            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-full text-xs font-semibold font-body bg-[#72213A] text-white no-underline"
           >
-            <span>Inquire Directly</span>
-            <ArrowUpRight className="w-4 h-4 text-[#E5B86B]" />
+            <Download className="w-3.5 h-3.5" />
+            Download
           </a>
-
           <button
-            onClick={onClose}
-            className="px-6 py-2.5 rounded-full bg-[#72213A] text-white font-medium hover:bg-[#54172A] transition-colors"
+            onClick={handlePrint}
+            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-full text-xs font-semibold font-body border border-[#72213A]/20 text-[#72213A] bg-white"
           >
-            Close
+            <Printer className="w-3.5 h-3.5" />
+            Print
           </button>
         </div>
-
       </div>
     </div>
   );
