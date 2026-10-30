@@ -16,6 +16,14 @@ const SMARTPOS_SNAPSHOTS = [
   { src: '/smartpos-email-5.png', alt: 'Smart POS Email — Move to RedPay product suite + compliance badges' },
 ];
 
+const VIRTUALACCOUNT_SNAPSHOTS = [
+  { src: '/virtualaccount-email-1.png', alt: 'Virtual Accounts Email — Banner: Make Bank Transfers Payments Easier to Confirm' },
+  { src: '/virtualaccount-email-2.png', alt: 'Virtual Accounts Email — What Does This Mean For Your Business?' },
+  { src: '/virtualaccount-email-3.png', alt: 'Virtual Accounts Email — Value Pillars: Instant Confirmation & Real-time Reporting' },
+  { src: '/virtualaccount-email-4.png', alt: 'Virtual Accounts Email — CTAs: Get Started with Virtual Accounts Service & Move to RedPay' },
+  { src: '/virtualaccount-email-5.png', alt: 'Virtual Accounts Email — Regulatory & Compliance Footer' },
+];
+
 interface ProjectModalProps {
   project: Project | null;
   onClose: () => void;
@@ -164,14 +172,22 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           />
         )}
 
-        {/* ── Smart POS Email Snapshots (p2) ── */}
+        {/* ── Virtual Accounts & Smart POS Email Snapshots (p2) ── */}
         {project.id === 'p2' && (
-          <ModalSnapshotsBlock
-            snapshots={SMARTPOS_SNAPSHOTS}
-            subject="The Smart POS Built for Growing Businesses"
-            caption="Smart POS Campaign · redtech | RedPay · 2025"
-            label="Smart POS Email — Original Design Snapshots"
-          />
+          <div className="space-y-6">
+            <ModalSnapshotsBlock
+              snapshots={VIRTUALACCOUNT_SNAPSHOTS}
+              subject="Why Businesses Need a Smarter Way to Confirm Bank Transfers"
+              caption="Virtual Accounts Campaign · redtech | RedPay · 2025"
+              label="Virtual Accounts Email — Original Design Snapshots"
+            />
+            <ModalSnapshotsBlock
+              snapshots={SMARTPOS_SNAPSHOTS}
+              subject="The Smart POS Built for Growing Businesses"
+              caption="Smart POS Campaign · redtech | RedPay · 2025"
+              label="Smart POS Email — Original Design Snapshots"
+            />
+          </div>
         )}
 
         {/* Strategic Details */}

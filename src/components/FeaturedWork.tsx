@@ -19,6 +19,14 @@ const SMARTPOS_SNAPSHOTS = [
   { src: '/smartpos-email-5.png', alt: 'Smart POS Email — Move to RedPay suite + compliance footer' },
 ];
 
+const VIRTUALACCOUNT_SNAPSHOTS = [
+  { src: '/virtualaccount-email-1.png', alt: 'Virtual Accounts Email — Banner: Make Bank Transfers Payments Easier to Confirm' },
+  { src: '/virtualaccount-email-2.png', alt: 'Virtual Accounts Email — What Does This Mean For Your Business?' },
+  { src: '/virtualaccount-email-3.png', alt: 'Virtual Accounts Email — What This Means: Instant Confirmation + Real-time Reporting' },
+  { src: '/virtualaccount-email-4.png', alt: 'Virtual Accounts Email — CTAs: Get Started with Virtual Accounts Service & Move to RedPay' },
+  { src: '/virtualaccount-email-5.png', alt: 'Virtual Accounts Email — Regulatory & Compliance Footer' },
+];
+
 // ── Shared reusable email mockup reel ────────────────────────────────────────
 
 interface EmailMockupCardProps {
@@ -224,14 +232,22 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                   />
                 )}
 
-                {/* ── Smart POS / Payment Products Email Mockup (p2) ── */}
+                {/* ── Payment Product Emails: Virtual Accounts & Smart POS Mockups (p2) ── */}
                 {project.id === 'p2' && (
-                  <EmailMockupCard
-                    snapshots={SMARTPOS_SNAPSHOTS}
-                    subject="The Smart POS Built for Growing Businesses"
-                    preheader="One POS. Endless Possibilities. Accept more. Manage better. Grow faster."
-                    label="Smart POS Email Campaign"
-                  />
+                  <div className="space-y-4">
+                    <EmailMockupCard
+                      snapshots={VIRTUALACCOUNT_SNAPSHOTS}
+                      subject="Why Businesses Need a Smarter Way to Confirm Bank Transfers"
+                      preheader="Make Bank Transfer Payments Easier to Confirm"
+                      label="Virtual Accounts Email Campaign"
+                    />
+                    <EmailMockupCard
+                      snapshots={SMARTPOS_SNAPSHOTS}
+                      subject="The Smart POS Built for Growing Businesses"
+                      preheader="One POS. Endless Possibilities. Accept more. Manage better. Grow faster."
+                      label="Smart POS Email Campaign"
+                    />
+                  </div>
                 )}
               </div>
 
