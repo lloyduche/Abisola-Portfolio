@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowDown, ArrowUpRight, Sparkles, Heart, Mail, Newspaper, BookOpen } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Sparkles, Heart } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const writingThoughts = [
@@ -153,80 +153,22 @@ export const Hero: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Layered Work Mockup Samples: Email Campaign, Newsletter & Essay Excerpt */}
-                <div className="space-y-2.5">
-                  <div className="flex items-center justify-between text-[11px] font-semibold text-[#72213A] uppercase tracking-wider px-1">
-                    <span>Curated Work Previews</span>
-                    <span className="text-[#38272D]/50 font-hand normal-case text-xs">tap to explore ↗</span>
+                {/* Full-Width Portrait Photo replacing Curated Work Previews */}
+                <div className="relative rounded-2xl overflow-hidden shadow-md border border-[#72213A]/10" style={{ aspectRatio: '3/4' }}>
+                  <img
+                    src="/abisola-hero.jpg"
+                    alt="Abisola Oluwatoyin — Writer & Communications Specialist"
+                    className="w-full h-full object-cover object-top"
+                  />
+                  {/* Subtle gradient overlay at bottom for polish */}
+                  <div
+                    className="absolute inset-x-0 bottom-0 h-16"
+                    style={{ background: 'linear-gradient(to top, rgba(72,33,63,0.45), transparent)' }}
+                  />
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                    <span className="font-hand text-white text-sm font-bold drop-shadow">Abisola Oluwatoyin ♡</span>
+                    <span className="font-body text-white/80 text-[11px]">Lagos, Nigeria</span>
                   </div>
-
-                  {/* 1. Email Campaign Sample (Redtech E-Invoicing) */}
-                  <a
-                    href="#featured-work"
-                    className="block p-3 rounded-2xl bg-[#FAF4EC]/80 hover:bg-[#FAF4EC] border border-[#72213A]/10 transition-all hover:border-[#72213A]/30 group"
-                  >
-                    <div className="flex items-center justify-between text-[10px] font-semibold text-[#72213A] uppercase mb-1">
-                      <span className="flex items-center gap-1 text-[#72213A]">
-                        <Mail className="w-3 h-3 text-[#E5B86B]" />
-                        <span>Email Campaign Mockup</span>
-                      </span>
-                      <span className="text-[#38272D]/60 group-hover:text-[#72213A] transition-colors">
-                        ₦200,000 Hook &rarr;
-                      </span>
-                    </div>
-                    <div className="font-body text-xs font-semibold text-[#38272D] line-clamp-1">
-                      ₦200,000. The Cost of Ignoring Nigeria E-Invoicing Mandate
-                    </div>
-                    <div className="font-body text-[11px] text-[#38272D]/70 line-clamp-1 mt-0.5">
-                      Turning Section 104 compliance penalty into 30 confirmed enterprise leads.
-                    </div>
-                  </a>
-
-                  {/* 2. Business Newsletter Sample */}
-                  <a
-                    href="#featured-work"
-                    className="block p-3 rounded-2xl bg-[#FAF4EC]/80 hover:bg-[#FAF4EC] border border-[#72213A]/10 transition-all hover:border-[#72213A]/30 group"
-                  >
-                    <div className="flex items-center justify-between text-[10px] font-semibold text-[#72213A] uppercase mb-1">
-                      <span className="flex items-center gap-1 text-[#72213A]">
-                        <Newspaper className="w-3 h-3 text-[#E5B86B]" />
-                        <span>Newsletter Publishing</span>
-                      </span>
-                      <span className="text-[#38272D]/60 group-hover:text-[#72213A] transition-colors">
-                        26.5% Open Rate &rarr;
-                      </span>
-                    </div>
-                    <div className="font-body text-xs font-semibold text-[#38272D] line-clamp-1">
-                      Business &amp; Corporate Newsletters
-                    </div>
-                    <div className="font-body text-[11px] text-[#38272D]/70 line-clamp-1 mt-0.5">
-                      10 editions delivered to 20,236 subscribers with 37% corporate engagement.
-                    </div>
-                  </a>
-
-                  {/* 3. Published Writing Excerpt (Abisola Writes) */}
-                  <a
-                    href="https://abisolawrites.substack.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block p-3 rounded-2xl bg-[#72213A] text-white hover:bg-[#54172A] border border-[#72213A] transition-all group shadow-sm"
-                  >
-                    <div className="flex items-center justify-between text-[10px] font-semibold text-[#E5B86B] uppercase mb-1">
-                      <span className="flex items-center gap-1">
-                        <BookOpen className="w-3 h-3 text-[#E5B86B]" />
-                        <span>Abisola Writes Excerpt</span>
-                      </span>
-                      <span className="text-white/80 group-hover:text-white transition-colors">
-                        Substack ↗
-                      </span>
-                    </div>
-                    <div className="font-headline text-xs font-semibold line-clamp-1">
-                      "Building the Technology That Keeps African Businesses Moving"
-                    </div>
-                    <div className="font-body text-[11px] text-white/80 italic line-clamp-1 mt-0.5">
-                      "The technology may be digital, but the decisions remain practical..."
-                    </div>
-                  </a>
                 </div>
 
               </div>
