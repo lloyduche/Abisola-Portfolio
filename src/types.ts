@@ -14,6 +14,7 @@ export interface Project {
     metrics?: string[];
     ctaText?: string;
     substackLink?: string;
+    mediumLink?: string;
   };
 }
 

@@ -46,6 +46,9 @@ export const Contact: React.FC = () => {
             <p className="font-medium text-[#72213A]">
               Whether you’re building a brand, communicating with your audience, developing a publication or trying to tell a story that matters, let’s make the words work for you.
             </p>
+            <p className="font-semibold text-[#72213A] pt-2 font-headline italic text-xl">
+              Have a project in mind? Let’s talk.
+            </p>
           </div>
         </div>
 

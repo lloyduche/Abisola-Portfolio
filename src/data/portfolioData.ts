@@ -137,24 +137,36 @@ export const PROJECTS: Project[] = [
   {
     id: "p4",
     badge: "03 · Event Communications · Lead Funnels",
-    title: "Webinar Sequences & Brand Activations",
-    shortDesc: "Complete multi-touch email sequences: invitations, speaker features, countdown reminders, and post-event nurture for hospitality finance and e-invoicing masterclasses.",
-    hook: "Results: 823+ registrations · 527+ attendees · 30 verified leads",
-    tagCategory: "Webinar Funnel",
+    title: "Events & Webinar Communications",
+    shortDesc: "Developed event-facing and corporate email communications for webinars, industry events, sponsored experiences and brand activations.",
+    hook: "Results: 823+ registrations · 527+ attendees · 30 verified enterprise leads",
+    tagCategory: "Webinar & Events",
     tagColor: "card",
     fullContent: {
       subject: "When Women Move: Scaling Through Digital Commerce — RedSpace Webinar",
       preheader: "Special Women's Month Edition · Thursday, 19th March 2026 · Live on Zoom",
       details: `
-• Webinar 1: Navigating Cashflow, Payment & Scale in Hospitality Business — Practical insights from hospitality leaders on improving cash flow, streamlining payments, and scaling sustainably.
+• 01. When Women Move — Women's Month Webinar:
+Developed communications for a webinar celebrating women's contributions, participation and opportunities within business and the digital economy. The session formed part of the Women's Month engagement programme, exploring advancement through digital commerce.
+- Reported Results: 155 registrations · 139 attendees
 
-• Webinar 2: E-Invoicing in Nigeria: Tax, Regulatory & Compliance Demystified — Audience-facing educational sequence addressing regulatory changes, tax law, and automated compliance.
+• 02. RedSpace Webinar — E-Invoicing in Nigeria: Tax, Regulatory & Compliance Demystified:
+Developed audience-facing email communication organised in partnership with the Nigeria Revenue Service (NRS). Introduced regulatory changes, tax law implications, implementation readiness and the MBS e-Invoicing platform.
+- Reported Results across two editions: 823+ registrations · 527+ attendees · 30 confirmed enterprise leads
 
-• Reported Outcomes:
-- 823+ registrations across two editions
-- 527+ attendees
-- 30 confirmed qualified enterprise leads from the e-invoicing webinar
-- Brand & Event Activations: food and vendor activations, healthcare brand initiatives, and restaurant partnerships.
+• 03. Jollof & Palmie 2026 — Sponsorship & Brand Activation:
+Announcement email communicating Redtech's sponsorship as official payment partner at Muri Okunola Park. Powering marketplace payments via RedPay Move Station with motorcycle photo area, Polaroid wall, interactive games, mascot and prizes. (Headline: "Jollof & Palmie Moves to RedPay" · Closing: "Ride. Eat. Play. Move to RedPay.")
+
+• 04. Rocky's Cookout — Official Payment Partnership:
+Independence Day All White Party at Baywater Park Event Centre, Lekki. Vendor POS payment support and RedPay booth experience with Spin & Win activation. (Closing: "Enjoy the Moment. Pay with RedPay.")
+
+• 05. Digital PayExpo 2026 — Industry Event Communications:
+Participation in Digital PayExpo 2026 at Landmark Event Centre, featuring CEO Emmanuel Ojo on "Scaling Payments in Africa" panel, promoting Redtech After Hours: Executive Mixer Edition.
+
+• 06. iHEAL Global Youth Impact Forum 2026 — Partnership Announcement:
+Partnership with Waterlight Save Initiative at NAF Conference Centre, Abuja. Youth empowerment and secure payment infrastructure for beneficiary disbursements. (Closing: "Together, We Enable Opportunity.")
+
+My Role: Event email copywriting, audience-facing communications, sponsorship and partnership messaging, event information and brand activation communications.
       `
     }
   },
@@ -181,8 +193,8 @@ export const PROJECTS: Project[] = [
   {
     id: "p5",
     badge: "05 · Internal Communications · Cultural Storytelling",
-    title: "The Stories Behind Workplace Friendships",
-    shortDesc: "Employee engagement feature built around intimate interviews with 4 pairs of colleagues, exploring belonging and connection to anchor International Friendship Day.",
+    title: "Employee Storytelling & Internal Communications",
+    shortDesc: "Employee engagement features including interviews with colleagues on workplace friendships, and 'Behind the Code' spotlighting engineering talent behind systems.",
     hook: "Angle: 'We spend more than 2,080 hours each year at work...'",
     tagCategory: "Internal Comms",
     tagColor: "primary",
@@ -192,32 +204,38 @@ export const PROJECTS: Project[] = [
         "The best friendships are rarely planned. Sometimes, it is as simple as meeting the right person, at the right time, and in the right situation, and this can happen in the workplace.",
         "We spend more than 2,080 hours each year at work. It is more likely for the spark of friendship to ignite with colleagues whom we spend the most hours with, physically and remotely. Some people make work easier, not because they help you finish your tasks, but because they remind you to eat, save you a seat, check in after a difficult meeting, or simply know when you need a laugh."
       ],
-      details: "The piece combined interview material, narrative structure and editorial writing to turn individual experiences into a broader story about belonging, collaboration and workplace culture."
+      details: `
+• The Stories Behind Workplace Friendships:
+Created an employee storytelling feature built around interviews with four pairs of colleagues, exploring how their friendships began, the small moments that strengthened them and the role those relationships play in working life. The piece combined interview material, narrative structure and editorial writing to turn individual experiences into a broader story about belonging, collaboration and workplace culture. Related internal communication encouraged colleagues to participate in an International Friendship Day activity.
+
+• Behind the Code: Kofoworola at the Core of the System:
+An employee feature exploring the expertise and contribution behind technology development, offering readers a closer look at the people and thinking behind the systems being built.
+      `
     }
   },
   {
     id: "p6",
     badge: "06 · Corporate Publishing · Newsletter Writing",
-    title: "Business & Corporate Newsletters",
-    shortDesc: "Managing end-to-end editorial planning and newsletter writing across financial services and technology, maintaining consistent voice, high deliverability, and engaging open rates.",
-    hook: "Metrics: 20,236 subscribers reached · 26.5% avg open rate · 37% corporate",
+    title: "Newsletters & Business Communications",
+    shortDesc: "Worked on recurring business and corporate newsletters, translating product developments, company initiatives, campaigns and industry information into relevant communications for different audiences.",
+    hook: "Metrics: 20,236 subscribers reached · 39.5% avg open rate · 19,946 delivered",
     tagCategory: "Newsletters",
     tagColor: "secondary",
     fullContent: {
       details: `
-• Business Newsletter Performance:
-- 10 editions completed out of 12 planned
+• 01. Momentum RedPay Newsletter:
+Contributed to the planning and production of a recurring business newsletter featuring product information, marketing campaigns, webinars and customer-facing updates.
 - 20,236 subscribers reached
-- 19,946 emails delivered
-- 5,295 opens (26.5% average open rate)
-- 116 clicks
+- 19,946 emails delivered (98.6% delivery rate)
+- 8,295 opens (39.5% average open rate)
+- 150 clicks (0.8% click rate)
 
-• Corporate Newsletter Performance:
-- 2 editions published
+• 02. The Redtech Brief:
+Contributed to a corporate newsletter communicating company developments, products, initiatives and corporate stories to its readership.
 - 2,301 subscribers reached
-- 2,268 emails delivered
+- 2,268 emails delivered (98.6% delivery rate)
 - 839 opens (37.0% open rate)
-- 5 clicks
+- 10 clicks (0.4% click rate)
       `
     }
   },
@@ -225,8 +243,8 @@ export const PROJECTS: Project[] = [
     id: "p7",
     badge: "07 · Editorial & Thought Leadership · Essays",
     title: "Thought Leadership & Abisola Writes",
-    shortDesc: "Long-form business analysis including 'Building the Technology That Keeps African Businesses Moving', alongside celebrated literary personal essays published on Substack.",
-    hook: "Featured Essays: A Word Greater Than Luck · The Geography of Loving You",
+    shortDesc: "Long-form business analysis including 'Building the Technology That Keeps African Businesses Moving', alongside celebrated literary personal essays published on Substack and Medium.",
+    hook: "Featured Essays: Dear Diary (50k) · A Word Greater Than Luck · Mokola",
     tagCategory: "Thought Leadership",
     tagColor: "accent",
     fullContent: {
@@ -236,11 +254,15 @@ export const PROJECTS: Project[] = [
         "Those choices can change within one trading day... The technology may be digital, but the decisions remain practical: Did the money arrive? Can I use it now? Can I account for it later?"
       ],
       details: `
-• Additional Business Articles:
+• Long-Form Business Analysis:
+- Building the Technology That Keeps African Businesses Moving
 - The Trust Layer: Why Governance Matters in Fintech
 - The Future of Fashion Retail in Nigeria: E-Commerce and Digital Payments
+- Behind the Code: Kofoworola at the Core of the System
 
-• Personal Essays on Abisola Writes:
+• Personal Essays & Creative Writing:
+Exploring love, identity, womanhood, adulthood and the experiences that shape how we understand ourselves and other people.
+- Dear Diary: Adulthood debited me 50k (Medium)
 - A Word Greater Than Luck
 - You Stayed On My Mind Longer Than
 - The Geography of Loving You
@@ -249,7 +271,8 @@ export const PROJECTS: Project[] = [
 - Love As I’ve Come to Know It
 - The Things We Never Said: Part One — Mokola
       `,
-      substackLink: "https://abisolawrites.substack.com/"
+      substackLink: "https://abisolawrites.substack.com/",
+      mediumLink: "https://medium.com/@oluwatoyinabisola122/dear-diary-adulthood-debited-me-50k-0e719c22aaf0"
     }
   }
 ];

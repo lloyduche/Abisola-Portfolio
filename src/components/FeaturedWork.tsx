@@ -269,6 +269,24 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                       label="Webinar Invitation Email Campaign"
                     />
                   )}
+
+                  {/* ── Newsletter Analytics / Performance Snapshot (p6) ── */}
+                  {project.id === 'p6' && (
+                    <div className="mt-3 space-y-2">
+                      <div className="flex items-center gap-2 text-xs font-semibold text-[#72213A]">
+                        <span className="w-2 h-2 rounded-full bg-[#E5B86B]" />
+                        <span className="uppercase tracking-wider">Campaign Performance Dashboard</span>
+                      </div>
+                      <div className="rounded-2xl overflow-hidden border border-[#72213A]/10 shadow-sm bg-white">
+                        <img
+                          src="/newsletter-performance.png"
+                          alt="Momentum RedPay Newsletter & The Redtech Brief Performance Dashboard"
+                          className="w-full object-cover object-top block"
+                          style={{ maxHeight: '240px' }}
+                        />
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Action Buttons */}
@@ -282,17 +300,31 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                     <ArrowUpRight className="w-4 h-4" />
                   </button>
 
-                  {project.fullContent?.substackLink && (
-                    <a
-                      href={project.fullContent.substackLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-xs font-semibold text-[#72213A] hover:underline"
-                    >
-                      <span>Read on Substack</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 text-[#E5B86B]" />
-                    </a>
-                  )}
+                  <div className="flex items-center gap-3">
+                    {project.fullContent?.mediumLink && (
+                      <a
+                        href={project.fullContent.mediumLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#72213A] hover:underline"
+                      >
+                        <span>Medium Essay</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 text-[#E5B86B]" />
+                      </a>
+                    )}
+
+                    {project.fullContent?.substackLink && (
+                      <a
+                        href={project.fullContent.substackLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#72213A] hover:underline"
+                      >
+                        <span>Substack</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 text-[#E5B86B]" />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             );

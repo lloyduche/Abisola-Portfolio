@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, Heart } from 'lucide-react';
+import { Sparkles, Heart, ArrowRight } from 'lucide-react';
 
 interface EditorialIntroProps {
   onComplete: () => void;
@@ -10,12 +10,13 @@ export const EditorialIntro: React.FC<EditorialIntroProps> = ({ onComplete }) =>
   const [isDismissing, setIsDismissing] = useState(false);
 
   useEffect(() => {
-    const t1 = setTimeout(() => setPhase(1), 250);
-    const t2 = setTimeout(() => setPhase(2), 850);
+    const t1 = setTimeout(() => setPhase(1), 350);
+    const t2 = setTimeout(() => setPhase(2), 1000);
+    // Extended duration: 6500ms allows user to comfortably read the welcome note
     const t3 = setTimeout(() => {
       setIsDismissing(true);
-      setTimeout(onComplete, 550);
-    }, 2100);
+      setTimeout(onComplete, 600);
+    }, 6500);
 
     return () => {
       clearTimeout(t1);
@@ -26,17 +27,17 @@ export const EditorialIntro: React.FC<EditorialIntroProps> = ({ onComplete }) =>
 
   const handleSkip = () => {
     setIsDismissing(true);
-    setTimeout(onComplete, 200);
+    setTimeout(onComplete, 250);
   };
 
   return (
     <div
-      className={`fixed inset-0 z-[200] flex items-center justify-center p-6 select-none transition-all duration-600 ${
+      className={`fixed inset-0 z-[200] flex items-center justify-center p-6 select-none transition-all duration-700 ${
         isDismissing ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'
       }`}
       style={{
-        background: 'rgba(250, 244, 236, 0.96)',
-        backdropFilter: 'blur(10px)',
+        background: 'rgba(250, 244, 236, 0.97)',
+        backdropFilter: 'blur(12px)',
       }}
     >
       {/* Delicate floating background sparkles */}
@@ -46,7 +47,7 @@ export const EditorialIntro: React.FC<EditorialIntroProps> = ({ onComplete }) =>
 
       {/* Center Editorial Stationery Card */}
       <div
-        className="relative w-full max-w-lg p-8 sm:p-12 rounded-3xl bg-white border border-[#72213A]/15 shadow-2xl text-center space-y-5"
+        className="relative w-full max-w-lg p-8 sm:p-12 rounded-3xl bg-white border border-[#72213A]/15 text-center space-y-6 overflow-hidden"
         style={{
           boxShadow: '0 25px 60px rgba(114, 33, 58, 0.12), 0 0 0 1px rgba(217, 149, 169, 0.25)',
         }}
@@ -69,7 +70,7 @@ export const EditorialIntro: React.FC<EditorialIntroProps> = ({ onComplete }) =>
         </div>
 
         {/* Animated Headline Reveal */}
-        <div className="space-y-1">
+        <div className="space-y-1.5">
           <div className="text-xs uppercase tracking-widest font-body text-[#38272D]/60 font-semibold">
             The Portfolio of
           </div>
@@ -94,15 +95,48 @@ export const EditorialIntro: React.FC<EditorialIntroProps> = ({ onComplete }) =>
 
         {/* Handwritten signature quote flourish */}
         <div
-          className={`pt-2 transition-all duration-700 ${
+          className={`pt-1 transition-all duration-700 ${
             phase >= 2 ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <p className="font-hand text-xl text-[#72213A]/85 italic">
+          <p className="font-hand text-xl sm:text-2xl text-[#72213A]/90 italic">
             "bringing ideas to life through words, strategy &amp; storytelling ♡"
           </p>
         </div>
+
+        {/* Action Button: Enter Portfolio */}
+        <div
+          className={`pt-2 transition-all duration-700 ${
+            phase >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+          }`}
+        >
+          <button
+            onClick={handleSkip}
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#72213A] text-white text-xs font-semibold font-body hover:bg-[#54172A] shadow-md hover:shadow-lg transition-all"
+          >
+            <span>Enter Portfolio</span>
+            <ArrowRight className="w-3.5 h-3.5 text-[#E5B86B]" />
+          </button>
+        </div>
+
+        {/* Delicate Bottom Reading Progress Bar */}
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#FAF4EC]">
+          <div
+            className="h-full bg-gradient-to-r from-[#72213A] via-[#D995A9] to-[#E5B86B]"
+            style={{
+              animation: 'editorialProgress 6.5s linear forwards',
+            }}
+          />
+        </div>
       </div>
+
+      {/* Inline keyframe for progress bar */}
+      <style>{`
+        @keyframes editorialProgress {
+          from { width: 0%; }
+          to { width: 100%; }
+        }
+      `}</style>
     </div>
   );
 };

@@ -206,6 +206,34 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           />
         )}
 
+        {/* ── Newsletter Analytics / Performance Dashboard (p6) ── */}
+        {project.id === 'p6' && (
+          <div className="mb-6 space-y-3">
+            <div className="flex items-center gap-2 text-xs font-semibold text-[#72213A]">
+              <span className="w-2 h-2 rounded-full bg-[#E5B86B]" />
+              <span className="uppercase tracking-wider">Campaign Performance Dashboard</span>
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-[#72213A]/10 shadow-sm bg-white">
+              <img
+                src="/newsletter-performance.png"
+                alt="Momentum RedPay Newsletter & The Redtech Brief Performance Dashboard"
+                className="w-full object-cover object-top block"
+              />
+              <div
+                className="px-4 py-2.5 flex items-center justify-between"
+                style={{ background: '#FAF4EC' }}
+              >
+                <p className="text-[10px] font-body text-[#38272D]/50">
+                  Performance Reporting · Momentum RedPay Newsletter &amp; The Redtech Brief
+                </p>
+                <span className="text-[10px] font-semibold text-[#72213A] font-body">
+                  Verified Analytics
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Strategic Details */}
         {project.fullContent?.details && (
           <div className="mb-6">
@@ -220,7 +248,19 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
         {/* Action Row */}
         <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-[#72213A]/10 font-body text-sm">
-          <div>
+          <div className="flex flex-wrap items-center gap-4">
+            {project.fullContent?.mediumLink && (
+              <a
+                href={project.fullContent.mediumLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-[#72213A] hover:underline inline-flex items-center gap-1.5"
+              >
+                <span>Read Essay on Medium</span>
+                <ArrowUpRight className="w-4 h-4 text-[#E5B86B]" />
+              </a>
+            )}
+
             {project.fullContent?.substackLink && (
               <a
                 href={project.fullContent.substackLink}
