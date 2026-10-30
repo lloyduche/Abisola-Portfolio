@@ -264,6 +264,19 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {/* Action Row */}
         <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-[#72213A]/10 font-body text-sm">
           <div className="flex flex-wrap items-center gap-4">
+            {project.fullContent?.links?.map((lnk, lIdx) => (
+              <a
+                key={lIdx}
+                href={lnk.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-[#72213A] hover:underline inline-flex items-center gap-1.5"
+              >
+                <span>Read: {lnk.label}</span>
+                <ArrowUpRight className="w-4 h-4 text-[#E5B86B]" />
+              </a>
+            ))}
+
             {project.fullContent?.blogLink && (
               <a
                 href={project.fullContent.blogLink}

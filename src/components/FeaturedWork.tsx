@@ -315,6 +315,19 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                   </button>
 
                   <div className="flex flex-wrap items-center gap-3">
+                    {project.fullContent?.links?.map((lnk, lIdx) => (
+                      <a
+                        key={lIdx}
+                        href={lnk.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#72213A] hover:underline"
+                      >
+                        <span>{lnk.label}</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 text-[#E5B86B]" />
+                      </a>
+                    ))}
+
                     {project.fullContent?.blogLink && (
                       <a
                         href={project.fullContent.blogLink}

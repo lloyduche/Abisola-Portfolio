@@ -214,7 +214,16 @@ Created an employee storytelling feature built around interviews with four pairs
 • Behind the Code: Kofoworola at the Core of the System:
 An employee feature exploring the expertise and contribution behind technology development, offering readers a closer look at the people and thinking behind the systems being built.
       `,
-      blogLink: "https://redtechlimited.com/building-the-technology-that-keeps-african-businesses-moving/"
+      links: [
+        {
+          label: "Workplace Friendships",
+          url: "https://redtechlimited.com/we-asked-four-redtech-colleagues-how-their-friendships-began-heres-what-they-told-us/"
+        },
+        {
+          label: "Behind the Code",
+          url: "https://redtechlimited.com/behind-the-code-kofoworola-at-the-core-of-the-system/"
+        }
+      ]
     }
   },
   {

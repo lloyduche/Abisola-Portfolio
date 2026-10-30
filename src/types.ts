@@ -16,6 +16,7 @@ export interface Project {
     substackLink?: string;
     mediumLink?: string;
     blogLink?: string;
+    links?: { label: string; url: string }[];
   };
 }
 
