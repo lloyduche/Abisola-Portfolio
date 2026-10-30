@@ -54,9 +54,11 @@ export const CaseStudies: React.FC = () => {
 
           {/* Discipline & Header */}
           <div className="pb-6 mb-8 border-b border-[#72213A]/10">
-            <div className="text-xs font-semibold text-[#72213A] uppercase tracking-wider mb-2">
-              Discipline: {activeCase.discipline}
-            </div>
+            {activeCase.discipline && (
+              <div className="text-xs font-semibold text-[#72213A] uppercase tracking-wider mb-2">
+                Discipline: {activeCase.discipline}
+              </div>
+            )}
             <h3 className="font-headline font-semibold text-2xl sm:text-4xl text-[#72213A] leading-tight">
               {activeCase.title}
             </h3>
@@ -68,30 +70,36 @@ export const CaseStudies: React.FC = () => {
             {/* Left 8 Cols: Project, Approach, Execution & Role */}
             <div className="lg:col-span-8 space-y-8 font-body text-[#38272D]/90 leading-relaxed">
 
-              {/* The Project */}
+              {/* The Project / Proposed Focus */}
               <div>
                 <h4 className="font-headline font-semibold text-xl text-[#72213A] mb-2">
-                  The Project
+                  {activeCase.id === 'cs5' ? 'Proposed Focus' : 'The Project'}
                 </h4>
-                <p className="text-base text-[#38272D]/90 font-normal">
+                <p className="text-base text-[#38272D]/90 font-normal whitespace-pre-line">
                   {activeCase.project}
                 </p>
               </div>
 
               {/* The Approach */}
-              <div>
-                <h4 className="font-headline font-semibold text-xl text-[#72213A] mb-2">
-                  The Approach
-                </h4>
-                <p className="text-base text-[#38272D]/90 font-normal">
-                  {activeCase.approach}
-                </p>
-              </div>
+              {activeCase.approach && (
+                <div>
+                  <h4 className="font-headline font-semibold text-xl text-[#72213A] mb-2">
+                    The Approach
+                  </h4>
+                  <p className="text-base text-[#38272D]/90 font-normal whitespace-pre-line">
+                    {activeCase.approach}
+                  </p>
+                </div>
+              )}
 
-              {/* Execution */}
+              {/* Execution / Evidence / Selected Works */}
               <div>
                 <h4 className="font-headline font-semibold text-xl text-[#72213A] mb-3">
-                  Execution Highlights
+                  {activeCase.id === 'cs4'
+                    ? 'Selected Works'
+                    : activeCase.id === 'cs5'
+                    ? 'Evidence to Include'
+                    : 'Execution Highlights'}
                 </h4>
                 <ul className="space-y-2.5">
                   {activeCase.execution.map((step, idx) => (
@@ -104,33 +112,43 @@ export const CaseStudies: React.FC = () => {
               </div>
 
               {/* Author's Role */}
-              <div className="pt-4 border-t border-[#72213A]/10 text-sm">
-                <strong className="text-[#72213A] block mb-1">My Role:</strong>
-                <span className="text-[#38272D]/85">{activeCase.role}</span>
-              </div>
+              {activeCase.role && (
+                <div className="pt-4 border-t border-[#72213A]/10 text-sm">
+                  <strong className="text-[#72213A] block mb-1">My Role:</strong>
+                  <span className="text-[#38272D]/85">{activeCase.role}</span>
+                </div>
+              )}
             </div>
 
             {/* Right 4 Cols: Verified Results & Links */}
             <div className="lg:col-span-4 space-y-6">
 
               {/* Verified Results Box */}
-              <div className="p-6 rounded-2xl bg-[#FAF4EC] border border-[#72213A]/15 space-y-4">
-                <div className="flex items-center gap-2 text-xs font-semibold text-[#72213A] uppercase tracking-wider pb-2 border-b border-[#72213A]/10">
-                  <TrendingUp className="w-4 h-4 text-[#E5B86B]" />
-                  <span>Verified Results</span>
-                </div>
-
-                {activeCase.results.map((r, idx) => (
-                  <div key={idx} className="border-b border-[#72213A]/10 last:border-0 pb-3 last:pb-0">
-                    <div className="font-headline font-bold text-3xl sm:text-4xl text-[#72213A]">
-                      {r.stat}
-                    </div>
-                    <div className="font-body text-xs sm:text-sm font-medium text-[#38272D] mt-0.5">
-                      {r.label}
-                    </div>
+              {activeCase.results && activeCase.results.length > 0 && (
+                <div className="p-6 rounded-2xl bg-[#FAF4EC] border border-[#72213A]/15 space-y-4">
+                  <div className="flex items-center gap-2 text-xs font-semibold text-[#72213A] uppercase tracking-wider pb-2 border-b border-[#72213A]/10">
+                    <TrendingUp className="w-4 h-4 text-[#E5B86B]" />
+                    <span>
+                      {activeCase.id === 'cs4'
+                        ? 'Audience & Reach'
+                        : activeCase.id === 'cs5'
+                        ? 'Campaign Scope'
+                        : 'Verified Results'}
+                    </span>
                   </div>
-                ))}
-              </div>
+
+                  {activeCase.results.map((r, idx) => (
+                    <div key={idx} className="border-b border-[#72213A]/10 last:border-0 pb-3 last:pb-0">
+                      <div className="font-headline font-bold text-3xl sm:text-4xl text-[#72213A]">
+                        {r.stat}
+                      </div>
+                      <div className="font-body text-xs sm:text-sm font-medium text-[#38272D] mt-0.5">
+                        {r.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
 
               {/* Quote if available */}
               {activeCase.quote && (

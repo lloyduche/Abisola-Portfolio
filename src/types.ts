@@ -23,12 +23,12 @@ export interface Project {
 export interface CaseStudy {
   id: string;
   title: string;
-  discipline: string;
+  discipline?: string;
   project: string;
-  approach: string;
+  approach?: string;
   execution: string[];
-  role: string;
-  results: {
+  role?: string;
+  results?: {
     stat: string;
     label: string;
   }[];

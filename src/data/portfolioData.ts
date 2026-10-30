@@ -282,7 +282,6 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     id: "cs1",
     title: "E-Invoicing: From Compliance Messaging to Qualified Leads",
-    discipline: "B2B Marketing Communications · Product Messaging · Email Copywriting · Lead Generation",
     project: "The introduction of Nigeria’s e-invoicing requirements created a rare opportunity to educate business owners about fiscal compliance while positioning the platform as an intuitive, indispensable operational solution. The campaign centered on communicating immediate business relevance, demystifying legal repercussions of non-compliance, and directing prospects toward an educational webinar.",
     approach: "I developed messaging around the business implications of e-invoicing, using compliance as an entry point to make the product relevant to prospective customers. The communication approach connected educational content with a clear next step, directing interested businesses towards the webinar and creating an opportunity for further engagement with the product.",
     execution: [
@@ -302,7 +301,6 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     id: "cs2",
     title: "Lead Generation & Dormant Pipeline Reactivation",
-    discipline: "Direct Marketing · Email Campaigns · Lead Nurturing · Campaign Reporting",
     project: "Redtech's lead-generation activities involved reaching prospective customers across website and email channels, reviewing existing leads and identifying opportunities to move prospects towards product adoption. The work covered products including RedPay POS, E-Invoicing and the Payment Gateway.",
     approach: "I worked with targeted prospect lists and product-specific messaging to support outreach and lead nurturing. The approach combined email communication with outbound calling and the review of existing leads to support pipeline reactivation. Campaign communication focused on making product value clear and giving prospects a relevant reason to engage.",
     execution: [
@@ -324,7 +322,6 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     id: "cs3",
     title: "Property Marketing: Turning a Luxury Listing into Buyer Interest",
-    discipline: "Property Copywriting · Email Marketing · Campaign Communications · Creative Coordination",
     project: "The project involved marketing a luxury three-bedroom apartment in Old Ikoyi, listed at ₦1.3 billion. The property offered premium features, including ensuite bedrooms, a boys' quarters, a study, a swimming pool, a gym and smart-home amenities. The challenge was to present the property in a way that communicated its value to prospective buyers and encouraged them to make enquiries.",
     approach: "I approached the listing as a storytelling and positioning exercise, focusing on how the property's features could be communicated as part of a premium living experience. Rather than relying on a straightforward list of amenities, the messaging highlighted the property's comfort, privacy and modern conveniences, helping prospective buyers understand the appeal of the listing.",
     execution: [
@@ -338,54 +335,53 @@ export const CASE_STUDIES: CaseStudy[] = [
       { stat: "₦1.3B", label: "Luxury property listing valuation" },
       { stat: "+40%", label: "Increase in property enquiry DMs over 3 months" },
       { stat: "<48h", label: "Direct buyer inquiries following publication" }
-    ],
-    link: {
-      label: "View Live Property Post on Instagram ↗",
-      url: "https://www.instagram.com/p/DL18Ka-s6xj"
-    }
+    ]
   },
   {
     id: "cs4",
     title: "Abisola Writes: Building an Independent Writing Publication",
-    discipline: "Editorial Writing · Creative Writing · Storytelling · Audience Development",
-    project: "Abisola Writes is my independent writing publication on Substack, exploring love, womanhood, identity, adulthood and the complexities of everyday life through personal essays, literary prose and fiction. The publication gives me space to develop my voice as a writer, experiment with storytelling and share work that invites readers to recognise parts of their own experiences in mine.",
-    approach: "I use personal observation, emotional honesty and narrative-driven writing to explore familiar experiences from distinctive perspectives. My work spans reflective essays, explorations of relationships and womanhood, and fiction rooted in character, place and lived experience.",
+    project: `Abisola Writes is my independent writing publication, a space for stories, observations and ideas that deserve to be explored beyond the everyday conversation.
+
+Through personal essays, literary prose, fiction and social commentary, I write about love, womanhood, identity, relationships, adulthood, Nigerian society and the complexities of being human.
+
+The publication allows me to explore different forms of writing, experiment with narrative and develop a distinct voice that moves between the deeply personal, the humorous, the reflective and the socially conscious.`,
+    approach: `My writing is rooted in observation, curiosity and an interest in the things people feel, experience and sometimes struggle to articulate.
+
+I draw from everyday encounters, personal experiences, cultural conversations and imagined characters to create pieces that invite readers to think, feel, laugh, question and recognise something of themselves.
+
+My approach changes with the story: some pieces are intimate and reflective, others are playful and conversational, while some take a more critical look at society and the world around us.`,
     execution: [
-      "A Word Greater Than Luck",
-      "The Geography of Loving You",
-      "A Lexicon of You",
-      "Love As I’ve Come to Know It",
-      "The Things We Never Said: Part One — Mokola"
+      "Personal Essays & Reflections: The Rituals That Keep Me Alive · An A for Effort Won't Buy Shawarma.",
+      "Literary Writing & Fiction: The Other Woman · To My Beloved",
+      "Social Commentary & Cultural Observations: The Weight of Our Sovereignty · I Went for a Walk and Came Back with Premium Gist"
     ],
-    role: "Independently develop ideas, write, edit and publish my work. Shape editorial direction through topic selection and narrative themes.",
+    role: "I independently develop ideas, write, edit and publish my work. I also shape the publication's editorial direction through topic selection, narrative approach and the themes explored across individual pieces.",
     results: [
-      { stat: "1,469", label: "Total dedicated subscribers" },
-      { stat: "28,100", label: "Total views over the past year" },
+      { stat: "1,469", label: "Total subscribers" },
+      { stat: "28,100", label: "Views over the past year" },
       { stat: "100%", label: "Organic word-of-mouth readership growth" }
     ],
     link: {
-      label: "Read Abisola Writes on Substack ↗",
+      label: "Read the Publication: abisolawrites.substack.com ↗",
       url: "https://abisolawrites.substack.com"
     }
   },
   {
     id: "cs5",
     title: "Product Marketing: Turning Product Features into Business Value",
-    discipline: "Product Marketing · Email Copywriting · Feature-to-Benefit Messaging",
-    project: "Showcase the marketing emails and collateral developed for products including POS, Payment Gateway, Virtual Accounts, E-Invoicing and Value-Added Services. The project examined how product features were translated into clear business benefits and how messaging was adapted to different products and audiences.",
-    approach: "Every product capability was framed through user-centric value: eliminating operational headaches, mitigating financial penalties, reducing failed payment reconciliation times, and empowering business expansion.",
+    project: `Showcase the marketing emails developed for products including POS, Payment Gateway, Virtual Accounts, E-Invoicing and Value-Added Services.
+
+The case study would examine how product features were translated into clear business benefits and how messaging was adapted to different products and audiences.`,
     execution: [
-      "RedPay Smart POS: Repositioned as an all-in-one terminal with card, transfer, QR support, and merchant loan access.",
-      "Automated Virtual Accounts: Streamlining collections and ending manual payment alert delays.",
-      "Payment Gateway: Borderless online checkout across cards, bank transfers, and digital wallets.",
-      "E-Invoicing: Automated tax compliance, invoice tracking, and automated reminders."
+      "Final product marketing emails.",
+      "Product descriptions and messaging.",
+      "Calls to action.",
+      "Relevant campaign performance metrics, where available."
     ],
-    role: "Product messaging architecture, conversion email copywriting, and feature-to-benefit translation.",
     results: [
-      { stat: "4", label: "Flagship fintech products repositioned" },
-      { stat: "Value-First", label: "Clear messaging framework deployed" }
-    ],
-    quote: "Accept payments. Unlock opportunities. Grow with confidence."
+      { stat: "5", label: "Fintech products & VAS solutions covered" },
+      { stat: "Value-First", label: "Feature-to-benefit messaging & conversion CTAs" }
+    ]
   }
 ];
 
