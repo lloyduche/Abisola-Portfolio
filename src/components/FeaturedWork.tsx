@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import { PROJECTS } from '../data/portfolioData';
 import { Project } from '../types';
-import { ArrowUpRight, BookOpen } from 'lucide-react';
+import { ArrowUpRight, BookOpen, Mail } from 'lucide-react';
+
+// Email snapshot images for the E-Invoicing project (id: "p1")
+const EINVOICING_SNAPSHOTS = [
+  { src: '/einvoicing-email-1.png', alt: 'E-Invoicing Email — Hero section: NRS-Compliant E-Invoicing, Simplified' },
+  { src: '/einvoicing-email-2.png', alt: 'E-Invoicing Email — Product breakdown: For Businesses Without an ERP' },
+  { src: '/einvoicing-email-3.png', alt: 'E-Invoicing Email — Footer: Move to RedPay, compliance badges' },
+];
 
 interface FeaturedWorkProps {
   onSelectProject: (project: Project) => void;
@@ -131,6 +138,62 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                         <strong className="text-[#38272D]/70">Preheader:</strong> {project.fullContent.preheader}
                       </div>
                     )}
+                  </div>
+                )}
+
+                {/* ── Email Newsletter Mockup (E-Invoicing only) ── */}
+                {project.id === 'p1' && (
+                  <div className="mt-2 space-y-3">
+                    {/* Mockup label */}
+                    <div className="flex items-center gap-2 text-xs font-semibold text-[#72213A]">
+                      <Mail className="w-3.5 h-3.5 text-[#E5B86B]" />
+                      <span className="uppercase tracking-wider">Email Campaign Mockup</span>
+                    </div>
+
+                    {/* Scrollable horizontal reel of snapshots */}
+                    <div className="relative rounded-2xl overflow-hidden border border-[#72213A]/10 shadow-sm bg-white">
+                      {/* Email client chrome bar */}
+                      <div className="flex items-center gap-2 px-4 py-2.5 border-b border-[#72213A]/08"
+                        style={{ background: '#FAF4EC' }}>
+                        <span className="w-2 h-2 rounded-full bg-[#72213A]/20" />
+                        <span className="w-2 h-2 rounded-full bg-[#D995A9]/35" />
+                        <span className="w-2 h-2 rounded-full bg-[#E5B86B]/45" />
+                        <div className="flex-1 ml-2 px-3 py-1 rounded-full text-[10px] font-body text-[#38272D]/45 bg-white border border-[#72213A]/08 truncate">
+                          <span className="font-semibold text-[#72213A]">Subject: </span>
+                          ₦200,000. The Cost of Ignoring Nigeria E-Invoicing Mandate
+                        </div>
+                      </div>
+
+                      {/* Horizontal scroll reel */}
+                      <div className="flex gap-0 overflow-x-auto scrollbar-none snap-x snap-mandatory"
+                        style={{ maxHeight: '320px' }}>
+                        {EINVOICING_SNAPSHOTS.map((snap, i) => (
+                          <div
+                            key={i}
+                            className="shrink-0 w-full snap-center relative group/img"
+                          >
+                            <img
+                              src={snap.src}
+                              alt={snap.alt}
+                              className="w-full object-cover object-top"
+                              style={{ maxHeight: '320px', display: 'block' }}
+                            />
+                            {/* Bottom fade */}
+                            <div className="absolute bottom-0 inset-x-0 h-10 pointer-events-none"
+                              style={{ background: 'linear-gradient(to bottom, transparent, rgba(250,244,236,0.9))' }} />
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Scroll indicator dots */}
+                      <div className="flex items-center justify-center gap-1.5 py-2.5"
+                        style={{ background: '#FAF4EC' }}>
+                        {EINVOICING_SNAPSHOTS.map((_, i) => (
+                          <span key={i} className={`rounded-full transition-all ${i === 0 ? 'w-4 h-1.5 bg-[#72213A]' : 'w-1.5 h-1.5 bg-[#72213A]/25'}`} />
+                        ))}
+                        <span className="ml-2 text-[10px] font-body text-[#38272D]/45">scroll to see more ›</span>
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>

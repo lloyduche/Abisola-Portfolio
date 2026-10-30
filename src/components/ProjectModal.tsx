@@ -1,6 +1,12 @@
 import React from 'react';
 import { Project } from '../types';
-import { X, ArrowUpRight, BookOpen } from 'lucide-react';
+import { X, ArrowUpRight, BookOpen, Mail } from 'lucide-react';
+
+const EINVOICING_SNAPSHOTS = [
+  { src: '/einvoicing-email-1.png', alt: 'E-Invoicing Email — Hero: NRS-Compliant E-Invoicing Simplified' },
+  { src: '/einvoicing-email-2.png', alt: 'E-Invoicing Email — For Businesses Without an ERP' },
+  { src: '/einvoicing-email-3.png', alt: 'E-Invoicing Email — Move to RedPay, compliance footer' },
+];
 
 interface ProjectModalProps {
   project: Project | null;
@@ -76,6 +82,54 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               {project.fullContent.excerpt.map((para, i) => (
                 <p key={i}>{para}</p>
               ))}
+            </div>
+          </div>
+        )}
+
+        {/* ── Email Snapshots (E-Invoicing project only) ── */}
+        {project.id === 'p1' && (
+          <div className="mb-6">
+            <div className="flex items-center gap-2 text-xs font-semibold text-[#72213A] mb-3">
+              <Mail className="w-3.5 h-3.5 text-[#E5B86B]" />
+              <span className="uppercase tracking-wider">Email Newsletter — Original Design Snapshots</span>
+            </div>
+
+            <div className="rounded-2xl overflow-hidden border border-[#72213A]/10 shadow-sm">
+              {/* Email chrome */}
+              <div className="flex items-center gap-2 px-4 py-2.5 border-b border-[#72213A]/08"
+                style={{ background: '#FAF4EC' }}>
+                <span className="w-2 h-2 rounded-full bg-[#72213A]/20" />
+                <span className="w-2 h-2 rounded-full bg-[#D995A9]/35" />
+                <span className="w-2 h-2 rounded-full bg-[#E5B86B]/45" />
+                <div className="flex-1 ml-2 px-3 py-1 rounded-full text-[10px] font-body text-[#38272D]/45 bg-white border border-[#72213A]/08 truncate">
+                  <span className="font-semibold text-[#72213A]">Subject: </span>
+                  ₦200,000. The Cost of Ignoring Nigeria E-Invoicing Mandate
+                </div>
+              </div>
+
+              {/* Stacked snapshots — full scrollable column */}
+              <div className="overflow-y-auto" style={{ maxHeight: '460px' }}>
+                {EINVOICING_SNAPSHOTS.map((snap, i) => (
+                  <div key={i} className={i < EINVOICING_SNAPSHOTS.length - 1 ? 'border-b border-[#72213A]/08' : ''}>
+                    <img
+                      src={snap.src}
+                      alt={snap.alt}
+                      className="w-full object-cover object-top block"
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {/* Caption bar */}
+              <div className="px-4 py-2.5 flex items-center justify-between"
+                style={{ background: '#FAF4EC' }}>
+                <p className="text-[10px] font-body text-[#38272D]/50">
+                  RedPay E-Invoicing Campaign · redtech | RedPay · 2025
+                </p>
+                <span className="text-[10px] font-semibold text-[#72213A] font-body">
+                  3 sections shown ↑
+                </span>
+              </div>
             </div>
           </div>
         )}
