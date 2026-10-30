@@ -25,10 +25,16 @@ const VIRTUALACCOUNT_SNAPSHOTS = [
   { src: '/virtualaccount-email-5.png', alt: 'Virtual Accounts Email — Regulatory & Compliance Footer' },
 ];
 
-const WEBINAR_SNAPSHOTS = [
+const WEBINAR_WOMEN_SNAPSHOTS = [
   { src: '/webinar-email-1.png', alt: 'RedSpace Webinar Email — Hero Banner: When Women Move: A Digital Commerce Masterclass' },
   { src: '/webinar-email-2.png', alt: 'RedSpace Webinar Email — Event Details, E-Commerce Market Growth & Register to Attend CTA' },
   { src: '/webinar-email-3.png', alt: 'RedSpace Webinar Email — Follow Us & Contact Us Footer' },
+];
+
+const WEBINAR_EINVOICING_SNAPSHOTS = [
+  { src: '/webinar-einvoicing-1.png', alt: 'RedSpace Webinar Email — Header: E-Invoicing in Nigeria: Tax, Regulatory & Compliance Demystified (NRS Partnership)' },
+  { src: '/webinar-einvoicing-2.png', alt: 'RedSpace Webinar Email — 6 Core Agendas & Register Now CTA' },
+  { src: '/webinar-einvoicing-3.png', alt: 'RedSpace Webinar Email — Follow Us & Contact Us Footer' },
 ];
 
 interface ProjectModalProps {
@@ -199,12 +205,20 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
         {/* ── Webinar Email Snapshots (p4) ── */}
         {project.id === 'p4' && (
-          <ModalSnapshotsBlock
-            snapshots={WEBINAR_SNAPSHOTS}
-            subject="When Women Move: Scaling Through Digital Commerce — RedSpace Webinar"
-            caption="RedSpace International Women's Month Masterclass · Redtech Limited · 2026"
-            label="Webinar Invitation Email — Original Design Snapshots"
-          />
+          <div className="space-y-6">
+            <ModalSnapshotsBlock
+              snapshots={WEBINAR_WOMEN_SNAPSHOTS}
+              subject="When Women Move: Scaling Through Digital Commerce — RedSpace Webinar"
+              caption="RedSpace International Women's Month Masterclass · Redtech Limited · 2026"
+              label="01. Women's Month Webinar — Original Design Snapshots"
+            />
+            <ModalSnapshotsBlock
+              snapshots={WEBINAR_EINVOICING_SNAPSHOTS}
+              subject="E-Invoicing in Nigeria: Tax, Regulatory & Compliance Demystified"
+              caption="RedSpace Webinar organised in partnership with Nigeria Revenue Service (NRS) · 2026"
+              label="02. E-Invoicing in Nigeria Webinar — Original Design Snapshots"
+            />
+          </div>
         )}
 
         {/* ── Newsletter Analytics / Performance Dashboard (p6) ── */}
