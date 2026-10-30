@@ -257,7 +257,7 @@ Contributed to a corporate newsletter communicating company developments, produc
     badge: "07 · Thought Leadership · Article Writing & Research",
     title: "Thought Leadership",
     shortDesc: "A long-form business article examining how digital payments and technology infrastructure support businesses across Africa, from small merchants to larger enterprises.",
-    hook: "Work: Article Writing | Research | Editorial Writing | Creative Writing",
+    hook: "Work: Article Writing | Research | Editorial Writing",
     tagCategory: "Thought Leadership",
     tagColor: "accent",
     fullContent: {
@@ -272,9 +272,6 @@ Contributed to a corporate newsletter communicating company developments, produc
 • Additional Business Articles:
 - The Trust Layer: Why Governance Matters in Fintech
 - The Future of Fashion Retail in Nigeria: E-Commerce and Digital Payments
-
-• Personal Essays & Creative Writing:
-My personal writing explores love, identity, womanhood, adulthood and the experiences that shape how we understand ourselves and other people.
       `,
       blogLink: "https://redtechlimited.com/building-the-technology-that-keeps-african-businesses-moving/"
     }

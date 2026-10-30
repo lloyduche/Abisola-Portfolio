@@ -255,7 +255,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {project.fullContent?.details && (
           <div className="mb-6">
             <span className="text-xs font-semibold uppercase tracking-wider text-[#38272D]/60 block mb-2">
-              {project.id === 'p7' ? 'Additional Writing & Creative Work' : 'Context & Results'}
+              {project.id === 'p7' ? 'Additional Business Articles' : 'Context & Results'}
             </span>
             <div className="p-4 rounded-xl bg-[#FAF4EC] font-body text-sm leading-relaxed text-[#38272D]/85 whitespace-pre-line border border-[#72213A]/10">
               {project.fullContent.details}

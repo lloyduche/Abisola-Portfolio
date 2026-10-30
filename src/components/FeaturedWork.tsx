@@ -321,25 +321,14 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                         </p>
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs font-body">
-                        <div className="p-3.5 rounded-xl bg-white border border-[#72213A]/10">
-                          <span className="font-semibold text-[#72213A] block mb-1 uppercase tracking-wide text-[11px]">
-                            Additional Business Articles
-                          </span>
-                          <ul className="space-y-1 text-[#38272D]/80 list-disc list-inside text-[11px]">
-                            <li>The Trust Layer: Why Governance Matters in Fintech</li>
-                            <li>The Future of Fashion Retail in Nigeria: E-Commerce and Digital Payments</li>
-                          </ul>
-                        </div>
-
-                        <div className="p-3.5 rounded-xl bg-white border border-[#72213A]/10">
-                          <span className="font-semibold text-[#72213A] block mb-1 uppercase tracking-wide text-[11px]">
-                            Personal Essays &amp; Creative Writing
-                          </span>
-                          <p className="text-[#38272D]/80 leading-relaxed text-[11px]">
-                            My personal writing explores love, identity, womanhood, adulthood and the experiences that shape how we understand ourselves and other people.
-                          </p>
-                        </div>
+                      <div className="p-4 rounded-xl bg-white border border-[#72213A]/10 text-xs font-body">
+                        <span className="font-semibold text-[#72213A] block mb-1.5 uppercase tracking-wide text-xs">
+                          Additional Business Articles
+                        </span>
+                        <ul className="space-y-1 text-[#38272D]/85 list-disc list-inside">
+                          <li>The Trust Layer: Why Governance Matters in Fintech</li>
+                          <li>The Future of Fashion Retail in Nigeria: E-Commerce and Digital Payments</li>
+                        </ul>
                       </div>
                     </div>
                   )}
