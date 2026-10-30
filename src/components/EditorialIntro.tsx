@@ -64,47 +64,32 @@ export const EditorialIntro: React.FC<EditorialIntroProps> = ({ onComplete }) =>
         <div className="flex items-center justify-center gap-1.5 text-[#D995A9]">
           <Sparkles className="w-4 h-4 text-[#E5B86B] animate-spin" style={{ animationDuration: '6s' }} />
           <span className="font-hand text-base font-bold text-[#72213A]">
-            words with intention &bull; stories with soul
+            ✦ A LITTLE DETOUR INTO MY WORLD ✦
           </span>
           <Heart className="w-3.5 h-3.5 fill-[#D995A9] text-[#D995A9]" />
         </div>
 
         {/* Animated Headline Reveal */}
-        <div className="space-y-1.5">
-          <div className="text-xs uppercase tracking-widest font-body text-[#38272D]/60 font-semibold">
-            The Portfolio of
-          </div>
+        <div className="space-y-3">
           <h1
             className={`font-headline font-semibold text-3xl sm:text-4xl text-[#72213A] tracking-tight transition-all duration-700 ${
               phase >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
             }`}
           >
-            Abisola Oluwatoyin
+            I have a way with words.
           </h1>
-        </div>
-
-        {/* Subtitle Pill Badge */}
-        <div
-          className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FAF4EC] border border-[#D995A9]/50 text-xs font-body font-semibold text-[#72213A] transition-all duration-700 ${
-            phase >= 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-          }`}
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#E5B86B]" />
-          <span>Writer &bull; Marketing Comms &bull; Brand Storyteller</span>
-        </div>
-
-        {/* Handwritten signature quote flourish */}
-        <div
-          className={`pt-1 transition-all duration-700 ${
-            phase >= 2 ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <p className="font-hand text-xl sm:text-2xl text-[#72213A]/90 italic">
-            "bringing ideas to life through words, strategy &amp; storytelling ♡"
+          <p
+            className={`font-body text-base text-[#38272D]/80 leading-relaxed transition-all duration-700 ${
+              phase >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+            }`}
+          >
+            And a few things to show for it.
           </p>
         </div>
 
-        {/* Action Button: Enter Portfolio */}
+        {/* Subtitle Pill Badge — hidden, new copy is cleaner without it */}
+
+        {/* Action Button: Have a look */}
         <div
           className={`pt-2 transition-all duration-700 ${
             phase >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
@@ -114,7 +99,7 @@ export const EditorialIntro: React.FC<EditorialIntroProps> = ({ onComplete }) =>
             onClick={handleSkip}
             className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#72213A] text-white text-xs font-semibold font-body hover:bg-[#54172A] shadow-md hover:shadow-lg transition-all"
           >
-            <span>Enter Portfolio</span>
+            <span>Have a look →</span>
             <ArrowRight className="w-3.5 h-3.5 text-[#E5B86B]" />
           </button>
         </div>

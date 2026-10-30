@@ -138,14 +138,11 @@ export const Hero: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <div className="flex items-center gap-1.5">
-                      <div className="font-headline font-semibold text-base sm:text-lg text-[#72213A]">
-                        Abisola Oluwatoyin
-                      </div>
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#E5B86B]" />
+                    <div className="font-headline font-semibold text-base sm:text-lg text-[#72213A]">
+                      Writer &amp; Communications Specialist
                     </div>
-                    <div className="font-body text-xs text-[#38272D]/75 leading-snug">
-                      Writer | Marketing, Communications &amp; Storytelling
+                    <div className="font-body text-xs text-[#38272D]/75 leading-snug mt-0.5">
+                      Marketing · Storytelling · Editorial
                     </div>
                     <div className="font-hand text-xs text-[#D995A9] font-bold mt-0.5">
                       Lagos, Nigeria &bull; Available Worldwide ✨
@@ -165,9 +162,8 @@ export const Hero: React.FC = () => {
                     className="absolute inset-x-0 bottom-0 h-16"
                     style={{ background: 'linear-gradient(to top, rgba(72,33,63,0.45), transparent)' }}
                   />
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-                    <span className="font-hand text-white text-sm font-bold drop-shadow">Abisola Oluwatoyin ♡</span>
-                    <span className="font-body text-white/80 text-[11px]">Lagos, Nigeria</span>
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-center">
+                    <span className="font-hand text-white text-sm font-bold drop-shadow">Writer · Communications · Storytelling ♡</span>
                   </div>
                 </div>
 
