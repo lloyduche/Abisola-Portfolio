@@ -50,23 +50,23 @@ interface EmailMockupCardProps {
 }
 
 const EmailMockupCard: React.FC<EmailMockupCardProps> = ({ snapshots, subject, label }) => (
-  <div className="mt-2 space-y-3">
+  <div className="mt-2 space-y-2.5 sm:space-y-3 w-full">
     {/* Label */}
     <div className="flex items-center gap-2 text-xs font-semibold text-[#4A0E1C]">
       <Mail className="w-3.5 h-3.5 text-[#E5B86B]" />
-      <span className="uppercase tracking-wider">{label}</span>
+      <span className="uppercase tracking-wider text-[11px] sm:text-xs">{label}</span>
     </div>
 
     {/* Card with chrome */}
-    <div className="relative rounded-2xl overflow-hidden border border-[#4A0E1C]/10 shadow-sm bg-white">
+    <div className="relative rounded-2xl overflow-hidden border border-[#4A0E1C]/10 shadow-sm bg-white w-full">
       {/* Email client chrome */}
       <div
-        className="flex items-center gap-2 px-4 py-2.5 border-b border-[#4A0E1C]/08 bg-[#FAF4EC]"
+        className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 border-b border-[#4A0E1C]/08 bg-[#FAF4EC]"
       >
-        <span className="w-2 h-2 rounded-full bg-[#4A0E1C]/20 block" />
-        <span className="w-2 h-2 rounded-full bg-[#D995A9]/35 block" />
-        <span className="w-2 h-2 rounded-full bg-[#E5B86B]/45 block" />
-        <div className="flex-1 ml-2 px-3 py-1 rounded-full text-[10px] font-body text-[#38272D]/45 bg-white border border-[#4A0E1C]/08 truncate">
+        <span className="w-2 h-2 rounded-full bg-[#4A0E1C]/20 block shrink-0" />
+        <span className="w-2 h-2 rounded-full bg-[#D995A9]/35 block shrink-0" />
+        <span className="w-2 h-2 rounded-full bg-[#E5B86B]/45 block shrink-0" />
+        <div className="flex-1 min-w-0 ml-1.5 sm:ml-2 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-body text-[#38272D]/60 bg-white border border-[#4A0E1C]/08 truncate">
           <span className="font-semibold text-[#4A0E1C]">Subject: </span>
           {subject}
         </div>
@@ -74,20 +74,21 @@ const EmailMockupCard: React.FC<EmailMockupCardProps> = ({ snapshots, subject, l
 
       {/* Horizontal scroll reel — snap per slide */}
       <div
-        className="flex overflow-x-auto scrollbar-none snap-x snap-mandatory"
-        style={{ maxHeight: '320px' }}
+        className="flex overflow-x-auto scrollbar-none snap-x snap-mandatory touch-pan-x overscroll-x-contain w-full"
+        style={{ maxHeight: '280px' }}
       >
         {snapshots.map((snap, i) => (
-          <div key={i} className="shrink-0 w-full snap-center relative">
+          <div key={i} className="shrink-0 w-full snap-center relative flex-none">
             <img
               src={snap.src}
               alt={snap.alt}
               className="w-full object-cover object-top block"
-              style={{ maxHeight: '320px' }}
+              style={{ maxHeight: '280px' }}
+              loading="lazy"
             />
             {/* Bottom fade */}
             <div
-              className="absolute bottom-0 inset-x-0 h-10 pointer-events-none"
+              className="absolute bottom-0 inset-x-0 h-8 sm:h-10 pointer-events-none"
               style={{ background: 'linear-gradient(to bottom, transparent, rgba(250,244,236,0.9))' }}
             />
           </div>
@@ -96,16 +97,18 @@ const EmailMockupCard: React.FC<EmailMockupCardProps> = ({ snapshots, subject, l
 
       {/* Dot indicators + hint */}
       <div
-        className="flex items-center justify-center gap-1.5 py-2.5 bg-[#FAF4EC]"
+        className="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-2.5 bg-[#FAF4EC] text-[10px] font-body text-[#38272D]/55"
       >
-        {snapshots.map((_, i) => (
-          <span
-            key={i}
-            className={`rounded-full transition-all block ${i === 0 ? 'w-4 h-1.5 bg-[#4A0E1C]' : 'w-1.5 h-1.5 bg-[#4A0E1C]/25'}`}
-          />
-        ))}
-        <span className="ml-2 text-[10px] font-body text-[#38272D]/45">
-          {snapshots.length} screens · scroll to view ›
+        <div className="flex items-center gap-1">
+          {snapshots.map((_, i) => (
+            <span
+              key={i}
+              className={`rounded-full transition-all block ${i === 0 ? 'w-3.5 h-1.5 bg-[#4A0E1C]' : 'w-1.5 h-1.5 bg-[#4A0E1C]/25'}`}
+            />
+          ))}
+        </div>
+        <span>
+          {snapshots.length} screens · swipe to view ›
         </span>
       </div>
     </div>
@@ -145,20 +148,20 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
       });
 
   return (
-    <section id="featured-work" className="py-20 sm:py-28">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10">
+    <section id="featured-work" className="py-16 sm:py-24 lg:py-28">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10">
 
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-14">
           <div className="max-w-2xl">
             <div className="text-xs font-semibold uppercase tracking-wider text-[#4A0E1C] mb-2 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#E5B86B]" />
               <span>Featured Work</span>
             </div>
-            <h2 className="font-headline font-semibold text-3xl sm:text-5xl text-[#4A0E1C] tracking-tight">
+            <h2 className="font-headline font-semibold text-2xl sm:text-4xl lg:text-5xl text-[#4A0E1C] tracking-tight">
               Selected Marketing, Communications &amp; Writing Projects
             </h2>
-            <p className="font-body text-base sm:text-lg text-[#38272D]/80 mt-3 leading-relaxed">
+            <p className="font-body text-sm sm:text-base lg:text-lg text-[#38272D]/80 mt-2 sm:mt-3 leading-relaxed">
               A selection of product emails, website messaging, event work, internal storytelling, newsletters and editorial writing developed for different audiences and business needs.
             </p>
           </div>
@@ -167,25 +170,25 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
           </div>
         </div>
 
-        {/* Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-12 scrollbar-none">
+        {/* Filter Pills with Horizontal Scroll on Mobile */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 sm:mb-12 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap transition-all ${
+              className={`px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium whitespace-nowrap transition-all ${
                 activeCategory === cat
                   ? 'bg-[#4A0E1C] text-white shadow-sm'
                   : 'bg-white text-[#38272D]/75 hover:bg-[#FAF4EC] hover:text-[#4A0E1C] border border-[#4A0E1C]/10'
               }`}
             >
-              {cat === 'ALL' ? `All Projects [${PROJECTS.length}]` : cat}
+              {cat === 'ALL' ? `All [${PROJECTS.length}]` : cat}
             </button>
           ))}
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {filteredProjects.map((project, idx) => {
             const isFullWidth =
               (project.id === 'p1' || project.id === 'p2' || project.id === 'p4') &&
@@ -194,7 +197,7 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
             return (
               <div
                 key={project.id}
-                className={`p-8 sm:p-10 rounded-3xl bg-white border border-[#4A0E1C]/10 shadow-sm editorial-card flex flex-col justify-between ${
+                className={`p-4 sm:p-7 md:p-8 lg:p-10 rounded-3xl bg-white border border-[#4A0E1C]/10 shadow-sm editorial-card flex flex-col justify-between w-full overflow-hidden ${
                   isFullWidth ? 'md:col-span-2 bg-gradient-to-br from-white to-[#FAF4EC]' : ''
                 }`}
               >
@@ -333,24 +336,24 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                 </div>
 
                 {/* Action Buttons */}
-                <div className="pt-6 mt-6 border-t border-[#4A0E1C]/10 flex flex-wrap items-center justify-between gap-4">
+                <div className="pt-5 mt-5 border-t border-[#4A0E1C]/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
                   <button
                     onClick={() => onSelectProject(project)}
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#4A0E1C] hover:text-[#340611] hover:underline"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-[#4A0E1C]/10 hover:bg-[#4A0E1C] text-[#4A0E1C] hover:text-white transition-all text-xs sm:text-sm font-semibold cursor-pointer active:scale-95"
                   >
                     <BookOpen className="w-4 h-4 text-[#E5B86B]" />
                     <span>{project.id === 'p7' ? 'Read Full Excerpt & Details' : 'Read Copy & Details'}</span>
                     <ArrowUpRight className="w-4 h-4" />
                   </button>
 
-                  <div className="flex flex-wrap items-center gap-3">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                     {project.fullContent?.links?.map((lnk, lIdx) => (
                       <a
                         key={lIdx}
                         href={lnk.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#4A0E1C] hover:underline"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#4A0E1C] hover:underline px-3 py-1.5 rounded-full bg-[#FAF4EC] border border-[#4A0E1C]/10 sm:border-0 sm:bg-transparent sm:p-0"
                       >
                         <span>{lnk.label}</span>
                         <ArrowUpRight className="w-3.5 h-3.5 text-[#E5B86B]" />
@@ -362,7 +365,7 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                         href={project.fullContent.blogLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#4A0E1C] hover:underline"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#4A0E1C] hover:underline px-3 py-1.5 rounded-full bg-[#FAF4EC] border border-[#4A0E1C]/10 sm:border-0 sm:bg-transparent sm:p-0"
                       >
                         <span>Read Article</span>
                         <ArrowUpRight className="w-3.5 h-3.5 text-[#E5B86B]" />

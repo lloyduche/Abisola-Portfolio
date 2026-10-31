@@ -106,64 +106,64 @@ export const Hero: React.FC = () => {
           </div>
 
           {/* Right Column: Visual Composition Featuring Selected Work Samples + Portrait */}
-          <div className="lg:col-span-5 flex flex-col items-center lg:items-end">
+          <div className="lg:col-span-5 flex flex-col items-center lg:items-end w-full mt-6 lg:mt-0">
 
             {/* Layered Visual Composition Box */}
-            <div className="relative w-full max-w-md">
+            <div className="relative w-full max-w-sm sm:max-w-md mx-auto">
 
               {/* Floating Badge 1 (Top Left): Heart & Readership */}
-              <div className="absolute -top-4 -left-3 sm:-left-4 px-3.5 py-1.5 rounded-full bg-[#4A0E1C] text-white text-xs font-medium shadow-lg animate-float-badge flex items-center gap-1.5 z-30 border border-[#E5B86B]/30">
-                <Heart className="w-3.5 h-3.5 fill-[#D995A9] text-[#D995A9]" />
-                <span className="font-headline text-xs font-semibold">1,469+ Readers</span>
+              <div className="absolute -top-3.5 left-2 sm:-left-3 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-[#4A0E1C] text-white text-[11px] sm:text-xs font-medium shadow-lg animate-float-badge flex items-center gap-1.5 z-30 border border-[#E5B86B]/30">
+                <Heart className="w-3 sm:w-3.5 h-3 sm:h-3.5 fill-[#D995A9] text-[#D995A9]" />
+                <span className="font-headline font-semibold">1,469+ Readers</span>
                 <span className="text-[#E5B86B] text-[10px]">♡</span>
               </div>
 
               {/* Floating Badge 2 (Top Right): Sparkles & Verified Conversion */}
-              <div className="absolute -top-3 -right-2 sm:-right-4 px-3.5 py-1.5 rounded-full bg-white text-[#4A0E1C] text-xs font-semibold shadow-lg animate-float-badge-alt flex items-center gap-1.5 z-30 border border-[#D995A9]">
-                <Sparkles className="w-3.5 h-3.5 text-[#E5B86B]" />
+              <div className="absolute -top-3 right-2 sm:-right-3 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-white text-[#4A0E1C] text-[11px] sm:text-xs font-semibold shadow-lg animate-float-badge-alt flex items-center gap-1.5 z-30 border border-[#D995A9]">
+                <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-[#E5B86B]" />
                 <span>12% Conversion</span>
                 <span className="text-xs font-hand text-[#4A0E1C] font-bold">✨</span>
               </div>
 
               {/* Main Visual Composition Container */}
-              <div className="p-4 sm:p-5 rounded-3xl bg-white border border-[#4A0E1C]/15 shadow-xl space-y-4">
+              <div className="p-3.5 sm:p-5 rounded-3xl bg-white border border-[#4A0E1C]/15 shadow-xl space-y-3 sm:space-y-4 w-full">
 
                 {/* Top Section: Author Portrait + Micro Bio */}
-                <div className="flex items-center gap-4 p-3 rounded-2xl bg-[#FAF4EC] border border-[#4A0E1C]/10">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden bg-[#F0E7DB] shrink-0 border border-[#4A0E1C]/10 shadow-sm">
+                <div className="flex items-center gap-3 sm:gap-4 p-2.5 sm:p-3 rounded-2xl bg-[#FAF4EC] border border-[#4A0E1C]/10">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl overflow-hidden bg-[#F0E7DB] shrink-0 border border-[#4A0E1C]/10 shadow-sm">
                     <img
                       src="/abisola.svg"
                       alt="Abisola Oluwatoyin"
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div>
-                    <div className="font-headline font-semibold text-base sm:text-lg text-[#4A0E1C]">
+                  <div className="min-w-0 flex-1">
+                    <div className="font-headline font-semibold text-sm sm:text-base text-[#4A0E1C] truncate">
                       Writer &amp; Communications Specialist
                     </div>
-                    <div className="font-body text-xs text-[#38272D]/75 leading-snug mt-0.5">
+                    <div className="font-body text-[11px] sm:text-xs text-[#38272D]/75 leading-snug mt-0.5 truncate">
                       Marketing · Storytelling · Editorial
                     </div>
-                    <div className="font-hand text-xs text-[#D995A9] font-bold mt-0.5">
+                    <div className="font-hand text-xs text-[#D995A9] font-bold mt-0.5 truncate">
                       Lagos, Nigeria &bull; Available Worldwide ✨
                     </div>
                   </div>
                 </div>
 
                 {/* Full-Width Portrait Photo replacing Curated Work Previews */}
-                <div className="relative rounded-2xl overflow-hidden shadow-md border border-[#4A0E1C]/10" style={{ aspectRatio: '3/4' }}>
+                <div className="relative rounded-2xl overflow-hidden shadow-md border border-[#4A0E1C]/10 w-full aspect-[4/5] sm:aspect-[3/4] max-h-[380px] sm:max-h-[460px]">
                   <img
                     src="/abisola-hero.jpg"
                     alt="Abisola Oluwatoyin — Writer & Communications Specialist"
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-top block"
                   />
                   {/* Subtle gradient overlay at bottom for polish */}
                   <div
-                    className="absolute inset-x-0 bottom-0 h-16"
-                    style={{ background: 'linear-gradient(to top, rgba(72,33,63,0.45), transparent)' }}
+                    className="absolute inset-x-0 bottom-0 h-16 pointer-events-none"
+                    style={{ background: 'linear-gradient(to top, rgba(72,33,63,0.5), transparent)' }}
                   />
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-center">
-                    <span className="font-hand text-white text-sm font-bold drop-shadow">Writer · Communications · Storytelling ♡</span>
+                  <div className="absolute bottom-3 left-2 right-2 text-center pointer-events-none">
+                    <span className="font-hand text-white text-xs sm:text-sm font-bold drop-shadow">Writer · Communications · Storytelling ♡</span>
                   </div>
                 </div>
 
