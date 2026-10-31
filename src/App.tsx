@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { ThemeProvider } from './context/ThemeContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -36,9 +35,8 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <ThemeProvider>
-      <div className="min-h-screen bg-[#FAF4EC] text-[#38272D] font-body selection:bg-[#4A0E1C] selection:text-white relative transition-colors duration-300">
-        {/* Delicate Girly & Professional Page Load Animation */}
+    <div className="min-h-screen bg-[#FAF4EC] text-[#38272D] font-body selection:bg-[#4A0E1C] selection:text-white relative">
+      {/* Delicate Girly & Professional Page Load Animation */}
         {showIntro && (
           <EditorialIntro onComplete={() => setShowIntro(false)} />
         )}
@@ -81,7 +79,6 @@ export const App: React.FC = () => {
           cvTitle={activeCvTitle}
         />
       </div>
-    </ThemeProvider>
   );
 };
 

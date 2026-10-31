@@ -59,7 +59,7 @@ export const SkillsTools: React.FC = () => {
       category: 'Publishing & Newsletters',
       icon: (
         <svg viewBox="0 0 24 24" className="w-9 h-9 sm:w-10 sm:h-10">
-          <rect width="24" height="24" rx="5" className="fill-[#FAF4EC] dark:fill-[#12090E]"/>
+          <rect width="24" height="24" rx="5" className="fill-[#FAF4EC]"/>
           <path fill="#FF6719" d="M19.5 7.2H4.5V5h15v2.2zM4.5 9.2V20l7.5-4.2 7.5 4.2V9.2H4.5zM19.5 2.8H4.5V5h15V2.8z"/>
         </svg>
       )
@@ -69,8 +69,8 @@ export const SkillsTools: React.FC = () => {
       category: 'Workspace & Docs',
       icon: (
         <svg viewBox="0 0 24 24" className="w-9 h-9 sm:w-10 sm:h-10">
-          <rect width="24" height="24" rx="5" className="fill-[#FAF4EC] dark:fill-[#12090E]"/>
-          <path className="fill-black dark:fill-white" d="M4.5 4.2c.7.6 1 .5 2.4.4l13.2-.8c.3 0 0-.3-.1-.4l-1.6-1c-.6-.5-1.3-.7-2.1-.6L3.9 2.8c-.6 0-.6.3-.4.5l1 .9zm-.6 3.5v13.1c0 .8.5 1.2 1.3 1.1l14.5-.8c.8 0 1.1-.6 1.1-1.3V6.6c0-.6-.3-1-.8-.9L4.7 6.5c-.6 0-.8.4-.8 1.2zm13.7.9c.1.4 0 .8-.4.9l-.7.1v8.9c-.4.2-.8.4-1.3.4-.6 0-1-.3-1.5-.9l-4.8-7.5v7.1l1.4.3c.1.4-.2.7-.6.7l-3.4.2c-.1-.4 0-.8.4-.9l.9-.2V9.5l-1.3-.1c-.1-.4.1-.8.5-.8l3.6-.2 5 7.6V9l-1.2-.2c-.1-.4.2-.7.6-.7l3.1-.2z"/>
+          <rect width="24" height="24" rx="5" className="fill-[#FAF4EC]"/>
+          <path className="fill-black" d="M4.5 4.2c.7.6 1 .5 2.4.4l13.2-.8c.3 0 0-.3-.1-.4l-1.6-1c-.6-.5-1.3-.7-2.1-.6L3.9 2.8c-.6 0-.6.3-.4.5l1 .9zm-.6 3.5v13.1c0 .8.5 1.2 1.3 1.1l14.5-.8c.8 0 1.1-.6 1.1-1.3V6.6c0-.6-.3-1-.8-.9L4.7 6.5c-.6 0-.8.4-.8 1.2zm13.7.9c.1.4 0 .8-.4.9l-.7.1v8.9c-.4.2-.8.4-1.3.4-.6 0-1-.3-1.5-.9l-4.8-7.5v7.1l1.4.3c.1.4-.2.7-.6.7l-3.4.2c-.1-.4 0-.8.4-.9l.9-.2V9.5l-1.3-.1c-.1-.4.1-.8.5-.8l3.6-.2 5 7.6V9l-1.2-.2c-.1-.4.2-.7.6-.7l3.1-.2z"/>
         </svg>
       )
     },
@@ -101,7 +101,7 @@ export const SkillsTools: React.FC = () => {
       category: 'Project Management',
       icon: (
         <svg viewBox="0 0 24 24" className="w-9 h-9 sm:w-10 sm:h-10">
-          <rect width="24" height="24" rx="5" className="fill-[#FAF4EC] dark:fill-[#12090E]"/>
+          <rect width="24" height="24" rx="5" className="fill-[#FAF4EC]"/>
           <circle cx="12" cy="7.2" r="3.6" fill="#F06A6A"/>
           <circle cx="6.8" cy="16.2" r="3.6" fill="#F06A6A"/>
           <circle cx="17.2" cy="16.2" r="3.6" fill="#F06A6A"/>
@@ -185,10 +185,10 @@ export const SkillsTools: React.FC = () => {
       category: 'Editorial & Articles',
       icon: (
         <svg viewBox="0 0 24 24" className="w-9 h-9 sm:w-10 sm:h-10">
-          <rect width="24" height="24" rx="5" className="fill-[#FAF4EC] dark:fill-[#12090E]"/>
-          <circle cx="6.5" cy="12" r="4.8" className="fill-black dark:fill-white"/>
-          <ellipse cx="14.5" cy="12" rx="2.6" ry="4.8" className="fill-black dark:fill-white"/>
-          <ellipse cx="19.8" cy="12" rx="1" ry="4.5" className="fill-black dark:fill-white"/>
+          <rect width="24" height="24" rx="5" className="fill-[#FAF4EC]"/>
+          <circle cx="6.5" cy="12" r="4.8" className="fill-black"/>
+          <ellipse cx="14.5" cy="12" rx="2.6" ry="4.8" className="fill-black"/>
+          <ellipse cx="19.8" cy="12" rx="1" ry="4.5" className="fill-black"/>
         </svg>
       )
     },

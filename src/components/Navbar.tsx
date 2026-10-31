@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { Menu, X, ArrowUpRight, Sun, Moon } from 'lucide-react';
-import { useTheme } from '../context/ThemeContext';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
 
   const navLinks = [
     { label: 'Home', href: '#home' },
@@ -43,22 +41,8 @@ export const Navbar: React.FC = () => {
           ))}
         </nav>
 
-        {/* Theme Toggle & Contact CTA */}
+        {/* Contact CTA */}
         <div className="flex items-center gap-3">
-          {/* Dark Mode Toggle Button */}
-          <button
-            onClick={toggleTheme}
-            aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-            title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-            className="w-10 h-10 rounded-full flex items-center justify-center border border-[#4A0E1C]/15 hover:border-[#4A0E1C]/40 bg-white/80 hover:bg-white text-[#4A0E1C] shadow-xs hover:scale-105 active:scale-95 transition-all"
-          >
-            {theme === 'light' ? (
-              <Moon className="w-4 h-4 text-[#4A0E1C]" />
-            ) : (
-              <Sun className="w-4 h-4 text-[#E5B86B]" />
-            )}
-          </button>
-
           <a
             href="#contact"
             className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#4A0E1C] text-white text-sm font-medium hover:bg-[#340611] shadow-sm hover:shadow transition-all"
@@ -91,27 +75,11 @@ export const Navbar: React.FC = () => {
               {link.label}
             </a>
           ))}
-          <div className="pt-2 flex items-center gap-3">
-            <button
-              onClick={toggleTheme}
-              className="flex-1 py-3 px-4 rounded-full border border-[#4A0E1C]/20 bg-white text-xs font-semibold text-[#4A0E1C] flex items-center justify-center gap-2"
-            >
-              {theme === 'light' ? (
-                <>
-                  <Moon className="w-4 h-4 text-[#4A0E1C]" />
-                  <span>Switch to Dark Mode</span>
-                </>
-              ) : (
-                <>
-                  <Sun className="w-4 h-4 text-[#E5B86B]" />
-                  <span>Switch to Light Mode</span>
-                </>
-              )}
-            </button>
+          <div className="pt-2">
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex-1 inline-flex items-center justify-center px-5 py-3 rounded-full bg-[#4A0E1C] text-white text-sm font-medium hover:bg-[#340611]"
+              className="w-full inline-flex items-center justify-center px-5 py-3 rounded-full bg-[#4A0E1C] text-white text-sm font-medium hover:bg-[#340611]"
             >
               <span>Let's Talk</span>
               <ArrowUpRight className="w-4 h-4 ml-1.5 text-[#E5B86B]" />
