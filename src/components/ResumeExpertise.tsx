@@ -58,37 +58,7 @@ export const ResumeExpertise: React.FC<ResumeExpertiseProps> = ({ onOpenResume }
         </div>
 
         {/* Experience Timeline Cards */}
-        <div className="space-y-6 mb-16">
-          {RESUME_DATA.experiences.map((exp, idx) => (
-            <div
-              key={idx}
-              className="p-8 sm:p-10 rounded-3xl bg-white border border-[#4A0E1C]/10 shadow-sm space-y-4"
-            >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-[#4A0E1C]/10">
-                <div>
-                  <h3 className="font-headline font-semibold text-2xl text-[#4A0E1C]">
-                    {exp.role}
-                  </h3>
-                  <div className="font-body font-semibold text-base text-[#38272D]">
-                    {exp.company}
-                  </div>
-                </div>
-                <span className="px-4 py-1.5 rounded-full bg-[#FAF4EC] border border-[#4A0E1C]/15 text-xs font-medium text-[#4A0E1C] self-start sm:self-auto">
-                  {exp.period}
-                </span>
-              </div>
-
-              <ul className="space-y-2.5 font-body text-base text-[#38272D]/90 pt-2">
-                {exp.points.map((pt, pIdx) => (
-                  <li key={pIdx} className="flex items-start gap-3">
-                    <span className="w-2 h-2 rounded-full bg-[#E5B86B] mt-2 shrink-0" />
-                    <span>{pt}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+        {/* Removed — career history hidden per design decision */}
 
         {/* Areas of Expertise */}
         <div className="p-8 sm:p-10 rounded-3xl bg-white border border-[#4A0E1C]/10 shadow-sm space-y-4 mb-12">

@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
-import { Mail, Copy, Check, Send, ArrowUpRight } from 'lucide-react';
+import { Mail, Copy, Check, Send, ArrowUpRight, Loader2 } from 'lucide-react';
 
 export const Contact: React.FC = () => {
   const [copied, setCopied] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formError, setFormError] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     projectType: 'Social Media content & copy',
     message: '',
   });
+
+  // ── Formspree endpoint (replace YOUR_FORM_ID with your actual ID from formspree.io) ──
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText('abisolaaoluwatoyin@gmail.com').then(() => {
@@ -18,9 +23,33 @@ export const Contact: React.FC = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
+    setIsSubmitting(true);
+    setFormError(false);
+
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          inquiry: formData.projectType,
+          message: formData.message,
+        }),
+      });
+
+      if (res.ok) {
+        setFormSubmitted(true);
+      } else {
+        setFormError(true);
+      }
+    } catch {
+      setFormError(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -177,11 +206,27 @@ export const Contact: React.FC = () => {
 
               <button
                 type="submit"
-                className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#4A0E1C] hover:bg-[#340611] text-white text-sm font-semibold inline-flex items-center justify-center gap-2 shadow-md transition-all"
+                disabled={isSubmitting}
+                className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#4A0E1C] hover:bg-[#340611] disabled:opacity-60 text-white text-sm font-semibold inline-flex items-center justify-center gap-2 shadow-md transition-all"
               >
-                <Send className="w-4 h-4 text-[#E5B86B]" />
-                <span>Send Message</span>
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 text-[#E5B86B] animate-spin" />
+                    <span>Sending…</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4 text-[#E5B86B]" />
+                    <span>Send Message</span>
+                  </>
+                )}
               </button>
+
+              {formError && (
+                <p className="text-sm font-body text-red-600 mt-2">
+                  Something went wrong. Please try again or email directly at abisolaaoluwatoyin@gmail.com.
+                </p>
+              )}
             </form>
           ) : (
             <div className="py-12 text-center space-y-4">
@@ -194,7 +239,7 @@ export const Contact: React.FC = () => {
               <button
                 onClick={() => {
                   setFormSubmitted(false);
-                  setFormData({ name: '', email: '', projectType: 'Marketing & Corporate Communications', message: '' });
+                  setFormData({ name: '', email: '', projectType: 'Social Media content & copy', message: '' });
                 }}
                 className="font-body text-xs font-semibold text-[#4A0E1C] underline pt-2"
               >
