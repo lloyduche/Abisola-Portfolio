@@ -14,7 +14,7 @@ export const Contact: React.FC = () => {
   });
 
   // ── Formspree endpoint (replace YOUR_FORM_ID with your actual ID from formspree.io) ──
-  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xljjokyr';
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText('abisolaaoluwatoyin@gmail.com').then(() => {
