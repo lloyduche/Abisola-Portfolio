@@ -3,23 +3,38 @@
 @tailwind utilities;
 
 /* ============================================================
-   WARM EDITORIAL // ABISOLA OLUWATOYIN
+   EDITORIAL LUXURY DESIGN SYSTEM // ABISOLA OLUWATOYIN
    Writer | Marketing, Communications & Brand Storytelling
    Fraunces (Headlines) + DM Sans (Body) + Caveat (Handwritten accents)
-   Deep Wine Burgundy (#4A0E1C), Warm Cream (#FAF4EC), Dusty Rose (#D995A9)
+   
+   COLOR RATIO (60-30-10):
+   • 60% Custard Silk      (#FAF3E3 / #FFFDF9 / #F5ECE0) — Dominant canvas, surface & cards
+   • 30% Bordeaux Lacquer  (#4A0E1C / #2A050F / #3E131C) — Structure, typography, borders & depth
+   • 10% Electric Sapphire (#0D5BEB / #0848C4 / #1E6BFF) — Primary buttons, logo & interactive accents
    ============================================================ */
 
 :root {
-  --burgundy:     #4A0E1C;
-  --cream:        #FAF4EC;
-  --cream-dark:   #F0E7DB;
-  --cream-card:   #FFFFFF;
-  --rose:         #D995A9;
-  --rose-light:   #F5DFE6;
-  --gold:         #E5B86B;
-  --plum:         #38272D;
-  --plum-muted:   #614B52;
-  --border-color: rgba(74, 14, 28, 0.12);
+  --custard-silk:      #FAF3E3;
+  --custard-card:      #FFFDF9;
+  --custard-surface:   #F5ECE0;
+  --bordeaux-lacquer:  #4A0E1C;
+  --bordeaux-ink:      #2A050F;
+  --bordeaux-body:     #3E131C;
+  --bordeaux-muted:    #6E3844;
+  --bordeaux-border:   rgba(74, 14, 28, 0.14);
+  --electric-sapphire: #0D5BEB;
+  --sapphire-glow:     rgba(13, 91, 235, 0.38);
+
+  --bg-dark:           #FAF3E3;
+  --bg-deep:           #F5ECE0;
+  --surface-dark:      #FFFDF9;
+  --card-dark:         rgba(255, 253, 249, 0.92);
+  --border-cyan:       rgba(74, 14, 28, 0.14);
+  --neon-cyan:         #0D5BEB;
+  --neon-sky:          #3882FF;
+  --neon-blue:         #0848C4;
+  --text-main:         #2A050F;
+  --text-muted:        #6E3844;
 }
 
 *, *::before, *::after {
@@ -31,17 +46,146 @@ html {
   scroll-padding-top: 80px;
   overflow-x: hidden;
   max-width: 100vw;
+  background-color: #FAF3E3;
+  color: #2A050F;
 }
 
 body {
   margin: 0;
-  background-color: var(--cream);
-  color: var(--plum);
+  background-color: #FAF3E3;
+  color: #3E131C;
   font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   max-width: 100vw;
+}
+
+/* ── Custard Silk & Bordeaux Lacquer Glassmorphism Utilities ── */
+.cyber-glass,
+.silk-glass {
+  background: rgba(255, 253, 249, 0.88);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(74, 14, 28, 0.14);
+  box-shadow:
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 2px 0 rgba(74, 14, 28, 0.04),
+    0 16px 36px -10px rgba(74, 14, 28, 0.07),
+    0 4px 16px -2px rgba(74, 14, 28, 0.04);
+}
+
+.cyber-glass:hover,
+.silk-glass:hover {
+  background: rgba(255, 253, 249, 0.98);
+  border-color: rgba(74, 14, 28, 0.25);
+  box-shadow:
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 1),
+    0 24px 48px -12px rgba(74, 14, 28, 0.12),
+    0 4px 20px -2px rgba(13, 91, 235, 0.12);
+}
+
+.cyber-pill,
+.silk-pill {
+  background: rgba(255, 253, 249, 0.92);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid rgba(74, 14, 28, 0.14);
+  box-shadow: 0 4px 16px -2px rgba(74, 14, 28, 0.05), inset 0 1px 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.cyber-pill:hover,
+.silk-pill:hover {
+  border-color: rgba(13, 91, 235, 0.4);
+  box-shadow: 0 6px 20px -2px rgba(13, 91, 235, 0.18);
+}
+
+.cyber-nav,
+.silk-nav {
+  background: rgba(250, 243, 227, 0.90);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(74, 14, 28, 0.14);
+  box-shadow:
+    0 16px 36px -10px rgba(74, 14, 28, 0.08),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* ── Primary Electric Sapphire Button ── */
+.sapphire-btn {
+  background: linear-gradient(135deg, #0848C4 0%, #0D5BEB 55%, #1E6BFF 100%);
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 18px -2px rgba(13, 91, 235, 0.42);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sapphire-btn:hover {
+  background: linear-gradient(135deg, #063BA3 0%, #0848C4 55%, #0D5BEB 100%);
+  box-shadow: 0 8px 26px 0 rgba(13, 91, 235, 0.55);
+  transform: translateY(-1px);
+}
+
+/* ── Bordeaux Lacquer Accent Cards ── */
+.lacquer-card {
+  background: #380A15;
+  color: #FAF3E3;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.2),
+    0 20px 40px -10px rgba(42, 5, 15, 0.35);
+}
+
+.lacquer-card:hover {
+  box-shadow:
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.3),
+    0 28px 56px -12px rgba(42, 5, 15, 0.45),
+    0 0 24px 0 rgba(13, 91, 235, 0.25);
+}
+
+/* ── Text Accents & Highlighters ── */
+.rose-highlighter,
+.bordeaux-highlighter {
+  background: linear-gradient(120deg, rgba(74, 14, 28, 0.12) 0%, rgba(13, 91, 235, 0.12) 100%);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  color: #2A050F;
+}
+
+.neon-text-cyan,
+.sapphire-text {
+  color: #0D5BEB;
+  text-shadow: 0 0 16px rgba(13, 91, 235, 0.3);
+}
+
+.neon-border-cyan,
+.sapphire-border {
+  border-color: rgba(13, 91, 235, 0.4);
+  box-shadow: 0 0 20px rgba(13, 91, 235, 0.16);
+}
+
+.cyber-gradient-text,
+.bordeaux-gradient-text {
+  background: linear-gradient(135deg, #2A050F 0%, #4A0E1C 55%, #0D5BEB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cyber-accent-gradient,
+.sapphire-gradient-text {
+  background: linear-gradient(135deg, #0848C4 0%, #0D5BEB 50%, #2575FC 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtle background grid pattern on Custard Silk */
+.cyber-grid-pattern {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(74, 14, 28, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(74, 14, 28, 0.04) 1px, transparent 1px);
 }
 
 h1, h2, h3, h4, .font-headline {
@@ -52,54 +196,23 @@ h1, h2, h3, h4, .font-headline {
   font-family: 'Caveat', cursive;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar — Custard Silk & Bordeaux Lacquer */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--cream);
+  background: #FAF3E3;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--rose);
-  border-radius: 3px;
+  background: rgba(74, 14, 28, 0.35);
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--burgundy);
+  background: #0D5BEB;
 }
 
-/* Editorial Underline Inputs */
-.editorial-input {
-  background: #FFFFFF;
-  border: 1px solid rgba(74, 14, 28, 0.16);
-  border-radius: 6px;
-  color: var(--plum);
-  padding: 0.75rem 1rem;
-  width: 100%;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.95rem;
-  outline: none;
-  transition: all 0.25s ease;
-}
-
-.editorial-input:focus {
-  border-color: var(--burgundy);
-  box-shadow: 0 0 0 3px rgba(217, 149, 169, 0.2);
-}
-
-/* Soft Girly & Professional Animations */
-
-/* 1. Dusty Rose Watercolor Highlighter Stroke */
-.rose-highlighter {
-  background: linear-gradient(120deg, rgba(217, 149, 169, 0.25) 0%, rgba(229, 184, 107, 0.25) 100%);
-  padding: 0.1em 0.35em;
-  border-radius: 4px;
-  display: inline;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-}
-
-/* 2. Delicate 4-Point Sparkle Float */
+/* Animations */
 @keyframes sparkleFloat {
   0%, 100% {
     transform: translateY(0) scale(1) rotate(0deg);
@@ -119,7 +232,6 @@ h1, h2, h3, h4, .font-headline {
   animation: sparkleFloat 3.6s ease-in-out infinite 1.4s;
 }
 
-/* 3. Floating Sticker Badge */
 @keyframes badgeFloat {
   0%, 100% {
     transform: translateY(0) rotate(-2deg);
@@ -146,18 +258,16 @@ h1, h2, h3, h4, .font-headline {
   animation: badgeFloatAlt 4.4s ease-in-out infinite 0.8s;
 }
 
-/* 4. Soft Card Lift with Rose/Gold Glow */
 .editorial-card {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .editorial-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 18px 36px rgba(74, 14, 28, 0.08), 0 4px 16px rgba(217, 149, 169, 0.18);
-  border-color: rgba(217, 149, 169, 0.6);
+  box-shadow: 0 18px 36px rgba(74, 14, 28, 0.08), 0 4px 16px rgba(13, 91, 235, 0.12);
+  border-color: rgba(74, 14, 28, 0.3);
 }
 
-/* 5. Fade In Up */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -173,13 +283,55 @@ h1, h2, h3, h4, .font-headline {
   animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Subtle transitions */
+/* Transitions */
 a, button {
   transition: all 0.2s ease-in-out;
 }
 
 .intro-backdrop {
-  background: rgba(250, 244, 236, 0.97);
-  backdrop-filter: blur(12px);
+  background: rgba(250, 243, 227, 0.98);
+  backdrop-filter: blur(16px);
 }
 
+/* Perspective utilities */
+.perspective-\[800px\] {
+  perspective: 800px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+[style*="perspective"] {
+  transform-style: preserve-3d;
+}
+
+.transform-gpu {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
