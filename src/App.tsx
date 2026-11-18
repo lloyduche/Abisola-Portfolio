@@ -14,7 +14,7 @@ import { EditorialIntro } from './components/EditorialIntro';
 import { SmoothScroll } from './components/SmoothScroll';
 import { PaletteSelector } from './components/PaletteSelector';
 import { Project } from './types';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Lazy-load the floating particle background (heavy WebGL canvas)
 const ParticleBackground = lazy(() =>
@@ -29,7 +29,17 @@ export const App: React.FC = () => {
   const [showIntro, setShowIntro] = useState(true);
   const [scrollProgress, setScrollProgress] = useState(0);
 
+  // Prevent scroll jump on page load/refresh
   useEffect(() => {
+    if (typeof window !== 'undefined' && 'scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    if (showIntro) return;
+
     const handleScroll = () => {
       const totalScroll = document.documentElement.scrollTop;
       const windowHeight =
@@ -40,72 +50,83 @@ export const App: React.FC = () => {
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [showIntro]);
+
+  const handleIntroComplete = () => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    setShowIntro(false);
+  };
 
   return (
-    <SmoothScroll>
-      <div className="min-h-screen bg-[var(--bg-canvas)] text-[var(--text-body)] font-body relative overflow-x-hidden transition-colors duration-300">
-
-        {/* Cinematic Intro Screen */}
-        {showIntro && (
-          <EditorialIntro onComplete={() => setShowIntro(false)} />
-        )}
-
-        {/* Global Particle Field Background — WebGL */}
-        {!showIntro && (
-          <Suspense fallback={null}>
-            <ParticleBackground />
-          </Suspense>
-        )}
-
-        {/* Accent Spark Scroll Progress Thread */}
+    <AnimatePresence mode="wait">
+      {showIntro ? (
+        /* Welcome intro screen renders strictly FIRST with zero main page flash */
+        <EditorialIntro key="welcome-intro" onComplete={handleIntroComplete} />
+      ) : (
+        /* Main page mounts and smoothly fades in ONLY after intro completes */
         <motion.div
-          className="fixed top-0 left-0 h-[3px] z-[60] origin-left bg-[var(--accent-spark)]"
-          style={{
-            width: `${scrollProgress}%`,
-            boxShadow: '0 0 14px var(--accent-glow)',
-          }}
-        />
+          key="main-portfolio"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="min-h-screen bg-[var(--bg-canvas)] text-[var(--text-body)] font-body relative overflow-x-hidden transition-colors duration-300"
+        >
+          <SmoothScroll>
+            {/* Global Particle Field Background — WebGL */}
+            <Suspense fallback={null}>
+              <ParticleBackground />
+            </Suspense>
 
-        {/* Navigation Masthead with Dropdown Palette Selector */}
-        <Navbar />
+            {/* Accent Spark Scroll Progress Thread */}
+            <motion.div
+              className="fixed top-0 left-0 h-[3px] z-[60] origin-left bg-[var(--accent-spark)]"
+              style={{
+                width: `${scrollProgress}%`,
+                boxShadow: '0 0 14px var(--accent-glow)',
+              }}
+            />
 
-        {/* Main Sections */}
-        <main className="relative z-10">
-          <Hero />
-          <About />
-          <FeaturedWork onSelectProject={(p) => setSelectedProject(p)} />
-          <CaseStudies />
-          <SkillsTools />
-          <ResumeExpertise
-            onOpenResume={(url, title) => {
-              setActiveCvUrl(url);
-              setActiveCvTitle(title);
-              setResumeOpen(true);
-            }}
-          />
-          <Contact />
-        </main>
+            {/* Navigation Masthead with Dropdown Palette Selector */}
+            <Navbar />
 
-        {/* Footer */}
-        <Footer />
+            {/* Main Sections */}
+            <main className="relative z-10">
+              <Hero />
+              <About />
+              <FeaturedWork onSelectProject={(p) => setSelectedProject(p)} />
+              <CaseStudies />
+              <SkillsTools />
+              <ResumeExpertise
+                onOpenResume={(url, title) => {
+                  setActiveCvUrl(url);
+                  setActiveCvTitle(title);
+                  setResumeOpen(true);
+                }}
+              />
+              <Contact />
+            </main>
 
-        {/* Floating Quick Palette Selector (accessible from any scroll depth) */}
-        <PaletteSelector variant="floating" />
+            {/* Footer */}
+            <Footer />
 
-        {/* Cinematic Modals */}
-        <ProjectModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
-        <ResumeModal
-          isOpen={resumeOpen}
-          onClose={() => setResumeOpen(false)}
-          cvUrl={activeCvUrl}
-          cvTitle={activeCvTitle}
-        />
-      </div>
-    </SmoothScroll>
+            {/* Floating Quick Palette Selector */}
+            <PaletteSelector variant="floating" />
+
+            {/* Modals */}
+            <ProjectModal
+              project={selectedProject}
+              onClose={() => setSelectedProject(null)}
+            />
+            <ResumeModal
+              isOpen={resumeOpen}
+              onClose={() => setResumeOpen(false)}
+              cvUrl={activeCvUrl}
+              cvTitle={activeCvTitle}
+            />
+          </SmoothScroll>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 
