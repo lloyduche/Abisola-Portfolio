@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -11,7 +11,15 @@ import { Footer } from './components/Footer';
 import { ProjectModal } from './components/ProjectModal';
 import { ResumeModal } from './components/ResumeModal';
 import { EditorialIntro } from './components/EditorialIntro';
+import { SmoothScroll } from './components/SmoothScroll';
+import { PaletteSelector } from './components/PaletteSelector';
 import { Project } from './types';
+import { motion } from 'framer-motion';
+
+// Lazy-load the floating particle background (heavy WebGL canvas)
+const ParticleBackground = lazy(() =>
+  import('./components/3d/ParticleBackground').then((m) => ({ default: m.ParticleBackground }))
+);
 
 export const App: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -35,39 +43,57 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#FAF4EC] text-[#38272D] font-body selection:bg-[#4A0E1C] selection:text-white relative">
-      {/* Delicate Girly & Professional Page Load Animation */}
+    <SmoothScroll>
+      <div className="min-h-screen bg-[var(--bg-canvas)] text-[var(--text-body)] font-body relative overflow-x-hidden transition-colors duration-300">
+
+        {/* Cinematic Intro Screen */}
         {showIntro && (
           <EditorialIntro onComplete={() => setShowIntro(false)} />
         )}
 
-        {/* Top Rose & Gold Reading Progress Thread */}
-        <div
-          className="fixed top-0 left-0 h-[2.5px] z-[60] transition-all duration-100"
+        {/* Global Particle Field Background — WebGL */}
+        {!showIntro && (
+          <Suspense fallback={null}>
+            <ParticleBackground />
+          </Suspense>
+        )}
+
+        {/* Accent Spark Scroll Progress Thread */}
+        <motion.div
+          className="fixed top-0 left-0 h-[3px] z-[60] origin-left bg-[var(--accent-spark)]"
           style={{
             width: `${scrollProgress}%`,
-            background: 'linear-gradient(to right, #4A0E1C, #D995A9, #E5B86B)',
+            boxShadow: '0 0 14px var(--accent-glow)',
           }}
         />
 
-        {/* Navigation Masthead */}
+        {/* Navigation Masthead with Dropdown Palette Selector */}
         <Navbar />
 
         {/* Main Sections */}
-        <main>
+        <main className="relative z-10">
           <Hero />
           <About />
           <FeaturedWork onSelectProject={(p) => setSelectedProject(p)} />
           <CaseStudies />
           <SkillsTools />
-          <ResumeExpertise onOpenResume={(url, title) => { setActiveCvUrl(url); setActiveCvTitle(title); setResumeOpen(true); }} />
+          <ResumeExpertise
+            onOpenResume={(url, title) => {
+              setActiveCvUrl(url);
+              setActiveCvTitle(title);
+              setResumeOpen(true);
+            }}
+          />
           <Contact />
         </main>
 
-        {/* Footer Colophon */}
+        {/* Footer */}
         <Footer />
 
-        {/* Detailed Modals */}
+        {/* Floating Quick Palette Selector (accessible from any scroll depth) */}
+        <PaletteSelector variant="floating" />
+
+        {/* Cinematic Modals */}
         <ProjectModal
           project={selectedProject}
           onClose={() => setSelectedProject(null)}
@@ -79,6 +105,7 @@ export const App: React.FC = () => {
           cvTitle={activeCvTitle}
         />
       </div>
+    </SmoothScroll>
   );
 };
 
