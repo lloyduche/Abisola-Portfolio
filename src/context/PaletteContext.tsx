@@ -109,13 +109,13 @@ interface PaletteContextType {
 }
 
 const PaletteContext = createContext<PaletteContextType>({
-  palette: 'custard-silk',
-  paletteOption: PALETTES['custard-silk'],
+  palette: 'cloud-grey',
+  paletteOption: PALETTES['cloud-grey'],
   setPalette: () => {},
   nextPalette: () => {},
 });
 
-const STORAGE_KEY = 'abisola_portfolio_palette_v2';
+const STORAGE_KEY = 'abisola_portfolio_palette_v3';
 
 export const PaletteProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [palette, setPaletteState] = useState<PaletteId>(() => {
@@ -123,7 +123,7 @@ export const PaletteProvider: React.FC<{ children: React.ReactNode }> = ({ child
       const saved = localStorage.getItem(STORAGE_KEY) as PaletteId;
       if (saved && PALETTES[saved]) return saved;
     } catch (_) {}
-    return 'custard-silk'; // Default to first requested palette
+    return 'cloud-grey'; // Default to Cloud Grey (60% Cloud Grey, 30% Jet Black, 10% Electric Violet)
   });
 
   useEffect(() => {
