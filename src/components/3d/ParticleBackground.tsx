@@ -3,18 +3,19 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { WebGLBoundary } from './WebGLFallback';
 import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
+import { usePalette } from '../../context/PaletteContext';
 
 const Particles: React.FC<{ count?: number }> = ({ count = 180 }) => {
   const pointsRef = useRef<THREE.Points>(null);
+  const { paletteOption } = usePalette();
 
   const [positions, colors] = useMemo(() => {
     const pos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
     const colorChoices = [
-      new THREE.Color('#FF5E36'), // Persimmon Spark
-      new THREE.Color('#FFA07A'), // Soft Persimmon Light
-      new THREE.Color('#18303D'), // Petrol Ink
-      new THREE.Color('#C4BA9D'), // Swiss Warm Sand
+      new THREE.Color(paletteOption.colors.c10.hex), // 10% Accent
+      new THREE.Color(paletteOption.colors.c30.hex), // 30% Structure
+      new THREE.Color(paletteOption.colors.c60.hex), // 60% Canvas
     ];
 
     for (let i = 0; i < count; i++) {
@@ -29,7 +30,7 @@ const Particles: React.FC<{ count?: number }> = ({ count = 180 }) => {
     }
 
     return [pos, col];
-  }, [count]);
+  }, [count, paletteOption]);
 
   useFrame((state, delta) => {
     if (pointsRef.current) {
@@ -61,7 +62,7 @@ const Particles: React.FC<{ count?: number }> = ({ count = 180 }) => {
         size={0.065}
         vertexColors
         transparent
-        opacity={0.4}
+        opacity={0.45}
         sizeAttenuation
         blending={THREE.NormalBlending}
       />

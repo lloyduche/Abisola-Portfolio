@@ -12,6 +12,7 @@ import { ProjectModal } from './components/ProjectModal';
 import { ResumeModal } from './components/ResumeModal';
 import { EditorialIntro } from './components/EditorialIntro';
 import { SmoothScroll } from './components/SmoothScroll';
+import { PaletteSelector } from './components/PaletteSelector';
 import { Project } from './types';
 import { motion } from 'framer-motion';
 
@@ -43,7 +44,7 @@ export const App: React.FC = () => {
 
   return (
     <SmoothScroll>
-      <div className="min-h-screen bg-[#F7F5F0] text-[#0F1D24] font-body selection:bg-[#FF5E36] selection:text-white relative overflow-x-hidden">
+      <div className="min-h-screen bg-[var(--bg-canvas)] text-[var(--text-body)] font-body relative overflow-x-hidden transition-colors duration-300">
 
         {/* Cinematic Intro Screen */}
         {showIntro && (
@@ -57,17 +58,16 @@ export const App: React.FC = () => {
           </Suspense>
         )}
 
-        {/* Persimmon Spark Scroll Progress Thread */}
+        {/* Accent Spark Scroll Progress Thread */}
         <motion.div
-          className="fixed top-0 left-0 h-[3px] z-[60] origin-left"
+          className="fixed top-0 left-0 h-[3px] z-[60] origin-left bg-[var(--accent-spark)]"
           style={{
             width: `${scrollProgress}%`,
-            background: 'linear-gradient(to right, #E6441A, #FF5E36, #FFA07A)',
-            boxShadow: '0 0 12px rgba(255, 94, 54, 0.55)',
+            boxShadow: '0 0 14px var(--accent-glow)',
           }}
         />
 
-        {/* Navigation Masthead */}
+        {/* Navigation Masthead with Dropdown Palette Selector */}
         <Navbar />
 
         {/* Main Sections */}
@@ -89,6 +89,9 @@ export const App: React.FC = () => {
 
         {/* Footer */}
         <Footer />
+
+        {/* Floating Quick Palette Selector (accessible from any scroll depth) */}
+        <PaletteSelector variant="floating" />
 
         {/* Cinematic Modals */}
         <ProjectModal
