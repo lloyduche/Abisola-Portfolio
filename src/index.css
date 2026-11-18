@@ -3,38 +3,38 @@
 @tailwind utilities;
 
 /* ============================================================
-   EDITORIAL LUXURY DESIGN SYSTEM // ABISOLA OLUWATOYIN
+   SWISS EDITORIAL LUXURY DESIGN SYSTEM // ABISOLA OLUWATOYIN
    Writer | Marketing, Communications & Brand Storytelling
    Fraunces (Headlines) + DM Sans (Body) + Caveat (Handwritten accents)
    
    COLOR RATIO (60-30-10):
-   • 60% Custard Silk      (#FAF3E3 / #FFFDF9 / #F5ECE0) — Dominant canvas, surface & cards
-   • 30% Bordeaux Lacquer  (#4A0E1C / #2A050F / #3E131C) — Structure, typography, borders & depth
-   • 10% Electric Sapphire (#0D5BEB / #0848C4 / #1E6BFF) — Primary buttons, logo & interactive accents
+   • 60% Swiss Cream      (#F7F5F0 / #FCFBF9 / #EFECE4) — Dominant canvas, surface & cards
+   • 30% Petrol Ink       (#18303D / #0F1D24 / #243A47) — Structure, typography, borders & depth
+   • 10% Persimmon Spark  (#FF5E36 / #E6441A / #FF7247) — Primary buttons, active highlights & sparks
    ============================================================ */
 
 :root {
-  --custard-silk:      #FAF3E3;
-  --custard-card:      #FFFDF9;
-  --custard-surface:   #F5ECE0;
-  --bordeaux-lacquer:  #4A0E1C;
-  --bordeaux-ink:      #2A050F;
-  --bordeaux-body:     #3E131C;
-  --bordeaux-muted:    #6E3844;
-  --bordeaux-border:   rgba(74, 14, 28, 0.14);
-  --electric-sapphire: #0D5BEB;
-  --sapphire-glow:     rgba(13, 91, 235, 0.38);
+  --swiss-cream:       #F7F5F0;
+  --swiss-card:        #FCFBF9;
+  --swiss-surface:     #EFECE4;
+  --petrol-ink:        #0F1D24;
+  --petrol-structure:  #18303D;
+  --petrol-body:       #243A47;
+  --petrol-muted:      #59707E;
+  --petrol-border:     rgba(24, 48, 61, 0.14);
+  --persimmon-spark:   #FF5E36;
+  --persimmon-glow:    rgba(255, 94, 54, 0.38);
 
-  --bg-dark:           #FAF3E3;
-  --bg-deep:           #F5ECE0;
-  --surface-dark:      #FFFDF9;
-  --card-dark:         rgba(255, 253, 249, 0.92);
-  --border-cyan:       rgba(74, 14, 28, 0.14);
-  --neon-cyan:         #0D5BEB;
-  --neon-sky:          #3882FF;
-  --neon-blue:         #0848C4;
-  --text-main:         #2A050F;
-  --text-muted:        #6E3844;
+  --bg-dark:           #F7F5F0;
+  --bg-deep:           #EFECE4;
+  --surface-dark:      #FCFBF9;
+  --card-dark:         rgba(252, 251, 249, 0.92);
+  --border-cyan:       rgba(24, 48, 61, 0.14);
+  --neon-cyan:         #FF5E36;
+  --neon-sky:          #FF7B54;
+  --neon-blue:         #E6441A;
+  --text-main:         #0F1D24;
+  --text-muted:        #59707E;
 }
 
 *, *::before, *::after {
@@ -46,14 +46,14 @@ html {
   scroll-padding-top: 80px;
   overflow-x: hidden;
   max-width: 100vw;
-  background-color: #FAF3E3;
-  color: #2A050F;
+  background-color: #F7F5F0;
+  color: #0F1D24;
 }
 
 body {
   margin: 0;
-  background-color: #FAF3E3;
-  color: #3E131C;
+  background-color: #F7F5F0;
+  color: #243A47;
   font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -61,131 +61,135 @@ body {
   max-width: 100vw;
 }
 
-/* ── Custard Silk & Bordeaux Lacquer Glassmorphism Utilities ── */
+/* ── Swiss Cream & Petrol Ink Glassmorphism Utilities ── */
 .cyber-glass,
 .silk-glass {
-  background: rgba(255, 253, 249, 0.88);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(74, 14, 28, 0.14);
+  background: rgba(252, 251, 249, 0.90);
+  backdrop-filter: blur(24px) saturate(170%);
+  -webkit-backdrop-filter: blur(24px) saturate(170%);
+  border: 1px solid rgba(24, 48, 61, 0.12);
   box-shadow:
     inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -1px 2px 0 rgba(74, 14, 28, 0.04),
-    0 16px 36px -10px rgba(74, 14, 28, 0.07),
-    0 4px 16px -2px rgba(74, 14, 28, 0.04);
+    inset 0 -1px 2px 0 rgba(24, 48, 61, 0.03),
+    0 16px 36px -10px rgba(24, 48, 61, 0.06),
+    0 4px 16px -2px rgba(24, 48, 61, 0.03);
 }
 
 .cyber-glass:hover,
 .silk-glass:hover {
-  background: rgba(255, 253, 249, 0.98);
-  border-color: rgba(74, 14, 28, 0.25);
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(24, 48, 61, 0.22);
   box-shadow:
     inset 0 1.5px 2px 0 rgba(255, 255, 255, 1),
-    0 24px 48px -12px rgba(74, 14, 28, 0.12),
-    0 4px 20px -2px rgba(13, 91, 235, 0.12);
+    0 24px 48px -12px rgba(24, 48, 61, 0.10),
+    0 4px 20px -2px rgba(255, 94, 54, 0.12);
 }
 
 .cyber-pill,
 .silk-pill {
-  background: rgba(255, 253, 249, 0.92);
-  backdrop-filter: blur(18px) saturate(180%);
-  -webkit-backdrop-filter: blur(18px) saturate(180%);
-  border: 1px solid rgba(74, 14, 28, 0.14);
-  box-shadow: 0 4px 16px -2px rgba(74, 14, 28, 0.05), inset 0 1px 1px 0 rgba(255, 255, 255, 0.9);
+  background: rgba(252, 251, 249, 0.92);
+  backdrop-filter: blur(18px) saturate(170%);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  border: 1px solid rgba(24, 48, 61, 0.14);
+  box-shadow: 0 4px 16px -2px rgba(24, 48, 61, 0.04), inset 0 1px 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .cyber-pill:hover,
 .silk-pill:hover {
-  border-color: rgba(13, 91, 235, 0.4);
-  box-shadow: 0 6px 20px -2px rgba(13, 91, 235, 0.18);
+  border-color: rgba(255, 94, 54, 0.4);
+  box-shadow: 0 6px 20px -2px rgba(255, 94, 54, 0.18);
 }
 
 .cyber-nav,
 .silk-nav {
-  background: rgba(250, 243, 227, 0.90);
+  background: rgba(247, 245, 240, 0.92);
   backdrop-filter: blur(28px) saturate(180%);
   -webkit-backdrop-filter: blur(28px) saturate(180%);
-  border: 1px solid rgba(74, 14, 28, 0.14);
+  border: 1px solid rgba(24, 48, 61, 0.14);
   box-shadow:
-    0 16px 36px -10px rgba(74, 14, 28, 0.08),
+    0 16px 36px -10px rgba(24, 48, 61, 0.07),
     inset 0 1px 1px 0 rgba(255, 255, 255, 0.9);
 }
 
-/* ── Primary Electric Sapphire Button ── */
-.sapphire-btn {
-  background: linear-gradient(135deg, #0848C4 0%, #0D5BEB 55%, #1E6BFF 100%);
+/* ── Primary Persimmon Spark Button (10% Accent) ── */
+.sapphire-btn,
+.persimmon-btn {
+  background: linear-gradient(135deg, #E6441A 0%, #FF5E36 55%, #FF7247 100%);
   color: #FFFFFF !important;
-  box-shadow: 0 4px 18px -2px rgba(13, 91, 235, 0.42);
+  box-shadow: 0 4px 18px -2px rgba(255, 94, 54, 0.42);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.sapphire-btn:hover {
-  background: linear-gradient(135deg, #063BA3 0%, #0848C4 55%, #0D5BEB 100%);
-  box-shadow: 0 8px 26px 0 rgba(13, 91, 235, 0.55);
+.sapphire-btn:hover,
+.persimmon-btn:hover {
+  background: linear-gradient(135deg, #CC300D 0%, #E6441A 55%, #FF5E36 100%);
+  box-shadow: 0 8px 26px 0 rgba(255, 94, 54, 0.55);
   transform: translateY(-1px);
 }
 
-/* ── Bordeaux Lacquer Accent Cards ── */
-.lacquer-card {
-  background: #380A15;
-  color: #FAF3E3;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+/* ── Petrol Ink Structural Cards (30% Secondary Depth) ── */
+.lacquer-card,
+.petrol-card {
+  background: #112028;
+  color: #F7F5F0;
+  border: 1px solid rgba(255, 255, 255, 0.10);
   box-shadow:
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.2),
-    0 20px 40px -10px rgba(42, 5, 15, 0.35);
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.18),
+    0 20px 40px -10px rgba(15, 29, 36, 0.35);
 }
 
-.lacquer-card:hover {
+.lacquer-card:hover,
+.petrol-card:hover {
   box-shadow:
-    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.3),
-    0 28px 56px -12px rgba(42, 5, 15, 0.45),
-    0 0 24px 0 rgba(13, 91, 235, 0.25);
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.28),
+    0 28px 56px -12px rgba(15, 29, 36, 0.45),
+    0 0 24px 0 rgba(255, 94, 54, 0.22);
 }
 
 /* ── Text Accents & Highlighters ── */
 .rose-highlighter,
-.bordeaux-highlighter {
-  background: linear-gradient(120deg, rgba(74, 14, 28, 0.12) 0%, rgba(13, 91, 235, 0.12) 100%);
+.persimmon-highlighter {
+  background: linear-gradient(120deg, rgba(24, 48, 61, 0.08) 0%, rgba(255, 94, 54, 0.16) 100%);
   padding: 0.1em 0.35em;
   border-radius: 4px;
   display: inline;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-  color: #2A050F;
+  color: #0F1D24;
 }
 
 .neon-text-cyan,
-.sapphire-text {
-  color: #0D5BEB;
-  text-shadow: 0 0 16px rgba(13, 91, 235, 0.3);
+.persimmon-text {
+  color: #FF5E36;
+  text-shadow: 0 0 16px rgba(255, 94, 54, 0.3);
 }
 
 .neon-border-cyan,
-.sapphire-border {
-  border-color: rgba(13, 91, 235, 0.4);
-  box-shadow: 0 0 20px rgba(13, 91, 235, 0.16);
+.persimmon-border {
+  border-color: rgba(255, 94, 54, 0.4);
+  box-shadow: 0 0 20px rgba(255, 94, 54, 0.16);
 }
 
 .cyber-gradient-text,
-.bordeaux-gradient-text {
-  background: linear-gradient(135deg, #2A050F 0%, #4A0E1C 55%, #0D5BEB 100%);
+.petrol-gradient-text {
+  background: linear-gradient(135deg, #0F1D24 0%, #18303D 55%, #FF5E36 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .cyber-accent-gradient,
-.sapphire-gradient-text {
-  background: linear-gradient(135deg, #0848C4 0%, #0D5BEB 50%, #2575FC 100%);
+.persimmon-gradient-text {
+  background: linear-gradient(135deg, #E6441A 0%, #FF5E36 50%, #FF8A65 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Subtle background grid pattern on Custard Silk */
+/* Background subtle grid on Swiss Cream */
 .cyber-grid-pattern {
   background-size: 40px 40px;
   background-image:
-    linear-gradient(to right, rgba(74, 14, 28, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(74, 14, 28, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(24, 48, 61, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(24, 48, 61, 0.04) 1px, transparent 1px);
 }
 
 h1, h2, h3, h4, .font-headline {
@@ -196,20 +200,20 @@ h1, h2, h3, h4, .font-headline {
   font-family: 'Caveat', cursive;
 }
 
-/* Custom Scrollbar — Custard Silk & Bordeaux Lacquer */
+/* Custom Scrollbar — Swiss Cream & Petrol Ink */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF3E3;
+  background: #F7F5F0;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(74, 14, 28, 0.35);
+  background: rgba(24, 48, 61, 0.30);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #0D5BEB;
+  background: #FF5E36;
 }
 
 /* Animations */
@@ -264,8 +268,8 @@ h1, h2, h3, h4, .font-headline {
 
 .editorial-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 18px 36px rgba(74, 14, 28, 0.08), 0 4px 16px rgba(13, 91, 235, 0.12);
-  border-color: rgba(74, 14, 28, 0.3);
+  box-shadow: 0 18px 36px rgba(24, 48, 61, 0.08), 0 4px 16px rgba(255, 94, 54, 0.12);
+  border-color: rgba(24, 48, 61, 0.3);
 }
 
 @keyframes fadeInUp {
@@ -289,11 +293,10 @@ a, button {
 }
 
 .intro-backdrop {
-  background: rgba(250, 243, 227, 0.98);
+  background: rgba(247, 245, 240, 0.98);
   backdrop-filter: blur(16px);
 }
 
-/* Perspective utilities */
 .perspective-\[800px\] {
   perspective: 800px;
 }

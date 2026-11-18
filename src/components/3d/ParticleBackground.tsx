@@ -11,10 +11,10 @@ const Particles: React.FC<{ count?: number }> = ({ count = 180 }) => {
     const pos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
     const colorChoices = [
-      new THREE.Color('#0D5BEB'), // Electric Sapphire
-      new THREE.Color('#3882FF'), // Sapphire Glow
-      new THREE.Color('#4A0E1C'), // Bordeaux Lacquer
-      new THREE.Color('#C99738'), // Custard Warm Gold
+      new THREE.Color('#FF5E36'), // Persimmon Spark
+      new THREE.Color('#FFA07A'), // Soft Persimmon Light
+      new THREE.Color('#18303D'), // Petrol Ink
+      new THREE.Color('#C4BA9D'), // Swiss Warm Sand
     ];
 
     for (let i = 0; i < count; i++) {

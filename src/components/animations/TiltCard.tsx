@@ -5,7 +5,7 @@ import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 interface TiltCardProps {
   children: ReactNode;
   className?: string;
-  glowColor?: 'sapphire' | 'bordeaux' | 'cyan' | 'blue' | 'purple' | 'rose' | 'gold';
+  glowColor?: 'persimmon' | 'petrol' | 'sapphire' | 'bordeaux' | 'cyan' | 'blue' | 'purple' | 'rose' | 'gold';
   maxTilt?: number;
   scale?: number;
   onClick?: () => void;
@@ -14,7 +14,7 @@ interface TiltCardProps {
 export const TiltCard: React.FC<TiltCardProps> = ({
   children,
   className = '',
-  glowColor = 'sapphire',
+  glowColor = 'persimmon',
   maxTilt = 12,
   scale = 1.02,
   onClick,
@@ -27,13 +27,15 @@ export const TiltCard: React.FC<TiltCardProps> = ({
   });
 
   const glowBorderMap = {
-    sapphire: 'hover:border-[#0D5BEB]/50 hover:shadow-[0_12px_36px_rgba(13,91,235,0.2)]',
-    bordeaux: 'hover:border-[#4A0E1C]/40 hover:shadow-[0_12px_36px_rgba(74,14,28,0.15)]',
-    cyan: 'hover:border-[#0D5BEB]/50 hover:shadow-[0_12px_36px_rgba(13,91,235,0.2)]',
-    blue: 'hover:border-[#0D5BEB]/50 hover:shadow-[0_12px_36px_rgba(13,91,235,0.2)]',
-    purple: 'hover:border-[#4A0E1C]/40 hover:shadow-[0_12px_36px_rgba(74,14,28,0.15)]',
-    rose: 'hover:border-[#4A0E1C]/40 hover:shadow-[0_12px_36px_rgba(74,14,28,0.15)]',
-    gold: 'hover:border-[#0D5BEB]/40 hover:shadow-[0_12px_36px_rgba(13,91,235,0.18)]',
+    persimmon: 'hover:border-[#FF5E36]/50 hover:shadow-[0_12px_36px_rgba(255,94,54,0.2)]',
+    petrol: 'hover:border-[#18303D]/40 hover:shadow-[0_12px_36px_rgba(24,48,61,0.15)]',
+    sapphire: 'hover:border-[#FF5E36]/50 hover:shadow-[0_12px_36px_rgba(255,94,54,0.2)]',
+    bordeaux: 'hover:border-[#18303D]/40 hover:shadow-[0_12px_36px_rgba(24,48,61,0.15)]',
+    cyan: 'hover:border-[#FF5E36]/50 hover:shadow-[0_12px_36px_rgba(255,94,54,0.2)]',
+    blue: 'hover:border-[#FF5E36]/50 hover:shadow-[0_12px_36px_rgba(255,94,54,0.2)]',
+    purple: 'hover:border-[#18303D]/40 hover:shadow-[0_12px_36px_rgba(24,48,61,0.15)]',
+    rose: 'hover:border-[#FF5E36]/40 hover:shadow-[0_12px_36px_rgba(255,94,54,0.15)]',
+    gold: 'hover:border-[#FF5E36]/40 hover:shadow-[0_12px_36px_rgba(255,94,54,0.18)]',
   };
 
   return (

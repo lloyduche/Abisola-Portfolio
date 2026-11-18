@@ -54,20 +54,20 @@ interface EmailMockupCardProps {
 const EmailMockupCard: React.FC<EmailMockupCardProps> = ({ snapshots, subject, label }) => (
   <div className="mt-2 space-y-2.5 sm:space-y-3 w-full">
     {/* Label */}
-    <div className="flex items-center gap-2 text-xs font-semibold text-[#0D5BEB]">
-      <Mail className="w-3.5 h-3.5 text-[#0D5BEB]" />
+    <div className="flex items-center gap-2 text-xs font-semibold text-[#FF5E36]">
+      <Mail className="w-3.5 h-3.5 text-[#FF5E36]" />
       <span className="uppercase tracking-wider text-[11px] sm:text-xs font-mono">{label}</span>
     </div>
 
     {/* Card with chrome */}
-    <div className="relative rounded-2xl overflow-hidden border border-[#4A0E1C]/14 shadow-lg bg-[#FFFDF9] w-full">
+    <div className="relative rounded-2xl overflow-hidden border border-[#18303D]/14 shadow-lg bg-[#FCFBF9] w-full">
       {/* Email client chrome */}
-      <div className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 border-b border-[#4A0E1C]/12 bg-[#F5ECE0]">
-        <span className="w-2 h-2 rounded-full bg-[#BD506B] block shrink-0" />
+      <div className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-2.5 border-b border-[#18303D]/12 bg-[#EFECE4]">
+        <span className="w-2 h-2 rounded-full bg-[#FF7B54] block shrink-0" />
         <span className="w-2 h-2 rounded-full bg-amber-400 block shrink-0" />
         <span className="w-2 h-2 rounded-full bg-emerald-500 block shrink-0" />
-        <div className="flex-1 min-w-0 ml-1.5 sm:ml-2 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-mono text-[#2A050F] bg-[#FFFDF9] border border-[#4A0E1C]/14 truncate">
-          <span className="font-semibold text-[#0D5BEB]">Subject: </span>
+        <div className="flex-1 min-w-0 ml-1.5 sm:ml-2 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-mono text-[#0F1D24] bg-[#FCFBF9] border border-[#18303D]/14 truncate">
+          <span className="font-semibold text-[#FF5E36]">Subject: </span>
           {subject}
         </div>
       </div>
@@ -80,7 +80,7 @@ const EmailMockupCard: React.FC<EmailMockupCardProps> = ({ snapshots, subject, l
         {snapshots.map((snap, i) => (
           <div
             key={i}
-            className="flex-none w-full snap-start border-r border-[#4A0E1C]/12 last:border-r-0"
+            className="flex-none w-full snap-start border-r border-[#18303D]/12 last:border-r-0"
           >
             <img
               src={snap.src}
@@ -93,11 +93,11 @@ const EmailMockupCard: React.FC<EmailMockupCardProps> = ({ snapshots, subject, l
       </div>
 
       {/* Slide indicator bar */}
-      <div className="px-3 sm:px-4 py-1.5 sm:py-2 border-t border-[#4A0E1C]/12 bg-[#F5ECE0] flex items-center justify-between text-[10px] sm:text-xs font-mono text-[#6E3844]">
-        <span className="font-semibold text-[#0D5BEB]">
+      <div className="px-3 sm:px-4 py-1.5 sm:py-2 border-t border-[#18303D]/12 bg-[#EFECE4] flex items-center justify-between text-[10px] sm:text-xs font-mono text-[#59707E]">
+        <span className="font-semibold text-[#FF5E36]">
           Slide 1 of {snapshots.length}
         </span>
-        <span className="text-[#857567]">
+        <span className="text-[#7A766D]">
           Scroll horizontally to view &rarr;
         </span>
       </div>
@@ -140,27 +140,27 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
   return (
     <AnimatedSection
       id="featured-work"
-      className="py-16 sm:py-24 lg:py-28 relative border-y border-[#4A0E1C]/12 bg-[#FAF3E3]/40 overflow-hidden"
+      className="py-16 sm:py-24 lg:py-28 relative border-y border-[#18303D]/12 bg-[#F7F5F0]/40 overflow-hidden"
     >
       {/* Background Radial Glow */}
-      <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-[#EBDDBF]/30 blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-[10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-[#0D5BEB]/5 blur-[150px] pointer-events-none" />
+      <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-[#EFECE4]/40 blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-[10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-[#FF5E36]/5 blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10 relative z-10">
 
         {/* Section Header */}
         <div className="max-w-2xl mb-10 sm:mb-14">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#0D5BEB] mb-2 flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#0D5BEB]" />
+          <div className="text-xs font-semibold uppercase tracking-wider text-[#FF5E36] mb-2 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#FF5E36]" />
             <span>Selected Work &amp; Writing</span>
           </div>
-          <h2 className="font-headline font-semibold text-2xl sm:text-4xl lg:text-5xl text-[#2A050F] tracking-tight">
+          <h2 className="font-headline font-semibold text-2xl sm:text-4xl lg:text-5xl text-[#0F1D24] tracking-tight">
             Featured work across marketing, corporate comms &amp; storytelling.
           </h2>
-          <p className="font-body text-base sm:text-lg text-[#3E131C] mt-3 leading-relaxed">
+          <p className="font-body text-base sm:text-lg text-[#243A47] mt-3 leading-relaxed">
             A selection of email campaigns, corporate communications, webinars, website content, newsletters and thought leadership writing.
           </p>
-          <div className="text-xs font-mono text-[#0D5BEB] mt-2">
+          <div className="text-xs font-mono text-[#FF5E36] mt-2">
             Showing {filteredProjects.length} of {PROJECTS.length} Selected Projects
           </div>
         </div>
@@ -173,8 +173,8 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
               onClick={() => setActiveCategory(cat)}
               className={`px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-medium whitespace-nowrap transition-all cursor-pointer ${
                 activeCategory === cat
-                  ? 'sapphire-btn text-white font-semibold shadow-[0_4px_16px_rgba(13,91,235,0.35)]'
-                  : 'cyber-pill text-[#4A0E1C] hover:text-[#0D5BEB] hover:border-[#0D5BEB]/30 border border-[#4A0E1C]/14 bg-[#FFFDF9]'
+                  ? 'persimmon-btn text-white font-semibold shadow-[0_4px_16px_rgba(255,94,54,0.35)]'
+                  : 'cyber-pill text-[#18303D] hover:text-[#FF5E36] hover:border-[#FF5E36]/30 border border-[#18303D]/14 bg-[#FCFBF9]'
               }`}
             >
               {cat}
@@ -186,37 +186,37 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
           {filteredProjects.map((project, idx) => {
             const isFullWidth = project.id === 'p1' || project.id === 'p2' || project.id === 'p4';
-            const glowColor = idx % 2 === 0 ? 'sapphire' : 'bordeaux';
+            const glowColor = idx % 2 === 0 ? 'persimmon' : 'petrol';
 
             return (
               <TiltCard
                 key={project.id}
                 glowColor={glowColor}
-                className={`p-4 sm:p-7 md:p-8 lg:p-10 rounded-3xl bg-[#FFFDF9] border border-[#4A0E1C]/14 shadow-xl flex flex-col justify-between w-full overflow-hidden ${
+                className={`p-4 sm:p-7 md:p-8 lg:p-10 rounded-3xl bg-[#FCFBF9] border border-[#18303D]/14 shadow-xl flex flex-col justify-between w-full overflow-hidden ${
                   isFullWidth ? 'md:col-span-2' : ''
                 }`}
               >
                 <div className="space-y-4">
                   {/* Category Badge & Index */}
-                  <div className="flex items-center justify-between text-xs font-semibold text-[#0D5BEB]">
-                    <span className="px-3 py-1 rounded-full cyber-pill text-[11px] font-mono border border-[#4A0E1C]/14 text-[#4A0E1C] bg-[#FAF3E3]">{project.tagCategory}</span>
-                    <span className="text-[#857567] font-mono text-[11px]">PROJECT 0{idx + 1}</span>
+                  <div className="flex items-center justify-between text-xs font-semibold text-[#FF5E36]">
+                    <span className="px-3 py-1 rounded-full cyber-pill text-[11px] font-mono border border-[#18303D]/14 text-[#18303D] bg-[#F7F5F0]">{project.tagCategory}</span>
+                    <span className="text-[#7A766D] font-mono text-[11px]">PROJECT 0{idx + 1}</span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-headline font-semibold text-2xl sm:text-3xl text-[#2A050F] leading-snug">
+                  <h3 className="font-headline font-semibold text-2xl sm:text-3xl text-[#0F1D24] leading-snug">
                     {project.title}
                   </h3>
 
                   {/* Short Description */}
-                  <p className="font-body text-base text-[#3E131C] leading-relaxed">
+                  <p className="font-body text-base text-[#243A47] leading-relaxed">
                     {project.shortDesc}
                   </p>
 
                   {/* Hook */}
                   {project.hook && (
-                    <div className="p-4 rounded-xl bg-[#FAF3E3] border-l-4 border-[#4A0E1C] text-sm font-body text-[#3E131C] leading-relaxed border border-[#4A0E1C]/12">
-                      <span className="font-semibold text-[#4A0E1C] block text-xs uppercase tracking-wider mb-1">
+                    <div className="p-4 rounded-xl bg-[#F7F5F0] border-l-4 border-[#18303D] text-sm font-body text-[#243A47] leading-relaxed border border-[#18303D]/12">
+                      <span className="font-semibold text-[#18303D] block text-xs uppercase tracking-wider mb-1">
                         {project.id === 'p7' ? 'Work Disciplines:' : 'Key Framing / Strategy:'}
                       </span>
                       {project.hook}
@@ -225,16 +225,16 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
 
                   {/* Subject Line & Preheader */}
                   {project.fullContent?.subject && (
-                    <div className="p-4 rounded-xl bg-[#FAF3E3]/60 border border-[#4A0E1C]/12 text-xs font-body space-y-1 text-[#3E131C]">
+                    <div className="p-4 rounded-xl bg-[#F7F5F0]/60 border border-[#18303D]/12 text-xs font-body space-y-1 text-[#243A47]">
                       <div>
-                        <strong className="text-[#0D5BEB] font-semibold">
+                        <strong className="text-[#FF5E36] font-semibold">
                           {project.id === 'p7' ? 'Featured Article:' : 'Subject Line:'}
                         </strong>{' '}
                         {project.fullContent.subject}
                       </div>
                       {project.fullContent.preheader && (
                         <div>
-                          <strong className="text-[#6E3844]">Preheader:</strong> {project.fullContent.preheader}
+                          <strong className="text-[#59707E]">Preheader:</strong> {project.fullContent.preheader}
                         </div>
                       )}
                     </div>
@@ -286,11 +286,11 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                   {/* ── Newsletter Analytics / Performance Snapshot (p6) ── */}
                   {project.id === 'p6' && (
                     <div className="mt-3 space-y-2">
-                      <div className="flex items-center gap-2 text-xs font-semibold text-[#0D5BEB]">
-                        <span className="w-2 h-2 rounded-full bg-[#0D5BEB]" />
+                      <div className="flex items-center gap-2 text-xs font-semibold text-[#FF5E36]">
+                        <span className="w-2 h-2 rounded-full bg-[#FF5E36]" />
                         <span className="uppercase tracking-wider">Campaign Performance Dashboard</span>
                       </div>
-                      <div className="rounded-2xl overflow-hidden border border-[#4A0E1C]/14 shadow-sm bg-[#FAF3E3]">
+                      <div className="rounded-2xl overflow-hidden border border-[#18303D]/14 shadow-sm bg-[#F7F5F0]">
                         <img
                           src="/newsletter-performance.png"
                           alt="Momentum RedPay Newsletter & The Redtech Brief Performance Dashboard"
@@ -304,24 +304,24 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                   {/* ── Thought Leadership Article & Excerpt Display (p7) ── */}
                   {project.id === 'p7' && (
                     <div className="space-y-4 pt-2">
-                      <div className="p-5 rounded-2xl bg-[#FAF3E3] border border-[#4A0E1C]/14 space-y-2.5 font-body text-sm text-[#3E131C] leading-relaxed">
-                        <div className="flex items-center gap-2 text-xs font-semibold text-[#0D5BEB] uppercase tracking-wider font-mono">
-                          <span className="w-2 h-2 rounded-full bg-[#0D5BEB]" />
+                      <div className="p-5 rounded-2xl bg-[#F7F5F0] border border-[#18303D]/14 space-y-2.5 font-body text-sm text-[#243A47] leading-relaxed">
+                        <div className="flex items-center gap-2 text-xs font-semibold text-[#FF5E36] uppercase tracking-wider font-mono">
+                          <span className="w-2 h-2 rounded-full bg-[#FF5E36]" />
                           <span>Selected Excerpt</span>
                         </div>
-                        <p className="italic text-[#2A050F]">
+                        <p className="italic text-[#0F1D24]">
                           &ldquo;Across Africa, digital payments and commerce are becoming part of how businesses operate, from roadside kiosks and social-media storefronts to supermarkets, hotels and large enterprises. The spread of mobile technology has helped drive this change...&rdquo;
                         </p>
-                        <p className="text-xs text-[#6E3844]">
+                        <p className="text-xs text-[#59707E]">
                           &ldquo;The technology may be digital, but the decisions remain practical: Did the money arrive? Can I use it now? Can I account for it later?&rdquo;
                         </p>
                       </div>
 
-                      <div className="p-4 rounded-xl bg-[#FAF3E3]/80 border border-[#4A0E1C]/12 text-xs font-body">
-                        <span className="font-semibold text-[#0D5BEB] block mb-1.5 uppercase tracking-wide text-xs font-mono">
+                      <div className="p-4 rounded-xl bg-[#F7F5F0]/80 border border-[#18303D]/12 text-xs font-body">
+                        <span className="font-semibold text-[#FF5E36] block mb-1.5 uppercase tracking-wide text-xs font-mono">
                           Additional Business Articles
                         </span>
-                        <ul className="space-y-1 text-[#3E131C] list-disc list-inside">
+                        <ul className="space-y-1 text-[#243A47] list-disc list-inside">
                           <li>The Trust Layer: Why Governance Matters in Fintech</li>
                           <li>The Future of Fashion Retail in Nigeria: E-Commerce and Digital Payments</li>
                         </ul>
@@ -330,11 +330,11 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                   )}
                 </div>
 
-                {/* Action Buttons (Electric Sapphire 10% on button) */}
-                <div className="pt-5 mt-5 border-t border-[#4A0E1C]/12 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+                {/* Action Buttons (Persimmon Spark 10% on button) */}
+                <div className="pt-5 mt-5 border-t border-[#18303D]/12 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
                   <button
                     onClick={() => onSelectProject(project)}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full sapphire-btn text-white transition-all text-xs sm:text-sm font-semibold cursor-pointer active:scale-95 shadow-md"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full persimmon-btn text-white transition-all text-xs sm:text-sm font-semibold cursor-pointer active:scale-95 shadow-md"
                   >
                     <BookOpen className="w-4 h-4 text-white" />
                     <span>{project.id === 'p7' ? 'Read Full Excerpt & Details' : 'Read Copy & Details'}</span>
@@ -348,10 +348,10 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                         href={lnk.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#0D5BEB] hover:underline px-3 py-1.5 rounded-full cyber-pill sm:border-0 sm:bg-transparent sm:p-0"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#FF5E36] hover:underline px-3 py-1.5 rounded-full cyber-pill sm:border-0 sm:bg-transparent sm:p-0"
                       >
                         <span>{lnk.label}</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 text-[#0D5BEB]" />
+                        <ArrowUpRight className="w-3.5 h-3.5 text-[#FF5E36]" />
                       </a>
                     ))}
 
@@ -360,10 +360,10 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                         href={project.fullContent.blogLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#0D5BEB] hover:underline px-3 py-1.5 rounded-full cyber-pill sm:border-0 sm:bg-transparent sm:p-0"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#FF5E36] hover:underline px-3 py-1.5 rounded-full cyber-pill sm:border-0 sm:bg-transparent sm:p-0"
                       >
                         <span>Read Article</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 text-[#0D5BEB]" />
+                        <ArrowUpRight className="w-3.5 h-3.5 text-[#FF5E36]" />
                       </a>
                     )}
 
@@ -372,10 +372,10 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                         href={project.fullContent.mediumLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#0D5BEB] hover:underline"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#FF5E36] hover:underline"
                       >
                         <span>Medium Essay</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 text-[#0D5BEB]" />
+                        <ArrowUpRight className="w-3.5 h-3.5 text-[#FF5E36]" />
                       </a>
                     )}
 
@@ -384,10 +384,10 @@ export const FeaturedWork: React.FC<FeaturedWorkProps> = ({ onSelectProject }) =
                         href={project.fullContent.substackLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#0D5BEB] hover:underline"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#FF5E36] hover:underline"
                       >
                         <span>Substack</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 text-[#0D5BEB]" />
+                        <ArrowUpRight className="w-3.5 h-3.5 text-[#FF5E36]" />
                       </a>
                     )}
                   </div>

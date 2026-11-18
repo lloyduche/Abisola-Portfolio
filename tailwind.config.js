@@ -4,68 +4,71 @@ export default {
   theme: {
     extend: {
       colors: {
-        // 60% — Custard Silk (Dominant canvas, surfaces, light glass)
+        // 60% — Swiss Cream (Dominant canvas, surfaces, light glass)
+        swiss: {
+          50: '#FAF9F7',
+          100: '#F7F5F0', // Primary Base Canvas (60%)
+          200: '#EFECE4', // Secondary Surface
+          300: '#E5E1D5',
+          400: '#D5CFC1',
+          DEFAULT: '#F7F5F0',
+          cream: '#F7F5F0',
+          card: '#FCFBF9',
+          surface: '#EFECE4',
+          muted: '#7A766D',
+        },
+        // 30% — Petrol Ink (Structure, typography, cards, borders, depth)
+        petrol: {
+          50: '#F0F5F8',
+          100: '#DDE8EE',
+          200: '#BED4DE',
+          300: '#92B6C7',
+          400: '#5F92AB',
+          500: '#3D728D',
+          600: '#2A566E',
+          700: '#18303D', // Classic Petrol (30% structural)
+          800: '#13222B', // Dark Petrol Card
+          900: '#0F1D24', // Deepest Petrol Ink for Headings
+          950: '#091116',
+          DEFAULT: '#18303D',
+          ink: '#0F1D24',
+          body: '#243A47',
+          muted: '#59707E',
+          border: 'rgba(24, 48, 61, 0.14)',
+        },
+        // 10% — Persimmon Spark (Buttons, active highlights, badges, sparks)
+        persimmon: {
+          50: '#FFF2EE',
+          100: '#FFE2D8',
+          200: '#FFC8B5',
+          300: '#FFA487',
+          400: '#FF7B54',
+          500: '#FF5E36', // Persimmon Spark (10%)
+          600: '#F24218',
+          700: '#CC300D',
+          800: '#A4270D',
+          900: '#842410',
+          DEFAULT: '#FF5E36',
+          spark: '#FF5E36',
+          vibrant: '#FF552E',
+          glow: 'rgba(255, 94, 54, 0.38)',
+        },
+        // Legacy alias mappings
         custard: {
-          50: '#FFFCF7',
-          100: '#FFF9EE',
-          200: '#FAF3E3', // Primary Base Canvas (60%)
-          300: '#F5ECE0', // Secondary Silk Surface
-          400: '#EBDDBF',
-          500: '#DFCFA8',
-          DEFAULT: '#FAF3E3',
-          silk: '#FAF3E3',
-          card: '#FFFDF9',
-          surface: '#F5ECE0',
-          muted: '#857567',
+          DEFAULT: '#F7F5F0',
+          silk: '#F7F5F0',
+          card: '#FCFBF9',
+          surface: '#EFECE4',
         },
-        // 30% — Bordeaux Lacquer (Structure, typography, cards, borders, accents)
         bordeaux: {
-          50: '#FDF2F4',
-          100: '#F8DCE2',
-          200: '#EEBDC8',
-          300: '#DE93A4',
-          400: '#BD506B',
-          500: '#942642',
-          600: '#71152D',
-          700: '#4A0E1C', // Classic Bordeaux Lacquer (30%)
-          800: '#380A15', // Rich Lacquer Card
-          900: '#2A050F', // Deepest Lacquer Ink for Headings
-          950: '#1A0309',
-          DEFAULT: '#4A0E1C',
-          lacquer: '#380A15',
-          ink: '#2A050F',
-          body: '#3E131C',
-          muted: '#6E3844',
-          border: 'rgba(74, 14, 28, 0.14)',
+          DEFAULT: '#18303D',
+          ink: '#0F1D24',
+          body: '#243A47',
+          muted: '#59707E',
         },
-        // 10% — Electric Sapphire (Primary buttons, logo, interactive highlights)
         sapphire: {
-          50: '#EEF4FF',
-          100: '#E0EBFF',
-          200: '#C7DAFE',
-          300: '#9EBEFD',
-          400: '#6998FA',
-          500: '#3B73F6',
-          600: '#1D53EC',
-          700: '#0D5BEB', // Electric Sapphire (10%)
-          800: '#0848C4', // Deep Sapphire Gradient Start
-          900: '#063697',
-          950: '#031F5C',
-          DEFAULT: '#0D5BEB',
-          electric: '#0D5BEB',
-          vibrant: '#0052FF',
-          glow: 'rgba(13, 91, 235, 0.38)',
-        },
-        // Legacy compatibility mappings
-        burgundy: {
-          DEFAULT: '#4A0E1C',
-          dark: '#2A050F',
-          light: '#6F162D',
-        },
-        cream: {
-          DEFAULT: '#FAF3E3',
-          dark: '#F5ECE0',
-          light: '#FFFDF9',
+          DEFAULT: '#FF5E36',
+          electric: '#FF5E36',
         },
       },
       fontFamily: {

@@ -14,7 +14,7 @@ interface FloatingShapeProps {
 
 const FloatingMesh: React.FC<FloatingShapeProps> = ({
   type,
-  color = '#0D5BEB',
+  color = '#FF5E36',
   wireframe = false,
   scale = 1.2,
 }) => {

@@ -43,7 +43,7 @@ export const App: React.FC = () => {
 
   return (
     <SmoothScroll>
-      <div className="min-h-screen bg-[#FAF3E3] text-[#2A050F] font-body selection:bg-[#0D5BEB] selection:text-white relative overflow-x-hidden">
+      <div className="min-h-screen bg-[#F7F5F0] text-[#0F1D24] font-body selection:bg-[#FF5E36] selection:text-white relative overflow-x-hidden">
 
         {/* Cinematic Intro Screen */}
         {showIntro && (
@@ -57,13 +57,13 @@ export const App: React.FC = () => {
           </Suspense>
         )}
 
-        {/* Electric Sapphire Scroll Progress Thread */}
+        {/* Persimmon Spark Scroll Progress Thread */}
         <motion.div
           className="fixed top-0 left-0 h-[3px] z-[60] origin-left"
           style={{
             width: `${scrollProgress}%`,
-            background: 'linear-gradient(to right, #0848C4, #0D5BEB, #1E6BFF)',
-            boxShadow: '0 0 12px rgba(13, 91, 235, 0.55)',
+            background: 'linear-gradient(to right, #E6441A, #FF5E36, #FFA07A)',
+            boxShadow: '0 0 12px rgba(255, 94, 54, 0.55)',
           }}
         />
 

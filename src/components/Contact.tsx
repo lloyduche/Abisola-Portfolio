@@ -56,40 +56,40 @@ export const Contact: React.FC = () => {
   return (
     <AnimatedSection
       id="contact"
-      className="py-20 sm:py-28 relative border-t border-[#4A0E1C]/12 bg-[#FAF3E3] overflow-hidden"
+      className="py-20 sm:py-28 relative border-t border-[#18303D]/12 bg-[#F7F5F0] overflow-hidden"
     >
       <div className="max-w-5xl mx-auto px-6 sm:px-10 relative z-10">
 
         {/* Section Header */}
         <div className="max-w-3xl mb-12 sm:mb-16">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#0D5BEB] mb-2 flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#0D5BEB]" />
+          <div className="text-xs font-semibold uppercase tracking-wider text-[#FF5E36] mb-2 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#FF5E36]" />
             <span>Let’s Work Together</span>
           </div>
-          <h2 className="font-headline font-semibold text-3xl sm:text-5xl lg:text-6xl text-[#2A050F] tracking-tight">
+          <h2 className="font-headline font-semibold text-3xl sm:text-5xl lg:text-6xl text-[#0F1D24] tracking-tight">
             Need someone to put your ideas into words?
           </h2>
-          <div className="font-body text-lg text-[#3E131C] mt-6 leading-relaxed space-y-4">
+          <div className="font-body text-lg text-[#243A47] mt-6 leading-relaxed space-y-4">
             <p>
               I write content, copy and stories for founders, brands, businesses and individuals who have something to say but need the right words to say it.
             </p>
             <p>
               From website and product copy, email marketing, newsletters and campaign content to corporate communications, editorial writing, articles, personal essays and creative writing, I help bring ideas to life through writing that informs, connects and holds attention.
             </p>
-            <p className="font-medium text-[#0D5BEB]">
+            <p className="font-medium text-[#FF5E36]">
               Whether you’re building a brand, communicating with your audience, developing a publication or trying to tell a story that matters, let’s make the words work for you.
             </p>
-            <p className="font-semibold text-[#2A050F] pt-2 font-headline italic text-xl">
+            <p className="font-semibold text-[#0F1D24] pt-2 font-headline italic text-xl">
               Have a project in mind? Let’s talk.
             </p>
           </div>
         </div>
 
-        {/* Direct Contact Action Row (Electric Sapphire 10% on primary email button) */}
+        {/* Direct Contact Action Row (Persimmon Spark 10% on primary email button) */}
         <div className="flex flex-wrap items-center gap-4 mb-14">
           <a
             href="mailto:abisolaaoluwatoyin@gmail.com"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full sapphire-btn text-white text-sm font-semibold shadow-[0_4px_18px_rgba(13,91,235,0.38)] transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full persimmon-btn text-white text-sm font-semibold shadow-[0_4px_18px_rgba(255,94,54,0.38)] transition-all"
           >
             <Mail className="w-4 h-4 text-white" />
             <span>Send Email Directly</span>
@@ -97,7 +97,7 @@ export const Contact: React.FC = () => {
 
           <button
             onClick={handleCopyEmail}
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full cyber-pill text-[#2A050F] text-sm font-medium hover:text-[#0D5BEB] hover:border-[#0D5BEB]/40 shadow-sm transition-all border border-[#4A0E1C]/14 bg-[#FFFDF9]"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full cyber-pill text-[#0F1D24] text-sm font-medium hover:text-[#FF5E36] hover:border-[#FF5E36]/40 shadow-sm transition-all border border-[#18303D]/14 bg-[#FCFBF9]"
           >
             {copied ? (
               <>
@@ -106,7 +106,7 @@ export const Contact: React.FC = () => {
               </>
             ) : (
               <>
-                <Copy className="w-4 h-4 text-[#0D5BEB]" />
+                <Copy className="w-4 h-4 text-[#FF5E36]" />
                 <span>Copy: abisolaaoluwatoyin@gmail.com</span>
               </>
             )}
@@ -116,42 +116,42 @@ export const Contact: React.FC = () => {
             href="https://www.linkedin.com/in/abisola-oluwatoyin/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-6 py-3.5 rounded-full cyber-pill text-[#2A050F] text-sm font-medium hover:text-[#0D5BEB] hover:border-[#0D5BEB]/40 shadow-sm transition-all border border-[#4A0E1C]/14 bg-[#FFFDF9]"
+            className="inline-flex items-center gap-1.5 px-6 py-3.5 rounded-full cyber-pill text-[#0F1D24] text-sm font-medium hover:text-[#FF5E36] hover:border-[#FF5E36]/40 shadow-sm transition-all border border-[#18303D]/14 bg-[#FCFBF9]"
           >
             <span>LinkedIn Profile</span>
-            <ArrowUpRight className="w-4 h-4 text-[#0D5BEB]" />
+            <ArrowUpRight className="w-4 h-4 text-[#FF5E36]" />
           </a>
 
           <a
             href="https://abisolawrites.substack.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-6 py-3.5 rounded-full cyber-pill text-[#2A050F] text-sm font-medium hover:text-[#0D5BEB] hover:border-[#0D5BEB]/40 shadow-sm transition-all border border-[#4A0E1C]/14 bg-[#FFFDF9]"
+            className="inline-flex items-center gap-1.5 px-6 py-3.5 rounded-full cyber-pill text-[#0F1D24] text-sm font-medium hover:text-[#FF5E36] hover:border-[#FF5E36]/40 shadow-sm transition-all border border-[#18303D]/14 bg-[#FCFBF9]"
           >
             <span>Abisola Writes Substack</span>
-            <ArrowUpRight className="w-4 h-4 text-[#0D5BEB]" />
+            <ArrowUpRight className="w-4 h-4 text-[#FF5E36]" />
           </a>
         </div>
 
         {/* Contact Form Card */}
         <TiltCard
-          glowColor="sapphire"
-          className="p-8 sm:p-12 rounded-3xl bg-[#FFFDF9] border border-[#4A0E1C]/14 shadow-2xl"
+          glowColor="persimmon"
+          className="p-8 sm:p-12 rounded-3xl bg-[#FCFBF9] border border-[#18303D]/14 shadow-2xl"
         >
           {!formSubmitted ? (
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="border-b border-[#4A0E1C]/12 pb-4 mb-6">
-                <h3 className="font-headline font-semibold text-2xl text-[#2A050F]">
+              <div className="border-b border-[#18303D]/12 pb-4 mb-6">
+                <h3 className="font-headline font-semibold text-2xl text-[#0F1D24]">
                   Start a Conversation
                 </h3>
-                <p className="text-sm text-[#6E3844] font-body mt-1">
+                <p className="text-sm text-[#59707E] font-body mt-1">
                   Fill out the form below to discuss a campaign, project, publication or communication role.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="text-xs font-semibold uppercase tracking-wider block mb-2 text-[#2A050F] font-mono">
+                  <label className="text-xs font-semibold uppercase tracking-wider block mb-2 text-[#0F1D24] font-mono">
                     Your Name
                   </label>
                   <input
@@ -160,12 +160,12 @@ export const Contact: React.FC = () => {
                     placeholder="e.g. Sarah Adebayo"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-[#FAF3E3] border border-[#4A0E1C]/15 text-[#2A050F] placeholder:text-[#857567] focus:border-[#0D5BEB] focus:ring-1 focus:ring-[#0D5BEB] outline-none text-sm transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-[#F7F5F0] border border-[#18303D]/15 text-[#0F1D24] placeholder:text-[#7A766D] focus:border-[#FF5E36] focus:ring-1 focus:ring-[#FF5E36] outline-none text-sm transition-all"
                   />
                 </div>
 
                 <div>
-                  <label className="text-xs font-semibold uppercase tracking-wider block mb-2 text-[#2A050F] font-mono">
+                  <label className="text-xs font-semibold uppercase tracking-wider block mb-2 text-[#0F1D24] font-mono">
                     Your Email Address
                   </label>
                   <input
@@ -174,19 +174,19 @@ export const Contact: React.FC = () => {
                     placeholder="e.g. sarah@company.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-[#FAF3E3] border border-[#4A0E1C]/15 text-[#2A050F] placeholder:text-[#857567] focus:border-[#0D5BEB] focus:ring-1 focus:ring-[#0D5BEB] outline-none text-sm transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-[#F7F5F0] border border-[#18303D]/15 text-[#0F1D24] placeholder:text-[#7A766D] focus:border-[#FF5E36] focus:ring-1 focus:ring-[#FF5E36] outline-none text-sm transition-all"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="text-xs font-semibold uppercase tracking-wider block mb-2 text-[#2A050F] font-mono">
+                <label className="text-xs font-semibold uppercase tracking-wider block mb-2 text-[#0F1D24] font-mono">
                   Nature of Inquiry
                 </label>
                 <select
                   value={formData.projectType}
                   onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-[#FAF3E3] border border-[#4A0E1C]/15 text-[#2A050F] focus:border-[#0D5BEB] focus:ring-1 focus:ring-[#0D5BEB] outline-none text-sm transition-all cursor-pointer"
+                  className="w-full px-4 py-3 rounded-xl bg-[#F7F5F0] border border-[#18303D]/15 text-[#0F1D24] focus:border-[#FF5E36] focus:ring-1 focus:ring-[#FF5E36] outline-none text-sm transition-all cursor-pointer"
                 >
                   <option value="Social Media content & copy">Social Media content &amp; copy</option>
                   <option value="Email Copywriting & Conversion Funnels">Email Copywriting &amp; Conversion Funnels</option>
@@ -198,7 +198,7 @@ export const Contact: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-xs font-semibold uppercase tracking-wider block mb-2 text-[#2A050F] font-mono">
+                <label className="text-xs font-semibold uppercase tracking-wider block mb-2 text-[#0F1D24] font-mono">
                   Your Message
                 </label>
                 <textarea
@@ -207,15 +207,15 @@ export const Contact: React.FC = () => {
                   placeholder="Outline your scope, objectives, or timeline..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-[#FAF3E3] border border-[#4A0E1C]/15 text-[#2A050F] placeholder:text-[#857567] focus:border-[#0D5BEB] focus:ring-1 focus:ring-[#0D5BEB] outline-none text-sm transition-all resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-[#F7F5F0] border border-[#18303D]/15 text-[#0F1D24] placeholder:text-[#7A766D] focus:border-[#FF5E36] focus:ring-1 focus:ring-[#FF5E36] outline-none text-sm transition-all resize-none"
                 />
               </div>
 
-              {/* Submit Button (Electric Sapphire 10%) */}
+              {/* Submit Button (Persimmon Spark 10%) */}
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full sm:w-auto px-8 py-4 rounded-full sapphire-btn text-white disabled:opacity-60 text-sm font-bold inline-flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(13,91,235,0.4)] transition-all cursor-pointer"
+                className="w-full sm:w-auto px-8 py-4 rounded-full persimmon-btn text-white disabled:opacity-60 text-sm font-bold inline-flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(255,94,54,0.4)] transition-all cursor-pointer"
               >
                 {isSubmitting ? (
                   <>
@@ -231,17 +231,17 @@ export const Contact: React.FC = () => {
               </button>
 
               {formError && (
-                <p className="text-sm font-body text-[#942642] mt-2">
+                <p className="text-sm font-body text-[#FF5E36] mt-2">
                   Something went wrong. Please try again or email directly at abisolaaoluwatoyin@gmail.com.
                 </p>
               )}
             </form>
           ) : (
             <div className="py-12 text-center space-y-4">
-              <h3 className="font-headline font-semibold text-3xl text-[#2A050F]">
+              <h3 className="font-headline font-semibold text-3xl text-[#0F1D24]">
                 Message Received!
               </h3>
-              <p className="font-body text-base text-[#3E131C] max-w-md mx-auto">
+              <p className="font-body text-base text-[#243A47] max-w-md mx-auto">
                 Thank you, {formData.name}. Your inquiry has been dispatched to Abisola's inbox. Expect a response shortly.
               </p>
               <button
@@ -249,7 +249,7 @@ export const Contact: React.FC = () => {
                   setFormSubmitted(false);
                   setFormData({ name: '', email: '', projectType: 'Social Media content & copy', message: '' });
                 }}
-                className="font-body text-xs font-semibold text-[#0D5BEB] hover:text-[#0848C4] underline pt-2 cursor-pointer"
+                className="font-body text-xs font-semibold text-[#FF5E36] hover:text-[#E6441A] underline pt-2 cursor-pointer"
               >
                 Send Another Message &rarr;
               </button>

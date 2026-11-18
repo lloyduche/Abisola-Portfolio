@@ -52,19 +52,19 @@ interface ModalSnapshotsBlockProps {
 
 const ModalSnapshotsBlock: React.FC<ModalSnapshotsBlockProps> = ({ snapshots, subject, caption, label }) => (
   <div className="mb-6">
-    <div className="flex items-center gap-2 text-xs font-mono text-[#0D5BEB] uppercase tracking-wider mb-3">
-      <Mail className="w-3.5 h-3.5 text-[#0D5BEB]" />
+    <div className="flex items-center gap-2 text-xs font-mono text-[#FF5E36] uppercase tracking-wider mb-3">
+      <Mail className="w-3.5 h-3.5 text-[#FF5E36]" />
       <span>{label}</span>
     </div>
 
-    <div className="rounded-2xl overflow-hidden border border-[#4A0E1C]/14 shadow-lg bg-[#FFFDF9]">
+    <div className="rounded-2xl overflow-hidden border border-[#18303D]/14 shadow-lg bg-[#FCFBF9]">
       {/* Email chrome bar */}
-      <div className="flex items-center gap-2 px-4 py-2.5 border-b border-[#4A0E1C]/12 bg-[#F5ECE0]">
-        <span className="w-2 h-2 rounded-full bg-[#BD506B] block" />
+      <div className="flex items-center gap-2 px-4 py-2.5 border-b border-[#18303D]/12 bg-[#EFECE4]">
+        <span className="w-2 h-2 rounded-full bg-[#FF7B54] block" />
         <span className="w-2 h-2 rounded-full bg-amber-400 block" />
         <span className="w-2 h-2 rounded-full bg-emerald-500 block" />
-        <div className="flex-1 ml-2 px-3 py-1 rounded-full text-[10px] font-mono text-[#2A050F] bg-[#FFFDF9] border border-[#4A0E1C]/14 truncate">
-          <span className="text-[#0D5BEB] font-semibold">Subject: </span>
+        <div className="flex-1 ml-2 px-3 py-1 rounded-full text-[10px] font-mono text-[#0F1D24] bg-[#FCFBF9] border border-[#18303D]/14 truncate">
+          <span className="text-[#FF5E36] font-semibold">Subject: </span>
           {subject}
         </div>
       </div>
@@ -74,7 +74,7 @@ const ModalSnapshotsBlock: React.FC<ModalSnapshotsBlockProps> = ({ snapshots, su
         {snapshots.map((snap, i) => (
           <div
             key={i}
-            className={i < snapshots.length - 1 ? 'border-b border-[#4A0E1C]/10' : ''}
+            className={i < snapshots.length - 1 ? 'border-b border-[#18303D]/10' : ''}
           >
             <img
               src={snap.src}
@@ -86,9 +86,9 @@ const ModalSnapshotsBlock: React.FC<ModalSnapshotsBlockProps> = ({ snapshots, su
       </div>
 
       {/* Caption bar */}
-      <div className="px-4 py-2.5 flex items-center justify-between bg-[#F5ECE0] border-t border-[#4A0E1C]/12">
-        <p className="text-[10px] font-mono text-[#6E3844]">{caption}</p>
-        <span className="text-[10px] font-mono text-[#0D5BEB]">
+      <div className="px-4 py-2.5 flex items-center justify-between bg-[#EFECE4] border-t border-[#18303D]/12">
+        <p className="text-[10px] font-mono text-[#59707E]">{caption}</p>
+        <span className="text-[10px] font-mono text-[#FF5E36]">
           {snapshots.length} sections shown ↑
         </span>
       </div>
@@ -108,7 +108,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         exit={{ opacity: 0 }}
         transition={{ duration: 0.25 }}
         className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6"
-        style={{ background: 'rgba(42, 5, 15, 0.65)', backdropFilter: 'blur(16px)' }}
+        style={{ background: 'rgba(15, 29, 36, 0.70)', backdropFilter: 'blur(16px)' }}
         onClick={onClose}
       >
         <motion.div
@@ -117,18 +117,18 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 30, scale: 0.97 }}
           transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto p-6 sm:p-10 rounded-3xl bg-[#FFFDF9] border border-[#4A0E1C]/18 shadow-[0_24px_64px_rgba(42,5,15,0.25)]"
+          className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto p-6 sm:p-10 rounded-3xl bg-[#FCFBF9] border border-[#18303D]/18 shadow-[0_24px_64px_rgba(15,29,36,0.25)]"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Top Header & Close */}
-          <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#4A0E1C]/12 text-xs font-mono uppercase tracking-wider text-[#0D5BEB]">
+          <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#18303D]/12 text-xs font-mono uppercase tracking-wider text-[#FF5E36]">
             <div className="flex items-center gap-2">
-              <BookOpen className="w-4 h-4 text-[#0D5BEB]" />
+              <BookOpen className="w-4 h-4 text-[#FF5E36]" />
               <span>{project.tagCategory}</span>
             </div>
             <button
               onClick={onClose}
-              className="p-2 rounded-xl bg-[#FAF3E3] border border-[#4A0E1C]/15 text-[#4A0E1C] hover:text-[#0D5BEB] transition-colors cursor-pointer"
+              className="p-2 rounded-xl bg-[#F7F5F0] border border-[#18303D]/15 text-[#18303D] hover:text-[#FF5E36] transition-colors cursor-pointer"
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />
@@ -136,14 +136,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           </div>
 
           {/* Title */}
-          <h3 className="font-headline font-semibold text-2xl sm:text-3xl text-[#2A050F] leading-snug mb-4">
+          <h3 className="font-headline font-semibold text-2xl sm:text-3xl text-[#0F1D24] leading-snug mb-4">
             {project.title}
           </h3>
 
           {/* Hook */}
           {project.hook && (
-            <div className="mb-6 p-4 rounded-xl bg-[#FAF3E3] border border-[#4A0E1C]/14 text-sm font-mono text-[#3E131C]">
-              <span className="text-[#0D5BEB] font-bold block text-xs uppercase mb-1">
+            <div className="mb-6 p-4 rounded-xl bg-[#F7F5F0] border border-[#18303D]/14 text-sm font-mono text-[#243A47]">
+              <span className="text-[#FF5E36] font-bold block text-xs uppercase mb-1">
                 {project.id === 'p7' ? 'Work Disciplines:' : 'Strategic Hook:'}
               </span>
               {project.hook}
@@ -152,17 +152,17 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
           {/* Subject & Preheader */}
           {project.fullContent?.subject && (
-            <div className="p-4 mb-6 rounded-xl bg-[#FAF3E3] text-xs font-mono space-y-1.5 border border-[#4A0E1C]/14">
+            <div className="p-4 mb-6 rounded-xl bg-[#F7F5F0] text-xs font-mono space-y-1.5 border border-[#18303D]/14">
               <div>
-                <span className="font-bold text-[#0D5BEB] uppercase">
+                <span className="font-bold text-[#FF5E36] uppercase">
                   {project.id === 'p7' ? 'Featured Article: ' : 'Subject Line: '}
                 </span>
-                <span className="text-[#2A050F]">{project.fullContent.subject}</span>
+                <span className="text-[#0F1D24]">{project.fullContent.subject}</span>
               </div>
               {project.fullContent.preheader && (
                 <div>
-                  <span className="font-bold text-[#6E3844] uppercase">Preheader: </span>
-                  <span className="text-[#3E131C]">{project.fullContent.preheader}</span>
+                  <span className="font-bold text-[#59707E] uppercase">Preheader: </span>
+                  <span className="text-[#243A47]">{project.fullContent.preheader}</span>
                 </div>
               )}
             </div>
@@ -171,10 +171,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           {/* Copy Excerpt */}
           {project.fullContent?.excerpt && (
             <div className="mb-6">
-              <span className="text-xs font-mono uppercase tracking-wider text-[#6E3844] block mb-3">
+              <span className="text-xs font-mono uppercase tracking-wider text-[#59707E] block mb-3">
                 {project.id === 'p7' ? 'Selected Article Excerpt' : 'Selected Copy Excerpt'}
               </span>
-              <div className="p-6 rounded-2xl bg-[#FAF3E3]/60 border border-[#4A0E1C]/14 space-y-3 font-body text-base text-[#3E131C] leading-relaxed">
+              <div className="p-6 rounded-2xl bg-[#F7F5F0]/60 border border-[#18303D]/14 space-y-3 font-body text-base text-[#243A47] leading-relaxed">
                 {project.fullContent.excerpt.map((para, i) => (
                   <p key={i}>{para}</p>
                 ))}
@@ -231,21 +231,21 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           {/* Newsletter Analytics Dashboard */}
           {project.id === 'p6' && (
             <div className="mb-6 space-y-3">
-              <div className="flex items-center gap-2 text-xs font-mono text-[#0D5BEB] uppercase tracking-wider">
-                <span className="w-2 h-2 rounded-full bg-[#0D5BEB] animate-pulse" />
+              <div className="flex items-center gap-2 text-xs font-mono text-[#FF5E36] uppercase tracking-wider">
+                <span className="w-2 h-2 rounded-full bg-[#FF5E36] animate-pulse" />
                 <span>Campaign Performance Dashboard</span>
               </div>
-              <div className="rounded-2xl overflow-hidden border border-[#4A0E1C]/14 shadow-lg bg-[#FAF3E3]">
+              <div className="rounded-2xl overflow-hidden border border-[#18303D]/14 shadow-lg bg-[#F7F5F0]">
                 <img
                   src="/newsletter-performance.png"
                   alt="Momentum RedPay Newsletter & The Redtech Brief Performance Dashboard"
                   className="w-full object-cover object-top block"
                 />
-                <div className="px-4 py-2.5 flex items-center justify-between bg-[#F5ECE0] border-t border-[#4A0E1C]/12">
-                  <p className="text-[10px] font-mono text-[#6E3844]">
+                <div className="px-4 py-2.5 flex items-center justify-between bg-[#EFECE4] border-t border-[#18303D]/12">
+                  <p className="text-[10px] font-mono text-[#59707E]">
                     Performance Reporting · Momentum RedPay Newsletter &amp; The Redtech Brief
                   </p>
-                  <span className="text-[10px] font-mono text-[#0D5BEB]">Verified Analytics</span>
+                  <span className="text-[10px] font-mono text-[#FF5E36]">Verified Analytics</span>
                 </div>
               </div>
             </div>
@@ -254,17 +254,17 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           {/* Strategic Details */}
           {project.fullContent?.details && (
             <div className="mb-6">
-              <span className="text-xs font-mono uppercase tracking-wider text-[#6E3844] block mb-2">
+              <span className="text-xs font-mono uppercase tracking-wider text-[#59707E] block mb-2">
                 {project.id === 'p7' ? 'Additional Business Articles' : 'Context & Results'}
               </span>
-              <div className="p-5 rounded-xl bg-[#FAF3E3] font-mono text-sm leading-relaxed text-[#3E131C] whitespace-pre-line border border-[#4A0E1C]/14">
+              <div className="p-5 rounded-xl bg-[#F7F5F0] font-mono text-sm leading-relaxed text-[#243A47] whitespace-pre-line border border-[#18303D]/14">
                 {project.fullContent.details}
               </div>
             </div>
           )}
 
           {/* Action Row */}
-          <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-[#4A0E1C]/12 text-sm">
+          <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-[#18303D]/12 text-sm">
             <div className="flex flex-wrap items-center gap-4">
               {project.fullContent?.links?.map((lnk, lIdx) => (
                 <a
@@ -272,7 +272,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                   href={lnk.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-mono text-xs text-white sapphire-btn inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl transition-all shadow-sm"
+                  className="font-mono text-xs text-white persimmon-btn inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl transition-all shadow-sm"
                 >
                   <span>Read: {lnk.label}</span>
                   <ArrowUpRight className="w-3.5 h-3.5 text-white" />
@@ -284,7 +284,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                   href={project.fullContent.blogLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-mono text-xs text-white sapphire-btn inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl transition-all shadow-sm"
+                  className="font-mono text-xs text-white persimmon-btn inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl transition-all shadow-sm"
                 >
                   <span>Read Full Article</span>
                   <ArrowUpRight className="w-3.5 h-3.5 text-white" />
@@ -296,7 +296,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                   href={project.fullContent.mediumLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-mono text-xs text-white sapphire-btn inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl transition-all shadow-sm"
+                  className="font-mono text-xs text-white persimmon-btn inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl transition-all shadow-sm"
                 >
                   <span>Read Essay on Medium</span>
                   <ArrowUpRight className="w-3.5 h-3.5 text-white" />
@@ -308,7 +308,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                   href={project.fullContent.substackLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-mono text-xs text-white sapphire-btn inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl transition-all shadow-sm"
+                  className="font-mono text-xs text-white persimmon-btn inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl transition-all shadow-sm"
                 >
                   <span>Read Full Essay on Substack</span>
                   <ArrowUpRight className="w-3.5 h-3.5 text-white" />
@@ -318,7 +318,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
             <button
               onClick={onClose}
-              className="px-6 py-2.5 rounded-full bg-[#FAF3E3] border border-[#4A0E1C]/14 text-[#2A050F] hover:text-[#0D5BEB] hover:border-[#0D5BEB]/40 font-mono text-xs transition-all cursor-pointer"
+              className="px-6 py-2.5 rounded-full bg-[#F7F5F0] border border-[#18303D]/14 text-[#0F1D24] hover:text-[#FF5E36] hover:border-[#FF5E36]/40 font-mono text-xs transition-all cursor-pointer"
             >
               Close Window
             </button>
