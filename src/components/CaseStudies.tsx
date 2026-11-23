@@ -1,34 +1,25 @@
 import React, { useState } from 'react';
 import { CASE_STUDIES } from '../data/portfolioData';
 import { CheckCircle2, ArrowUpRight, TrendingUp } from 'lucide-react';
-import { AnimatedSection } from './animations/AnimatedSection';
-import { TiltCard } from './animations/TiltCard';
 
 export const CaseStudies: React.FC = () => {
   const [activeTab, setActiveTab] = useState(CASE_STUDIES[0].id);
   const activeCase = CASE_STUDIES.find((c) => c.id === activeTab) || CASE_STUDIES[0];
 
   return (
-    <AnimatedSection
-      id="case-studies"
-      className="py-16 sm:py-24 lg:py-28 relative border-y border-[#18303D]/12 bg-[#F7F5F0]/40 overflow-hidden"
-    >
-      {/* Dynamic Background Light Orbs */}
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#EFECE4]/35 rounded-full blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-10 right-0 w-96 h-96 bg-[#FF5E36]/5 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10 relative z-10">
+    <section id="case-studies" className="py-20 sm:py-28 bg-[#F0E7DB]/45 border-y border-[#4A0E1C]/10">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10">
 
         {/* Section Header */}
         <div className="max-w-2xl mb-12 sm:mb-16">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#FF5E36] mb-2 flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#FF5E36]" />
+          <div className="text-xs font-semibold uppercase tracking-wider text-[#4A0E1C] mb-2 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#E5B86B]" />
             <span>Selected Case Studies</span>
           </div>
-          <h2 className="font-headline font-semibold text-3xl sm:text-5xl text-[#0F1D24] tracking-tight">
+          <h2 className="font-headline font-semibold text-3xl sm:text-5xl text-[#4A0E1C] tracking-tight">
             Strategic messaging and verified commercial outcomes.
           </h2>
-          <p className="font-body text-base sm:text-lg text-[#243A47] mt-3 leading-relaxed">
+          <p className="font-body text-base sm:text-lg text-[#38272D]/80 mt-3 leading-relaxed">
             In-depth breakdowns showing the objective, strategic approach, execution, and measurable business results across campaigns and independent publishing.
           </p>
         </div>
@@ -41,14 +32,14 @@ export const CaseStudies: React.FC = () => {
               <button
                 key={cs.id}
                 onClick={() => setActiveTab(cs.id)}
-                className={`px-5 py-3 rounded-2xl text-xs sm:text-sm font-medium whitespace-nowrap transition-all text-left flex items-center gap-2.5 cursor-pointer ${
+                className={`px-5 py-3 rounded-2xl text-xs sm:text-sm font-medium whitespace-nowrap transition-all text-left flex items-center gap-2.5 ${
                   isActive
-                    ? 'persimmon-btn text-white font-bold shadow-[0_4px_18px_rgba(255,94,54,0.35)]'
-                    : 'bg-[#FCFBF9] text-[#18303D] hover:text-[#FF5E36] hover:border-[#FF5E36]/40 border border-[#18303D]/14 shadow-sm'
+                    ? 'bg-[#4A0E1C] text-white shadow-md'
+                    : 'bg-white text-[#38272D]/80 hover:bg-[#FAF4EC] hover:text-[#4A0E1C] border border-[#4A0E1C]/10'
                 }`}
               >
                 <span className={`w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold ${
-                  isActive ? 'bg-white/20 text-white' : 'bg-[#F7F5F0] text-[#FF5E36]'
+                  isActive ? 'bg-[#E5B86B] text-[#4A0E1C]' : 'bg-[#4A0E1C]/10 text-[#4A0E1C]'
                 }`}>
                   0{idx + 1}
                 </span>
@@ -59,34 +50,32 @@ export const CaseStudies: React.FC = () => {
         </div>
 
         {/* Active Case Study Presentation Panel */}
-        <TiltCard
-          glowColor="persimmon"
-          className="p-6 sm:p-10 lg:p-14 rounded-3xl bg-[#FCFBF9] border border-[#18303D]/14 shadow-2xl"
-        >
+        <div className="p-8 sm:p-14 rounded-3xl bg-white border border-[#4A0E1C]/10 shadow-md">
+
           {/* Discipline & Header */}
-          <div className="pb-6 mb-8 border-b border-[#18303D]/12">
+          <div className="pb-6 mb-8 border-b border-[#4A0E1C]/10">
             {activeCase.discipline && (
-              <div className="text-xs font-mono font-semibold text-[#FF5E36] uppercase tracking-wider mb-2">
+              <div className="text-xs font-semibold text-[#4A0E1C] uppercase tracking-wider mb-2">
                 Discipline: {activeCase.discipline}
               </div>
             )}
-            <h3 className="font-headline font-semibold text-2xl sm:text-4xl text-[#0F1D24] leading-tight">
+            <h3 className="font-headline font-semibold text-2xl sm:text-4xl text-[#4A0E1C] leading-tight">
               {activeCase.title}
             </h3>
           </div>
 
           {/* Two-Column Layout: Narrative vs. Results */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
             {/* Left 8 Cols: Project, Approach, Execution & Role */}
-            <div className="lg:col-span-8 space-y-8 font-body text-[#243A47] leading-relaxed">
+            <div className="lg:col-span-8 space-y-8 font-body text-[#38272D]/90 leading-relaxed">
 
               {/* The Project / Proposed Focus */}
               <div>
-                <h4 className="font-headline font-semibold text-xl text-[#0F1D24] mb-2">
+                <h4 className="font-headline font-semibold text-xl text-[#4A0E1C] mb-2">
                   {activeCase.id === 'cs5' ? 'Proposed Focus' : 'The Project'}
                 </h4>
-                <p className="text-base text-[#243A47] font-normal whitespace-pre-line">
+                <p className="text-base text-[#38272D]/90 font-normal whitespace-pre-line">
                   {activeCase.project}
                 </p>
               </div>
@@ -94,10 +83,10 @@ export const CaseStudies: React.FC = () => {
               {/* The Approach */}
               {activeCase.approach && (
                 <div>
-                  <h4 className="font-headline font-semibold text-xl text-[#0F1D24] mb-2">
+                  <h4 className="font-headline font-semibold text-xl text-[#4A0E1C] mb-2">
                     The Approach
                   </h4>
-                  <p className="text-base text-[#243A47] font-normal whitespace-pre-line">
+                  <p className="text-base text-[#38272D]/90 font-normal whitespace-pre-line">
                     {activeCase.approach}
                   </p>
                 </div>
@@ -105,7 +94,7 @@ export const CaseStudies: React.FC = () => {
 
               {/* Execution / Evidence / Selected Works */}
               <div>
-                <h4 className="font-headline font-semibold text-xl text-[#0F1D24] mb-3">
+                <h4 className="font-headline font-semibold text-xl text-[#4A0E1C] mb-3">
                   {activeCase.id === 'cs4'
                     ? 'Selected Works'
                     : activeCase.id === 'cs5'
@@ -114,8 +103,8 @@ export const CaseStudies: React.FC = () => {
                 </h4>
                 <ul className="space-y-2.5">
                   {activeCase.execution.map((step, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-base text-[#243A47]">
-                      <CheckCircle2 className="w-5 h-5 shrink-0 text-[#FF5E36] mt-0.5" />
+                    <li key={idx} className="flex items-start gap-3 text-base text-[#38272D]/90">
+                      <CheckCircle2 className="w-5 h-5 shrink-0 text-[#4A0E1C] mt-0.5" />
                       <span>{step}</span>
                     </li>
                   ))}
@@ -124,9 +113,9 @@ export const CaseStudies: React.FC = () => {
 
               {/* Author's Role */}
               {activeCase.role && (
-                <div className="pt-4 border-t border-[#18303D]/12 text-sm">
-                  <strong className="text-[#FF5E36] font-mono block mb-1">My Role:</strong>
-                  <span className="text-[#243A47]">{activeCase.role}</span>
+                <div className="pt-4 border-t border-[#4A0E1C]/10 text-sm">
+                  <strong className="text-[#4A0E1C] block mb-1">My Role:</strong>
+                  <span className="text-[#38272D]/85">{activeCase.role}</span>
                 </div>
               )}
             </div>
@@ -134,11 +123,11 @@ export const CaseStudies: React.FC = () => {
             {/* Right 4 Cols: Verified Results & Links */}
             <div className="lg:col-span-4 space-y-6">
 
-              {/* Verified Results Box in Petrol Ink (30% weight) */}
+              {/* Verified Results Box */}
               {activeCase.results && activeCase.results.length > 0 && (
-                <div className="p-6 rounded-2xl lacquer-card space-y-4 shadow-xl">
-                  <div className="flex items-center gap-2 text-xs font-semibold text-[#F7F5F0] uppercase tracking-wider pb-2 border-b border-[#F7F5F0]/15 font-mono">
-                    <TrendingUp className="w-4 h-4 text-[#FF7B54]" />
+                <div className="p-6 rounded-2xl bg-[#FAF4EC] border border-[#4A0E1C]/15 space-y-4">
+                  <div className="flex items-center gap-2 text-xs font-semibold text-[#4A0E1C] uppercase tracking-wider pb-2 border-b border-[#4A0E1C]/10">
+                    <TrendingUp className="w-4 h-4 text-[#E5B86B]" />
                     <span>
                       {activeCase.id === 'cs4'
                         ? 'Audience & Reach'
@@ -149,11 +138,11 @@ export const CaseStudies: React.FC = () => {
                   </div>
 
                   {activeCase.results.map((r, idx) => (
-                    <div key={idx} className="border-b border-[#F7F5F0]/15 last:border-0 pb-3 last:pb-0">
-                      <div className="font-headline font-bold text-3xl sm:text-4xl text-[#F7F5F0]">
+                    <div key={idx} className="border-b border-[#4A0E1C]/10 last:border-0 pb-3 last:pb-0">
+                      <div className="font-headline font-bold text-3xl sm:text-4xl text-[#4A0E1C]">
                         {r.stat}
                       </div>
-                      <div className="font-body text-xs sm:text-sm font-medium text-[#F7F5F0]/85 mt-0.5">
+                      <div className="font-body text-xs sm:text-sm font-medium text-[#38272D] mt-0.5">
                         {r.label}
                       </div>
                     </div>
@@ -163,21 +152,21 @@ export const CaseStudies: React.FC = () => {
 
               {/* Quote if available */}
               {activeCase.quote && (
-                <div className="p-5 rounded-2xl bg-[#F7F5F0] border border-[#18303D]/14 text-sm font-headline italic text-[#0F1D24] leading-relaxed shadow-sm">
+                <div className="p-5 rounded-2xl bg-white border border-[#4A0E1C]/10 text-sm font-headline italic text-[#4A0E1C] leading-relaxed shadow-sm">
                   "{activeCase.quote}"
                 </div>
               )}
 
-              {/* Link if available (Persimmon Spark 10% on button) */}
+              {/* Link if available */}
               {activeCase.link && (
                 <a
                   href={activeCase.link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3.5 px-6 rounded-2xl persimmon-btn text-white font-bold text-sm flex items-center justify-center gap-2 shadow-[0_4px_18px_rgba(255,94,54,0.38)] transition-all text-center"
+                  className="w-full py-3.5 px-6 rounded-2xl bg-[#4A0E1C] hover:bg-[#340611] text-white text-sm font-medium flex items-center justify-center gap-2 shadow-sm transition-all text-center"
                 >
                   <span>{activeCase.link.label}</span>
-                  <ArrowUpRight className="w-4 h-4 text-white" />
+                  <ArrowUpRight className="w-4 h-4 text-[#E5B86B]" />
                 </a>
               )}
 
@@ -185,9 +174,9 @@ export const CaseStudies: React.FC = () => {
 
           </div>
 
-        </TiltCard>
+        </div>
 
       </div>
-    </AnimatedSection>
+    </section>
   );
 };
