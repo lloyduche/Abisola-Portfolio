@@ -3,140 +3,23 @@
 @tailwind utilities;
 
 /* ============================================================
-   CURATED 60-30-10 EDITORIAL DESIGN SYSTEM
-   Dynamic Theme Engine supporting 6 curated palettes:
-   1. Custard Silk 60% • Bordeaux Lacquer 30% • Electric Sapphire 10%
-   2. Swiss Cream 60%  • Petrol Ink 30%       • Persimmon Spark 10%
-   3. Cream 60%        • Coffee Brown 30%     • Bubblegum Pink 10%
-   4. Sage 60%         • Forest Green 30%     • Tangerine 10%
-   5. Midnight Navy 60%• Powder Blue 30%      • Sunflower Yellow 10%
-   6. Cloud Grey 60%   • Jet Black 30%        • Electric Violet 10%
+   WARM EDITORIAL // ABISOLA OLUWATOYIN
+   Writer | Marketing, Communications & Brand Storytelling
+   Fraunces (Headlines) + DM Sans (Body) + Caveat (Handwritten accents)
+   Deep Wine Burgundy (#4A0E1C), Warm Cream (#FAF4EC), Dusty Rose (#D995A9)
    ============================================================ */
 
-/* ── DEFAULT: Cloud Grey / Jet Black / Electric Violet ── */
 :root {
-  --bg-canvas:             #ECEEF2;
-  --bg-card:               #F8F9FA;
-  --bg-surface:            #DFE2E8;
-  --text-ink:              #0D0E10;
-  --text-body:             #1C2024;
-  --text-muted:            #5B636E;
-  --color-structure:       #14171A;
-  --color-structure-card:  #0E1012;
-  --border-color:          rgba(20, 23, 26, 0.15);
-  --border-subtle:         rgba(20, 23, 26, 0.07);
-  --accent-spark:          #8B5CF6;
-  --accent-spark-hover:    #7C3AED;
-  --accent-glow:           rgba(139, 92, 246, 0.40);
-  --accent-text:           #FFFFFF;
-}
-
-/* ── 1. Custard Silk / Bordeaux Lacquer / Electric Sapphire ── */
-[data-palette="custard-silk"] {
-  --bg-canvas:             #FAF3E3;
-  --bg-card:               #FFFDF8;
-  --bg-surface:            #F0E6D2;
-  --text-ink:              #2A050F;
-  --text-body:             #3E131C;
-  --text-muted:            #733845;
-  --color-structure:       #4A0E1C;
-  --color-structure-card:  #340611;
-  --border-color:          rgba(74, 14, 28, 0.15);
-  --border-subtle:         rgba(74, 14, 28, 0.08);
-  --accent-spark:          #0D5BEB;
-  --accent-spark-hover:    #0844B8;
-  --accent-glow:           rgba(13, 91, 235, 0.38);
-  --accent-text:           #FFFFFF;
-}
-
-/* ── 2. Swiss Cream / Petrol Ink / Persimmon Spark ── */
-[data-palette="swiss-cream"] {
-  --bg-canvas:             #F7F5F0;
-  --bg-card:               #FCFBF9;
-  --bg-surface:            #EFECE4;
-  --text-ink:              #0F1D24;
-  --text-body:             #243A47;
-  --text-muted:            #59707E;
-  --color-structure:       #18303D;
-  --color-structure-card:  #112028;
-  --border-color:          rgba(24, 48, 61, 0.14);
-  --border-subtle:         rgba(24, 48, 61, 0.07);
-  --accent-spark:          #FF5E36;
-  --accent-spark-hover:    #E6441A;
-  --accent-glow:           rgba(255, 94, 54, 0.38);
-  --accent-text:           #FFFFFF;
-}
-
-/* ── 3. Cream / Coffee Brown / Bubblegum Pink ── */
-[data-palette="cream-coffee"] {
-  --bg-canvas:             #FAF5ED;
-  --bg-card:               #FFFDF9;
-  --bg-surface:            #F0E7DB;
-  --text-ink:              #2B1D14;
-  --text-body:             #442E20;
-  --text-muted:            #7E6352;
-  --color-structure:       #4A3525;
-  --color-structure-card:  #322015;
-  --border-color:          rgba(74, 53, 37, 0.15);
-  --border-subtle:         rgba(74, 53, 37, 0.07);
-  --accent-spark:          #FF6584;
-  --accent-spark-hover:    #EB4367;
-  --accent-glow:           rgba(255, 101, 132, 0.38);
-  --accent-text:           #FFFFFF;
-}
-
-/* ── 4. Sage / Forest Green / Tangerine ── */
-[data-palette="sage-forest"] {
-  --bg-canvas:             #EFF4EF;
-  --bg-card:               #F7FAF7;
-  --bg-surface:            #DEE7DE;
-  --text-ink:              #0E2519;
-  --text-body:             #1A3B29;
-  --text-muted:            #527461;
-  --color-structure:       #1E3F2D;
-  --color-structure-card:  #112A1D;
-  --border-color:          rgba(30, 63, 45, 0.15);
-  --border-subtle:         rgba(30, 63, 45, 0.07);
-  --accent-spark:          #FF7A00;
-  --accent-spark-hover:    #E56700;
-  --accent-glow:           rgba(255, 122, 0, 0.38);
-  --accent-text:           #FFFFFF;
-}
-
-/* ── 5. Midnight Navy / Powder Blue / Sunflower Yellow (Dark Luxury) ── */
-[data-palette="midnight-navy"] {
-  --bg-canvas:             #0B132B;
-  --bg-card:               #131E3D;
-  --bg-surface:            #1B2A52;
-  --text-ink:              #F8FAFC;
-  --text-body:             #CDE1F8;
-  --text-muted:            #82A5CF;
-  --color-structure:       #8EBAE5;
-  --color-structure-card:  #18264A;
-  --border-color:          rgba(142, 186, 229, 0.22);
-  --border-subtle:         rgba(142, 186, 229, 0.10);
-  --accent-spark:          #FFD100;
-  --accent-spark-hover:    #E6B800;
-  --accent-glow:           rgba(255, 209, 0, 0.45);
-  --accent-text:           #0B132B; /* Dark ink on vibrant yellow */
-}
-
-/* ── 6. Cloud Grey / Jet Black / Electric Violet ── */
-[data-palette="cloud-grey"] {
-  --bg-canvas:             #ECEEF2;
-  --bg-card:               #F8F9FA;
-  --bg-surface:            #DFE2E8;
-  --text-ink:              #0D0E10;
-  --text-body:             #1C2024;
-  --text-muted:            #5B636E;
-  --color-structure:       #14171A;
-  --color-structure-card:  #0E1012;
-  --border-color:          rgba(20, 23, 26, 0.15);
-  --border-subtle:         rgba(20, 23, 26, 0.07);
-  --accent-spark:          #8B5CF6;
-  --accent-spark-hover:    #7C3AED;
-  --accent-glow:           rgba(139, 92, 246, 0.40);
-  --accent-text:           #FFFFFF;
+  --burgundy:     #4A0E1C;
+  --cream:        #FAF4EC;
+  --cream-dark:   #F0E7DB;
+  --cream-card:   #FFFFFF;
+  --rose:         #D995A9;
+  --rose-light:   #F5DFE6;
+  --gold:         #E5B86B;
+  --plum:         #38272D;
+  --plum-muted:   #614B52;
+  --border-color: rgba(74, 14, 28, 0.12);
 }
 
 *, *::before, *::after {
@@ -148,161 +31,17 @@ html {
   scroll-padding-top: 80px;
   overflow-x: hidden;
   max-width: 100vw;
-  background-color: var(--bg-canvas);
-  color: var(--text-ink);
-  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 body {
   margin: 0;
-  background-color: var(--bg-canvas);
-  color: var(--text-body);
+  background-color: var(--cream);
+  color: var(--plum);
   font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   max-width: 100vw;
-  transition: background-color 0.25s ease, color 0.25s ease;
-}
-
-/* ── Dynamic Glassmorphism & Surface Utilities ── */
-.cyber-glass,
-.silk-glass {
-  background: var(--bg-card) !important;
-  backdrop-filter: blur(24px) saturate(170%);
-  -webkit-backdrop-filter: blur(24px) saturate(170%);
-  border: 1px solid var(--border-color) !important;
-  box-shadow:
-    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.4),
-    0 16px 36px -10px rgba(0, 0, 0, 0.08),
-    0 4px 16px -2px rgba(0, 0, 0, 0.04);
-}
-
-.cyber-glass:hover,
-.silk-glass:hover {
-  border-color: var(--border-color) !important;
-  box-shadow:
-    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.6),
-    0 24px 48px -12px rgba(0, 0, 0, 0.12),
-    0 4px 20px -2px var(--accent-glow) !important;
-}
-
-.cyber-pill,
-.silk-pill {
-  background: var(--bg-card) !important;
-  backdrop-filter: blur(18px) saturate(170%);
-  -webkit-backdrop-filter: blur(18px) saturate(170%);
-  border: 1px solid var(--border-color) !important;
-  color: var(--text-ink) !important;
-  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.04);
-}
-
-.cyber-pill:hover,
-.silk-pill:hover {
-  border-color: var(--accent-spark) !important;
-  box-shadow: 0 6px 20px -2px var(--accent-glow) !important;
-}
-
-.cyber-nav,
-.silk-nav {
-  background: var(--bg-card) !important;
-  backdrop-filter: blur(28px) saturate(180%);
-  -webkit-backdrop-filter: blur(28px) saturate(180%);
-  border: 1px solid var(--border-color) !important;
-  box-shadow:
-    0 16px 36px -10px rgba(0, 0, 0, 0.08),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.5);
-}
-
-/* ── Primary 10% Accent Button (Electric Sapphire / Persimmon Spark / etc.) ── */
-.sapphire-btn,
-.persimmon-btn,
-.accent-btn {
-  background: var(--accent-spark) !important;
-  color: var(--accent-text) !important;
-  box-shadow: 0 4px 18px -2px var(--accent-glow) !important;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.sapphire-btn *,
-.persimmon-btn *,
-.accent-btn * {
-  color: var(--accent-text) !important;
-}
-
-.sapphire-btn:hover,
-.persimmon-btn:hover,
-.accent-btn:hover {
-  background: var(--accent-spark-hover) !important;
-  box-shadow: 0 8px 26px 0 var(--accent-glow) !important;
-  transform: translateY(-1px);
-}
-
-/* ── 30% Structural Lacquer / Petrol Cards ── */
-.lacquer-card,
-.petrol-card,
-.structure-card {
-  background: var(--color-structure-card) !important;
-  color: #FFFFFF !important;
-  border: 1px solid var(--border-color) !important;
-  box-shadow:
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.15),
-    0 20px 40px -10px rgba(0, 0, 0, 0.35);
-}
-
-.lacquer-card:hover,
-.petrol-card:hover,
-.structure-card:hover {
-  box-shadow:
-    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.25),
-    0 28px 56px -12px rgba(0, 0, 0, 0.45),
-    0 0 24px 0 var(--accent-glow) !important;
-}
-
-/* ── Text Accents & Highlighters ── */
-.rose-highlighter,
-.persimmon-highlighter {
-  background: linear-gradient(120deg, var(--border-subtle) 0%, var(--accent-glow) 100%) !important;
-  padding: 0.1em 0.35em;
-  border-radius: 4px;
-  display: inline;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-  color: var(--text-ink) !important;
-}
-
-.neon-text-cyan,
-.persimmon-text {
-  color: var(--accent-spark) !important;
-  text-shadow: 0 0 16px var(--accent-glow);
-}
-
-.neon-border-cyan,
-.persimmon-border {
-  border-color: var(--accent-spark) !important;
-  box-shadow: 0 0 20px var(--accent-glow);
-}
-
-.cyber-gradient-text,
-.petrol-gradient-text {
-  background: linear-gradient(135deg, var(--text-ink) 0%, var(--color-structure) 55%, var(--accent-spark) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.cyber-accent-gradient,
-.persimmon-gradient-text {
-  background: linear-gradient(135deg, var(--accent-spark-hover) 0%, var(--accent-spark) 50%, var(--accent-spark) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Subtle background grid aligned to canvas */
-.cyber-grid-pattern {
-  background-size: 40px 40px;
-  background-image:
-    linear-gradient(to right, var(--border-subtle) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--border-subtle) 1px, transparent 1px);
 }
 
 h1, h2, h3, h4, .font-headline {
@@ -319,127 +58,48 @@ h1, h2, h3, h4, .font-headline {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-canvas);
+  background: var(--cream);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--border-color);
-  border-radius: 4px;
+  background: var(--rose);
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-spark);
+  background: var(--burgundy);
 }
 
-::selection {
-  background-color: var(--accent-spark);
-  color: var(--accent-text);
+/* Editorial Underline Inputs */
+.editorial-input {
+  background: #FFFFFF;
+  border: 1px solid rgba(74, 14, 28, 0.16);
+  border-radius: 6px;
+  color: var(--plum);
+  padding: 0.75rem 1rem;
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.25s ease;
 }
 
-/* ============================================================
-   UNIVERSAL RETROFIT SELECTORS FOR SEAMLESS 60-30-10 ADAPTATION
-   Dynamically overrides all legacy utility classes across components
-   ============================================================ */
-[data-palette] .bg-\[\#F7F5F0\],
-[data-palette] .bg-\[\#FAF3E3\] {
-  background-color: var(--bg-canvas) !important;
+.editorial-input:focus {
+  border-color: var(--burgundy);
+  box-shadow: 0 0 0 3px rgba(217, 149, 169, 0.2);
 }
 
-[data-palette] .bg-\[\#FCFBF9\],
-[data-palette] .bg-\[\#FFFDF9\],
-[data-palette] .bg-\[\#FFFDF8\] {
-  background-color: var(--bg-card) !important;
+/* Soft Girly & Professional Animations */
+
+/* 1. Dusty Rose Watercolor Highlighter Stroke */
+.rose-highlighter {
+  background: linear-gradient(120deg, rgba(217, 149, 169, 0.25) 0%, rgba(229, 184, 107, 0.25) 100%);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
-[data-palette] .bg-\[\#EFECE4\],
-[data-palette] .bg-\[\#F0E6D2\],
-[data-palette] .bg-\[\#F0E7DB\],
-[data-palette] .bg-\[\#DEE7DE\],
-[data-palette] .bg-\[\#1B2A52\],
-[data-palette] .bg-\[\#DFE2E8\] {
-  background-color: var(--bg-surface) !important;
-}
-
-[data-palette] .text-\[\#0F1D24\],
-[data-palette] .text-\[\#2A050F\],
-[data-palette] .text-\[\#2B1D14\],
-[data-palette] .text-\[\#0E2519\],
-[data-palette] .text-\[\#0D0E10\] {
-  color: var(--text-ink) !important;
-}
-
-[data-palette] .text-\[\#243A47\],
-[data-palette] .text-\[\#3E131C\],
-[data-palette] .text-\[\#42101B\],
-[data-palette] .text-\[\#442E20\],
-[data-palette] .text-\[\#1A3B29\],
-[data-palette] .text-\[\#1C2024\] {
-  color: var(--text-body) !important;
-}
-
-[data-palette] .text-\[\#59707E\],
-[data-palette] .text-\[\#733845\],
-[data-palette] .text-\[\#7E6352\],
-[data-palette] .text-\[\#527461\],
-[data-palette] .text-\[\#5B636E\] {
-  color: var(--text-muted) !important;
-}
-
-[data-palette] .text-\[\#18303D\],
-[data-palette] .text-\[\#4A0E1C\],
-[data-palette] .text-\[\#4A3525\],
-[data-palette] .text-\[\#1E3F2D\],
-[data-palette] .text-\[\#14171A\] {
-  color: var(--color-structure) !important;
-}
-
-[data-palette] .text-\[\#FF5E36\],
-[data-palette] .text-\[\#0D5BEB\],
-[data-palette] .text-\[\#FF6584\],
-[data-palette] .text-\[\#FF7A00\],
-[data-palette] .text-\[\#8B5CF6\] {
-  color: var(--accent-spark) !important;
-}
-
-[data-palette] .bg-\[\#FF5E36\],
-[data-palette] .bg-\[\#0D5BEB\],
-[data-palette] .bg-\[\#FF6584\],
-[data-palette] .bg-\[\#FF7A00\],
-[data-palette] .bg-\[\#8B5CF6\] {
-  background-color: var(--accent-spark) !important;
-}
-
-[data-palette] .border-\[\#FF5E36\],
-[data-palette] .border-\[\#0D5BEB\],
-[data-palette] .border-\[\#FF6584\],
-[data-palette] .border-\[\#FF7A00\],
-[data-palette] .border-\[\#8B5CF6\] {
-  border-color: var(--accent-spark) !important;
-}
-
-[data-palette] .border-\[\#18303D\]\/14,
-[data-palette] .border-\[\#18303D\]\/12,
-[data-palette] .border-\[\#18303D\]\/10,
-[data-palette] .border-\[\#18303D\]\/20,
-[data-palette] .border-\[\#4A0E1C\]\/14,
-[data-palette] .border-\[\#4A0E1C\]\/12 {
-  border-color: var(--border-color) !important;
-}
-
-[data-palette] .bg-\[\#18303D\]\/5,
-[data-palette] .bg-\[\#18303D\]\/6,
-[data-palette] .bg-\[\#4A0E1C\]\/5,
-[data-palette] .bg-\[\#4A0E1C\]\/6 {
-  background-color: var(--border-subtle) !important;
-}
-
-[data-palette] .bg-\[\#FF5E36\]\/6,
-[data-palette] .bg-\[\#FF5E36\]\/10,
-[data-palette] .bg-\[\#FF5E36\]\/12,
-[data-palette] .bg-\[\#0D5BEB\]\/10,
-[data-palette] .bg-\[\#0D5BEB\]\/12 {
-  background-color: var(--accent-glow) !important;
-}
-
-/* Animations */
+/* 2. Delicate 4-Point Sparkle Float */
 @keyframes sparkleFloat {
   0%, 100% {
     transform: translateY(0) scale(1) rotate(0deg);
@@ -459,6 +119,7 @@ h1, h2, h3, h4, .font-headline {
   animation: sparkleFloat 3.6s ease-in-out infinite 1.4s;
 }
 
+/* 3. Floating Sticker Badge */
 @keyframes badgeFloat {
   0%, 100% {
     transform: translateY(0) rotate(-2deg);
@@ -471,3 +132,54 @@ h1, h2, h3, h4, .font-headline {
 .animate-float-badge {
   animation: badgeFloat 4s ease-in-out infinite;
 }
+
+@keyframes badgeFloatAlt {
+  0%, 100% {
+    transform: translateY(0) rotate(3deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(-1deg);
+  }
+}
+
+.animate-float-badge-alt {
+  animation: badgeFloatAlt 4.4s ease-in-out infinite 0.8s;
+}
+
+/* 4. Soft Card Lift with Rose/Gold Glow */
+.editorial-card {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(74, 14, 28, 0.08), 0 4px 16px rgba(217, 149, 169, 0.18);
+  border-color: rgba(217, 149, 169, 0.6);
+}
+
+/* 5. Fade In Up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Subtle transitions */
+a, button {
+  transition: all 0.2s ease-in-out;
+}
+
+.intro-backdrop {
+  background: rgba(250, 244, 236, 0.97);
+  backdrop-filter: blur(12px);
+}
+
